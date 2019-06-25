@@ -5,3 +5,4 @@ dependencies:
         - rise
         - pytest
         - hypothesis
+        - jupyter_nbextensions_configurator
