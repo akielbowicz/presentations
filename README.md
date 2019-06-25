@@ -3,6 +3,7 @@ presentations
 
 Bundle of slides from presentations that I've given.
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/akielbowicz/presentations.git/master)
 
 License
 =======
