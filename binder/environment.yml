@@ -1,0 +1,5 @@
+name: presentations
+channels:
+        - conda-forge
+dependencies:
+        - rise
