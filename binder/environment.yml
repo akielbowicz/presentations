@@ -6,3 +6,4 @@ dependencies:
         - pytest
         - hypothesis
         - jupyter_nbextensions_configurator
+        - sympy
