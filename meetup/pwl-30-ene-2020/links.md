@@ -40,3 +40,4 @@ Notebooks
 Quantum notebooks Sympy : https://github.com/sympy/quantum_notebooks
 
 Stern-Gerlach experiment: https://nbviewer.jupyter.org/github/qutip/qutip-notebooks/blob/master/examples/stern-gerlach-tutorial.ipynb
+
