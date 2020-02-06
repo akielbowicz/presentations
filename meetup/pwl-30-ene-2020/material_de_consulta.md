@@ -61,7 +61,7 @@ Notebooks
 
 Sympy Quantum module [notebooks](https://github.com/sympy/quantum_notebooks)
 
-Qutip Stern-Gerlach experiment [notebook]( https://nbviewer.jupyter.org/github/qutip/qutip-notebooks/blob/master/examples/stern-gerlach-tutorial.ipynb )
+Qutip Stern-Gerlach experiment [notebook](https://nbviewer.jupyter.org/github/qutip/qutip-notebooks/blob/master/examples/stern-gerlach-tutorial.ipynb)
 
 
 Libros
@@ -71,7 +71,7 @@ Programming Quantum Computers by M. Gimeno-Segovia [online](https://www.oreilly.
 
 Quantum Computer Science, An Introduction by N. David Mermin [link](https://www.cambridge.org/core/books/quantum-computer-science/66462590D10C8010017CF1D7C45708D7)
 
-Quantum Computing Since Democritus by Scott Aaronson [link](https://www.scottaaronson.com/democritus/]
+Quantum Computing Since Democritus by Scott Aaronson [link](https://www.scottaaronson.com/democritus/)
 
 Quantum Theory: Concepts and Methods by Asher Peres [link](https://www.goodreads.com/book/show/16788875-quantum-theory) 
 
@@ -100,7 +100,7 @@ Videos
 
 QED Lectures por R.P. Feynman [videos](http://www.vega.org.uk/video/subseries/8)
 
-The Character of Physical Law - Part 6 Probability and Uncertainty por R.P. Feynman[youtube](https://www.youtube.com/watch?v=aAgcqgDc-YM)
+The Character of Physical Law - Part 6 Probability and Uncertainty por R.P. Feynman [youtube](https://www.youtube.com/watch?v=aAgcqgDc-YM)
 
 Why Everything You Thought You Knew About Quantum Physics is Different - with Philip Ball [youtube](https://www.youtube.com/watch?v=q7v5NtV8v6I)
 
