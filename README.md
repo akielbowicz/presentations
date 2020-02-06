@@ -12,6 +12,7 @@ Bundle of slides from presentations that I've given.
 
 - Property Based Testing con Hypothesis (Python Argentina Meetup) [slides/notebook](meetup/pyar-28-ago-2019/presentation.ipynb)
 
+
 License
 =======
 
