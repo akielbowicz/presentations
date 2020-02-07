@@ -1,4 +1,4 @@
-Introducción a la Me
+Introducción a la Mecánica Cuántica
 
 Charla hosteada por PapersWeLove Buenos Aires
 
@@ -37,3 +37,4 @@ Tópicos extra/ MC moderna/ Información Cuántica:
 
 
 Acá hay una [recopilación de materiales](material_de_consulta.md) para profundizar los temas.
+Y acá está la [presentación/notebook](introduccion_a_mc.ipynb).
