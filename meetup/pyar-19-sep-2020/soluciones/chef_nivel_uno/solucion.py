@@ -1,4 +1,4 @@
-precios = (1.0, 1.2) # Precios : ( duro, frito )
+precios = (0.1, 0.2) # Precios : ( duro, frito )
 
 def ejecutar():
     'Cocinar Huevos'
