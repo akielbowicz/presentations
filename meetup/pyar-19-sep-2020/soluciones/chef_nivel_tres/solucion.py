@@ -5,8 +5,8 @@ Orden = namedtuple('Orden','orden cantidad estilo')
 
 class CocinarHuevos:
 
-    PRECIOS = { 'duro' : 1.0, 
-                'frito': 1.2,
+    PRECIOS = { 'duro' : 0.1, 
+                'frito': 0.2,
               }
     
     REPR = { 'duro'  : '\N{egg}',
