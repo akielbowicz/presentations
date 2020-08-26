@@ -1,9 +1,22 @@
-name: presentations
+name: lec-journal-club
 channels:
         - conda-forge
+        - defaults
 dependencies:
         - rise
         - pytest
         - hypothesis
         - jupyter_nbextensions_configurator
         - sympy
+        - numpy
+        - seaborn
+        - jupyterlab
+        - ipywidgets
+        - voila
+        - nodejs
+        - pip
+        - pip:
+            - nbval
+            - pytest-cov
+            - radon
+            - rope
