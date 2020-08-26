@@ -1,3 +1,6 @@
+
+## Binder: Me dicen que mi código es horrible😩 . ¿Por qué no le dejan el tema de la belleza a lxs teoricxs? Y, ¿me explican por qué lo dicen y cómo puedo mejorarlo? [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/akielbowicz/presentations.git/lec_journal_club?urlpath=lab)
+
 ## Title:
 
 Me dicen que mi código es horrible😩 . ¿Por qué no le dejan el tema de la belleza a lxs teoricxs? Y, ¿me explican por qué lo dicen y cómo puedo mejorarlo?
