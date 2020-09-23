@@ -1,18 +1,9 @@
 presentations
 =============
 
-Bundle of slides from presentations that I've given.
+[Diapos](https://github.com/akielbowicz/presentations/tree/pyar_pairprogramming)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/akielbowicz/presentations/pyar_pairprogramming?urlpath=lab)
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/akielbowicz/presentations.git/master)
-
-
-- Introducción a la Mecánica Cuántica (Papers We Love Buenos Aires) [materiales](meetup/pwl-30-ene-2020/)
-
-- ¿Cómo funcionan los Widgets de Jupyter? (PyConAr 2019) [slides/notebook](conferences/pyconar2019/widgets-presentation.ipynb)
-
-- Property Based Testing con Hypothesis (Python Argentina Meetup) [slides/notebook](meetup/pyar-28-ago-2019/presentation.ipynb)
-
-- Me dicen que mi código es horrible😩 . ¿Por qué no le dejan el tema de la belleza a lxs teoricxs? Y, ¿me explican por qué lo dicen y cómo puedo mejorarlo? (LEC) [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/akielbowicz/presentations.git/lec_journal_club?urlpath=lab/tree/journal_clubs/lec-28-ago-2020/)
 
 License
 =======
