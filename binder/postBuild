@@ -1,6 +1,10 @@
 #!/bin/bash -l
 
 set -ex
+# Enable the proxy extension in notebook and lab
+jupyter serverextension enable --py jupyter_server_proxy
+jupyter labextension install @jupyterlab/server-proxy
+jupyter lab build
 
 export SERVICE_URL=https://open-vsx.org/vscode/gallery
 export ITEM_URL=https://open-vsx.org/vscode/item
