@@ -1,1 +1,11 @@
 .ipynb_checkpoints
+.cache
+.yarn
+.conda
+.config
+.jupyter
+.local
+.npm
+.pylint
+.bash*
+.empty
