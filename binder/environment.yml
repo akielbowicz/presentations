@@ -9,3 +9,4 @@ dependencies:
         - code-server
         - jupyter-vscode-proxy
         - pytest
+        - pylint
