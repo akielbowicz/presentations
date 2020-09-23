@@ -1,15 +1,13 @@
-name: lec-journal-club
+name: pyar_pairprogramming
 channels:
         - conda-forge
         - defaults
 dependencies:
         - rise
+        - jupyter-server-proxy
+        - code-server
+        - jupyter-vscode-proxy
         - pytest
-        - hypothesis
-        - jupyter_nbextensions_configurator
-        - sympy
-        - numpy
-        - seaborn
         - jupyterlab
         - ipywidgets
         - voila
