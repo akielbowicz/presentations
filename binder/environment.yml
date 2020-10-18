@@ -1,9 +1,6 @@
-name: presentations
+name: pyconar_2020
 channels:
         - conda-forge
 dependencies:
         - rise
-        - pytest
-        - hypothesis
-        - jupyter_nbextensions_configurator
-        - sympy
+        - jupyterlab
