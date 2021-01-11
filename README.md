@@ -45,7 +45,7 @@ Propuestas de charlas
 =====================
 
 En esta branch comparto las propuestas de charlas que envio a cada evento. 
-[Propuestas|Talk proposals]()
+[Propuestas|Talk proposals](https://github.com/akielbowicz/presentations/blob/proposals/proposals/README.md)
 
 License
 =======
