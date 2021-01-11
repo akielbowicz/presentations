@@ -41,6 +41,12 @@ Property Based Testing con Hypothesis (Python Argentina Meetup & JPMC)
 ¿Cómo funcionan los Widgets de Jupyter? (PyConAr 2019) 
 [pyconar_2019](https://github.com/akielbowicz/presentations/tree/pyconar_2019)
 
+Propuestas de charlas
+=====================
+
+En esta branch comparto las propuestas de charlas que envio a cada evento. 
+[Propuestas|Talk proposals]()
+
 License
 =======
 
