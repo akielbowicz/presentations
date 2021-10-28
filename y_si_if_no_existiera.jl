@@ -284,7 +284,7 @@ pyr"datos_ingresados"
 # ╔═╡ 7899aed2-abc1-4a4e-b720-a81f2fcb54cd
 pyr"""
 def procesar(elemento):
-	return elemento.upper()
+	return 
 """
 
 # ╔═╡ 5b108831-8ec7-42e2-a75a-594fb6054f2f
