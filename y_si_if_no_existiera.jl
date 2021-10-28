@@ -12,6 +12,13 @@ md"""
 # Y.si( If.no_existe() )
 """
 
+# ╔═╡ 2cad8f45-d4ec-45e7-8a0d-253bb8409b39
+md"""
+*Para pensar:*
+
+¿Cómo implementarían los objetos "True" y "False" bajo el modelo de Objetos que solo reciben y envían mensajes?
+"""
+
 # ╔═╡ 962dc41a-93db-4276-b73b-3051b066e98b
 md"""
 ### Fuentes:
@@ -23,6 +30,14 @@ md"""
 [Charla:  If Statements are a Code Smell](https://www.youtube.com/watch?v=P0kfKqMHioQ)
 
 [Charla: Nothing is something](https://youtu.be/OMPfEXIlTVE?t=419)
+
+
+[Paquete: Radon](https://pypi.org/project/radon/) para calcular métricas de nuestro código
+"""
+
+# ╔═╡ ddfe9405-60ce-4ee6-9531-822fbaebefeb
+md"""
+Este cuaderno utiliza el código del cuaderno de [Reactive Python](https://github.com/fonsp/disorganised-mess/blob/83470e6f8e944757bc064c87b115847bdbeb8300/reactive%20python.jl) por [@fonsp](https://github.com/fonsp)
 """
 
 # ╔═╡ d3fe9870-ac9d-4871-b8cc-1361a446b0a5
@@ -396,7 +411,9 @@ version = "1.2.0"
 # ╠═5b108831-8ec7-42e2-a75a-594fb6054f2f
 # ╠═5a500747-dc63-44a2-bca6-cb730131ba11
 # ╠═48f9fbb8-9d24-491d-a835-eefcf1607675
-# ╟─962dc41a-93db-4276-b73b-3051b066e98b
+# ╟─2cad8f45-d4ec-45e7-8a0d-253bb8409b39
+# ╠═962dc41a-93db-4276-b73b-3051b066e98b
+# ╟─ddfe9405-60ce-4ee6-9531-822fbaebefeb
 # ╟─0030198b-a1c2-4cfc-b557-451f400e3980
 # ╟─6a35c5b8-2ce0-11ec-3a8c-b5a25bab9f9b
 # ╟─5c432b4e-60e0-4288-8d5a-42e364ce8d16
