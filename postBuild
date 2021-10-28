@@ -4,5 +4,5 @@ set -ex
 jupyter labextension install @jupyterlab/server-proxy
 jupyter lab build
 
-julia --project='.' -e 'using PyCall'
-# julia --project='.' y_si_if_no_existiera.jl
+julia --project='.' -e 'import Pkg;Pkg.build();using PyCall'
+julia --project='.' y_si_if_no_existiera.jl
