@@ -12,10 +12,13 @@ Este documento lo podes encontrar en el repositorio [presentations](https://gith
 
 Cada charla tiene su propia `branch` donde estan todos los materiales
 
-Presentaciones (en orden cronologico, con las mas recientes arriba)
+Presentaciones (en orden cronológico, con las más recientes arriba)
 -------------------------------------------------------------------
 
-Charlas Relampago (PyConAr 2020)
+Charlas Relámpago (PyConAr 2021)
+[pyconar_2021](https://github.com/akielbowicz/presentations/tree/pyconar_2021)
+
+Charlas Relámpago (PyConAr 2020)
 [pyconar_2020_charlas_relampago ](https://github.com/akielbowicz/presentations/tree/pyconar_2020_charlas_relampago)
 
 Conozco un grupo de objetos que resuelven problemas (PyConAr 2020)
