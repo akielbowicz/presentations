@@ -1,5 +1,5 @@
 ---
-customTheme : "simple"
+theme : "simple"
 highlightTheme : "solarized light"
 ---
 
@@ -22,13 +22,30 @@ Artesania
 
 ---
 
-```python
-clase Verdadero <- Ente
+```smalltalk
+Verdadero <: Ente
 
     nuevo -> {
 
     } 
 ```
+
+---
+
+```smalltalk
+> "Hola Mundo!" tamaño 
+5 {.fragment .fade-in}
+```
+
+---
+
+```smalltalk
+> "Hola Mundo!" tamaño 
+```
+
+```smalltalk
+5 
+```{.fragment .fade-in}
 
 ---
 
