@@ -351,11 +351,64 @@ departamento, A3,   oficina, 20.0
 
 --
 
+Empresa de Agua Potable 💧
+
+Empresa de Energía Eléctrica ⚡ {.fragment fade-in}
+
+Empresa de Gas Natural 🔥 {.fragment fade-in}
+
+Empresa de Telefonía ☎ {.fragment fade-in}
+
+Empresa de Internet 💻 {.fragment fade-in}
+
+Empresa de ... {.fragment fade-in}
+
+--
+
+Casa 🏠 {.fragment fade-in}
+
+Departamento 🏬 {.fragment fade-in}
+
+Edificio 🏢 {.fragment fade-in}
+
+PH 🏘 {.fragment fade-in}
+
+Terreno 🏜 {.fragment fade-in}
+
+... {.fragment fade-in}
+
+--
+
 ![bruce](https://media0.giphy.com/media/O0AEyXviC1vtC/giphy.gif?cid=ecf05e47l7vi7a53r9pyfk2lmn4gvef63c1raqxkxkpar566&rid=giphy.gif&ct=g)
 
 --
 
-ABC
+`servicio cobrar: edificacion`{.fragment fade-in} `???`{.fragment fade-in}
+
+| `x` | Electricidad | Agua | Gas | ... |
+| --- | --- | --- | --- | --- |
+|**Casa**| | | | |
+|**Departamento** | | | | |
+|**Edificio** | | | | |
+|**...** | | | | |
+
+--
+
+```py
+Servicio <: Ente
+
+   cobrar: edificacion -> {
+
+   }
+```
+
+--
+
+##### Ejercicio 💸
+
+```py
+edificacion monto: servicio
+```
 
 ---
 
