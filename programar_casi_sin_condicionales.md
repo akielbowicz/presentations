@@ -1,6 +1,6 @@
 ---
 theme : "solarized"
-highlightTheme : "monokai"
+highlightTheme : "base16/solarized-light"
 transition: "slide"
 ---
 
@@ -39,55 +39,55 @@ transition: "slide"
 
 --
 
-- Entes
+### Entes
 
 --
 
-- Entes
+### Entes
 
 ![entes](https://upload.wikimedia.org/wikipedia/commons/3/37/Wilson1900Fig2.jpg) {.fragment fade-in}
 
 --
 
-- Entes
+### Entes
 
 ![homunculo](https://github.com/akielbowicz/presentations/blob/pyar_codesmells/meetup/pyar-19-sep-2020/materiales/imagenes/humunculo_objeto.png?raw=true) {.fragment fade-in}
 
 --
 
-- Mensajes
+### Mensajes
 
-<span class="fragment"> 🎁 </span>
 ![homunculo](https://github.com/akielbowicz/presentations/blob/pyar_codesmells/meetup/pyar-19-sep-2020/materiales/imagenes/humunculo_objeto.png?raw=true)
+<span class="fragment"> 🎁 </span>
 ![homunculo](https://github.com/akielbowicz/presentations/blob/pyar_codesmells/meetup/pyar-19-sep-2020/materiales/imagenes/humunculo_objeto.png?raw=true) {.fragment fade-in}
 
 --
 
-```smalltalk
-👾 ✉
+```py
+👾 ✉ 
 ```
 
 --
 
-```smalltalk
+```py
 🤖 ✉
 ```
 
 --
 
-```smalltalk
+```py
 👤 📦
 ```
 
 --
 
-```smalltalk
+```py
 🦆 🔊
 ```
 
 --
 
-```smalltalk
+```py
 ente mensaje
 ```
 
@@ -97,7 +97,7 @@ Necesitamos un sistema para *clasificar*{.fragment .highlight-blue} a los Entes
 
 --
 
-```smalltalk
+```py
 Ente
 
     nuevo -> { } 
@@ -113,28 +113,28 @@ Ente
 
 --
 
-```smalltalk
+```py
 MiEnteCantor <: Ente
 
-   cantar -> {} 
+   cantar -> { ... } 
 
-   cantar: partitura -> {} 
+   cantar: partitura -> { ... } 
 ```
 
 --
 
-```smalltalk
+```py
 > "Hola Mundo!" tamaño 
 11
 ```
 
 --
 
-```smalltalk
+```py
 > "Hola Mundo!" tamaño sumar: 31
 ```
 
---
+---
 
 ## Condicionales
 
@@ -148,13 +148,13 @@ Dada una `[premisa]`
 
 ---
 
-Ejercicio
+##### Ejercicio 🤔
 
 --
 
-Ejercicio
+##### Ejercicio 🤔
 
-```c
+```py
 Booleano <: Ente
 
   negar {}
@@ -166,9 +166,9 @@ Booleano <: Ente
 
 --
 
-Ejercicio
+##### Ejercicio 🤔
 
-```c
+```py
 Verdadero <: Booleano
 
   negar {}
@@ -180,9 +180,9 @@ Verdadero <: Booleano
 
 --
 
-Ejercicio
+##### Ejercicio 🤔
 
-```c
+```py
 Verdadero <: Booleano    Falso <: Booleano
                          
   negar {}                 negar {}
@@ -194,7 +194,7 @@ Verdadero <: Booleano    Falso <: Booleano
 
 --
 
-booleano y: otroBooleano {.fragment fade-in}
+`booleano y: otroBooleano`{.fragment fade-in}
 
 | `y` | Verdadero |Falso |
 | --- | --- | --- |
@@ -203,7 +203,7 @@ booleano y: otroBooleano {.fragment fade-in}
 
 --
 
-booleano o: otroBooleano {.fragment fade-in}
+`booleano o: otroBooleano`{.fragment fade-in}
 
 | `o` | Verdadero |Falso |
 | --- | --- | --- |
@@ -212,9 +212,15 @@ booleano o: otroBooleano {.fragment fade-in}
 
 --
 
-Ejemplo 🐍
+![reloj-arena](https://media1.giphy.com/media/xuUmRnrF6uGQM/giphy.gif?cid=ecf05e47tsdbjk6r3ydze87b331fdse5x4e4y90ecxvyqy2j&rid=giphy.gif&ct=g)
+
+---
+
+### Ejemplo 🐍
 
 --
+
+Tabla Empresa de Agua Potable 💧
 
 ```py
 """
@@ -236,18 +242,20 @@ total = 0
 for linea in lineas[1:]:
     if len(linea.strip()) > 0:
         fila = linea.split(",")
-        values = [ e.strip() for e in fila ]
-        ed, id_, tipo= values
+        valores = [ e.strip() for e in fila ]
+        ed, id_, tipo= valores
         escala = 1.0
         if ed == "casa":
             total += 1.0 
         elif ed == "departamento":
             total += 0.5 
         else:
-            print(f"Desconocido:{values}")
+            print(f"Desconocido:{valores}")
 ```
 
 --
+
+Tabla Empresa de Agua Potable 💧
 
 ```py
 """
@@ -272,18 +280,20 @@ precios = {"oficina": 0.8, "comercial": 5.0, "domestico": 1.0}
 for linea in lineas[1:]:
     if len(linea.strip()) > 0:
         fila = linea.split(",")
-        values = [ e.strip() for e in fila ]
-        ed, id_, tipo= values
+        valores = [ e.strip() for e in fila ]
+        ed, id_, tipo= valores
         escala = 1.0
         if ed == "casa":
             total += 1.0 * precios[tipo] 
         elif ed == "departamento":
             total += 0.5 * precios[tipo]
         else:
-            print(f"Desconocido:{values}")
+            print(f"Desconocido:{valores}")
 ```
 
 --
+
+Tabla Empresa de Agua Potable 💧
 
 ```py
 """
@@ -302,8 +312,8 @@ casa,         4,   oficina, 1.0
 for linea in lineas[1:]:
     if len(linea.strip()) > 0:
         fila = linea.split(",")
-        values = [ e.strip() for e in fila ]
-        ed, id_, tipo= values
+        valores = [ e.strip() for e in fila ]
+        ed, id_, tipo= valores
         escala = 1.0
         if ed == "casa":
             if consumo > 1.0:
@@ -320,8 +330,28 @@ for linea in lineas[1:]:
 
             total += 0.5 * escala * precios[tipo] * consumo
         else:
-            print(f"Desconocido:{values}")
+            print(f"Desconocido:{valores}")
 ```
+
+--
+
+Tabla Empresa de Energía Eléctrica ⚡
+
+```py
+"""
+ Edificacion, Id,      Tipo, Consumo
+        casa, A0, domestico, 6.1
+departamento, A1, domestico, 22.4
+departamento, A2, comercial, 0.2
+departamento, A3,   oficina, 20.0
+        casa, A4,   oficina, 2.0
+    edificio, A5,   oficina, 123.0
+"""
+```
+
+--
+
+![bruce](https://media0.giphy.com/media/O0AEyXviC1vtC/giphy.gif?cid=ecf05e47l7vi7a53r9pyfk2lmn4gvef63c1raqxkxkpar566&rid=giphy.gif&ct=g)
 
 --
 
@@ -353,6 +383,8 @@ ABC
 - Metricas
 
 [Dogdge if statements](https://python-patterns.guide/gang-of-four/composition-over-inheritance/#dodge-if-statements)
+
+[radon](https://radon.readthedocs.io/en/latest/intro.html#cyclomatic-complexity)
 
 --
 
