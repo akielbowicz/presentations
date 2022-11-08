@@ -31,15 +31,19 @@ transition: "slide"
 
 ---
 
+### Programa de la charla
+
+- A {.fragment .fade-in}
+- B {.fragment .fade-in}
+- C {.fragment .fade-in}
+
+---
+
 ## Programar
 
 --
 
 ### Modelo simplificado de programación
-
---
-
-### Entes
 
 --
 
@@ -116,9 +120,30 @@ Ente
 ```py
 MiEnteCantor <: Ente
 
-   cantar -> { ... } 
+   contar -> { ... } 
 
    cantar: partitura -> { ... } 
+```
+
+--
+
+`Caracteres` `<: Ente`{.fragment .fade-in}
+
+`Cadenas de caracteres`{.fragment .fade-in} `<: Ente`{.fragment .fade-in}
+
+`Números`{.fragment .fade-in} `<: Ente`{.fragment .fade-in}
+
+`Fotos`{.fragment .fade-in}  `<: Ente`{.fragment .fade-in}
+
+`Archivos`{.fragment .fade-in} `Matrices`{.fragment .fade-in}
+`URLs`{.fragment .fade-in} `Patos`{.fragment .fade-in}
+`Conexiones`{.fragment .fade-in} `Colecciones`{.fragment .fade-in}
+`Bits`{.fragment .fade-in}
+
+--
+
+```py
+> "Hola Mundo!" 
 ```
 
 --
@@ -220,7 +245,7 @@ Verdadero <: Booleano    Falso <: Booleano
 
 --
 
-Tabla Empresa de Agua Potable 💧
+Tabla: Empresa de Agua Potable 💧
 
 ```py
 """
@@ -255,7 +280,7 @@ for linea in lineas[1:]:
 
 --
 
-Tabla Empresa de Agua Potable 💧
+Tabla: Empresa de Agua Potable 💧
 
 ```py
 """
@@ -293,7 +318,7 @@ for linea in lineas[1:]:
 
 --
 
-Tabla Empresa de Agua Potable 💧
+Tabla: Empresa de Agua Potable 💧
 
 ```py
 """
@@ -335,7 +360,7 @@ for linea in lineas[1:]:
 
 --
 
-Tabla Empresa de Energía Eléctrica ⚡
+Tabla: Empresa de Energía Eléctrica ⚡
 
 ```py
 """
@@ -379,7 +404,27 @@ Terreno 🏜 {.fragment fade-in}
 
 --
 
-![bruce](https://media0.giphy.com/media/O0AEyXviC1vtC/giphy.gif?cid=ecf05e47l7vi7a53r9pyfk2lmn4gvef63c1raqxkxkpar566&rid=giphy.gif&ct=g)
+¿Qué podemos hacer para controlar la complejidad?
+
+![bruce](https://media0.giphy.com/media/O0AEyXviC1vtC/giphy.gif?cid=ecf05e47l7vi7a53r9pyfk2lmn4gvef63c1raqxkxkpar566&rid=giphy.gif&ct=g){.fragment .fade-in}
+
+
+--
+
+`ALGO`{.fragment .fade-in} `(servicio, edificacion)`
+
+--
+
+`ALGO (servicio, edificacion)`
+
+```py
+...
+for servicio in servicios:
+  total = 0
+  for edificacion in edificaciones:
+    total += servicio.cobrar(edificacion)
+  ....
+```
 
 --
 
@@ -397,9 +442,29 @@ Terreno 🏜 {.fragment fade-in}
 ```py
 Servicio <: Ente
 
-   cobrar: edificacion -> {
+  cobrar: edificacion -> {
 
-   }
+  }
+```
+
+--
+
+```py
+Servicio <: Ente
+
+  cobrar: edificacion -> {
+
+  }
+```
+
+--
+
+```py
+Servicio <: Ente
+
+  cobrar: edificacion -> {
+
+  }
 ```
 
 --
