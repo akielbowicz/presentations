@@ -1,6 +1,7 @@
 ---
 theme : "solarized"
-highlightTheme : "base16/solarized-light"
+# highlightTheme : "base16/solarized-light"
+highlightTheme : "base16/tomorrow"
 transition: "slide"
 ---
 
@@ -101,7 +102,7 @@ Necesitamos un sistema para *clasificar*{.fragment .highlight-blue} a los Entes
 
 --
 
-```py
+```ruby
 Ente
 
     nuevo -> { } 
@@ -117,7 +118,7 @@ Ente
 
 --
 
-```py
+```ruby
 MiEnteCantor <: Ente
 
    contar -> { ... } 
@@ -179,7 +180,7 @@ Dada una `[premisa]`
 
 ##### Ejercicio 🤔
 
-```py
+```ruby
 Booleano <: Ente
 
   negar {}
@@ -193,7 +194,7 @@ Booleano <: Ente
 
 ##### Ejercicio 🤔
 
-```py
+```ruby
 Verdadero <: Booleano
 
   negar {}
@@ -207,7 +208,7 @@ Verdadero <: Booleano
 
 ##### Ejercicio 🤔
 
-```py
+```ruby
 Verdadero <: Booleano    Falso <: Booleano
                          
   negar {}                 negar {}
@@ -408,14 +409,21 @@ Terreno 🏜 {.fragment fade-in}
 
 ![bruce](https://media0.giphy.com/media/O0AEyXviC1vtC/giphy.gif?cid=ecf05e47l7vi7a53r9pyfk2lmn4gvef63c1raqxkxkpar566&rid=giphy.gif&ct=g){.fragment .fade-in}
 
-
 --
 
 `ALGO`{.fragment .fade-in} `(servicio, edificacion)`
 
 --
 
-`ALGO (servicio, edificacion)`
+~~ALGO~~ `(servicio, edificacion)`
+
+--
+
+`(servicio, edificacion)`
+
+`servicio cobrar: edificacion`{.fragment fade-in} `???`{.fragment fade-in}
+
+--
 
 ```py
 ...
@@ -426,20 +434,22 @@ for servicio in servicios:
   ....
 ```
 
+![cartas](https://img1.ibxk.com.br/2014/4/materias/5345510175955.gif){.fragment .fade-in}
+
 --
 
-`servicio cobrar: edificacion`{.fragment fade-in} `???`{.fragment fade-in}
+`servicio cobrar: edificacion`
 
-| `x` | Electricidad | Agua | Gas | ... |
+| `⨉` | Electricidad | Agua | Gas | ... |
 | --- | --- | --- | --- | --- |
 |**Casa**| | | | |
 |**Departamento** | | | | |
 |**Edificio** | | | | |
 |**...** | | | | |
 
---
+---
 
-```py
+```ruby
 Servicio <: Ente
 
   cobrar: edificacion -> {
@@ -449,22 +459,113 @@ Servicio <: Ente
 
 --
 
-```py
-Servicio <: Ente
+```ruby
+Servicio <: Ente                       Edificacion <: Ente
 
+  cobrar: edificacion -> {                                    
+                                                                     
+  }                                                          
+```
+
+--
+
+```ruby
+Servicio <: Ente                       Edificacion <: Ente
+
+  cobrar: edificacion -> {               consumo: servicio -> {
+
+  }                                      }
+```
+
+--
+
+```ruby
+Servicio <: Ente                       Edificacion <: Ente
+
+  cobrar: edificacion -> {               consumo: servicio -> {
+    edificacion consumo: yo                0.0
+  }                                      }
+```
+
+--
+
+```ruby
+Servicio <: Ente                       Edificacion <: Ente
+
+  cobrar: edificacion -> {               consumo: servicio -> {
+    edificacion consumo: yo                0.0
+  }                                      }                
+```
+
+```ruby
+Agua <: Servicio                       Casa <: Edificacion 
+
+  cobrar: edificacion -> {               consumoDeAgua: servicio -> {
+    edificacion consumoDeAgua: yo
+  }                                      }
+```
+
+--
+
+```ruby
+Servicio <: Ente                       Edificacion <: Ente
+
+  cobrar: edificacion -> {               consumo: servicio -> {
+    edificacion consumo: yo                0.0
+  }                                      }                
+```
+
+```ruby
+Agua <: Servicio                       Casa <: Edificacion 
+
+  cobrar: edificacion -> {               consumoDeAgua: servicio -> {
+    edificacion consumoDeAgua: yo
+  }                                      }
+                                         consumoDeGas: servicio -> {
+Gas <: Servicio
+                                         }
   cobrar: edificacion -> {
-
+    edificacion consumoDeGas: yo
   }
 ```
 
 --
 
-```py
-Servicio <: Ente
+```ruby
+Servicio <: Ente                       Edificacion <: Ente
 
+  cobrar: edificacion -> {               consumo: servicio -> {
+    edificacion consumo: yo                0.0
+  }                                      }
+  montoParaCasa: ... -> {...}
+```
+
+```ruby
+Agua <: Servicio                       Casa <: Edificacion 
+
+  cobrar: edificacion -> {               consumoDeAgua: servicio -> {
+    edificacion consumoDeAgua: yo          servicio montoParaCasa: ...
+  }                                      }
+                                         consumoDeGas: servicio -> {
+Gas <: Servicio                            servicio montoParaCasa: ...
+                                         }
   cobrar: edificacion -> {
-
+    edificacion consumoDeGas: yo
   }
+```
+
+--
+
+###### Para pensar:
+
+- ¿Qué código hay que modificar para agregar una nueva edificación? {.fragment .current-visible}
+- ¿Qué código hay que modificar para agregar un nuevo servicio? {.fragment .current-visible}
+- ¿Qué código hay que modificar para eliminar una edificación? {.fragment .current-visible}
+- ¿Qué código hay que modificar para eliminar un servicio? {.fragment .current-visible}
+
+--
+
+```py
 ```
 
 --
