@@ -559,19 +559,18 @@ Gas <: Servicio                            servicio montoParaCasa: ...
 
 --
 
-![servicios.py](img/2022-11-09%2022_46_52-%E2%97%8F%20servicios.py%20-%20panela%20-%20Visual%20Studio%20Code.png)
+![servicios.py](https://github.com/akielbowicz/presentations/blob/pyar_sincondicionales/img/2022-11-09%2022_46_52-%E2%97%8F%20servicios.py%20-%20panela%20-%20Visual%20Studio%20Code.png?raw=true)
+--
+
+![edificacion.py](https://github.com/akielbowicz/presentations/blob/pyar_sincondicionales/img/2022-11-09%2022_48_21-%E2%97%8F%20edificacion.py%20-%20panela%20-%20Visual%20Studio%20Code.png?raw=true)
 
 --
 
-![edificacion.py](img/2022-11-09%2022_48_21-%E2%97%8F%20edificacion.py%20-%20panela%20-%20Visual%20Studio%20Code.png)
+![test.py](https://github.com/akielbowicz/presentations/blob/pyar_sincondicionales/img/2022-11-09%2023_09_24-test_servicios_y_edificios.py%20-%20panela%20-%20Visual%20Studio%20Code.png?raw=true)
 
 --
 
-![test.py](img/2022-11-09%2023_09_24-test_servicios_y_edificios.py%20-%20panela%20-%20Visual%20Studio%20Code.png)
-
---
-
-![debug](img/debug.gif)
+![debug](https://github.com/akielbowicz/presentations/blob/pyar_sincondicionales/img/debug.gif?raw=true)
 
 --
 
