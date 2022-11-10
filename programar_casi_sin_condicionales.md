@@ -5,7 +5,11 @@ highlightTheme : "base16/windows-95"
 transition: "slide"
 ---
 
-# Programar <span class="fragment">**(casi)** </span> sin condicionales
+## Programar <span class="fragment">**(casi)** </span> sin condicionales
+
+10 de Noviembre de 2022, PyAr Meetup
+
+@sashakile
 
 ---
 
