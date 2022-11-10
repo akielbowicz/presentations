@@ -662,6 +662,19 @@ def obtener_edificacion(ed, id_, tipo, consumo, servicio):
 
 ![clips](https://cdn.acidcow.com/pics/20150928/factory_gifs_15.gif)
 
+> Las Factories son el lugar a donde los "IF"s van a morir.
+Sandi Metz {.fragment .fade-in}
+
+--
+
+[Dogdge if statements](https://python-patterns.guide/gang-of-four/composition-over-inheritance/#dodge-if-statements)
+
+1. Localidad (*Locality*) {.fragment .fade-in}
+2. Borrabilidad (*Deletability*) {.fragment .fade-in}  
+3. Codigo muerto (*Dead code analysis*) {.fragment .fade-in}
+4. Testing {.fragment .fade-in}
+5. Eficiencia (*Efficiency*) {.fragment .fade-in}
+
 ---
 
 >A computer is like a violin. You can imagine a novice trying first a
@@ -681,26 +694,8 @@ Design and Planning, (1967){.fragment .fade-in}
 
 ---
 
-- Contexto de la charla
-- Artesania de Software
-
----
-
-- Modelo de programacion
-- Objetos y mensajes
-- Clasificacion de los objetos
-
----
-
-- Porque necesitamos los condicionales
-- Logica Binaria
-- Generalizar la interaccion entre objetos
-
----
-
 - Metricas
 
-[Dogdge if statements](https://python-patterns.guide/gang-of-four/composition-over-inheritance/#dodge-if-statements)
 
 [radon](https://radon.readthedocs.io/en/latest/intro.html#cyclomatic-complexity)
 
