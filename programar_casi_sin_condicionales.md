@@ -1,7 +1,7 @@
 ---
 theme : "solarized"
 # highlightTheme : "base16/solarized-light"
-highlightTheme : "base16/tomorrow"
+highlightTheme : "base16/windows-95"
 transition: "slide"
 ---
 
@@ -339,7 +339,7 @@ for linea in lineas[1:]:
     if len(linea.strip()) > 0:
         fila = linea.split(",")
         valores = [ e.strip() for e in fila ]
-        ed, id_, tipo= valores
+        ed, id_, tipo, consumo = valores
         escala = 1.0
         if ed == "casa":
             if consumo > 1.0:
@@ -556,17 +556,28 @@ Gas <: Servicio                            servicio montoParaCasa: ...
 
 --
 
+![servicios.py](img/2022-11-09%2022_46_52-%E2%97%8F%20servicios.py%20-%20panela%20-%20Visual%20Studio%20Code.png)
+
+--
+
+![edificacion.py](img/2022-11-09%2022_48_21-%E2%97%8F%20edificacion.py%20-%20panela%20-%20Visual%20Studio%20Code.png)
+
+--
+
+![test.py](img/2022-11-09%2023_09_24-test_servicios_y_edificios.py%20-%20panela%20-%20Visual%20Studio%20Code.png)
+
+--
+
+![debug](img/debug.gif)
+
+--
+
 ###### Para pensar:
 
 - ¿Qué código hay que modificar para agregar una nueva edificación? {.fragment .current-visible}
 - ¿Qué código hay que modificar para agregar un nuevo servicio? {.fragment .current-visible}
 - ¿Qué código hay que modificar para eliminar una edificación? {.fragment .current-visible}
 - ¿Qué código hay que modificar para eliminar un servicio? {.fragment .current-visible}
-
---
-
-```py
-```
 
 --
 
@@ -578,7 +589,70 @@ edificacion monto: servicio
 
 ---
 
-#################### 33
+#### Programar **(casi)**{.fragment .highlight-red} sin condicionales
+
+---
+
+Tabla: Empresa de Energía Eléctrica ⚡
+
+```py
+"""
+ Edificacion, Id,      Tipo, Consumo
+        casa, A0, domestico, 6.1
+departamento, A1, domestico, 22.4
+departamento, A2, comercial, 0.2
+departamento, A3,   oficina, 20.0
+        casa, A4,   oficina, 2.0
+    edificio, A5,   oficina, 123.0
+"""
+```
+
+---
+
+```py
+edificaciones = [
+Casa(watts=6.1,tipo=Domestico()), 
+Departamento(watts=6.1,tipo=Domestico()), 
+Departamento(watts=6.1,tipo=Comercial()), 
+Departamento(watts=6.1,tipo=Oficina()), 
+Casa(watts=6.1,tipo=Oficina()), 
+Edificio(watts=6.1,tipo=Oficina()), 
+]
+```
+
+---
+
+```py
+linea = "departamento, A1, domestico, 22.4"
+fila = linea.split(",")
+valores = [ e.strip() for e in fila ]
+ed, id_, tipo, consumo = valores
+```
+
+--
+
+```py
+mapa_edificaciones = {
+  "casa": Casa,
+  "departamento": Departamento,
+  "edificio": Edificio,
+}
+
+def obtener_edificacion(ed, id_, tipo, consumo, servicio):
+  if tipo == 'oficina':
+    t = Oficina()
+  elif: tipo == 'domestico':
+    t = Domestico()
+  else:
+    t = Comercial()
+  
+  c =  float(consumo)
+
+  tipo_consumo = servicio.tipo_consumo()
+  args = {"tipo":t, tipo_consumo:c}
+
+  return mapa_edificaciones[ed](**args)
+```
 
 ---
 
@@ -610,3 +684,17 @@ edificacion monto: servicio
 [Referencia del Lenguaje Python](https://docs.python.org/es/3/reference/index.html)
 
 ---
+![pan](https://media0.giphy.com/media/gM5rrNKbkpTUsnS0Gz/giphy.gif)
+![clips](https://cdn.acidcow.com/pics/20150928/factory_gifs_15.gif)
+
+--
+
+> A computer is like a violin. You can imagine a novice trying first a
+phonograph and then a violin. The latter, he says, sounds terrible.
+That is the argument we have heard from our humanists and most
+of our computer scientists. Computer programs are good, they say,
+for particular purposes, but they aren't flexible. Neither is a violin,
+or a typewriter, until you learn how to use it.
+Marvin Minsky, “Why Programming Is a Good Medium for
+Expressing Poorly-Understood and Sloppily-Formulated Ideas” in
+Design and Planning, (1967)
