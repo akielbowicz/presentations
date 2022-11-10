@@ -34,9 +34,8 @@ transition: "slide"
 
 ### Programa de la charla
 
-- A {.fragment .fade-in}
-- B {.fragment .fade-in}
-- C {.fragment .fade-in}
+- ¿Qué significa programar? {.fragment .fade-in}
+- Ejemplo práctico {.fragment .fade-in}
 
 ---
 
@@ -694,8 +693,13 @@ Design and Planning, (1967){.fragment .fade-in}
 
 ---
 
-- Metricas
+### Gracias
 
+![](https://64.media.tumblr.com/30bedeb563c8f8df76afbc4c4f61cbfb/55ed7abd84b43635-45/s400x600/be41a12e3e6d95978f089b0e5b1b2af1d3585cd7.gif)
+
+---
+
+- Metricas
 
 [radon](https://radon.readthedocs.io/en/latest/intro.html#cyclomatic-complexity)
 
