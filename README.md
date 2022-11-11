@@ -6,7 +6,6 @@ Bundle of slides and materials from presentations that I've given.
 
 Este documento lo podes encontrar en el repositorio [presentations](https://github.com/akielbowicz/presentations)
 
-
 ¿Como esta estructurado este repositorio?
 -----------------------------------------
 
@@ -14,6 +13,9 @@ Cada charla tiene su propia `branch` donde estan todos los materiales
 
 Presentaciones (en orden cronológico, con las más recientes arriba)
 -------------------------------------------------------------------
+
+Programar (casi) sin condicionales (Python Argentina Meetup)
+[pyar_sincondicionales](https://github.com/akielbowicz/presentations/tree/pyar_sincondicionales)
 
 Charlas Relámpago (PyConAr 2021)
 [pyconar_2021](https://github.com/akielbowicz/presentations/tree/pyconar_2021)
@@ -47,7 +49,7 @@ Property Based Testing con Hypothesis (Python Argentina Meetup & JPMC)
 Propuestas de charlas
 =====================
 
-En esta branch comparto las propuestas de charlas que envio a cada evento. 
+En esta branch comparto las propuestas de charlas que envio a cada evento.
 [Propuestas|Talk proposals](https://github.com/akielbowicz/presentations/blob/proposals/proposals/README.md)
 
 License
