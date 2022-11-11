@@ -702,7 +702,13 @@ Design and Planning, (1967){.fragment .fade-in}
 
 ### Gracias
 
-![](https://64.media.tumblr.com/30bedeb563c8f8df76afbc4c4f61cbfb/55ed7abd84b43635-45/s400x600/be41a12e3e6d95978f089b0e5b1b2af1d3585cd7.gif)
+![trump](https://64.media.tumblr.com/30bedeb563c8f8df76afbc4c4f61cbfb/55ed7abd84b43635-45/s400x600/be41a12e3e6d95978f089b0e5b1b2af1d3585cd7.gif)
+
+---
+
+Repositorio con ejemplos de código sin condicionales
+
+[panela](https://github.com/akielbowicz/panela)
 
 ---
 
@@ -710,6 +716,10 @@ Design and Planning, (1967){.fragment .fade-in}
 
 [radon](https://radon.readthedocs.io/en/latest/intro.html#cyclomatic-complexity)
 
+[metricas_de_codigo](https://github.com/akielbowicz/metricas_de_codigo)
+
 --
 
-[Referencia del Lenguaje Python](https://docs.python.org/es/3/reference/index.html)
+Para aprender más cosas de este estilo
+
+[Smalltalk, Objects and Design](https://www.amazon.com/gp/product/1583484906/)
