@@ -37,7 +37,7 @@ Me dicen que mi código es horrible😩. ¿Por qué no le dejan el tema de la be
 [lec_refactoring_demo ](https://github.com/akielbowicz/presentations/tree/lec_refactoring_demo)
 
 Introducción a la Mecánica Cuántica (Papers We Love Buenos Aires)
-[pwl_mecanica_cuantica ](https://github.com/akielbowicz/presentations/tree/pwl_mecanica_cuantica)
+[pwl_mecanica_cuantica ](./presentaciones/pwl_mecanica_cuantica/)
 
 Property Based Testing con Hypothesis (Python Argentina Meetup & JPMC)
 [pyar_hypotesis](https://github.com/akielbowicz/presentations/tree/pyar_hypotesis)
