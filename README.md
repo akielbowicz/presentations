@@ -33,7 +33,7 @@ Une para todes y todes para une (Python Argentina Meetup)
 [pyar_codesmells ](https://github.com/akielbowicz/presentations/tree/pyar_codesmells)
 
 Me dicen que mi código es horrible😩. ¿Por qué no le dejan el tema de la belleza a lxs teoricxs? Y, ¿me explican por qué lo dicen y cómo puedo mejorarlo? (LEC) 
-[lec_journal_club ](https://github.com/akielbowicz/presentations/tree/lec_journal_club)
+[lec_journal_club ](./presentaciones/lec_journal_club/)
 [lec_refactoring_demo ](https://github.com/akielbowicz/presentations/tree/lec_refactoring_demo)
 
 Introducción a la Mecánica Cuántica (Papers We Love Buenos Aires)
