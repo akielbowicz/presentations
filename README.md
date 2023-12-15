@@ -27,7 +27,7 @@ Conozco un grupo de objetos que resuelven problemas (PyConAr 2020)
 [pyconar_2020](./presentaciones/pyconar_2020/)
 
 Une para todes y todes para une (Python Argentina Meetup)
-[pyar_pairprogramming ](https://github.com/akielbowicz/presentations/tree/pyar_pairprogramming)
+[pyar_pairprogramming ](./presentaciones/pyar_pairprogramming/)
 
 ¿Code Smells? y eso... ¿con qué se come? (Python Argentina Meetup)
 [pyar_codesmells ](./presentaciones/pyar_codesmells/)
