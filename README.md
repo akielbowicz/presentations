@@ -15,7 +15,7 @@ Presentaciones (en orden cronológico, con las más recientes arriba)
 -------------------------------------------------------------------
 
 Programar (casi) sin condicionales (Python Argentina Meetup)
-[pyar_sincondicionales](https://github.com/akielbowicz/presentations/tree/pyar_sincondicionales)
+[pyar_sincondicionales](./presentaciones/pyar_sincondicionales/)
 
 Charlas Relámpago (PyConAr 2021)
 [pyconar_2021](./presentaciones/pyconar_2021/)
