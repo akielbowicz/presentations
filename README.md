@@ -30,7 +30,7 @@ Une para todes y todes para une (Python Argentina Meetup)
 [pyar_pairprogramming ](https://github.com/akielbowicz/presentations/tree/pyar_pairprogramming)
 
 ¿Code Smells? y eso... ¿con qué se come? (Python Argentina Meetup)
-[pyar_codesmells ](https://github.com/akielbowicz/presentations/tree/pyar_codesmells)
+[pyar_codesmells ](./presentaciones/pyar_codesmells/)
 
 Me dicen que mi código es horrible😩. ¿Por qué no le dejan el tema de la belleza a lxs teoricxs? Y, ¿me explican por qué lo dicen y cómo puedo mejorarlo? (LEC) 
 [lec_journal_club ](./presentaciones/lec_journal_club/)
