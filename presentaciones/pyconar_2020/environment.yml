@@ -1,0 +1,6 @@
+name: pyconar_2020
+channels:
+        - conda-forge
+dependencies:
+        - rise
+        - jupyterlab

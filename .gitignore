@@ -9,3 +9,7 @@
 .pylint
 .bash*
 .empty
+__pycache__
+.pytest_cache
+.swp
+.vscode
