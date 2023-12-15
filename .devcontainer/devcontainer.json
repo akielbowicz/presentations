@@ -37,7 +37,8 @@
 				"VisualStudioExptTeam.vscodeintellicode",
 				"ms-toolsai.jupyter",
 				"DavidAnson.vscode-markdownlint",
-				"evilz.vscode-reveal"
+				"evilz.vscode-reveal",
+				"streetsidesoftware.code-spell-checker-spanish"
 			]
 		}
 	},
@@ -52,6 +53,6 @@
 	"remoteUser": "vscode",
 	"features": {
 		"fish": "latest",
-		"jupyterlab": "latest"
+		"ghcr.io/devcontainers/features/python:1": {}
 	}
 }
