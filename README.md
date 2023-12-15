@@ -18,7 +18,7 @@ Programar (casi) sin condicionales (Python Argentina Meetup)
 [pyar_sincondicionales](https://github.com/akielbowicz/presentations/tree/pyar_sincondicionales)
 
 Charlas Relámpago (PyConAr 2021)
-[pyconar_2021](https://github.com/akielbowicz/presentations/tree/pyconar_2021)
+[pyconar_2021](./presentaciones/pyconar_2021/)
 
 Charlas Relámpago (PyConAr 2020)
 [pyconar_2020_charlas_relampago ](https://github.com/akielbowicz/presentations/tree/pyconar_2020_charlas_relampago)
