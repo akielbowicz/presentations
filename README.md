@@ -41,7 +41,7 @@ Introducción a la Mecánica Cuántica (Papers We Love Buenos Aires)
 
 Property Based Testing con Hypothesis (Python Argentina Meetup & JPMC)
 [pyar_hypotesis](https://github.com/akielbowicz/presentations/tree/pyar_hypotesis)
-[jpmc_hypothesis](https://github.com/akielbowicz/presentations/tree/jpmc_hypothesis)
+[jpmc_hypothesis](./presentaciones/jpmc_hypothesis/)
 
 ¿Cómo funcionan los Widgets de Jupyter? (PyConAr 2019) 
 [pyconar_2019](./presentaciones/pyconar_2019/)
