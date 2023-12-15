@@ -24,7 +24,7 @@ Charlas Relámpago (PyConAr 2020)
 [pyconar_2020_charlas_relampago ](https://github.com/akielbowicz/presentations/tree/pyconar_2020_charlas_relampago)
 
 Conozco un grupo de objetos que resuelven problemas (PyConAr 2020)
-[pyconar_2020](https://github.com/akielbowicz/presentations/tree/pyconar_2020)
+[pyconar_2020](./presentaciones/pyconar_2020/)
 
 Une para todes y todes para une (Python Argentina Meetup)
 [pyar_pairprogramming ](https://github.com/akielbowicz/presentations/tree/pyar_pairprogramming)
@@ -44,7 +44,7 @@ Property Based Testing con Hypothesis (Python Argentina Meetup & JPMC)
 [jpmc_hypothesis](https://github.com/akielbowicz/presentations/tree/jpmc_hypothesis)
 
 ¿Cómo funcionan los Widgets de Jupyter? (PyConAr 2019) 
-[pyconar_2019](https://github.com/akielbowicz/presentations/tree/pyconar_2019)
+[pyconar_2019](./presentaciones/pyconar_2019/)
 
 Propuestas de charlas
 =====================
