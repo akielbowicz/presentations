@@ -1,0 +1,12 @@
+name: pyar_pairprogramming
+channels:
+        - conda-forge
+        - defaults
+dependencies:
+        - jupyterlab
+        - rise
+        - jupyter-server-proxy
+        - code-server
+        - jupyter-vscode-proxy
+        - pytest
+        - pylint
