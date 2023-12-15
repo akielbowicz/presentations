@@ -9,7 +9,7 @@ Este documento lo podes encontrar en el repositorio [presentations](https://gith
 ¿Como esta estructurado este repositorio?
 -----------------------------------------
 
-Cada charla tiene su propia `branch` donde estan todos los materiales
+Cada charla tiene su propio subdirectorio bajo [`presentaciones`](./presentaciones/) donde estan todos los materiales
 
 Presentaciones (en orden cronológico, con las más recientes arriba)
 -------------------------------------------------------------------
