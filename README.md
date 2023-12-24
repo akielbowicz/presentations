@@ -14,37 +14,26 @@ Cada charla tiene su propio subdirectorio bajo [`presentaciones`](./presentacion
 Presentaciones (en orden cronológico, con las más recientes arriba)
 -------------------------------------------------------------------
 
-Programar (casi) sin condicionales (Python Argentina Meetup)
-[pyar_sincondicionales](./presentaciones/pyar_sincondicionales/)
+[Programar (casi) sin condicionales (Python Argentina Meetup - Nov 2022)](./presentaciones/pyar_sincondicionales/README.md)
 
-Charlas Relámpago (PyConAr 2021)
-[pyconar_2021](./presentaciones/pyconar_2021/)
+[Charlas Relámpago (PyConAr 2021)](./presentaciones/pyconar_2021/README.md)
 
-Charlas Relámpago (PyConAr 2020)
-[pyconar_2020_charlas_relampago ](https://github.com/akielbowicz/presentations/tree/pyconar_2020_charlas_relampago)
+[Charlas Relámpago (PyConAr 2020)](https://github.com/akielbowicz/presentations/tree/pyconar_2020_charlas_relampago)
 
-Conozco un grupo de objetos que resuelven problemas (PyConAr 2020)
-[pyconar_2020](./presentaciones/pyconar_2020/)
+[Conozco un grupo de objetos que resuelven problemas (PyConAr 2020)](./presentaciones/pyconar_2020/README.md)
 
-Une para todes y todes para une (Python Argentina Meetup)
-[pyar_pairprogramming ](./presentaciones/pyar_pairprogramming/)
+[Une para todes y todes para une (Python Argentina Meetup)](./presentaciones/pyar_pairprogramming/README.md)
 
-¿Code Smells? y eso... ¿con qué se come? (Python Argentina Meetup)
-[pyar_codesmells ](./presentaciones/pyar_codesmells/)
+[¿Code Smells? y eso... ¿con qué se come? (Python Argentina Meetup)](./presentaciones/pyar_codesmells/README.md)
 
-Me dicen que mi código es horrible😩. ¿Por qué no le dejan el tema de la belleza a lxs teoricxs? Y, ¿me explican por qué lo dicen y cómo puedo mejorarlo? (LEC) 
-[lec_journal_club ](./presentaciones/lec_journal_club/)
-[lec_refactoring_demo ](https://github.com/akielbowicz/presentations/tree/lec_refactoring_demo)
+[Me dicen que mi código es horrible😩. ¿Por qué no le dejan el tema de la belleza a lxs teoricxs? Y, ¿me explican por qué lo dicen y cómo puedo mejorarlo? (LEC)](./presentaciones/lec_journal_club/README.md)
+[lec_refactoring_demo](https://github.com/akielbowicz/presentations/tree/lec_refactoring_demo)
 
-Introducción a la Mecánica Cuántica (Papers We Love Buenos Aires)
-[pwl_mecanica_cuantica ](./presentaciones/pwl_mecanica_cuantica/)
+[Introducción a la Mecánica Cuántica (Papers We Love Buenos Aires)](./presentaciones/pwl_mecanica_cuantica/README.md)
 
-Property Based Testing con Hypothesis (Python Argentina Meetup & JPMC)
-[pyar_hypotesis](./presentaciones/pyar_hypotesis/)
-[jpmc_hypothesis](./presentaciones/jpmc_hypothesis/)
+[Property Based Testing con Hypothesis (Python Argentina Meetup)](./presentaciones/pyar_hypotesis/README.md) [& JPMC](./presentaciones/jpmc_hypothesis/README.md)
 
-¿Cómo funcionan los Widgets de Jupyter? (PyConAr 2019) 
-[pyconar_2019](./presentaciones/pyconar_2019/)
+[¿Cómo funcionan los Widgets de Jupyter? (PyConAr 2019)](./presentaciones/pyconar_2019/README.md)
 
 Propuestas de charlas
 =====================
