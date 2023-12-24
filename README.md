@@ -1,7 +1,7 @@
 presentations
 =============
 
-Bundle of slides and materials from presentations that I've given.
+Colección de diapositivas de las presentaciones que dí.
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/akielbowicz/presentations.git/master)
 
 Este documento lo podes encontrar en el repositorio [presentations](https://github.com/akielbowicz/presentations)
