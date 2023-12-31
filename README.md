@@ -1,3 +1,8 @@
+---
+permalink: readme.html
+---
+
+
 presentations
 =============
 
