@@ -6,29 +6,29 @@ Bienvenides a la cocina de los *widgets*
 
 ### Modelado a base de tests 
 
-- Como utilizar técnicas de testeo para generar código de modelos matemáticos que nos permitan extenderlos fácilmente y validar nuevos conjuntos de datos
+- Como utilizar tÃ©cnicas de testeo para generar cÃ³digo de modelos matemÃ¡ticos que nos permitan extenderlos fÃ¡cilmente y validar nuevos conjuntos de datos
 
 
-### Artesanías de software
+### ArtesanÃ­as de software
 
-Cuando se quiere desarrollar software mediante técnicas repetibles pero no necesitamos que el código cumpla con los mejores estándares de la industria
+Cuando se quiere desarrollar software mediante tÃ©cnicas repetibles pero no necesitamos que el cÃ³digo cumpla con los mejores estÃ¡ndares de la industria
 
-- ¿Como puedo mejorar mí código?
-- Aplicar técnicas 
+- Â¿CÃ³mo puedo mejorar mi cÃ³digo?
+- Aplicar tÃ©cnicas 
 - Reconocer ineficiencias
 
-### ¿Cómo sabés que tu código funciona?
+### Â¿CÃ³mo sabÃ©s que tu cÃ³digo funciona?
 
-- Ejemplos de como agregar tests a código existente
+- Ejemplos de como agregar tests a cÃ³digo existente
 
 
-### ¿Cómo entender el código de otrxs?
+### Â¿CÃ³mo entender el cÃ³digo de otrxs?
 
-- Distintos métodos para explorar, analizar y comprender código que fue generado por otras personas
+- Distintos mÃ©todos para explorar, analizar y comprender cÃ³digo que fue generado por otras personas
 
-- Cuando son útiles las code guidelines
+- Cuando son Ãºtiles las code guidelines
 
-- Porqué escribir código pensando en otrxs?
+- Por quÃ© escribir cÃ³digo pensando en otrxs?
 
 - Uso de los code reviews 
 
