@@ -63,15 +63,15 @@ transition: "slide"
 
 ### Entes
 
-![homunculo](https://github.com/akielbowicz/presentations/blob/pyar_codesmells/meetup/pyar-19-sep-2020/materiales/imagenes/humunculo_objeto.png?raw=true) {.fragment fade-in}
+![homunculo](https://raw.githubusercontent.com/akielbowicz/presentations/eec300f2e038193df3f9a7add11e921d43bea068/presentaciones/pyar_codesmells/pyar-19-sep-2020/materiales/imagenes/humunculo_objeto.png) {.fragment fade-in}
 
 --
 
 ### Mensajes
 
-![homunculo](https://github.com/akielbowicz/presentations/blob/pyar_codesmells/meetup/pyar-19-sep-2020/materiales/imagenes/humunculo_objeto.png?raw=true)
+![homunculo](https://raw.githubusercontent.com/akielbowicz/presentations/eec300f2e038193df3f9a7add11e921d43bea068/presentaciones/pyar_codesmells/pyar-19-sep-2020/materiales/imagenes/humunculo_objeto.png)
 <span class="fragment"> 🎁 </span>
-![homunculo](https://github.com/akielbowicz/presentations/blob/pyar_codesmells/meetup/pyar-19-sep-2020/materiales/imagenes/humunculo_objeto.png?raw=true) {.fragment fade-in}
+![homunculo](https://raw.githubusercontent.com/akielbowicz/presentations/eec300f2e038193df3f9a7add11e921d43bea068/presentaciones/pyar_codesmells/pyar-19-sep-2020/materiales/imagenes/humunculo_objeto.png) {.fragment fade-in}
 
 --
 
