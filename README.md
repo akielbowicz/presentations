@@ -38,8 +38,8 @@ Presentaciones (en orden cronológico, con las más recientes arriba)
 Propuestas de charlas
 =====================
 
-En esta branch comparto las propuestas de charlas que envio a cada evento.
-[Propuestas|Talk proposals](./proposals/)
+En la carpeta [Propuestas](./propuestas/) pueden encontrar las propuestas de charlas que envio a cada evento.
+
 
 License
 =======
