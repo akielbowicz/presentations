@@ -1,8 +1,7 @@
 presentations
 =============
 
-Colección de diapositivas de las presentaciones que dí.
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/akielbowicz/presentations.git/master)
+Colección de los materiales de las presentaciones que dí.
 
 Este documento lo podes encontrar en el repositorio [presentations](https://github.com/akielbowicz/presentations)
 
@@ -38,7 +37,7 @@ Presentaciones (en orden cronológico, con las más recientes arriba)
 Propuestas de charlas
 =====================
 
-En la carpeta [Propuestas](./propuestas/) pueden encontrar las propuestas de charlas que envio a cada evento.
+En la carpeta [propuestas](./propuestas/) pueden encontrar las propuestas de charlas que envio a cada evento.
 
 
 License
