@@ -5,7 +5,7 @@ Colección de los materiales de las presentaciones que dí.
 
 Este documento lo podes encontrar en el repositorio [presentations](https://github.com/akielbowicz/presentations)
 
-¿Como esta estructurado este repositorio?
+¿Cómo esta estructurado este repositorio?
 -----------------------------------------
 
 Cada charla tiene su propio subdirectorio bajo [`presentaciones`](./presentaciones/) donde estan todos los materiales
