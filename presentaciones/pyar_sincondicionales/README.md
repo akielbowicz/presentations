@@ -1,11 +1,7 @@
-presentations
-=============
+# Python Argentina Meetup - Noviembre 2022
 
-Lista con todas las [presentaciones](https://github.com/akielbowicz/presentations)
+[evento](https://www.meetup.com/buenos-aires-python-meetup/events/289219259/])
 
-Programar (casi) sin condicionales
-----------------------------------
+[diapos/slides](https://github.com/akielbowicz/presentations/blob/correcciones/presentaciones/pyar_sincondicionales/programar_casi_sin_condicionales.md)
 
-[Evento del meetup](https://www.meetup.com/buenos-aires-python-meetup/events/289219259/])
-
-[Diapositivas Online](https://akielbowicz.github.io/presentations/export/)
+~[video]() TBD~
