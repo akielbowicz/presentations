@@ -1,6 +1,6 @@
 # Charlas y talleres
 
-*la lista de diapositivas online estan [acá](https://slides.saxa.xyz)*
+*la lista de diapositivas online está [acá](http://slides.saxa.xyz)*
 
 [Programar (casi) sin condicionales (Python Argentina Meetup - Nov 2022)](./presentaciones/pyar_sincondicionales/)
 
