@@ -23,11 +23,21 @@
 
 [¿Cómo funcionan los Widgets de Jupyter? (PyConAr 2019)](./presentaciones/pyconar_2019/)
 
+# Talleres y workshops
+
+[Taller introductorio de Julia para Pythonistas (SciPy Latam 2022)](https://github.com/akielbowicz/scipy-latam-2022-taller-julia)
+
+[Resolviendo la tarea con Jupyter (PyConAr 2019)](https://github.com/akielbowicz/pyconar-2019-jupyter-tarea)
+
+[Widgets playground (South America Jupyter Community Workshop 2019)](https://github.com/akielbowicz/ipywidgets-playground/tree/master)
+
+[Tutorial introductorio a Pandas (PyNorte 2019)](https://github.com/akielbowicz/pynorte-tutorial-pandas)
+
+[Basta de loops, hagamos exploración de datos con Pandas y Altair. (PyConAr 2018)](https://github.com/akielbowicz/pandas-altair_2018)
 
 # Propuestas de charlas
 
 En [propuestas](./propuestas/) pueden encontrar las propuestas de charlas que envie a cada evento.
-
 
 
 [ver fuente](https://github.com/akielbowicz/presentations)
