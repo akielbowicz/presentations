@@ -2,6 +2,8 @@
 
 [evento](https://eventos.python.org.ar/events/pyconar2020/)
 
-[diapos/slides](https://github.com/akielbowicz/presentations/blob/master/presentaciones/pyconar_2020/diapositivas.ipynb)
+[diapos/slides](http://slides.saxa.xyz/slides/pyconar_2020/slides)
 
-[video](https://www.youtube.com/watch?v=kyrDRjW3-xY)
+[![video](http://img.youtube.com/vi/kyrDRjW3-xY/0.jpg)](https://www.youtube.com/watch?v=kyrDRjW3-xY)
+
+[fuente/source](https://github.com/akielbowicz/presentations/blob/master/presentaciones/pyconar_2020/)

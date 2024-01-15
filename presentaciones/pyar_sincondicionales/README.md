@@ -2,6 +2,8 @@
 
 [evento](https://www.meetup.com/buenos-aires-python-meetup/events/289219259/)
 
-[diapos/slides](https://github.com/akielbowicz/presentations/blob/correcciones/presentaciones/pyar_sincondicionales/programar_casi_sin_condicionales.md)
+[diapos/slides](http://slides.saxa.xyz/slides/pyar_sincondicionales/slides)
 
-~[video]()~ TBD
+~~[video]()~~ Sooon
+
+[fuente/source](https://github.com/akielbowicz/presentations/blob/correcciones/presentaciones/pyar_sincondicionales/)

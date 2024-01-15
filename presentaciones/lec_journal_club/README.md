@@ -1,7 +1,9 @@
 # [LEC](http://lec2.df.uba.ar/) Journal Club - Agosto 2020
 
-~[evento]()~
+~~[evento]()~~
 
-[diapos/slides](https://github.com/akielbowicz/presentations/blob/master/presentaciones/lec_journal_club/lec-28-ago-2020/slides.ipynb)
+[diapos/slides](http://slides.saxa.xyz/slides/lec_journal_club/slides)
 
-~[video]()~
+~~[video]()~~
+
+[fuente/source](https://github.com/akielbowicz/presentations/blob/master/presentaciones/lec_journal_club/)
