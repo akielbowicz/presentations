@@ -1,4 +1,4 @@
-# Charlas y talleres
+# Charlas
 
 *la lista de diapositivas online está [acá](http://slides.saxa.xyz)*
 
