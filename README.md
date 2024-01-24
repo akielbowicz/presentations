@@ -18,7 +18,7 @@ Cada charla tiene su propio subdirectorio bajo [`presentaciones`](./presentacion
 Presentaciones (en orden cronológico, con las más recientes arriba)
 -------------------------------------------------------------------
 
-[Qué es la Developer Experience y cómo aplicarla](./presentaciones/eci_2023/README.md)
+[Qué es la Developer Experience y cómo aplicarla (ECI UBA 2023)](./presentaciones/eci_2023/README.md)
 
 [Programar (casi) sin condicionales (Python Argentina Meetup - Nov 2022)](./presentaciones/pyar_sincondicionales/README.md)
 
