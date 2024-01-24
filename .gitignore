@@ -16,3 +16,6 @@ __pycache__
 *~
 *#
 export/
+.venv
+.env
+venv
