@@ -2,6 +2,8 @@
 
 *la lista de diapositivas online está [acá](http://slides.saxa.xyz)*
 
+[Qué es la Developer Experience y cómo aplicarla](./presentaciones/eci_2023/)
+
 [Programar (casi) sin condicionales (Python Argentina Meetup - Nov 2022)](./presentaciones/pyar_sincondicionales/)
 
 [Charlas Relámpago (PyConAr 2021)](./presentaciones/pyconar_2021/)
