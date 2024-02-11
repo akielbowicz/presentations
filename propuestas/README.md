@@ -12,3 +12,7 @@ Propuestas
 [PyConAr 2020](./pyconar_2020.md)
 
 [Meetup PyAr Sep 2020](./pyar_meetup_sep_2020.md)
+
+[PyConAr 2019](./pyconar_2019.md)
+
+[PyConAr 2018](./pyconar_2018.md)
