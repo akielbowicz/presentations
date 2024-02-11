@@ -15,4 +15,6 @@ Propuestas
 
 [PyConAr 2019](./pyconar_2019.md)
 
+[TAAC 2019](./tacc_2019.md)
+
 [PyConAr 2018](./pyconar_2018.md)
