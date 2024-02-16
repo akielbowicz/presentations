@@ -4,6 +4,6 @@
 
 [diapos/slides](http://slides.saxa.xyz/slides/pyar_sincondicionales/slides)
 
-~~[video]()~~ Sooon
+[![video](http://img.youtube.com/vi/ioeMeQNEgL8/0.jpg)](https://www.youtube.com/watch?v=ioeMeQNEgL8)
 
 [fuente/source](https://github.com/akielbowicz/presentations/blob/correcciones/presentaciones/pyar_sincondicionales/)
