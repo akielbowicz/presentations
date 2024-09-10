@@ -2,6 +2,8 @@
 
 *la lista de diapositivas online está [acá](http://slides.saxa.xyz)*
 
+[Un Quarto de DDL, Sambayón y Menta Granizada, please (PyDay La Plata 2024)](./presentaciones/pyday_la_plata_2024/)
+
 [Qué es la Developer Experience y cómo aplicarla (ECI UBA 2023)](./presentaciones/eci_2023/) 
 
 [Programar (casi) sin condicionales (Python Argentina Meetup - Nov 2022)](./presentaciones/pyar_sincondicionales/) 📼
