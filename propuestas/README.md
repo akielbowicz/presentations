@@ -1,6 +1,8 @@
 Propuestas
 ==========
 
+[PyDays 2024](./pyday_2024.md)
+
 [Meetup PyAr Nov 2022](./pyar_meetup_nov_2022.md)
 
 [SciPy Latam 2022](./scipy_latam_2022.md)
