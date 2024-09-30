@@ -31,3 +31,14 @@ en MS Windows. Desde formas de instalar Python, particularidades del OS, recomen
 # Interoperabilidad entre Python y Julia Lang
 
 Julia es un lenguage de programación diseñado para el Cómputo Científico y Numérico con un gran foco en la performance. En esta charla vamos a ver como integrar programas de Julia con Python.
+
+# Chupate'sa mandarina! Exprimiendo el poder de nuestras PCs
+
+¿Cómo podemos saber si un programa es rápido o lento?, ¿De qué depende?. Si necesito que ejecute más rápido, ¿cómo puedo hacerlo?  
+En esta charla vamos a tratar de entender cómo evaluar el rendimiento de un programa (*performance*)
+teniendo en cuenta las características específicas (de hardware) de una computadora. ¿Qué significa
+que mi procesador tenga una frecuencia  de GHz? ¿De qué me sirve la RAM? ¿Mi programa es CPU o I/O bound?
+¿Por qué dicen que Python es lento y que necesito usar Numpy?
+
+Hay demasiadas preguntas para hacer y muchas cosas para aprender, y vamos a tratar de explorar
+que cosas tenemos que tener en cuenta desde un problema práctico.
