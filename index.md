@@ -2,6 +2,8 @@
 
 *la lista de diapositivas online está [acá](http://slides.saxa.xyz)*
 
+[Intro a MS Windows para Pythonistas (PyDay Hurlingham 2024)](./presentaciones/pyday_hurlingham_2024/)
+
 [Un Quarto de DDL, Sambayón y Menta Granizada, please (PyDay La Plata 2024)](./presentaciones/pyday_la_plata_2024/)
 
 [Qué es la Developer Experience y cómo aplicarla (ECI UBA 2023)](./presentaciones/eci_2023/) 
