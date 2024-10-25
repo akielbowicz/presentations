@@ -1,0 +1,242 @@
+---
+title: "Intro a MS Windows para Pythonistas"
+subtitle: "[saxa.xyz/charla-mswin](https://saxa.xyz/charla-mswin)"
+author: "@sashakile"
+format: 
+    revealjs:
+        footer: "🐍 PyDay Hurlingham 2024"
+        theme: solarized
+        output-file: slides
+---
+
+[saxa.xyz/charla-mswin](https://saxa.xyz/charla-mswin)
+
+![](data:image/gif;base64,R0lGODlhhACEAJEAAAAAAP///wAAAAAAACH5BAEAAAIALAAAAACEAIQAAAL/jI+py+0Po5y02ouz3rz7D4biSJbmiabqyrbuC8chQNf2jeeMjfCL78gBdsKikWJM6n61XpNJgwiJyupwYrVSrwZgwrsFH7JVJDm5dUah3MaUfV5KxPNn1x7wvoN4eh5vtlYnWKHXd4gjhdimxogF+OCnSGhIKee2mHYhyYZR2fbJeWdJ2OgJyUdaZAqH1rkRein6tbj3VzqWpakRm5iLmwrqOupIrLSb0XvDOih89Ft8W/bKWyuLiqlqO9toy1xo7Usc6LwKTe59vhm+rN7cfQ2cba7ATS29jY187B7BX68vErtP5OCJk2aQHsJWzwBqixdt37CFxib6ISOxIUV//wMzQfu3MWG6cR8hFix5UFk+eRjvgbRH0sJFkyjPIDv5bh1LmhXj3Hwk72dOh+1i4osTDSatoPdwLi26ESnUb04nSYVKsF9WoyqRoruq6tvWqB57Xv0KVmxZsmG1gp0q8O3asXTnyg3oAmRGuDJY6HV5qW+Lv0QTCoZB+Knhw4XdtiU6cp5SoSGBllO7U6PVyU37Oa2bWeFmvBxDn3rMNunE0UyHKv4Qmapnx3yfvsTGGTLpmaZrslbIO6LlWcH3Etc12+jp2rKV0z6uJXnlZrdbpxZJGjPW1cMt7rarOW65rtbDeLcOWrT4xWZzH9UI/XJNpcqwl/e9Hj/X89Paf/+/rxt67Gi3Un/vMSfdb1axl1qB1anXmEyBAZZSRw/Bx12EyeDGn3kXyhdgbfXppBqGoY3onH+9mbWch9udOKB0iaEIDowV2jjeWvaVmCOABxZHIYgHMjhWc9NJNmGK1z0X434rvkZdkkemRyRPU3Lo44xYCkljgUYCWc2H5BnoopFVHtTifBaSyZCQZeq3oZhrJnamcCzCmaaKPdokXpFtMshBbJ0pOSaBVoIgqIZfrmnojXbGiaCiMjLKpKMkJAplpo2+uKefrtW5I30QteRkpJrCOaaojpLaYHaTWqommn3OaSWmi8Kqp6qcskpjVUF6WSlwOqLqqqQaPrgpsIT/HmrZgrFySStqwXla2qOF0hYqeDxSS1mvz6ZarG1b6mrcuPzROSuOvpY67bkZVttullsC+m20j74Z4nLo5oqcnp8NK2F0wci147+o6ftutgL/GC6VsPSLZFrPGuxms8FKtemtfIqQHsHBaswqotp6zC7ADIfnQcdvZfzqxozlly+ef8J88r0nxLungjTvmwLO9MYcTMF9+Swz0PMIHaXERpvZpsofonXWzMZGzGmdupIs7pO/OZ1zd0pnzSPUXP98NIl5Zqos1SL7yHTQv5pM9tnrVlvuwVJ34F7e8xIroKxhdjry3gObu3DbZfv78aBgu6gl2xcHrvXdCosYbrKQrYed7rYQG1531ZkT7bbR7llud4igH754ghYjriTSqYf++pEUp8044dbazvnOHRZdM7KPRw6773eaDjHXYNI9ceLEL2y84Miz3iqOvF5+vLMB325i1/yWLjvNc7veZfHOf+9905dPrrHcq1M9dr3c630XtNLu3jrfpk4u/JLQc2v/1Stj+zv5YW9XDYufAEl3wMzF7WUMbKADHwjBCEpwghSsoAUviMEManCDDCwAADs=){fig-align="center"}
+
+# Motivación
+
+::: {.incremental}
+- Educación: Ayudar a quienes están aprendiendo
+- Trabajo: Pruebas Automáticas e Integración Continua
+:::
+
+---
+
+Esta charla es para vos sí:
+
+::: {.incremental .center}
+- Estás dando tus primeros pasos con la Linea de Comandos
+- Estás viendo una pesadilla de *GNU/Stallman*
+:::
+
+# Entendiendo Windows
+
+::: {.fragment}
+[![win95](https://www.key-software.net/images/windows-95/image2.jpg)](https://archive.org/details/win95_in_dosbox)
+:::
+
+---
+
+## Uso de la consola
+
+Por default *Windows* tiene `cmd` y `Windows PowerShell` y en las ultimas versiones ya incluye `PowerShell Core`.
+
+::: {.callout-caution .fragment}
+En esta charla vamos a usar `PowerShell Core`. Para más detalles ver [PowerShell](#powershell) 
+:::
+
+. . .
+
+`PowerShell` es como un `REPL` que tiene *pipes*
+
+. . .
+
+y donde **todo** es un *Objeto*.
+
+---
+
+## *File System*
+
+
+## Variables de Ambiente
+
+
+
+```powershell
+> $env:MI_VARIABLE=1001; python -c "import os; print(os.getenv('MI_VARIABLE'))"
+```
+
+## Algunos comandos útiles
+
+`get-help`, `get-command`, `get-alias`
+
+# Como instalar cosas
+
+::: {.fragment}
+- chocolatey
+- winget
+- **scoop** 
+:::
+
+# Python
+
+---
+
+- wheels/packages
+- ambientes virtuales
+
+## Errores comunes
+
+## Paths
+
+## subprocess
+
+## platform
+
+# Windows Subsystem for Linux (WSL)
+
+## Compartir variables de ambiente
+
+```
+WSLENV=:Variable/u:Variable/p
+```
+
+## *Paths*
+
+::: {.callout-tip}
+Dentro de WSL existe `wslpath` que permite traducir los paths de Windows a WSL y viceversa.
+:::
+
+Los discos de Windows están ubicados dentro de `/mnt`
+
+. . .
+
+Por ejemplo `C:/Users` se encuentra en `/mnt/c/Users`
+
+# Gracias!!
+
+::: {.callout-warning .fragment}
+Les dejo muchas cosas para explorar en las diapositivas que siguen
+:::
+
+# Extras
+
+La forma más sencilla de encontar algo es buscandolo directamente en[http://scoop.sh](http://scoop.sh)
+
+## Utilidades de la Linea de Comandos
+
+::: {.callout-tip}
+Para explorar paquetes `scoop info paquete` y `scoop home paquete`
+:::
+
+- pwsh
+- uutils-coreutils
+- msys2
+- starship
+
+## Utilidades Gráficas
+
+::: {.callout-tip}
+Para agregar el repositorio o *bucket* de aplicaciones  `scoop bucket add extras` 
+:::
+
+- powertoys
+- windows-terminal
+- greenshot
+
+## Utilidades para Inspeccionar el Sistema
+
+::: {.callout-tip}
+Para agregar el repositorio de aplicaciones de Sistema  `scoop bucket add sysinternals` 
+:::
+
+- zoomit
+- process-explorer
+- windirstat
+
+## Docker
+
+::: {.callout-warning}
+Para instalar Docker Desktop lo mejor es hacerlo con `winget` (si no está instalado lo pueden instalar con `scoop`)
+:::
+
+```powershell
+> winget install --id Docker.DockerDesktop
+```
+
+## Powershell
+
+
+
+---
+
+
+```powershell
+> $PSVersionTable
+
+Name                           Value
+----                           -----
+PSVersion                      7.4.3
+PSEdition                      Core
+GitCommitId                    7.4.3
+OS                             Microsoft Windows 10.0.19045
+Platform                       Win32NT
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0…}
+PSRemotingProtocolVersion      2.3
+SerializationVersion           1.1.0.1
+WSManStackVersion              3.0
+```
+
+## Manejo de Ambientes Virtuales de Python
+
+Para el 90% de los casos con `venv` de la librería estandar es suficiente.
+
+. . .
+
+Pero si en nuestro proyecto tenemos que usar alguna librería
+que tiene artefactos o dependencias compiladas lo mejor es usar `conda` o alguno de 
+
+## Configuraciones 
+
+![](./imagenes/folder_options.png)
+
+## CRLF
+
+Cuando uno trabaja en un repositorio en el cual otras personas
+usan otro sitema operativo como Linux o MacOS, la forma en que terminan las lineas (EOL) puede incurrir en cambios espureos en cada commit.
+
+```powershell
+> git config --global core.autocrlf false
+```
+
+[Más detalles de como configurarlo](https://docs.github.com/en/get-started/getting-started-with-git/configuring-git-to-handle-line-endings)
+
+## Paths muy largos
+
+*Windows* por defecto tiene un limite en la longitud del completo de un archivo (FullName) y en algunos casos eso puede causar errores. Como impedir que un repositorio se pueda clonar o crear algún archivo nuevo.
+
+```powershell
+> scoop checkup
+WARN  LongPaths support is not enabled.
+  You can enable it by running:
+    sudo Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled' -Value 1
+  (Requires 'sudo' command. Run 'scoop install sudo' if you don't have it.)
+```
+
+## Persistir Variables de Ambiente
+
+Buscar "Environment Variable" en el menú de inicio de Windows 
+
+![](imagenes/variables_de_ambiente.png)
+
+---
+
+O en la consola ...
+
+```powershell
+> [System.Environment]::SetEnvironmentVariable("MI_VARIABLE", "HOLA WINDOWS", [System.EnvironmentVariableTarget]::User)
+```
+
+::: {.callout .fragment}
+La notación extraña de corchetes la usamos porque desde `PowerShell` estamos accediendo a los *namespaces* o módulos del Sistema que están implementados en `C#`
+:::
