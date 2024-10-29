@@ -1,0 +1,537 @@
+---
+title: "Intro a MS Windows para Pythonistas"
+subtitle: "[saxa.xyz/charla-mswin](https://saxa.xyz/charla-mswin)"
+author: "@sashakile"
+format: 
+    revealjs:
+        footer: "🐍 PyDay Hurlingham 2024"
+        theme: solarized
+        output-file: slides
+---
+
+[saxa.xyz/charla-mswin](https://saxa.xyz/charla-mswin)
+
+![](data:image/gif;base64,R0lGODlhhACEAJEAAAAAAP///wAAAAAAACH5BAEAAAIALAAAAACEAIQAAAL/jI+py+0Po5y02ouz3rz7D4biSJbmiabqyrbuC8chQNf2jeeMjfCL78gBdsKikWJM6n61XpNJgwiJyupwYrVSrwZgwrsFH7JVJDm5dUah3MaUfV5KxPNn1x7wvoN4eh5vtlYnWKHXd4gjhdimxogF+OCnSGhIKee2mHYhyYZR2fbJeWdJ2OgJyUdaZAqH1rkRein6tbj3VzqWpakRm5iLmwrqOupIrLSb0XvDOih89Ft8W/bKWyuLiqlqO9toy1xo7Usc6LwKTe59vhm+rN7cfQ2cba7ATS29jY187B7BX68vErtP5OCJk2aQHsJWzwBqixdt37CFxib6ISOxIUV//wMzQfu3MWG6cR8hFix5UFk+eRjvgbRH0sJFkyjPIDv5bh1LmhXj3Hwk72dOh+1i4osTDSatoPdwLi26ESnUb04nSYVKsF9WoyqRoruq6tvWqB57Xv0KVmxZsmG1gp0q8O3asXTnyg3oAmRGuDJY6HV5qW+Lv0QTCoZB+Knhw4XdtiU6cp5SoSGBllO7U6PVyU37Oa2bWeFmvBxDn3rMNunE0UyHKv4Qmapnx3yfvsTGGTLpmaZrslbIO6LlWcH3Etc12+jp2rKV0z6uJXnlZrdbpxZJGjPW1cMt7rarOW65rtbDeLcOWrT4xWZzH9UI/XJNpcqwl/e9Hj/X89Paf/+/rxt67Gi3Un/vMSfdb1axl1qB1anXmEyBAZZSRw/Bx12EyeDGn3kXyhdgbfXppBqGoY3onH+9mbWch9udOKB0iaEIDowV2jjeWvaVmCOABxZHIYgHMjhWc9NJNmGK1z0X434rvkZdkkemRyRPU3Lo44xYCkljgUYCWc2H5BnoopFVHtTifBaSyZCQZeq3oZhrJnamcCzCmaaKPdokXpFtMshBbJ0pOSaBVoIgqIZfrmnojXbGiaCiMjLKpKMkJAplpo2+uKefrtW5I30QteRkpJrCOaaojpLaYHaTWqommn3OaSWmi8Kqp6qcskpjVUF6WSlwOqLqqqQaPrgpsIT/HmrZgrFySStqwXla2qOF0hYqeDxSS1mvz6ZarG1b6mrcuPzROSuOvpY67bkZVttullsC+m20j74Z4nLo5oqcnp8NK2F0wci147+o6ftutgL/GC6VsPSLZFrPGuxms8FKtemtfIqQHsHBaswqotp6zC7ADIfnQcdvZfzqxozlly+ef8J88r0nxLungjTvmwLO9MYcTMF9+Swz0PMIHaXERpvZpsofonXWzMZGzGmdupIs7pO/OZ1zd0pnzSPUXP98NIl5Zqos1SL7yHTQv5pM9tnrVlvuwVJ34F7e8xIroKxhdjry3gObu3DbZfv78aBgu6gl2xcHrvXdCosYbrKQrYed7rYQG1531ZkT7bbR7llud4igH754ghYjriTSqYf++pEUp8044dbazvnOHRZdM7KPRw6773eaDjHXYNI9ceLEL2y84Miz3iqOvF5+vLMB325i1/yWLjvNc7veZfHOf+9905dPrrHcq1M9dr3c630XtNLu3jrfpk4u/JLQc2v/1Stj+zv5YW9XDYufAEl3wMzF7WUMbKADHwjBCEpwghSsoAUviMEManCDDCwAADs=){fig-align="center"}
+
+# Motivación
+
+::: {.incremental}
+- Educación: Ayudar a quienes están aprendiendo
+- Trabajo: Pruebas Automáticas e Integración Continua
+:::
+
+---
+
+Esta charla es para vos si:
+
+::: {.incremental .center}
+- Estás dando tus primeros pasos con la Línea de Comandos
+- Estás viendo una pesadilla de *GNU/Stallman*
+:::
+
+---
+
+::: {.callout-warning}
+Todo lo que sigue es mi opinión basada en mi experiencia de desarrollo. Seguramente hay mejores formas de hacerlo, y si conocés alguna compartilo. 
+:::
+
+# Entendiendo Windows
+
+::: {.fragment}
+[![win95](https://www.key-software.net/images/windows-95/image2.jpg)](https://archive.org/details/win95_in_dosbox)
+:::
+
+---
+
+## Uso de la consola
+
+Por default *Windows* tiene `cmd` y `Windows PowerShell` y en las últimas versiones ya incluye `PowerShell Core`.
+
+::: {.callout-caution .fragment}
+En esta charla vamos a usar `PowerShell Core`. Para más detalles ver [PowerShell](#powershell) 
+:::
+
+. . .
+
+`PowerShell` es como un `REPL` que tiene *pipes*
+
+. . .
+
+y donde **todo** es un *Objeto*.
+
+---
+
+## *File System*
+
+Cada Unidad (*drive*) corresponde a un disco duro y son nombradas con **una** letra, por ejemplo: `C:\`. Y cada unidad es independiente del resto.
+
+. . .
+
+
+La ruta de un archivo se ve así: 
+
+`C:\un\archivo\dentro\de\muchas\carpetas\fin.csv`
+
+:::{ .callout-warning}
+En `Windows` las rutas de los archivos usan `\` (*backward slash*) a diferencia de `/` (*forward slash*) en otros sistemas. 
+:::
+
+---
+
+Para inspeccionar todas las unidades:
+
+```powershell
+> Get-PSDrive
+
+Name           Used (GB)     Free (GB) Provider      Root                                                            CurrentLocation
+----           ---------     --------- --------      ----                                                            ---------------
+Alias                                  Alias
+C                 135.43         60.89 FileSystem    C:\
+Cert                                   Certificate   \
+D                  14.15         10.85 FileSystem    D:\
+Env                                    Environment
+Function                               Function
+HKCU                                   Registry      HKEY_CURRENT_USER
+HKLM                                   Registry      HKEY_LOCAL_MACHINE
+Temp              135.43         60.89 FileSystem    C:\Users\augus\AppData\Local\Temp\
+Variable                               Variable
+WSMan                                  WSMan
+```
+
+## Variables de Ambiente
+
+En `PowerShell` las variables se pueden acceder por la unidad virtual (*virtual drive*) `variable:` (algo similar al `locals()` de python) y las variables de ambiente en `env:`
+
+. . .
+
+Podemos inspeccionar el contenido con: `ls env:`
+
+. . .
+
+o modificarlas con 
+
+`$env:MI_VARIABLE_DE_SALUDO="HOLA UNaHur!"`
+
+---
+
+```powershell
+> $env:MI_VARIABLE=1001
+> python -c "import os; print(os.getenv('MI_VARIABLE'))"
+```
+
+:::{.callout-important .fragmet}
+Cada proceso hereda las variables de ambiente del proceso que lo originó (*parent*). De manera que hay que reiniciar un programa para que tome un cambio en una variable de ambiente.
+:::
+
+## Algunos comandos útiles 
+
+:::{.incremental}
+- `get-help`
+- `get-command`
+- `get-alias`
+:::
+
+# Cómo instalar cosas
+
+::: {.fragment}
+- chocolatey
+- winget
+- **scoop** 
+:::
+
+. . .
+
+```powershell
+> scoop install main/python
+```
+
+:::{.callout-note .fragment}
+`scoop` es un instalador de programas que se utiliza por la línea de comandos, similar a `apt-get` o `homebrew`. Nos permite instalar herramientas de la línea de comandos (CLI) como también programas que tienen interfaz gráfica (GUI).
+
+Más detalles sobre [scoop acá](#más-info-sobre-scoop)
+:::
+
+# Ahora sí, un poco de `Python` 
+
+. . .
+
+Veamos un par de cosas que causan dolores de cabeza y es muy común encontrarlas.
+
+---
+
+Obtengamos todos los comandos que inician con **python**
+
+```powershell
+> get-command python*
+```
+
+. . .
+
+```powershell
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Application     python.exe                                         3.10.1115… C:\Users\augus\AppData\Local\Programs\Python\Python31…
+Application     python.exe                                         3.12.2150… C:\Users\augus\scoop\apps\python\current\python.exe
+Application     python.exe                                         0.0.0.0    C:\Users\augus\scoop\shims\python.exe
+Application     python.exe                                         0.0.0.0    C:\Users\augus\AppData\Local\Microsoft\WindowsApps\py…
+Application     python3.exe                                        0.0.0.0    C:\Users\augus\scoop\shims\python3.exe
+Application     python3.exe                                        0.0.0.0    C:\Users\augus\AppData\Local\Microsoft\WindowsApps\py…
+Application     pythontex.exe                                      0.0.0.0    C:\Users\augus\scoop\apps\miktex\current\texmfs\insta…
+Application     pythonw.exe                                        3.10.1115… C:\Users\augus\AppData\Local\Programs\Python\Python31…
+Application     pythonw.exe                                        3.12.2150… C:\Users\augus\scoop\apps\python\current\pythonw.exe
+Application     pythonw.exe                                        0.0.0.0    C:\Users\augus\scoop\shims\pythonw.exe
+```
+. . .
+
+Y ahora? cuál de todos uso?
+
+## Ambientes virtuales
+
+:::{.callout-tip}
+## REGLA DE HIGIENE DE LA VIVORA DE ORO^[Solo hay que acostumbrase a usarlos y la vida va a ser más sencilla y de mejor calidad. Es como lavarse las manos o tomar agua.]
+
+**Siempre trabajar en un Ambiente Virtual.**
+:::
+
+---
+
+Para crear un ambiente virtual, elegimos cualquiera ejecutable de `python`, de la versión que querramos, y creamos un ambiente virtual con `venv`
+
+```powershell
+> cd "a donde querramos tener nuestro proyecto"
+> python3 -m venv .venv
+```
+
+. . .
+
+Y lo activamos
+
+```powershell
+> .\.venv\Scripts\Activate.ps1
+```
+
+---
+
+Y verificamos que vamos a usar el ejecutable correcto
+
+```powershell
+> get-command python
+```
+
+---
+
+### Instalamos paquetes
+
+:::{.callout-important}
+Siempre que instalemos un paquete con `pip` hacerlo de la siguiente manera
+
+```powershell
+> python -m pip install <algun paquete>
+```
+:::
+
+## Usando [`IPython`](https://ipython.readthedocs.io/en/stable/interactive/tutorial.html) como *REPL* o consola interactiva
+
+```powershell
+> python -m pip install ipython
+> ipython
+Python 3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 8.29.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]:
+```
+
+## Rutas de archivos (*paths*)
+
+:::{.callout-important}
+## REGLA DE INTEROPERABILIDAD: 
+
+**Nunca definir rutas de directorios o archivos como** *strings*, siempre usar [`pathlib`](https://docs.python.org/es/3/library/pathlib.html#module-pathlib).
+:::
+
+```python
+from pathlib import Path
+directorio = Path(r"C:\\User")
+archivo = directorio / "mi_archivo.txt"
+```
+
+::: {.callout-tip .fragment}
+Una buena forma de poner a prueba la interoperabilidad de nuestro código es implementando **Pruebas Automáticas** o *Tests* y ejecutarlos en un sistema de Integración Continua (CI/CD) como [GitHub Actions](https://github.com/marketplace/actions/setup-python) 
+:::
+
+## Otras librerías estandar para explorar^[que son dependientes de la plataforma]
+
+:::{.incremental}
+- [`subprocess`](https://docs.python.org/es/3/library/subprocess.html#module-subprocess) 
+- [`shutil`](https://docs.python.org/es/3/library/shutil.html#module-shutil)
+- [`platform`](https://docs.python.org/es/3/library/platform.html#module-platform)
+- [`os`](https://docs.python.org/es/3/library/os.html#module-os)
+- [`tempfile`](https://docs.python.org/es/3/library/tempfile.html#module-tempfile)
+:::
+
+# Windows Subsystem for Linux (WSL)
+
+---
+
+WSL nos permite tener distribuciones de Linux dentro de nuestro sistema Windows. Integrado de manera nativa de manera que tenemos acceso a recursos como los archivos, dispositivos, red, etc ...
+
+## Cómo instalar distintas distribuciones
+
+Para listar las distribuciones disponibles para instalar:
+
+```powershell
+> wsl --list --online
+The following is a list of valid distributions that can be installed.
+Install using 'wsl.exe --install <Distro>'.
+
+NAME                            FRIENDLY NAME
+Ubuntu                          Ubuntu
+Debian                          Debian GNU/Linux
+kali-linux                      Kali Linux Rolling
+Ubuntu-18.04                    Ubuntu 18.04 LTS
+Ubuntu-20.04                    Ubuntu 20.04 LTS
+....
+```
+
+## Compartir variables de ambiente
+
+Para 
+
+```
+WSLENV=:Variable/u:Variable/p
+```
+
+## *Paths*
+
+::: {.callout-tip}
+Dentro de WSL existe `wslpath` que permite traducir los paths de Windows a WSL y viceversa.
+:::
+
+Los discos de Windows están ubicados dentro de `/mnt`
+
+. . .
+
+Por ejemplo `C:/Users` se encuentra en `/mnt/c/Users`
+
+---
+
+:::{.callout-important}
+Cuando instalen una distribución aseguren que está en la versión 2 de WSL
+:::
+
+```powershell
+> wsl --list --verbose
+  NAME                   STATE           VERSION
+* Debian                 Stopped         2
+  docker-desktop         Stopped         2
+  docker-desktop-data    Stopped         2
+```
+
+. . .
+
+En caso de ser necesario pueden cambiar la versión con 
+
+```powershell
+> wsl --set-version <Distribución> 2
+```
+
+# Gracias!!
+
+::: {.callout-warning .fragment}
+Les dejo muchas cosas para explorar en las diapositivas que siguen
+:::
+
+# Extras
+
+## Más info sobre Scoop
+
+La forma más sencilla de encontar algo es buscándolo directamente en [http://scoop.sh](http://scoop.sh)
+
+## Utilidades de la Línea de Comandos
+
+::: {.callout-tip}
+Para explorar paquetes `scoop info paquete` y `scoop home paquete`
+:::
+
+- pwsh
+- uutils-coreutils
+- msys2
+- starship
+
+## Utilidades Gráficas
+
+::: {.callout-tip}
+Para agregar el repositorio o *bucket* de aplicaciones  `scoop bucket add extras` 
+:::
+
+- powertoys
+- windows-terminal
+- greenshot
+
+## Utilidades para Inspeccionar el Sistema
+
+::: {.callout-tip}
+Para agregar el repositorio de aplicaciones de Sistema  `scoop bucket add sysinternals` 
+:::
+
+- zoomit
+- process-explorer
+- windirstat
+
+## Otras versiones de un programa
+
+En el *bucket* `versions` se guardan las versiones historicas de los paquetes de manera que nos permite instalar cualquier versión de manera sencilla. Por ejemplo para [`python`](https://scoop.sh/#/apps?q=python)
+
+```powershell
+> scoop search python
+Name              Version   Source   Binaries
+----              -------   ------   --------
+python            3.13.0    main     
+winpython         3.12.4.1  main     
+anaconda3         2024.10-1 extras   python.exe | pythonw.exe | python.exe
+fontforge         20230101  extras   ffpython.exe
+mambaforge        24.9.0-0  extras   python.exe | pythonw.exe | python.exe
+miniconda3        24.9.2-0  extras   python.exe | pythonw.exe | python.exe
+paraview          5.13.0    extras   pvpython.exe
+anaconda2         2019.10   versions python.exe | pythonw.exe | python.exe
+anaconda3-2022.05 2022.05   versions python.exe | pythonw.exe | python.exe
+miniconda2        4.8.3     versions python.exe | pythonw.exe | python.exe
+miniconda3-4.12.0 4.12.0    versions python.exe | pythonw.exe | python.exe
+miniconda3-py310  24.9.2-0  versions python.exe | pythonw.exe | python.exe
+miniconda3-py311  24.9.2-0  versions python.exe | pythonw.exe | python.exe
+miniconda3-py37   23.1.0-1  versions python.exe | pythonw.exe | python.exe
+miniconda3-py38   23.11.0-2 versions python.exe | pythonw.exe | python.exe
+miniconda3-py39   24.9.2-0  versions python.exe | pythonw.exe | python.exe
+python-alpha      3.14.0a1  versions 
+python-beta       3.14.0a1  versions 
+python-pre        3.14.0a1  versions 
+python-rc         3.13.0rc3 versions 
+python27          2.7.18    versions 
+python310         3.10.11   versions 
+python311         3.11.9    versions 
+python312         3.12.7    versions 
+python35          3.5.4     versions 
+python36          3.6.8     versions 
+python37          3.7.9     versions 
+python38          3.8.10    versions 
+python39          3.9.13    versions 
+winpython37       3.7.7.1   versions 
+winpython3741     3.7.4.1   versions 
+winpython37cod    3.7.7.1   versions 
+winpython37ps2    3.7.6.0   versions 
+winpython38       3.8.9.0   versions 
+winpython38cod    3.8.7.0   versions 
+winpython38ps2    3.8.1.0   versions 
+```
+
+## Docker
+
+::: {.callout-warning}
+Para instalar Docker Desktop lo mejor es hacerlo con `winget` (si no está instalado lo pueden instalar con `scoop`)
+:::
+
+```powershell
+> winget install --id Docker.DockerDesktop
+```
+
+## Powershell
+
+. . .
+
+Para saber que versión de `PowerShell` tenemos
+
+```powershell
+> $PSVersionTable
+
+Name                           Value
+----                           -----
+PSVersion                      7.4.3
+PSEdition                      Core
+GitCommitId                    7.4.3
+OS                             Microsoft Windows 10.0.19045
+Platform                       Win32NT
+PSCompatibleVersions           {1.0, 2.0, 3.0, 4.0…}
+PSRemotingProtocolVersion      2.3
+SerializationVersion           1.1.0.1
+WSManStackVersion              3.0
+```
+
+---
+
+Para configurar el perfil de PowerShell hay que modificar el archivo `$Profile`, más info en la [documentación oficial](https://learn.microsoft.com/en-us/powershell/scripting/learn/shell/creating-profiles?view=powershell-7.4)
+
+. . .
+
+Pueden explorar la configuración del módulo [PSReadline](https://github.com/PowerShell/PSReadLine) de `PowerShell` para tener mejor auto-completado entre otras cosas.
+
+## Manejo de Ambientes Virtuales de Python
+
+Para el 90% de los casos con `venv` de la librería estandar es suficiente.
+
+. . .
+
+Pero si en nuestro proyecto tenemos que usar alguna librería
+que tiene artefactos o dependencias compiladas lo mejor es usar `conda`.
+
+
+## Info extra de `Pip`
+
+La forma más fácil de encontrar los archivos de configuración de `pip`
+
+```powershell
+> python -m pip config -v list
+For variant 'global', will try loading 'C:\ProgramData\pip\pip.ini'
+For variant 'user', will try loading 'C:\Users\augus\pip\pip.ini'
+For variant 'user', will try loading 'C:\Users\augus\AppData\Roaming\pip\pip.ini'
+For variant 'site', will try loading 'C:\temp\z\.venv\pip.ini'
+```
+
+
+Documentación de dónde estan los archivos de configuración de [pip](https://pip.pypa.io/en/stable/topics/configuration/#location)
+
+
+## Configuraciones 
+
+![](./imagenes/folder_options.png)
+
+## CRLF
+
+Cuando uno trabaja en un repositorio en el cual otras personas
+usan otro sitema operativo como Linux o MacOS, la forma en que terminan las líneas (EOL) puede incurrir en cambios espureos en cada commit.
+
+```powershell
+> git config --global core.autocrlf false
+```
+
+[Más detalles de como configurarlo](https://docs.github.com/en/get-started/getting-started-with-git/configuring-git-to-handle-line-endings)
+
+## Paths muy largos
+
+*Windows* por defecto tiene un limite en la longitud del completo de un archivo (FullName) y en algunos casos eso puede causar errores. Como impedir que un repositorio se pueda clonar o crear algún archivo nuevo.
+
+```powershell
+> scoop checkup
+WARN  LongPaths support is not enabled.
+  You can enable it by running:
+    sudo Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled' -Value 1
+  (Requires 'sudo' command. Run 'scoop install sudo' if you don't have it.)
+```
+
+## Persistir Variables de Ambiente
+
+Buscar "Environment Variable" en el menú de inicio de Windows 
+
+![](imagenes/variables_de_ambiente.png)
+
+---
+
+O en la consola ...
+
+```powershell
+> [System.Environment]::SetEnvironmentVariable("MI_VARIABLE", "HOLA WINDOWS", [System.EnvironmentVariableTarget]::User)
+```
+
+::: {.callout .fragment}
+La notación extraña de corchetes la usamos porque desde `PowerShell` estamos accediendo a los *namespaces* o módulos del Sistema que están implementados en `C#`
+:::
