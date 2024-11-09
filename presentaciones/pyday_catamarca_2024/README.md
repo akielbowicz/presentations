@@ -1,4 +1,4 @@
-# PyDay La Plata - Septiembre 2024
+# PyDay Catamarca - Noviembre 2024
 
 [evento](https://eventos.python.org.ar/events/PyDayCatamarca/)
 ~[video]()~

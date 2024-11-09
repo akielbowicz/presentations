@@ -1,4 +1,4 @@
-# PyDay La Plata - Septiembre 2024
+# PyDay Hurlingham - Octubre 2024
 
 [evento](https://eventos.python.org.ar/events/pyday-hurlingham-2024/)
 ~[video]()~
