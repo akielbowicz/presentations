@@ -1,6 +1,8 @@
 Propuestas
 ==========
 
+[Nerdearla 2025](./nerdearla_2025.md)
+
 [PyDays 2024](./pyday_2024.md)
 
 [Meetup PyAr Nov 2022](./pyar_meetup_nov_2022.md)
