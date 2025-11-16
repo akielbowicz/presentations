@@ -39,15 +39,15 @@ Nivel medio. Se recomienda conocimiento de programación orientada a objetos en 
 - Programación funcional
 - Artesanía de software 
 
-# Vibe Coding para Artesanxs
+# Raros Peinados Nuevos
 
 ## Short Abstract (300 caracteres)
 
-Exploramos las ideas del libro Vibe Coding (Gene Kim y Steve Yegge) aplicadas a proyectos Python. Cómo mantener criterio técnico cuando la IA genera cada vez más código, qué prácticas funcionan en equipos reales, y el impacto en la enseñanza cuando las herramientas cambian más rápido que los planes de estudio.
+Ya no programamos como antes. Exploramos Vibe Coding (Gene Kim y Steve Yegge) aplicado a Python: cómo mantener criterio técnico con estas nuevas formas de trabajo, qué prácticas funcionan en equipos reales, y cómo adaptarse cuando las herramientas evolucionan más rápido que nosotros.
 
 ## Long Description
 
-¿Cómo podemos aprovechar las nuevas herramientas que tenemos sin perder el criterio técnico?
+Ya no programamos como antes, las herramientas son otras, las prácticas cambiaron. ¿Cómo nos adaptamos sin perder lo esencial?
 
 La IA cambió el mapa del desarrollo, pero no cambió algo fundamental: necesitamos entender lo que hacemos. En esta charla vamos a ver las ideas del libro Vibe Coding de Gene Kim y Steve Yegge, y cómo aplicarlas para mantener criterio técnico cuando la IA genera cada vez más partes de nuestro código.
 
@@ -74,17 +74,17 @@ Todas las seniorities. Especialmente útil para quienes lideran equipos o enseñ
 - Prácticas de desarrollo
 
 
-# Tips de Carrera
+# Como eran las cosas
 
 ## Short Abstract (300 caracteres)
 
-Guía práctica para crecer profesionalmente en tecnología basada en experiencia formando equipos. Qué se espera de cada nivel de seniority, cómo agregar valor real en tu equipo, y cómo usar IA para aprender sin caer en malos hábitos. Para todas las seniorities.
+Ya no es como era antes. Guía práctica para crecer profesionalmente en tecnología: qué se espera de cada nivel de seniority, cómo agregar valor real en tu equipo, y cómo usar IA para aprender sin caer en malos hábitos. Basado en experiencia formando equipos.
 
 ## Long Description
 
-El camino profesional en tecnología ya no es lineal: cambian los roles, cambian las expectativas, cambian los criterios con los que te evalúan.
+Ya no es como era antes: el camino profesional en tecnología cambió, los roles evolucionaron, las expectativas son otras, y los criterios con los que te evalúan también.
 
-Estos últimos meses me dediqué a formar y armar dos equipos de desarrollo, entrevistar decenas de personas y definir roles. Voy a compartir lo que aprendí en el proceso: qué se espera realmente de un junior, un semisenior y un senior, qué habilidades marcan la diferencia en cada etapa, y cómo priorizar el aprendizaje para no estancarte.
+Estos últimos meses me dediqué a formar y armar dos equipos de desarrollo, entrevistar personas y definir roles. Voy a compartir lo que aprendí en el proceso: cómo eran las cosas antes y cómo son ahora. Qué se espera realmente de un junior, un semisenior y un senior, qué habilidades marcan la diferencia en cada etapa, y cómo priorizar el aprendizaje para no estancarte.
 
 No vamos a hablar de "pasión" ni de trabajar 12 horas por día. Vamos a hablar de cosas concretas: cómo agregar valor real en tu equipo, qué significa ser senior más allá de los años de experiencia, cómo comunicarte mejor con tu equipo y tomar mejores decisiones técnicas.
 
