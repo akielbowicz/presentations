@@ -1,3 +1,13 @@
+## Bio / Perfil
+
+Sasha es Tech Lead en Mercado Libre con experiencia en desarrollo de software financiero y científico. Trabajó en empresas como J.P. Morgan, SimCorp y Qontigo, especializándose en Python, C# y Julia. Licenciado en Física por la UBA.
+
+Recientemente formó dos equipos de desarrollo desde cero, donde aplicó prácticas de diseño orientado a objetos, artesanía de software y desarrollo open source. Contribuidor activo en proyectos de análisis y visualización de datos.
+
+Expositor regular en conferencias y meetups de tecnología (PyConAr, PyDay), donde comparte experiencias sobre patrones de diseño, clean code, formación de equipos y buenas prácticas de desarrollo aplicadas a problemas reales.
+
+---
+
 # Nadie, nada, nunca
 
 ## Short Abstract (300 caracteres)
