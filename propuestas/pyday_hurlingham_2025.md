@@ -32,12 +32,7 @@ En la charla vamos a ver:
 Nivel medio. Se recomienda conocimiento de programación orientada a objetos en Python.
 
 ## Labels
-- Patrones de diseño
-- Null Object Pattern
-- Orientación a objetos
-- Clean Code
-- Programación funcional
-- Artesanía de software 
+Patrones de diseño, Null Object Pattern, Orientación a objetos, Clean Code, Programación funcional, Artesanía de software 
 
 # Raros Peinados Nuevos
 
@@ -65,13 +60,7 @@ En la charla vamos a ver:
 Todas las seniorities. Especialmente útil para quienes lideran equipos o enseñan programación.
 
 ## Labels
-- Vibe Coding
-- Inteligencia Artificial
-- Artesanía de software
-- Software Craftsmanship
-- Educación
-- Liderazgo técnico
-- Prácticas de desarrollo
+Vibe Coding, Inteligencia Artificial, Artesanía de software, Software Craftsmanship, Educación, Liderazgo técnico, Prácticas de desarrollo
 
 
 # Como eran las cosas
@@ -100,10 +89,4 @@ En la charla vamos a hablar sobre:
 Todas las seniorities. Especialmente útil para juniors y semis que buscan crecer, y seniors que quieren entender mejor cómo formar gente.
 
 ## Labels
-- Carrera profesional
-- Desarrollo profesional
-- Liderazgo
-- Formación de equipos
-- Entrevistas técnicas
-- Inteligencia Artificial
-- Seniority
+Carrera profesional, Desarrollo profesional, Liderazgo, Formación de equipos, Entrevistas técnicas, Inteligencia Artificial, Seniority
