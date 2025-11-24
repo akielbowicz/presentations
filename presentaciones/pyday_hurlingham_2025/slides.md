@@ -6,19 +6,44 @@
 **29 de Noviembre 2025**
  
 ---
- 
+
+### Sasha
+
+Líder Técnico en Mercado Libre 
+
+*IT Staff || Financial Planning & Analysis*
 
 ---
 
-![](./images/george_nothing.gif)
+### Sasha
 
+Líder Técnico en **MELI** 
+
+*IT Staff || Financial Planning & Analysis*
 
 --
 
 
+
+--
+
+![](./images/george_nothing.gif)
+
+--
+
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/OMPfEXIlTVE?si=pqTo6xzKa1qfn5us" title="Nothing is Something" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
 
 [Nothing is Something](https://www.youtube.com/watch?v=OMPfEXIlTVE) de Sandi Metz
+
+---
+
+Layers
+
+```mermaid
+graph TD
+    A[Cliente] --> B[Servicio]
+    B --> C[Repositorio]
+```
 
 ---
 
