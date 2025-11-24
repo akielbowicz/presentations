@@ -13,21 +13,22 @@ Líder Técnico en Mercado Libre
 
 *IT Staff || Financial Planning & Analysis*
 
----
+--
 
 ### Sasha
 
-Líder Técnico en **MELI** 
+Líder Técnico en **MELI**
 
 *IT Staff || Financial Planning & Analysis*
 
+<!-- .slide: data-transition="none" -->
 --
 
 
 
 --
 
-![](./images/george_nothing.gif)
+<img src="./images/george_nothing.gif" width="70%">
 
 --
 
@@ -37,7 +38,7 @@ Líder Técnico en **MELI**
 
 ---
 
-Layers
+## Layers
 
 ```mermaid
 graph TD
@@ -45,7 +46,309 @@ graph TD
     B --> C[Repositorio]
 ```
 
+<!-- .element: class="fragment" -->
+
+**Cliente** - Interfaz del usuario
+
+<!-- .element: class="fragment" -->
+
+**Servicio** - Lógica de negocio
+
+<!-- .element: class="fragment" -->
+
+**Repositorio** - Acceso a datos
+
+<!-- .element: class="fragment" -->
+
 ---
+
+## Ejemplo de Fragments
+
+Usa `<!-- .element: class="fragment" -->` después de cada elemento para revelarlo uno por uno:
+
+
+Este texto aparece primero
+<!-- .element: class="fragment fade-in" -->
+
+
+Este texto aparece segundo
+<!-- .element: class="fragment fade-in" -->
+
+
+Este texto se resalta en rojo
+<!-- .element: class="fragment highlight-red" -->
+
+
+Este texto aparece desde abajo
+<!-- .element: class="fragment fade-up" -->
+
+---
+
+# Programación Orientada a Objetos (POO)
+
+---
+
+```python
+str(1)
+# => '1'
+```
+
+--
+
+```python
+1 + 1
+# => 2 
+```
+
+--
+
+```python
+type(1)
+# => int
+```
+
+--
+
+```python
+dir(int)
+# => ['__abs__', '__add__', '__and__', '__bool__', '__class__', ..., '__str__', '__sub__', ...]
+``` 
+
+---
+
+```python
+1 == 1
+# => True
+```
+
+--
+
+```python
+type(True)
+# => bool
+```
+
+--
+
+Las keywords de SmallTalk: 
+
+> true, false, nil, self, super, thisContext
+
+```python
+import keyword
+print(keyword.kwlist)
+['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+```
+
+[SmallTalk Syntax](https://en.wikipedia.org/wiki/Smalltalk#Syntax)
+[Python Keywords](https://docs.python.org/3/reference/lexical_analysis.html#keywords)
+
+--
+
+-- 
+
+```python
+if (1 == 1):
+    print("Verdadero")
+else:
+    print("Falso")
+```
+
+--
+
+```python
+if (True):
+    print("Verdadero")
+else:
+    print("Falso")
+```
+
+--
+
+```python
+if ( truthy ):
+    # Código a evaluar cuando es verdadero
+else:
+    # Código a evaluar cuando es falso
+```
+
+--
+
+```python
+if ( Objeto del cual conozco el tipo ):
+    # Código que hace algo
+else:
+    # Código que hace otra cosa
+```
+
+--
+
+```python
+class Verdadero:
+    @classmethod
+    def si_verdadero(cls, codigo):
+        codigo()
+        return cls
+
+    @classmethod
+    def si_falso(cls, codigo):
+        return cls
+```
+
+```python
+class Falso:
+    @classmethod
+    def si_verdadero(cls, codigo):
+        return cls
+    @classmethod
+    def si_falso(cls, codigo):
+        codigo()
+        return cls
+```
+
+--
+
+```python
+Verdadero.si_verdadero(lambda: print("Evalua si es Verdadero")).si_falso(lambda: print("Evalua si es Falso"))
+```
+
+---
+
+```
+from forbiddenfruit import curse
+```
+
+```python
+
+```
+
+
+---
+
+**¿Qué pasaría si no existiese el `if`?**
+
+--
+
+```python
+Biblioteca.buscar("Los Sorias")
+# =>  <__main__.Libro at 0x7f0f49464d70>
+```
+
+```python
+Biblioteca.buscar("")
+# => None
+```
+
+--
+
+```python
+ids = ["Los Sorias", "", "Ocio"]
+
+libros = [ Biblioteca.buscar(id) for id in ids ]
+# => [<__main__.Libro object at 0x7f0f4bf35940> id:Los Sorias,
+# None,
+# <__main__.Libro object at 0x7f0f48e10190> id:Ocio]
+```
+
+```python
+for libro in libros:
+    print(libro.autor)
+# => AttributeError: 'NoneType' object has no attribute 'autor'
+```
+
+--
+
+Hay veces que `None` **es** nada.
+
+--
+
+```python
+libros = [ libro for id in ids if (libro := Biblioteca.buscar(id)) ]
+# => [<__main__.Libro object at 0x7f0f4bf35940> id:Los Sorias,
+# <__main__.Libro object at 0x7f0f48e10190> id:Ocio]
+```
+
+--
+
+Pero si le pasamos un mensaje a `None`, entonces **es algo**.
+
+--
+
+```python
+ids = ["Los Sorias", "", "Ocio"]
+
+libros = [ Biblioteca.buscar(id) for id in ids ]
+# => [<__main__.Libro object at 0x7f0f4bf35940> id:Los Sorias,
+# None,
+# <__main__.Libro object at 0x7f0f48e10190> id:Ocio]
+
+for libro in libros:
+    print(libro.autor if libro else "Libro Desconocido")
+```
+
+--
+
+
+```python
+ids = ["Los Sorias", "", "Ocio"]
+
+libros = [ Biblioteca.buscar(id) for id in ids ]
+# => [<__main__.Libro object at 0x7f0f4bf35940> id:Los Sorias,
+# None,
+# <__main__.Libro object at 0x7f0f48e10190> id:Ocio]
+
+for libro in libros:
+    print(libro and libro.autor)
+```
+
+--
+
+```python
+"" if libro is None else libro.autor
+```
+
+```python
+if libro is None:
+    return ""
+else:
+    return libro.autor
+```
+
+--
+
+```python
+if libro is None:
+    return ""
+else:
+    return libro.autor
+```
+
+```python
+if ( Objeto del cual conozco el tipo ):
+    # Código que hace algo
+else:
+    # Código que hace otra cosa
+```
+
+--
+
+```python
+if libro is None:
+    return ""
+else:
+    return libro.autor
+```
+
+```python
+if ( Objeto del cual conozco el tipo ):
+    # Yo proveo el comportamiento
+else:
+    # Le envío un mensaje al objeto (llamo un método)
+```
+
+--
+
+--
 
 ## EL PROBLEMA EN VIVO
 
