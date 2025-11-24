@@ -1,14 +1,24 @@
-# Nada es Algo
+# Nadie nada nunca
 
-## ¿Existe la Programación Orientada a Objetos sin if?
 
-**PyDay Hurlingham 2025**
+**PyDay Hurlingham**
+ 
+**29 de Noviembre 2025**
+ 
+---
+ 
 
 ---
 
-## El Peor Enemigo del Desarrollador Python 💥
+![](./images/george_nothing.gif)
 
-### Cuando la Búsqueda Falla...
+
+--
+
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/OMPfEXIlTVE?si=pqTo6xzKa1qfn5us" title="Nothing is Something" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+
+[Nothing is Something](https://www.youtube.com/watch?v=OMPfEXIlTVE) de Sandi Metz
 
 ---
 
