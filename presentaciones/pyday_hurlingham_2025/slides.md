@@ -283,7 +283,7 @@ libros = [ Biblioteca.buscar(id) for id in ids ]
 # <__main__.Libro object at 0x7f0f48e10190> id:Ocio]
 
 for libro in libros:
-    print(libro.autor if libro else "Libro Desconocido")
+    print(libro.autor if libro else "Libro desconocido")
 ```
 
 --
@@ -304,12 +304,12 @@ for libro in libros:
 --
 
 ```python
-"Libro Desconocido" if libro is None else libro.autor
+"Libro desconocido" if libro is None else libro.autor
 ```
 
 ```python
 if libro is None:
-    return "Libro Desconocido"
+    return "Libro desconocido"
 else:
     return libro.autor
 ```
@@ -318,7 +318,7 @@ else:
 
 ```python
 if libro is None:
-    return "Libro Desconocido"
+    return "Libro desconocido"
 else:
     return libro.autor
 ```
@@ -337,7 +337,7 @@ else:
 
 ```python
 if libro is None:
-    return "Libro Desconocido"
+    return "Libro desconocido"
 else:
     return libro.autor
 ```
@@ -372,7 +372,7 @@ else:
 
 ```python
 libro = Biblioteca.buscar(id)
-"Libro Desconocido" if libro is None else libro.autor
+"Libro desconocido" if libro is None else libro.autor
 ```
 
 </div>
@@ -384,7 +384,7 @@ libro = Biblioteca.buscar(id)
 
 ```python
 libro = Biblioteca.buscar(id)
-"Libro Desconocido" if libro is None else libro.autor
+"Libro desconocido" if libro is None else libro.autor
 ```
 
 </div>
@@ -393,7 +393,7 @@ libro = Biblioteca.buscar(id)
 
 ```python
 libro = Biblioteca.buscar(id)
-"Libro Desconocido" if libro is None else libro.autor
+"Libro desconocido" if libro is None else libro.autor
 ```
 
 </div>
@@ -402,7 +402,7 @@ libro = Biblioteca.buscar(id)
 
 ```python
 libro = Biblioteca.buscar(id)
-"Libro Desconocido" if libro is None else libro.autor
+"Libro desconocido" if libro is None else libro.autor
 ```
 
 </div>
@@ -411,7 +411,7 @@ libro = Biblioteca.buscar(id)
 
 ```python
 libro = Biblioteca.buscar(id)
-"Libro Desconocido" if libro is None else libro.autor
+"Libro desconocido" if libro is None else libro.autor
 ```
 
 </div>
@@ -425,7 +425,7 @@ libro = Biblioteca.buscar(id)
 
 ```python
 libro = Biblioteca.buscar(id)
-"Libro Desconocido" if libro is None else libro.autor
+"Libro desconocido" if libro is None else libro.autor
 ```
 
 </div>
@@ -434,7 +434,7 @@ libro = Biblioteca.buscar(id)
 
 ```python
 libro = Biblioteca.buscar(id)
-"Libro Desconocido" if libro is None else libro.autor
+"Libro desconocido" if libro is None else libro.autor
 ```
 
 </div>
@@ -443,7 +443,7 @@ libro = Biblioteca.buscar(id)
 
 ```python
 libro = Biblioteca.buscar(id)
-"Libro Desconocido" if libro is None else libro.autor
+"Libro desconocido" if libro is None else libro.autor
 ```
 
 </div>
@@ -452,24 +452,24 @@ libro = Biblioteca.buscar(id)
 
 ```python
 libro = Biblioteca.buscar(id)
-"Libro Desconocido" if libro is None else libro.autor
+"Libro desconocido" if libro is None else libro.autor
 ```
 
 </div>
 
 </div>
 
-<!-- Mensaje "Libro Desconocido" aproximándose en 3 transiciones -->
+<!-- Mensaje "Libro desconocido" aproximándose en 3 transiciones -->
 <div class="fragment" style="position: absolute; top: 20%; left: 20%; font-size: 1em; color: #e74c3c; font-weight: bold; opacity: 0.7; font-family: monospace; background: rgba(0, 0, 0, 0.7); padding: 10px; border-radius: 5px;">
-"Libro Desconocido"
+"Libro desconocido"
 </div>
 
 <div class="fragment" style="position: absolute; top: 35%; left: 35%; font-size: 2em; color: #e74c3c; font-weight: bold; opacity: 0.85; font-family: monospace; background: rgba(0, 0, 0, 0.75); padding: 15px; border-radius: 8px;">
-"Libro Desconocido"
+"Libro desconocido"
 </div>
 
 <div class="fragment" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 4em; color: #e74c3c; font-weight: bold; opacity: 1; text-shadow: 0 0 20px rgba(231, 76, 60, 0.8); font-family: monospace; background: rgba(0, 0, 0, 0.85); padding: 20px; border-radius: 10px;">
-"Libro Desconocido !!!"
+"Libro desconocido !!!"
 </div>
 
 </div>
@@ -484,6 +484,429 @@ libro = Biblioteca.buscar(id)
 
 
 --
+
+
+<div style="display: flex; justify-content: space-around; overflow: hidden;">
+<div style="flex: 1 1 auto; padding: 10px;">
+
+```python
+if libro is None:
+    return "Libro desconocido"
+else:
+    return libro.autor
+```
+
+</div>
+<div style="flex: 1 1 auto; padding: 10px;">
+
+```python
+if ( Objeto del cual conozco el tipo ):
+    # Yo proveo el comportamiento
+else:
+    # Le envío un mensaje al objeto
+```
+
+</div>
+</div>
+
+--
+
+```python [1-5|1|2|4]
+if libro is None:
+    return "Libro desconocido"
+else:
+    return libro.autor
+```
+
+--
+
+```python
+class Libro:
+    def autor(self):
+        ...
+```
+
+```python
+class NoneType:
+    # No entiende el mensaje "autor"
+```
+
+--
+
+```python
+class Libro:
+    def autor(self):
+        ...
+```
+
+```python
+class ???:
+    def autor(self):
+        return "Libro desconocido"
+```
+
+--
+
+```python
+class Libro:
+    def autor(self):
+        ...
+```
+
+```python
+class LibroDesconocido
+    def autor(self):
+        return "Libro desconocido"
+```
+
+--
+
+```python [4]
+ids = ["Los Sorias", "", "Ocio"]
+
+libros = [ 
+    Biblioteca.buscar(id)
+    for id in ids ]
+# => [
+# <__main__.Libro object at 0x7f0f49464ec0> id:Los Sorias,
+# None,
+# <__main__.Libro object at 0x7f0f48e11a90> id:Ocio
+# ]
+
+for libro in libros:
+    if libro is None:
+        print("Libro desconocido")
+    else:
+        print(libro.autor)
+```
+--
+
+```python [4|4,8]
+ids = ["Los Sorias", "", "Ocio"]
+
+libros = [ 
+    Biblioteca.buscar(id) or LibroDesconocido() 
+    for id in ids ]
+# => [
+# <__main__.Libro object at 0x7f0f49464ec0> id:Los Sorias,
+# None,
+# <__main__.Libro object at 0x7f0f48e11a90> id:Ocio
+# ]
+
+for libro in libros:
+    if libro is None:
+        print("Libro desconocido")
+    else:
+        print(libro.autor)
+```
+
+--
+
+
+```python [8|4,13|13-16|13-15]
+ids = ["Los Sorias", "", "Ocio"]
+
+libros = [ 
+    Biblioteca.buscar(id) or LibroDesconocido() 
+    for id in ids ]
+# => [
+# <__main__.Libro object at 0x7f0f49464ec0> id:Los Sorias,
+# <__main__.LibroDesconocido at 0x7f0f49464c20>,
+# <__main__.Libro object at 0x7f0f48e11a90> id:Ocio
+# ]
+
+for libro in libros:
+    if libro is None:
+        print("Libro desconocido")
+    else:
+        print(libro.autor)
+```
+
+--
+
+```python [12-13]
+ids = ["Los Sorias", "", "Ocio"]
+
+libros = [ 
+    Biblioteca.buscar(id) or LibroDesconocido() 
+    for id in ids ]
+# => [
+# <__main__.Libro object at 0x7f0f49464ec0> id:Los Sorias,
+# <__main__.LibroDesconocido at 0x7f0f49464c20>,
+# <__main__.Libro object at 0x7f0f48e11a90> id:Ocio
+# ]
+
+for libro in libros:
+        print(libro.autor)
+```
+
+--
+
+```python [12-13]
+ids = ["Los Sorias", "", "Ocio"]
+
+libros = [ 
+    Biblioteca.buscar(id) or LibroDesconocido() 
+    for id in ids ]
+# => [
+# <__main__.Libro object at 0x7f0f49464ec0> id:Los Sorias,
+# <__main__.LibroDesconocido at 0x7f0f49464c20>,
+# <__main__.Libro object at 0x7f0f48e11a90> id:Ocio
+# ]
+
+for libro in libros:
+    print(libro.autor)
+```
+
+--
+
+```python [12-13]
+ids = ["Los Sorias", "", "Ocio"]
+
+libros = [ 
+    Biblioteca.buscar(id) or LibroDesconocido() 
+    for id in ids ]
+# => [
+# <__main__.Libro object at 0x7f0f49464ec0> id:Los Sorias,
+# <__main__.LibroDesconocido at 0x7f0f49464c20>,
+# <__main__.Libro object at 0x7f0f48e11a90> id:Ocio
+# ]
+
+for libro in libros:
+    print(libro.autor)
+# => 
+# Alberto Laiseca
+# Libro desconocido
+# Fabián Casas
+```
+
+
+--
+
+```python
+class Libro:
+    def autor(self):
+        ...
+```
+
+```python
+class LibroDesconocido
+    def autor(self):
+        return "Libro desconocido"
+```
+
+--
+
+### Patrón del Objeto Nulo
+
+*Null Object Pattern*
+<!-- .element: class="fragment fade-out" -->
+
+
+**'La Nada Activa'** 
+<!-- .element: class="fragment" -->
+
+--
+
+
+```python [4]
+ids = ["Los Sorias", "", "Ocio"]
+
+libros = [ 
+    Biblioteca.buscar(id) or LibroDesconocido() 
+    for id in ids ]
+
+for libro in libros:
+    print(libro.autor)
+# => 
+# Alberto Laiseca
+# Libro desconocido
+# Fabián Casas
+```
+
+--
+
+Tenemos que preferir conocer un objeto que duplicar comportamiento.
+
+--
+
+Tenemos que preferir conocer **pocos** objetos.
+
+--
+
+<div style="position: relative; height: 600px; width: 100%;">
+
+<!-- Snippet central - sin modificar -->
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+
+```python
+libro = Biblioteca.buscar(id) or LibroDesconocido()
+libro.autor
+```
+
+</div>
+
+<!-- Primera transición - snippets en esquinas y parte superior -->
+<div class="fragment">
+
+<div style="position: absolute; top: 5%; left: 5%; transform: rotate(-15deg); opacity: 0.6; font-size: 0.7em;">
+
+```python
+libro = Biblioteca.buscar(id) or LibroDesconocido()
+libro.autor
+```
+
+</div>
+
+<div style="position: absolute; top: 5%; right: 5%; transform: rotate(12deg); opacity: 0.6; font-size: 0.7em;">
+
+```python
+libro = Biblioteca.buscar(id) or LibroDesconocido()
+libro.autor
+```
+
+</div>
+
+<div style="position: absolute; top: 30%; left: 2%; transform: rotate(-20deg); opacity: 0.6; font-size: 0.7em;">
+
+```python
+libro = Biblioteca.buscar(id) or LibroDesconocido()
+libro.autor
+```
+
+</div>
+
+<div style="position: absolute; top: 30%; right: 2%; transform: rotate(18deg); opacity: 0.6; font-size: 0.7em;">
+
+```python
+libro = Biblioteca.buscar(id) or LibroDesconocido()
+libro.autor
+```
+
+</div>
+
+</div>
+
+<!-- Segunda transición - snippets en parte inferior y lados -->
+<div class="fragment">
+
+<div style="position: absolute; bottom: 5%; left: 5%; transform: rotate(10deg); opacity: 0.6; font-size: 0.7em;">
+
+```python
+libro = Biblioteca.buscar(id) or LibroDesconocido()
+libro.autor
+```
+
+</div>
+
+<div style="position: absolute; bottom: 5%; right: 5%; transform: rotate(-15deg); opacity: 0.6; font-size: 0.7em;">
+
+```python
+libro = Biblioteca.buscar(id) or LibroDesconocido()
+libro.autor
+```
+
+</div>
+
+<div style="position: absolute; bottom: 30%; left: 2%; transform: rotate(20deg); opacity: 0.6; font-size: 0.7em;">
+
+```python
+libro = Biblioteca.buscar(id) or LibroDesconocido()
+libro.autor
+```
+
+</div>
+
+<div style="position: absolute; bottom: 30%; right: 2%; transform: rotate(-12deg); opacity: 0.6; font-size: 0.7em;">
+
+```python
+libro = Biblioteca.buscar(id) or LibroDesconocido()
+libro.autor
+```
+
+</div>
+
+</div>
+
+<!-- Mensaje "Libro desconocido" aproximándose en 3 transiciones -->
+<div class="fragment" style="position: absolute; top: 20%; left: 20%; font-size: 1em; color: #e74c3c; font-weight: bold; opacity: 0.7; font-family: monospace; background: rgba(0, 0, 0, 0.7); padding: 10px; border-radius: 5px;">
+"LibroDesconocido"
+</div>
+
+<div class="fragment" style="position: absolute; top: 35%; left: 35%; font-size: 2em; color: #e74c3c; font-weight: bold; opacity: 0.85; font-family: monospace; background: rgba(0, 0, 0, 0.75); padding: 15px; border-radius: 8px;">
+"LibroDesconocido"
+</div>
+
+<div class="fragment" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 4em; color: #e74c3c; font-weight: bold; opacity: 1; text-shadow: 0 0 20px rgba(231, 76, 60, 0.8); font-family: monospace; background: rgba(0, 0, 0, 0.85); padding: 20px; border-radius: 10px;">
+"LibroDesconocido ???"
+</div>
+
+</div>
+
+--
+
+```python
+class Biblioteca:
+
+    @staticmethod
+    def buscar(id):
+        ...
+```
+
+--
+
+
+```python
+class BibliotecaSegura:
+
+    @staticmethod
+    def buscar(id):
+        return Biblioteca.buscar(id) or LibroDesconocido()
+```
+
+--
+
+```python [2]
+libros = [ 
+    Biblioteca.buscar(id) or LibroDesconocido() 
+    for id in ids ]
+```
+
+--
+
+```python [2]
+libros = [ 
+    BibliotecaSegura.buscar(id) 
+    for id in ids ]
+```
+
+--
+
+
+```python [2]
+libros = [ 
+    BibliotecaSegura.buscar(id) 
+    for id in ids ]
+# => [
+# <__main__.Libro object at 0x7f0f49464ec0> id:Los Sorias,
+# <__main__.LibroDesconocido at 0x7f0f49464c20>,
+# <__main__.Libro object at 0x7f0f48e11a90> id:Ocio
+# ]
+```
+
+```python
+for libro in libros:
+    print(libro.autor)
+# => 
+# Alberto Laiseca
+# Libro desconocido
+# Fabián Casas
+```
+
+---
+
+
+
 
 ## EL PROBLEMA EN VIVO
 

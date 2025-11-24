@@ -20,6 +20,12 @@ class Libro:
     def __repr__(self):
         return f"{super().__repr__()} id:{self.id}"
 
+class LibroDesconocido:
+
+    @property
+    def autor(self):
+        return "Libro desconocido"
+
 if __name__ == "__main__":
     ls = [Libro("Los Sorias", "Alberto Laiseca"),
           Libro("Ocio", "Fabián Casas"),]
@@ -36,3 +42,8 @@ if __name__ == "__main__":
 
     for libro in libros:
         print(libro and libro.autor)
+
+
+    libros = [Biblioteca.buscar(id) or LibroDesconocido() for id in ids]
+    for libro in libros:
+        print(libro.autor)
