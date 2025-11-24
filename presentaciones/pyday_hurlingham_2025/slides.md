@@ -304,12 +304,12 @@ for libro in libros:
 --
 
 ```python
-"" if libro is None else libro.autor
+"Libro Desconocido" if libro is None else libro.autor
 ```
 
 ```python
 if libro is None:
-    return ""
+    return "Libro Desconocido"
 else:
     return libro.autor
 ```
@@ -318,7 +318,7 @@ else:
 
 ```python
 if libro is None:
-    return ""
+    return "Libro Desconocido"
 else:
     return libro.autor
 ```
@@ -332,21 +332,50 @@ else:
 
 --
 
+<div style="display: flex; justify-content: space-around; overflow: hidden;">
+<div style="flex: 1 1 auto; padding: 10px;">
+
 ```python
 if libro is None:
-    return ""
+    return "Libro Desconocido"
 else:
     return libro.autor
 ```
+
+</div>
+<div style="flex: 1 1 auto; padding: 10px;">
 
 ```python
 if ( Objeto del cual conozco el tipo ):
     # Yo proveo el comportamiento
 else:
-    # Le envío un mensaje al objeto (llamo un método)
+    # Le envío un mensaje al objeto
+```
+
+</div>
+</div>
+
+<small><sup>1</sup> Enviar mensaje == llamo un método</small>
+
+--
+
+## LOS CONDICIONALES
+
+<h1 style="font-size: 3em; color: #e74c3c;" class="fragment">SE MULTIPLICAN</h1>
+
+--
+
+```python
+libro = Biblioteca.buscar(id)
+"Libro Desconocido" if libro is None else libro.autor
 ```
 
 --
+
+## ¿Qué pasa si quiero cambiar ese valor?
+
+<h1 style="font-size: 3em; color: #e74c3c;" class="fragment">Shotgun Surgery</h1>
+
 
 --
 
