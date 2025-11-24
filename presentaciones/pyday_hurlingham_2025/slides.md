@@ -365,16 +365,122 @@ else:
 
 --
 
+<div style="position: relative; height: 600px; width: 100%;">
+
+<!-- Snippet central - sin modificar -->
+<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+
 ```python
 libro = Biblioteca.buscar(id)
 "Libro Desconocido" if libro is None else libro.autor
 ```
 
+</div>
+
+<!-- Primera transición - snippets en esquinas y parte superior -->
+<div class="fragment">
+
+<div style="position: absolute; top: 5%; left: 5%; transform: rotate(-15deg); opacity: 0.6; font-size: 0.7em;">
+
+```python
+libro = Biblioteca.buscar(id)
+"Libro Desconocido" if libro is None else libro.autor
+```
+
+</div>
+
+<div style="position: absolute; top: 5%; right: 5%; transform: rotate(12deg); opacity: 0.6; font-size: 0.7em;">
+
+```python
+libro = Biblioteca.buscar(id)
+"Libro Desconocido" if libro is None else libro.autor
+```
+
+</div>
+
+<div style="position: absolute; top: 30%; left: 2%; transform: rotate(-20deg); opacity: 0.6; font-size: 0.7em;">
+
+```python
+libro = Biblioteca.buscar(id)
+"Libro Desconocido" if libro is None else libro.autor
+```
+
+</div>
+
+<div style="position: absolute; top: 30%; right: 2%; transform: rotate(18deg); opacity: 0.6; font-size: 0.7em;">
+
+```python
+libro = Biblioteca.buscar(id)
+"Libro Desconocido" if libro is None else libro.autor
+```
+
+</div>
+
+</div>
+
+<!-- Segunda transición - snippets en parte inferior y lados -->
+<div class="fragment">
+
+<div style="position: absolute; bottom: 5%; left: 5%; transform: rotate(10deg); opacity: 0.6; font-size: 0.7em;">
+
+```python
+libro = Biblioteca.buscar(id)
+"Libro Desconocido" if libro is None else libro.autor
+```
+
+</div>
+
+<div style="position: absolute; bottom: 5%; right: 5%; transform: rotate(-15deg); opacity: 0.6; font-size: 0.7em;">
+
+```python
+libro = Biblioteca.buscar(id)
+"Libro Desconocido" if libro is None else libro.autor
+```
+
+</div>
+
+<div style="position: absolute; bottom: 30%; left: 2%; transform: rotate(20deg); opacity: 0.6; font-size: 0.7em;">
+
+```python
+libro = Biblioteca.buscar(id)
+"Libro Desconocido" if libro is None else libro.autor
+```
+
+</div>
+
+<div style="position: absolute; bottom: 30%; right: 2%; transform: rotate(-12deg); opacity: 0.6; font-size: 0.7em;">
+
+```python
+libro = Biblioteca.buscar(id)
+"Libro Desconocido" if libro is None else libro.autor
+```
+
+</div>
+
+</div>
+
+<!-- Mensaje "Libro Desconocido" aproximándose en 3 transiciones -->
+<div class="fragment" style="position: absolute; top: 20%; left: 20%; font-size: 1em; color: #e74c3c; font-weight: bold; opacity: 0.7; font-family: monospace; background: rgba(0, 0, 0, 0.7); padding: 10px; border-radius: 5px;">
+"Libro Desconocido"
+</div>
+
+<div class="fragment" style="position: absolute; top: 35%; left: 35%; font-size: 2em; color: #e74c3c; font-weight: bold; opacity: 0.85; font-family: monospace; background: rgba(0, 0, 0, 0.75); padding: 15px; border-radius: 8px;">
+"Libro Desconocido"
+</div>
+
+<div class="fragment" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 4em; color: #e74c3c; font-weight: bold; opacity: 1; text-shadow: 0 0 20px rgba(231, 76, 60, 0.8); font-family: monospace; background: rgba(0, 0, 0, 0.85); padding: 20px; border-radius: 10px;">
+"Libro Desconocido !!!"
+</div>
+
+</div>
+
 --
 
 ## ¿Qué pasa si quiero cambiar ese valor?
 
-<h1 style="font-size: 3em; color: #e74c3c;" class="fragment">Shotgun Surgery</h1>
+--
+
+<img alt="shotgun surgery" src="./images/shotgun_surgery.png" width="70%" >  
 
 
 --
