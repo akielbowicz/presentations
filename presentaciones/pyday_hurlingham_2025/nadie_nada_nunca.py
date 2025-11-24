@@ -26,6 +26,12 @@ class LibroDesconocido:
     def autor(self):
         return "Libro desconocido"
 
+class BibliotecaSegura:
+
+    @staticmethod
+    def buscar(id):
+        return Biblioteca.buscar(id) or LibroDesconocido()
+
 if __name__ == "__main__":
     ls = [Libro("Los Sorias", "Alberto Laiseca"),
           Libro("Ocio", "Fabián Casas"),]
@@ -47,3 +53,5 @@ if __name__ == "__main__":
     libros = [Biblioteca.buscar(id) or LibroDesconocido() for id in ids]
     for libro in libros:
         print(libro.autor)
+
+    libros = [BibliotecaSegura.buscar(id) for id in ids]
