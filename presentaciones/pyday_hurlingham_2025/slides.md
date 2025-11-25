@@ -1,6 +1,5 @@
 # Nadie nada nunca
 
-
 **PyDay Hurlingham**
  
 **29 de Noviembre 2025**
@@ -25,7 +24,7 @@ Líder Técnico en **MELI**
 
 *IT Staff || Financial Planning & Analysis*
 
----
+--
 
 
 
@@ -41,53 +40,29 @@ Líder Técnico en **MELI**
 
 ---
 
-<!-- .slide: data-transition="none" -->
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 20px;">
 
-## Layers
+<div style="display: flex; flex-direction: column; width: 60%; gap: 15px;">
 
-```mermaid
-graph TD
-    A[Cliente] --> B[Servicio]
-    B --> C[Repositorio]
-```
+<div style="background-color: #4CAF50; height: 80px; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000; visibility: hidden;"><em>Buscando</em> la Abstracción</h3>
+</div>
 
-<!-- .element: class="fragment" -->
+<div style="background-color: #4CAF50; height: 80px; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000; visibility: hidden;"><em>Centrado</em> en los Mensajes</h3>
+</div>
 
-**Cliente** - Interfaz del usuario
+<div style="background-color: #4CAF50; height: 80px; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000; visibility: hidden;"><em>Reacio</em> a los Condicionales</h3>
+</div>
 
-<!-- .element: class="fragment" -->
+</div>
 
-**Servicio** - Lógica de negocio
+<div style="background-color: #4CAF50; width: 60%; height: 100px; border: 2px solid #000; display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+<h3 style="margin: 0; color: #000;"><em>Infectado</em> por Smalltalk </h3>
+</div>
 
-<!-- .element: class="fragment" -->
-
-**Repositorio** - Acceso a datos
-
-<!-- .element: class="fragment" -->
-
----
-
-<!-- .slide: data-transition="none" -->
-
-## Ejemplo de Fragments
-
-Usa `<!-- .element: class="fragment" -->` después de cada elemento para revelarlo uno por uno:
-
-
-Este texto aparece primero
-<!-- .element: class="fragment fade-in" -->
-
-
-Este texto aparece segundo
-<!-- .element: class="fragment fade-in" -->
-
-
-Este texto se resalta en rojo
-<!-- .element: class="fragment highlight-red" -->
-
-
-Este texto aparece desde abajo
-<!-- .element: class="fragment fade-up" -->
+</div>
 
 ---
 
@@ -142,6 +117,9 @@ Las keywords de SmallTalk:
 
 > true, false, nil, self, super, thisContext
 
+<div class="fragment">
+
+Las keywords de Python:
 
 ```python [|5]
 import keyword
@@ -152,10 +130,13 @@ print(keyword.kwlist)
 # 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 
 # 'raise', 'return', 'try', 'while', 'with', 'yield']
 ```
+</div>
 
+<small>
 
-[SmallTalk Syntax](https://en.wikipedia.org/wiki/Smalltalk#Syntax)
+[Wikipedia: SmallTalk Syntax](https://en.wikipedia.org/wiki/Smalltalk#Syntax) | 
 [Python Keywords](https://docs.python.org/3/reference/lexical_analysis.html#keywords)
+</small>
 
 --
 
@@ -168,6 +149,8 @@ else:
 
 --
 
+<!-- .slide: data-transition="none" -->
+
 ```python
 if (True):
     print("Verdadero")
@@ -176,6 +159,8 @@ else:
 ```
 
 --
+
+<!-- .slide: data-transition="none" -->
 
 ```python
 if ( truthy ):
@@ -186,6 +171,8 @@ else:
 
 --
 
+<!-- .slide: data-transition="none" -->
+
 ```python
 if ( Objeto del cual conozco el tipo ):
     # Código que hace algo
@@ -193,7 +180,7 @@ else:
     # Código que hace otra cosa
 ```
 
---
+---
 
 ```python
 class Verdadero:
@@ -222,10 +209,8 @@ class Falso:
 --
 
 ```python
-(
 Verdadero.si_verdadero(lambda: print("Evalua si es Verdadero"))
          .si_falso(lambda: print("Evalua si es Falso"))
-)
 ```
 
 ---
@@ -241,7 +226,7 @@ from forbiddenfruit import curse
 
 ---
 
-**¿Qué pasaría si no existiese el `if`?**
+**¿Qué pasaría si no existiese el `"if"`?**
 
 --
 
@@ -258,7 +243,7 @@ Biblioteca.buscar("")
 
 --
 
-```python [1|1-3|5]
+```python [1|1-3|3-6|5]
 ids = ["Los Sorias", "", "Ocio"]
 
 libros = [ Biblioteca.buscar(id) for id in ids ]
@@ -276,7 +261,7 @@ for libro in libros:
 
 --
 
-Hay veces que `None` **es** nada.
+Hay veces que **None** *"es nada"*.
 
 --
 
@@ -299,6 +284,8 @@ entonces *"es algo"*.
 
 --
 
+¿Y qué pasa si quiero manejar ese caso?
+
 ```python [9]
 ids = ["Los Sorias", "", "Ocio"]
 
@@ -310,6 +297,7 @@ libros = [ Biblioteca.buscar(id) for id in ids ]
 for libro in libros:
     print("Libro desconocido" if libro is None else libro.autor)
 ```
+<!-- .element: class="fragment" -->
 
 --
 
@@ -380,8 +368,6 @@ else:
 
 </div>
 </div>
-
-<small><sup>1</sup> Enviar mensaje == llamo un método</small>
 
 --
 
@@ -639,6 +625,7 @@ for libro in libros:
 
 --
 
+<!-- .slide: data-transition="none" -->
 
 ```python [8|4,13|13-16|13-15]
 ids = ["Los Sorias", "", "Ocio"]
@@ -953,7 +940,7 @@ for libro in libros:
 ---
 
 
-
+---
 
 ## EL PROBLEMA EN VIVO
 
