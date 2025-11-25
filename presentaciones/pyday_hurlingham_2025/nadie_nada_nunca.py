@@ -15,7 +15,11 @@ class Libro:
 
     def __init__(self, id, autor):
         self.id = id
-        self.autor = autor
+        self._autor = autor
+
+    @property
+    def autor(self):
+        return self._autor
 
     def __repr__(self):
         return f"{super().__repr__()} id:{self.id}"

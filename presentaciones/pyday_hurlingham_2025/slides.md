@@ -7,6 +7,8 @@
  
 ---
 
+<!-- .slide: data-transition="none" -->
+
 ### Sasha
 
 Líder Técnico en Mercado Libre 
@@ -15,14 +17,15 @@ Líder Técnico en Mercado Libre
 
 --
 
+<!-- .slide: data-transition="none" -->
+
 ### Sasha
 
 Líder Técnico en **MELI**
 
 *IT Staff || Financial Planning & Analysis*
 
-<!-- .slide: data-transition="none" -->
---
+---
 
 
 
@@ -37,6 +40,8 @@ Líder Técnico en **MELI**
 [Nothing is Something](https://www.youtube.com/watch?v=OMPfEXIlTVE) de Sandi Metz
 
 ---
+
+<!-- .slide: data-transition="none" -->
 
 ## Layers
 
@@ -61,6 +66,8 @@ graph TD
 <!-- .element: class="fragment" -->
 
 ---
+
+<!-- .slide: data-transition="none" -->
 
 ## Ejemplo de Fragments
 
@@ -111,7 +118,8 @@ type(1)
 
 ```python
 dir(int)
-# => ['__abs__', '__add__', '__and__', '__bool__', '__class__', ..., '__str__', '__sub__', ...]
+# => ['__abs__', '__add__', '__and__', '__bool__', 
+# '__class__', ..., '__str__', '__sub__', ...]
 ``` 
 
 ---
@@ -134,18 +142,22 @@ Las keywords de SmallTalk:
 
 > true, false, nil, self, super, thisContext
 
-```python
+
+```python [|5]
 import keyword
 print(keyword.kwlist)
-['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+# => ['False', 'None', 'True', 'and', 'as', 'assert', 'async', 
+# 'await', 'break', 'class', 'continue', 'def', 'del', 'elif',
+#  'else', 'except', 'finally', 'for', 'from', 'global', 'if', 
+# 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 
+# 'raise', 'return', 'try', 'while', 'with', 'yield']
 ```
+
 
 [SmallTalk Syntax](https://en.wikipedia.org/wiki/Smalltalk#Syntax)
 [Python Keywords](https://docs.python.org/3/reference/lexical_analysis.html#keywords)
 
 --
-
--- 
 
 ```python
 if (1 == 1):
@@ -200,6 +212,7 @@ class Falso:
     @classmethod
     def si_verdadero(cls, codigo):
         return cls
+
     @classmethod
     def si_falso(cls, codigo):
         codigo()
@@ -209,7 +222,10 @@ class Falso:
 --
 
 ```python
-Verdadero.si_verdadero(lambda: print("Evalua si es Verdadero")).si_falso(lambda: print("Evalua si es Falso"))
+(
+Verdadero.si_verdadero(lambda: print("Evalua si es Verdadero"))
+         .si_falso(lambda: print("Evalua si es Falso"))
+)
 ```
 
 ---
@@ -238,10 +254,11 @@ Biblioteca.buscar("Los Sorias")
 Biblioteca.buscar("")
 # => None
 ```
+<!-- .element: class="fragment" -->
 
 --
 
-```python
+```python [1|1-3|5]
 ids = ["Los Sorias", "", "Ocio"]
 
 libros = [ Biblioteca.buscar(id) for id in ids ]
@@ -250,11 +267,12 @@ libros = [ Biblioteca.buscar(id) for id in ids ]
 # <__main__.Libro object at 0x7f0f48e10190> id:Ocio]
 ```
 
-```python
+```python [|3]
 for libro in libros:
     print(libro.autor)
 # => AttributeError: 'NoneType' object has no attribute 'autor'
 ```
+<!-- .element: class="fragment" -->
 
 --
 
@@ -263,18 +281,25 @@ Hay veces que `None` **es** nada.
 --
 
 ```python
-libros = [ libro for id in ids if (libro := Biblioteca.buscar(id)) ]
-# => [<__main__.Libro object at 0x7f0f4bf35940> id:Los Sorias,
-# <__main__.Libro object at 0x7f0f48e10190> id:Ocio]
+libros = [ libro for id in ids 
+           if (libro := Biblioteca.buscar(id)) 
+         ]
+# => [
+# <__main__.Libro object at 0x7f0f4bf35940> id:Los Sorias,
+# <__main__.Libro object at 0x7f0f48e10190> id:Ocio
+#    ]
 ```
 
 --
 
-Pero si le pasamos un mensaje a `None`, entonces **es algo**.
+Pero si le pasamos un mensaje a **None**,
+
+entonces *"es algo"*.
+<!-- .element: class="fragment" -->
 
 --
 
-```python
+```python [9]
 ids = ["Los Sorias", "", "Ocio"]
 
 libros = [ Biblioteca.buscar(id) for id in ids ]
@@ -283,13 +308,12 @@ libros = [ Biblioteca.buscar(id) for id in ids ]
 # <__main__.Libro object at 0x7f0f48e10190> id:Ocio]
 
 for libro in libros:
-    print(libro.autor if libro else "Libro desconocido")
+    print("Libro desconocido" if libro is None else libro.autor)
 ```
 
 --
 
-
-```python
+```python [9]
 ids = ["Los Sorias", "", "Ocio"]
 
 libros = [ Biblioteca.buscar(id) for id in ids ]
@@ -313,6 +337,7 @@ if libro is None:
 else:
     return libro.autor
 ```
+<!-- .element: class="fragment" -->
 
 --
 
@@ -323,17 +348,18 @@ else:
     return libro.autor
 ```
 
-```python
+```python [1|2|4]
 if ( Objeto del cual conozco el tipo ):
     # Código que hace algo
 else:
     # Código que hace otra cosa
 ```
+<!-- .element: class="fragment" -->
 
 --
 
 <div style="display: flex; justify-content: space-around; overflow: hidden;">
-<div style="flex: 1 1 auto; padding: 10px;">
+<div style="flex: 1 1 auto; padding: 3px;">
 
 ```python
 if libro is None:
@@ -343,9 +369,9 @@ else:
 ```
 
 </div>
-<div style="flex: 1 1 auto; padding: 10px;">
+<div style="flex: 1 1 auto; padding: 3px;">
 
-```python
+```python [|2|4]
 if ( Objeto del cual conozco el tipo ):
     # Yo proveo el comportamiento
 else:
@@ -482,7 +508,6 @@ libro = Biblioteca.buscar(id)
 
 <img alt="shotgun surgery" src="./images/shotgun_surgery.png" width="70%" >  
 
-
 --
 
 
@@ -522,6 +547,7 @@ else:
 
 ```python
 class Libro:
+    @property
     def autor(self):
         ...
 ```
@@ -530,31 +556,39 @@ class Libro:
 class NoneType:
     # No entiende el mensaje "autor"
 ```
+<!-- .element: class="fragment" -->
 
 --
 
 ```python
 class Libro:
+    @property
     def autor(self):
         ...
 ```
 
 ```python
 class ???:
+    @property
     def autor(self):
         return "Libro desconocido"
 ```
+<!-- .element: class="fragment" -->
 
 --
 
+<!-- .slide: data-transition="none" -->
+
 ```python
 class Libro:
+    @property
     def autor(self):
         ...
 ```
 
 ```python
-class LibroDesconocido
+class LibroDesconocido:
+    @property
     def autor(self):
         return "Libro desconocido"
 ```
@@ -579,7 +613,10 @@ for libro in libros:
     else:
         print(libro.autor)
 ```
+
 --
+
+<!-- .slide: data-transition="none" -->
 
 ```python [4|4,8]
 ids = ["Los Sorias", "", "Ocio"]
@@ -624,6 +661,8 @@ for libro in libros:
 
 --
 
+<!-- .slide: data-transition="none" -->
+
 ```python [12-13]
 ids = ["Los Sorias", "", "Ocio"]
 
@@ -641,6 +680,8 @@ for libro in libros:
 ```
 
 --
+
+<!-- .slide: data-transition="none" -->
 
 ```python [12-13]
 ids = ["Los Sorias", "", "Ocio"]
@@ -660,7 +701,7 @@ for libro in libros:
 
 --
 
-```python [12-13]
+```python [12-17]
 ids = ["Los Sorias", "", "Ocio"]
 
 libros = [ 
@@ -685,12 +726,14 @@ for libro in libros:
 
 ```python
 class Libro:
+    @property
     def autor(self):
         ...
 ```
 
 ```python
-class LibroDesconocido
+class LibroDesconocido:
+    @property
     def autor(self):
         return "Libro desconocido"
 ```
@@ -874,6 +917,8 @@ libros = [
 
 --
 
+<!-- .slide: data-transition="none" -->
+
 ```python [2]
 libros = [ 
     BibliotecaSegura.buscar(id) 
@@ -883,7 +928,7 @@ libros = [
 --
 
 
-```python [2]
+```python [2|]
 libros = [ 
     BibliotecaSegura.buscar(id) 
     for id in ids ]
@@ -902,6 +947,8 @@ for libro in libros:
 # Libro desconocido
 # Fabián Casas
 ```
+<!-- .element: class="fragment" -->
+
 
 ---
 
