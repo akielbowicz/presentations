@@ -1,9 +1,11 @@
+<!-- .slide: id="titulo" -->
+
 # Nadie nada nunca
 
 **PyDay Hurlingham**
- 
+
 **29 de Noviembre 2025**
- 
+
 ---
 
 <!-- .slide: data-transition="none" -->
@@ -66,9 +68,20 @@ Líder Técnico en **MELI**
 
 ---
 
-# Programación Orientada a Objetos (POO)
+<!-- .slide: id="poo" -->
 
----
+### Programación Orientada a Objetos (POO)
+
+<div class="fragment">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ioeMeQNEgL8?si=DMdhg2cY7f_SQlry" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+[Programar (casi) sin condicionales](https://www.youtube.com/watch?v=ioeMeQNEgL8)
+
+</div>
+--
+
+
+--
 
 ```python
 str(1)
@@ -113,6 +126,15 @@ type(True)
 
 --
 
+```python
+dir(bool)
+# => [ '__abs__', '__add__', '__and__', '__bool__', ...
+#  '__ne__', '__neg__', '__new__', '__or__',
+#  ... '__ror__',... '__rxor__',... '__xor__', ... ]
+```
+
+--
+
 Las keywords de SmallTalk: 
 
 > true, false, nil, self, super, thisContext
@@ -126,13 +148,13 @@ import keyword
 print(keyword.kwlist)
 # => ['False', 'None', 'True', 'and', 'as', 'assert', 'async', 
 # 'await', 'break', 'class', 'continue', 'def', 'del', 'elif',
-#  'else', 'except', 'finally', 'for', 'from', 'global', 'if', 
+# 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 
 # 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 
 # 'raise', 'return', 'try', 'while', 'with', 'yield']
 ```
 </div>
 
-<small>
+<small class="fragment">
 
 [Wikipedia: SmallTalk Syntax](https://en.wikipedia.org/wiki/Smalltalk#Syntax) | 
 [Python Keywords](https://docs.python.org/3/reference/lexical_analysis.html#keywords)
@@ -185,24 +207,24 @@ else:
 ```python
 class Verdadero:
     @classmethod
-    def si_verdadero(cls, codigo):
-        codigo()
+    def si_verdadero(cls, bloque_de_codigo):
+        bloque_de_codigo()
         return cls
 
     @classmethod
-    def si_falso(cls, codigo):
+    def si_falso(cls, bloque_de_codigo):
         return cls
 ```
 
 ```python
 class Falso:
     @classmethod
-    def si_verdadero(cls, codigo):
+    def si_verdadero(cls, bloque_de_codigo):
         return cls
 
     @classmethod
-    def si_falso(cls, codigo):
-        codigo()
+    def si_falso(cls, bloque_de_codigo):
+        bloque_de_codigo()
         return cls
 ```
 
@@ -211,9 +233,26 @@ class Falso:
 ```python
 Verdadero.si_verdadero(lambda: print("Evalua si es Verdadero"))
          .si_falso(lambda: print("Evalua si es Falso"))
+# => Evalua si es Verdadero
 ```
 
+```python
+Falso.si_verdadero(lambda: print("Evalua si es Verdadero"))
+     .si_falso(lambda: print("Evalua si es Falso"))
+# => Evalua si es Falso
+```
+<!-- .element: class="fragment" -->
+
 ---
+
+
+
+---
+
+[Skip](#/no-existiese-el-if)
+<!-- .element: class="fragment"  -->
+
+--
 
 ```
 from forbiddenfruit import curse
@@ -225,6 +264,8 @@ from forbiddenfruit import curse
 
 
 ---
+
+<!-- .slide: id="no-existiese-el-if" -->
 
 **¿Qué pasaría si no existiese el `"if"`?**
 
@@ -371,6 +412,8 @@ else:
 
 --
 
+<!-- .slide: id="condicionales" -->
+
 ## LOS CONDICIONALES
 
 <h1 style="font-size: 3em; color: #e74c3c;" class="fragment">SE MULTIPLICAN</h1>
@@ -487,6 +530,8 @@ libro = Biblioteca.buscar(id)
 </div>
 
 --
+
+<!-- .slide: id="shotgun-surgery" -->
 
 ## ¿Qué pasa si quiero cambiar ese valor?
 
@@ -942,6 +987,8 @@ for libro in libros:
 
 ---
 
+<!-- .slide: id="problema-en-vivo" -->
+
 ## EL PROBLEMA EN VIVO
 
 ```python
@@ -959,6 +1006,8 @@ class GestorInventario:
 
 ---
 
+<!-- .slide: id="resultado" -->
+
 ## EL RESULTADO
 
 ### ¡AttributeError!
@@ -968,6 +1017,8 @@ class GestorInventario:
 ```
 
 ---
+
+<!-- .slide: id="parche-universal" -->
 
 ## El Parche Universal
 
@@ -987,11 +1038,15 @@ def procesar_libro(self, libro_id):
 
 ---
 
+<!-- .slide: id="tesis-sandi-metz" -->
+
 ## La Tesis de Sandi Metz
 
 ### La Programación Orientada a Objetos Perfecta NO USA if.
 
 ---
+
+<!-- .slide: id="quien-soy" -->
 
 ## Quién Soy
 
@@ -1003,11 +1058,15 @@ def procesar_libro(self, libro_id):
 
 ---
 
+<!-- .slide: id="tema1-null-object" -->
+
 # TEMA 1: NULL OBJECT
 
 ## (6 minutos)
 
 ---
+
+<!-- .slide: id="gran-idea" -->
 
 ## La Gran Idea
 
@@ -1018,6 +1077,8 @@ def procesar_libro(self, libro_id):
 
 ---
 
+<!-- .slide: id="solucion-null-object" -->
+
 ## Solución 1: Null Object Pattern
 
 ### La "Nada Activa"
@@ -1026,6 +1087,8 @@ def procesar_libro(self, libro_id):
 * Conformidad de Interfaz
 
 ---
+
+<!-- .slide: id="implementacion" -->
 
 ## Implementación
 
@@ -1042,6 +1105,8 @@ class LibroNoEncontrado:
 
 ---
 
+<!-- .slide: id="codigo-cliente-limpio" -->
+
 ## Código Cliente Limpio
 
 ### Reemplazamos la Condición por Polimorfismo
@@ -1050,6 +1115,8 @@ class LibroNoEncontrado:
 * El cliente no tiene que saber si es `Libro` o `LibroNoEncontrado`
 
 ---
+
+<!-- .slide: id="aislamiento" -->
 
 ## Aislamiento
 
@@ -1060,11 +1127,15 @@ class LibroNoEncontrado:
 
 ---
 
+<!-- .slide: id="tema2-null-object-data" -->
+
 # TEMA 2: NULL OBJECT EN DATA
 
 ## (2 minutos)
 
 ---
+
+<!-- .slide: id="monoides" -->
 
 ## Paralelo Funcional: Monoides
 
@@ -1074,6 +1145,8 @@ class LibroNoEncontrado:
 * Ejemplo Clásico: Si queremos appendear resultados de múltiples procesos
 
 ---
+
+<!-- .slide: id="lista-vacia" -->
 
 ## La Lista Vacía y el DataFrame Vacío
 
@@ -1085,17 +1158,23 @@ class LibroNoEncontrado:
 
 ---
 
+<!-- .slide: id="tema3-composicion" -->
+
 # TEMA 3: COMPOSICIÓN
 
 ## (7 minutos)
 
 ---
 
+<!-- .slide: id="solucion-composicion" -->
+
 ## Solución 3: Composición
 
 ### Evitando la Trampa de la Herencia
 
 ---
+
+<!-- .slide: id="trampa-herencia" -->
 
 ## La Trampa de la Herencia
 
@@ -1106,6 +1185,8 @@ class LibroNoEncontrado:
 
 ---
 
+<!-- .slide: id="pensamiento-correcto" -->
+
 ## El Pensamiento Correcto
 
 ### De "¿Qué ES este objeto?" a "¿Qué ROL juega?"
@@ -1114,6 +1195,8 @@ class LibroNoEncontrado:
 
 ---
 
+<!-- .slide: id="rol-inyeccion" -->
+
 ## El Rol y la Inyección
 
 ### Composición con Dependency Injection (DI)
@@ -1121,6 +1204,8 @@ class LibroNoEncontrado:
 **Principio:** El objeto principal depende de (usa) Roles que se le entregan en el constructor
 
 ---
+
+<!-- .slide: id="codigo-con-roles" -->
 
 ## Código con Roles
 
@@ -1138,6 +1223,8 @@ class Notificador:
 
 ---
 
+<!-- .slide: id="victoria-composicion" -->
+
 ## La Victoria de la Composición
 
 ### ¡Puedes combinar cualquier Rol con cualquier Entidad!
@@ -1148,11 +1235,15 @@ class Notificador:
 
 ---
 
+<!-- .slide: id="cierre" -->
+
 # CIERRE Y CALL TO ACTION
 
 ## (7 minutos)
 
 ---
+
+<!-- .slide: id="filosofia-nada" -->
 
 ## La Filosofía de la Nada
 
@@ -1165,6 +1256,8 @@ La abstracción se esconde en el espacio vacío (la ausencia de if)
 
 ---
 
+<!-- .slide: id="resumen" -->
+
 ## Resumen Final
 
 ### Tres Pasos para el Código Limpio
@@ -1175,11 +1268,15 @@ La abstracción se esconde en el espacio vacío (la ausencia de if)
 
 ---
 
+<!-- .slide: id="preguntas" -->
+
 ## ¡Preguntas!
 
 **[Tu Contacto Principal / Twitter]**
 
 ---
+
+<!-- .slide: id="consultoria" -->
 
 ## Servicios de Consultoría
 
@@ -1191,6 +1288,8 @@ La abstracción se esconde en el espacio vacío (la ausencia de if)
 
 ---
 
+<!-- .slide: id="tutorias" -->
+
 ## Tutorías y Mentoring
 
 ### Invierte en tu futuro como desarrollador senior
@@ -1200,6 +1299,8 @@ La abstracción se esconde en el espacio vacío (la ausencia de if)
 * Formación en Arquitectura de Software
 
 ---
+
+<!-- .slide: id="gracias" -->
 
 ## Gracias
 
