@@ -47,28 +47,29 @@ Hay demasiadas sutilezas en esta presentacion y muchas particularidades que me l
 
 ---
 
+
+
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 20px;">
 
-<div style="display: flex; flex-direction: column; width: 60%; gap: 15px;">
+<div style="display: flex; flex-direction: column; width: 60%; gap: 5%;">
 
-<div style="background-color: #4CAF50; height: 80px; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
 <h3 style="margin: 0; color: #000; visibility: hidden;"><em>Buscando</em> la Abstracción</h3>
 </div>
 
-<div style="background-color: #4CAF50; height: 80px; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
 <h3 style="margin: 0; color: #000; visibility: hidden;"><em>Centrado</em> en los Mensajes</h3>
 </div>
 
-<div style="background-color: #4CAF50; height: 80px; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
-<h3 style="margin: 0; color: #000; visibility: hidden;"><em>Reacio</em> a los Condicionales</h3>
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000; visibility: hidden"><em>Reacio</em> a los Condicionales</h3>
 </div>
 
-</div>
-
-<div style="background-color: #4CAF50; width: 60%; height: 100px; border: 2px solid #000; display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; margin-top: 30px;">
 <h3 style="margin: 0; color: #000;"><em>Infectado</em> por Smalltalk </h3>
 </div>
 
+</div>
 </div>
 
 
@@ -391,7 +392,7 @@ Falso.si_falso(lambda: print("Evalua este bloque"))
 ```
 <!-- .element: class="fragment" -->
 
----
+--
 
 ```python
 if (1 == 1):
@@ -408,29 +409,95 @@ else:
 ```    
 <!-- .element: class="fragment" -->
 
+--
 
+```python
+if (1 == 2):
+    print("Es verdadero")
+else:
+    print("Es falso")
+# => Es falso
+```    
 
----
-
-[Skip](#/no-existiese-el-if)
-<!-- .element: class="fragment"  -->
+```python
+(1 == 2).si_verdadero(lambda: print("Es verdadero"))
+        .si_falso(lambda: print("Es falso"))
+# => Es falso
+```    
+<!-- .element: class="fragment" -->
 
 --
 
-```
-from forbiddenfruit import curse
-```
+### No queremos cambiar Python
 
-```python
+--
 
-```
+<!-- .slide: data-transition:"none" -->
 
+### Quiero que cambiemos nuestra manera de pensar
 
----
+NOTES:
+Solo queremos cambiar nuestra manera de pensar.
+Es una invitación a pensar en como se diseñamos nuestro código
+
+--
 
 <!-- .slide: id="no-existiese-el-if" -->
 
-**¿Qué pasaría si no existiese el `"if"`?**
+**¿Qué pasaría si no existiera la sentencia `"if"`?**
+
+---
+
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 20px;">
+
+<div style="display: flex; flex-direction: column; width: 60%; gap: 5%;">
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000; visibility: hidden;"><em>Buscando</em> la Abstracción</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000; visibility: hidden;"><em>Centrado</em> en los Mensajes</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000; visibility: hidden"><em>Reacio</em> a los Condicionales</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+<h3 style="margin: 0; color: #000;"><em>Infectado</em> por Smalltalk </h3>
+</div>
+
+</div>
+</div>
+
+--
+
+<!-- .slide: data-transition="none" -->
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 20px;">
+
+<div style="display: flex; flex-direction: column; width: 60%; gap: 5%;">
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000; visibility: hidden;"><em>Buscando</em> la Abstracción</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000; visibility: hidden;"><em>Centrado</em> en los Mensajes</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000;"><em>Reacio</em> a los Condicionales</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+<h3 style="margin: 0; color: #000;"><em>Infectado</em> por Smalltalk </h3>
+</div>
+
+</div>
+</div>
 
 --
 
@@ -444,6 +511,9 @@ Biblioteca.buscar("")
 # => None
 ```
 <!-- .element: class="fragment" -->
+
+NOTES:
+Veamos un caso terrible
 
 --
 
@@ -469,7 +539,7 @@ Hay veces que **None** *"es nada"*.
 
 --
 
-```python
+```python [|2|5-6]
 libros = [ libro for id in ids 
            if (libro := Biblioteca.buscar(id)) 
          ]
@@ -563,7 +633,61 @@ else:
 </div>
 <div style="flex: 1 1 auto; padding: 3px;">
 
-```python [|2|4]
+```python [|2]
+if ( Objeto del cual conozco el tipo ):
+    # Código que hace algo
+else:
+    # Código que hace otra cosa
+```
+
+</div>
+</div>
+
+--
+
+<!-- .slide: data-transition="none" -->
+
+<div style="display: flex; justify-content: space-around; overflow: hidden;">
+<div style="flex: 1 1 auto; padding: 3px;">
+
+```python
+if libro is None:
+    return "Libro desconocido"
+else:
+    return libro.autor
+```
+
+</div>
+<div style="flex: 1 1 auto; padding: 3px;">
+
+```python [2|4]
+if ( Objeto del cual conozco el tipo ):
+    # Yo proveo el comportamiento
+else:
+    # Código que hace otra cosa
+```
+
+</div>
+</div>
+
+--
+
+<!-- .slide: data-transition="none" -->
+
+<div style="display: flex; justify-content: space-around; overflow: hidden;">
+<div style="flex: 1 1 auto; padding: 3px;">
+
+```python
+if libro is None:
+    return "Libro desconocido"
+else:
+    return libro.autor
+```
+
+</div>
+<div style="flex: 1 1 auto; padding: 3px;">
+
+```python [4]
 if ( Objeto del cual conozco el tipo ):
     # Yo proveo el comportamiento
 else:
@@ -572,6 +696,10 @@ else:
 
 </div>
 </div>
+
+NOTES:
+Esto es abosolutamente terrible y el problema central es que los condicionales 
+se multiplican.
 
 --
 
@@ -704,6 +832,58 @@ libro = Biblioteca.buscar(id)
 
 --
 
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 20px;">
+
+<div style="display: flex; flex-direction: column; width: 60%; gap: 5%;">
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000; visibility: hidden;"><em>Buscando</em> la Abstracción</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000; visibility: hidden;"><em>Centrado</em> en los Mensajes</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000;"><em>Reacio</em> a los Condicionales</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+<h3 style="margin: 0; color: #000;"><em>Infectado</em> por Smalltalk </h3>
+</div>
+
+</div>
+</div>
+
+--
+
+<!-- .slide: data-transition="none" -->
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 20px;">
+
+<div style="display: flex; flex-direction: column; width: 60%; gap: 5%;">
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000; visibility: hidden;"><em>Buscando</em> la Abstracción</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000;"><em>Centrado</em> en los Mensajes</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000;"><em>Reacio</em> a los Condicionales</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+<h3 style="margin: 0; color: #000;"><em>Infectado</em> por Smalltalk </h3>
+</div>
+
+</div>
+</div>
+
+--
+
 
 <div style="display: flex; justify-content: space-around; overflow: hidden;">
 <div style="flex: 1 1 auto; padding: 10px;">
@@ -730,12 +910,16 @@ else:
 
 --
 
-```python [1-5|1|2|4]
+```python [|4]
 if libro is None:
     return "Libro desconocido"
 else:
     return libro.autor
 ```
+
+NOTES:
+No quiero saber todo el tiempo si el objeto es None o no, solo quiero 
+mandarle un mensaje
 
 --
 
@@ -752,7 +936,12 @@ class NoneType:
 ```
 <!-- .element: class="fragment" -->
 
+NOTES:
+El problema está en que unas veces recibimos el objeto Libro y otras veces NoneType que no entiende el mensaje autor.
+
 --
+
+<!-- .slide: data-transition="none" -->
 
 ```python
 class Libro:
@@ -854,6 +1043,12 @@ for libro in libros:
         print(libro.autor)
 ```
 
+NOTES:
+¿Es mejor este codigo?
+- tenemos una nueva dependencia
+- todavía tenemos un condicional
+- pero ya no somos responsables del comportamiento
+
 --
 
 <!-- .slide: data-transition="none" -->
@@ -926,12 +1121,13 @@ class Libro:
         ...
 ```
 
-```python
+```python [1]
 class LibroDesconocido:
     @property
     def autor(self):
         return "Libro desconocido"
 ```
+<!-- .element: class="fragment" -->
 
 --
 
@@ -1147,6 +1343,58 @@ for libro in libros:
 
 ---
 
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 20px;">
+
+<div style="display: flex; flex-direction: column; width: 60%; gap: 5%;">
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000; visibility: hidden;"><em>Buscando</em> la Abstracción</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000;"><em>Centrado</em> en los Mensajes</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000;"><em>Reacio</em> a los Condicionales</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+<h3 style="margin: 0; color: #000;"><em>Infectado</em> por Smalltalk </h3>
+</div>
+
+</div>
+</div>
+
+--
+
+<!-- .slide: data-transition="none" -->
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 20px;">
+
+<div style="display: flex; flex-direction: column; width: 60%; gap: 5%;">
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000;"><em>Buscando</em> la Abstracción</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000;"><em>Centrado</em> en los Mensajes</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center;">
+<h3 style="margin: 0; color: #000;"><em>Reacio</em> a los Condicionales</h3>
+</div>
+
+<div style="background-color: #4CAF50; height: 20%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+<h3 style="margin: 0; color: #000;"><em>Infectado</em> por Smalltalk </h3>
+</div>
+
+</div>
+</div>
+
+--
 
 ---
 
