@@ -157,7 +157,7 @@ class MiObjeto:
 
 --
 
-Veamos una particularidad de Smalltalk para ver como conceptualizamos los objetos.
+Analicemos una particularidad de Smalltalk para ver como conceptualizamos los objetos.
 
 --
 
@@ -204,6 +204,9 @@ dir(int)
 # '__class__', ..., '__str__', '__sub__', ...]
 ``` 
 
+NOTES:
+Esto es lo que es real, esto es lo que esta detras de la sintaxis especial que tenemos en Python para trabajar con los objetos. Estamos mandando un mensaje a un objeto.
+
 ---
 
 ```python
@@ -237,6 +240,10 @@ dir(bool)
 NOTES:
 
 Lo extrano es que en Python exista una sintaxis especial para trabajar con los booleanos, pero lo tenemos tan naturalizado que no lo cuestionamos.
+
+--
+
+## A diferencia de Smalltalk, Python tiene una sentencia especial para trabajar con los booleanos
 
 --
 
@@ -340,7 +347,45 @@ que mantengamos nuestra manera de pensar de manera procedural. Y nos impide apre
 
 ### Sintaxis de "Envío de Mensajes" para True y False
 
----
+--
+
+```python
+class Verdadero:
+    @classmethod
+    def si_verdadero(cls, bloque_de_codigo):
+        bloque_de_codigo()
+
+```
+
+--
+
+<!-- .slide: data-transition="none" -->
+
+```python
+class Verdadero:
+    @classmethod
+    def si_verdadero(cls, bloque_de_codigo):
+        bloque_de_codigo()
+        return cls
+```
+
+--
+
+<!-- .slide: data-transition="none" -->
+
+```python [7-9]
+class Verdadero:
+    @classmethod
+    def si_verdadero(cls, bloque_de_codigo):
+        bloque_de_codigo()
+        return cls
+
+    @classmethod
+    def si_falso(cls, bloque_de_codigo):
+        return cls
+```
+
+--
 
 ```python
 class Verdadero:
