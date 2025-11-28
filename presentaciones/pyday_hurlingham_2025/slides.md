@@ -1396,7 +1396,39 @@ for libro in libros:
 
 --
 
+NOTES:
+Acá tengo que detallar que la charla de Sandi sigue con un ejemplo largo y que 
+es ultra recomendable seguirlo
+
+--
+
+NOTES:
+Pero vamos a detallar la Abstracción 
+
+--
+
+![](./images/taza.png)
+
+--
+
+![](./images/zen-python.png)
+
+--
+
+<!-- .slide: id="filosofia-nada" -->
+
+### El Principio de la Utilidad del Vacío
+
+**Tao Te Ching:**
+> "Trabajamos con el ser, pero el no-ser es lo que usamos."
+<!-- .element: class="fragment" -->
+
+NOTES:
+La abstracción se esconde en el espacio vacío (la ausencia de if)
+
 ---
+
+--
 
 <!-- .slide: id="monoides" -->
 
@@ -1421,145 +1453,11 @@ for libro in libros:
 
 ---
 
-<!-- .slide: id="tema3-composicion" -->
-
-# TEMA 3: COMPOSICIÓN
-
-## (7 minutos)
-
----
-
-<!-- .slide: id="solucion-composicion" -->
-
-## Solución 3: Composición
-
-### Evitando la Trampa de la Herencia
-
----
-
-<!-- .slide: id="trampa-herencia" -->
-
-## La Trampa de la Herencia
-
-### "Es un" (is-a) vs. "Tiene un" (has-a)
-
-* La herencia es solo para la **especialización**
-* Usarla para reúso de código causa **Explosión Combinatoria**
-
----
-
-<!-- .slide: id="pensamiento-correcto" -->
-
-## El Pensamiento Correcto
-
-### De "¿Qué ES este objeto?" a "¿Qué ROL juega?"
-
-* Debemos aislar la variación y nombrar la abstracción
-
----
-
-<!-- .slide: id="rol-inyeccion" -->
-
-## El Rol y la Inyección
-
-### Composición con Dependency Injection (DI)
-
-**Principio:** El objeto principal depende de (usa) Roles que se le entregan en el constructor
-
----
-
-<!-- .slide: id="codigo-con-roles" -->
-
-## Código con Roles
-
-```python
-class Notificador:
-    def __init__(self, metodo_alerta):
-        self.alerta = metodo_alerta
-
-    def enviar(self):
-        self.alerta.ejecutar()
-
-# La variación vive en 'metodo_alerta'
-# (Email, SMS, Slack), no en 'Notificador'.
-```
-
----
-
-<!-- .slide: id="victoria-composicion" -->
-
-## La Victoria de la Composición
-
-### ¡Puedes combinar cualquier Rol con cualquier Entidad!
-
-* El código es más flexible
-* Más fácil de probar
-* Más mantenible
-
----
-
-<!-- .slide: id="cierre" -->
-
-# CIERRE Y CALL TO ACTION
-
-## (7 minutos)
-
----
-
-<!-- .slide: id="filosofia-nada" -->
-
-## La Filosofía de la Nada
-
-### El Principio de la Utilidad del Vacío
-
-**Tao Te Ching:**
-> "Trabajamos con el ser, pero el no-ser es lo que usamos."
-
-La abstracción se esconde en el espacio vacío (la ausencia de if)
-
----
-
-<!-- .slide: id="resumen" -->
-
-## Resumen Final
-
-### Tres Pasos para el Código Limpio
-
-1. **Encuentra la Nada:** Identifica la lógica condicional
-2. **Nómbrala:** Crea el Rol (la abstracción)
-3. **Hazla un Objeto:** Implementa el Null Object o usa la Composición
-
----
-
 <!-- .slide: id="preguntas" -->
 
 ## ¡Preguntas!
 
 **[Tu Contacto Principal / Twitter]**
-
----
-
-<!-- .slide: id="consultoria" -->
-
-## Servicios de Consultoría
-
-### ¿Tu código sufre de if y acoplamiento?
-
-* **Refactorización Estratégica:** Transformación de monolitos
-* **Diseño Orientado a Objetos:** Aplicación de patrones avanzados
-* **Auditoría de Código:** Identificación y corrección de fragilidad
-
----
-
-<!-- .slide: id="tutorias" -->
-
-## Tutorías y Mentoring
-
-### Invierte en tu futuro como desarrollador senior
-
-* Clases personalizadas de Python avanzado
-* Sesiones de TDD y Pruebas Unitarias
-* Formación en Arquitectura de Software
 
 ---
 
