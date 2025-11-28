@@ -22,7 +22,7 @@ Líder Técnico en Mercado Libre
 
 ### Sasha
 
-Líder Técnico en **MELI**
+TL en **MELI**
 
 *IT Staff || Financial Planning & Analysis*
 
