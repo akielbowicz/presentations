@@ -28,7 +28,8 @@ Líder Técnico en **MELI**
 
 --
 
-
+NOTES:
+Acá tengo que mencionar un par de cosas de que me interesa y que motiva esta charla
 
 --
 
@@ -39,6 +40,10 @@ Líder Técnico en **MELI**
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/OMPfEXIlTVE?si=pqTo6xzKa1qfn5us" title="Nothing is Something" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
 
 [Nothing is Something](https://www.youtube.com/watch?v=OMPfEXIlTVE) de Sandi Metz
+
+
+NOTES:
+Hay demasiadas sutilezas en esta presentacion y muchas particularidades que me llevaron bastante tiempo entenderlas y más que entenderlas,internalizarlas y ver como podia utilizarlas en mi dia a dia.
 
 ---
 
@@ -66,6 +71,10 @@ Líder Técnico en **MELI**
 
 </div>
 
+
+NOTES: 
+Hay una particularidad en como la gente que programa en Smalltalk piensa el código orientado a objetos.
+
 ---
 
 <!-- .slide: id="poo" -->
@@ -78,8 +87,76 @@ Líder Técnico en **MELI**
 [Programar (casi) sin condicionales](https://www.youtube.com/watch?v=ioeMeQNEgL8)
 
 </div>
+
+NOTES:
+
+Voy a pasar rapido por un par de ideas que explico en mas detalle en esta charla pero que nos van a ayudar a sentar las bases para lo que sigue.
+
 --
 
+Definamos unas reglas para la Programación Orientada a Objetos.
+
+1. Todo es un objeto 
+<!-- .element: class="fragment" -->
+2. Los objetos se comunican enviandose mensajes
+<!-- .element: class="fragment" -->
+
+
+NOTES:
+La programacion orientada a objetos tiene dos simples ideas o reglas:
+y con estas reglas podemos generar todo tipo de comportamientos complejos.
+
+--
+
+```python
+objetoA = MiObjeto()
+```
+
+--
+
+<!-- .slide: data-transition="none" -->
+```python
+objetoA = MiObjeto()
+objetoB = MiOtroObjeto()
+```
+--
+
+<!-- .slide: data-transition="none" -->
+```python
+objetoA = MiObjeto()
+objetoB = MiOtroObjeto()
+
+objetoA.mensaje(objetoB)
+```
+
+--
+
+<!-- .slide: data-transition="none" -->
+```python
+objetoA = MiObjeto()
+objetoB = MiOtroObjeto()
+
+objetoA.mensaje(objetoB)
+
+objetoB.otro_mensaje(1, "2", [True], None, objetoA)
+```
+
+NOTES:
+
+Para que nos sirve esto? 
+Para reducir el contexto de cada cosa que hacemos. Separar responsabilidades, etc
+
+--
+
+```python
+class MiObjeto:
+    def mensaje(self, otro_objeto):
+        otro_objeto.otro_mensaje(42)
+```
+
+--
+
+Veamos una particularidad de Smalltalk para ver como conceptualizamos los objetos.
 
 --
 
@@ -90,8 +167,24 @@ str(1)
 
 --
 
+<!-- .slide: data-transition="none" -->
+
+```python
+(1).__str__()
+# => '1'
+```
+
+--
+
 ```python
 1 + 1
+# => 2 
+```
+
+--
+
+```python
+(1).__add__(1)
 # => 2 
 ```
 
@@ -120,6 +213,13 @@ dir(int)
 --
 
 ```python
+(1).__eq__(1)
+# => True
+```
+
+--
+
+```python
 type(True)
 # => bool
 ```
@@ -132,6 +232,10 @@ dir(bool)
 #  '__ne__', '__neg__', '__new__', '__or__',
 #  ... '__ror__',... '__rxor__',... '__xor__', ... ]
 ```
+
+NOTES:
+
+Lo extrano es que en Python exista una sintaxis especial para trabajar con los booleanos, pero lo tenemos tan naturalizado que no lo cuestionamos.
 
 --
 
@@ -169,6 +273,11 @@ else:
     print("Falso")
 ```
 
+NOTES: 
+Esta es la manera en la que utilizamos esta sintaxis en Python y en muchos otros 
+lenguajes de programacion.
+Hay una expresion que se evalua y dependiendo de su valor se ejecuta un bloque de codigo u otro.
+
 --
 
 <!-- .slide: data-transition="none" -->
@@ -202,6 +311,34 @@ else:
     # Código que hace otra cosa
 ```
 
+NOTES:
+Esto es un TypeCheck, y es algo que se no se hace en OO.
+
+---
+
+### Solo quiero pasarle un **mensaje** a los objetos.
+
+NOTES:
+No quiero tener que ver el tipo de objeto que estoy manejando. Y en 
+base a eso decidir entre distintos comportamientos.
+
+---
+
+# El "if"
+
+**es un facilitador**
+<!-- .element: class="fragment" -->
+
+NOTES:
+Si venimos de lenguajes procedurales es parecería que es normal y razonable implementar largos condicionales (con if, switch, case, etc) 
+
+Y la idea principal de Sandi es que la presencia de esta palabra hace facilita
+que mantengamos nuestra manera de pensar de manera procedural. Y nos impide aprender y a aprovechar el poder de la Programación Orientada a Objetos.
+
+---
+
+### Sintaxis de "Envío de Mensajes" para True y False
+
 ---
 
 ```python
@@ -227,23 +364,49 @@ class Falso:
         bloque_de_codigo()
         return cls
 ```
+<!-- .element: class="fragment" -->
 
 --
 
 ```python
-Verdadero.si_verdadero(lambda: print("Evalua si es Verdadero"))
-         .si_falso(lambda: print("Evalua si es Falso"))
-# => Evalua si es Verdadero
+Verdadero.si_verdadero(lambda: print("Evalua este bloque"))
+# => Evalua este bloque
 ```
 
 ```python
-Falso.si_verdadero(lambda: print("Evalua si es Verdadero"))
-     .si_falso(lambda: print("Evalua si es Falso"))
-# => Evalua si es Falso
+Verdadero.si_falso(lambda: print("Evalua este bloque"))
+# =>
+```
+<!-- .element: class="fragment" -->
+
+```python
+Falso.si_verdadero(lambda: print("Evalua este bloque"))
+# =>
+```
+<!-- .element: class="fragment" -->
+
+```python
+Falso.si_falso(lambda: print("Evalua este bloque"))
+# => Evalua este bloque
 ```
 <!-- .element: class="fragment" -->
 
 ---
+
+```python
+if (1 == 1):
+    print("Es verdadero")
+else:
+    print("Es falso")
+# => Es verdadero
+```    
+
+```python
+(1 == 1).si_verdadero(lambda: print("Es verdadero"))
+        .si_falso(lambda: print("Es falso"))
+# => Es verdadero
+```    
+<!-- .element: class="fragment" -->
 
 
 
