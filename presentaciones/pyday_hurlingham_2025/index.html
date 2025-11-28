@@ -6,24 +6,31 @@
 
     <title>Nadie nada nunca - PyDay Hurlingham 2025</title>
 
+    <!-- Phorma Scientific Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reset.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/theme/night.css">
+
+    <!-- Custom Phorma Scientific Theme -->
+    <link rel="stylesheet" href="phorma-theme.css">
 
     <!-- Theme used for syntax highlighted code -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/a11y-dark.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="highlight-theme-light">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" id="highlight-theme-dark" disabled>
 
     <style>
-        .reveal h1 { font-size: 2.5em; }
-        .reveal h2 { font-size: 1.8em; }
-        .reveal h3 { font-size: 1.3em; }
-        .reveal pre { font-size: 0.55em; }
-        .reveal code { font-size: 0.9em; }
-        .reveal ul { font-size: 0.9em; }
-        .reveal blockquote { font-style: italic; }
+        /* Additional custom overrides if needed */
     </style>
 </head>
 <body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-icon">☀️</span>
+    </button>
+
     <div class="reveal">
         <div class="slides">
             <section data-markdown="slides.md"
@@ -41,6 +48,41 @@
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/highlight/highlight.js"></script>
 
     <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('.theme-icon');
+        const htmlElement = document.documentElement;
+        const lightTheme = document.getElementById('highlight-theme-light');
+        const darkTheme = document.getElementById('highlight-theme-dark');
+
+        // Load saved theme preference or default to light
+        const savedTheme = localStorage.getItem('phorma-theme') || 'light';
+        if (savedTheme === 'dark') {
+            htmlElement.setAttribute('data-theme', 'dark');
+            themeIcon.textContent = '🌙';
+            lightTheme.disabled = true;
+            darkTheme.disabled = false;
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('phorma-theme', newTheme);
+
+            if (newTheme === 'dark') {
+                themeIcon.textContent = '🌙';
+                lightTheme.disabled = true;
+                darkTheme.disabled = false;
+            } else {
+                themeIcon.textContent = '☀️';
+                lightTheme.disabled = false;
+                darkTheme.disabled = true;
+            }
+        });
+
         // More info about initialization & config:
         // - https://revealjs.com/initialization/
         // - https://revealjs.com/config/

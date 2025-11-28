@@ -1,0 +1,464 @@
+/*
+ * Phorma Scientific - Reveal.js Theme
+ * Based on Phorma Scientific brand identity
+ * Light and Dark theme variants
+ */
+
+/* ==========================================
+   THEME VARIABLES
+   ========================================== */
+
+:root {
+  /* Light Theme (default) */
+  --r-background-color: #FFFFFF;
+  --r-main-color: #000000;
+  --r-heading-color: #000000;
+  --r-link-color: #000000;
+  --r-link-color-hover: #666666;
+  --r-selection-background-color: #000000;
+  --r-selection-color: #FFFFFF;
+
+  /* Phorma brand colors */
+  --color-grey: #E5E5E5;
+  --color-grey-dark: #333333;
+  --color-muted: #666666;
+  --color-border: #000000;
+
+  /* Typography */
+  --r-main-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --r-heading-font: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  --r-code-font: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  --r-main-font-size: 38px;
+  --r-heading-letter-spacing: -0.02em;
+  --r-heading-text-transform: none;
+  --r-heading-font-weight: 700;
+
+  /* Spacing */
+  --r-block-margin: 20px;
+  --r-heading-margin: 0 0 20px 0;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --r-background-color: #0a0a0a;
+  --r-main-color: #FFFFFF;
+  --r-heading-color: #FFFFFF;
+  --r-link-color: #FFFFFF;
+  --r-link-color-hover: #999999;
+  --r-selection-background-color: #FFFFFF;
+  --r-selection-color: #000000;
+
+  --color-grey: #1a1a1a;
+  --color-grey-dark: #cccccc;
+  --color-muted: #999999;
+  --color-border: #FFFFFF;
+}
+
+/* ==========================================
+   BASE STYLES
+   ========================================== */
+
+.reveal {
+  font-family: var(--r-main-font);
+  font-size: var(--r-main-font-size);
+  font-weight: 400;
+  color: var(--r-main-color);
+}
+
+.reveal-viewport {
+  background: var(--r-background-color);
+  background-color: var(--r-background-color);
+}
+
+/* ==========================================
+   TYPOGRAPHY
+   ========================================== */
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: var(--r-heading-margin);
+  color: var(--r-heading-color);
+  font-family: var(--r-heading-font);
+  font-weight: var(--r-heading-font-weight);
+  letter-spacing: var(--r-heading-letter-spacing);
+  line-height: 1.2;
+  text-transform: var(--r-heading-text-transform);
+  word-wrap: break-word;
+}
+
+.reveal h1 {
+  font-size: 2.5em;
+}
+
+.reveal h2 {
+  font-size: 1.8em;
+}
+
+.reveal h3 {
+  font-size: 1.4em;
+}
+
+.reveal h4 {
+  font-size: 1.2em;
+}
+
+.reveal p {
+  margin: var(--r-block-margin) 0;
+  line-height: 1.6;
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: 700;
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+/* ==========================================
+   LINKS
+   ========================================== */
+
+.reveal a {
+  color: var(--r-link-color);
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.reveal a:hover {
+  color: var(--r-link-color-hover);
+  opacity: 0.6;
+}
+
+/* ==========================================
+   CODE BLOCKS
+   ========================================== */
+
+/* Remove ALL borders and backgrounds from pre elements */
+.reveal pre,
+.reveal pre.code-wrapper,
+.reveal div.code-wrapper pre,
+.reveal section > pre,
+.reveal .fragment > pre,
+.reveal .slides section pre {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: var(--r-block-margin) auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: var(--r-code-font);
+  line-height: 1.4;
+  word-wrap: break-word;
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Inline code styling */
+.reveal code {
+  font-family: var(--r-code-font);
+  font-size: 0.9em;
+  background: var(--color-grey);
+  padding: 0.125rem 0.375rem;
+  border-radius: 2px;
+  border: none;
+}
+
+/* Code blocks - THIS is where the border should be */
+.reveal pre code,
+.reveal pre > code,
+.reveal section pre code,
+.reveal .fragment pre code,
+.reveal .slides section pre code {
+  display: block;
+  padding: 1em !important;
+  overflow: auto;
+  max-height: 600px;
+  word-wrap: normal;
+  background: var(--color-grey) !important;
+  border-radius: 0;
+  border: 2px solid var(--color-border) !important;
+  box-shadow: none !important;
+}
+
+/* Remove borders from ANY wrapper divs or containers */
+.reveal .code-wrapper,
+.reveal div.code-wrapper,
+.reveal pre[data-line-numbers],
+.reveal .hljs,
+.reveal .hljs-ln,
+.reveal .hljs-ln-line,
+.reveal table.hljs-ln {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Remove borders from line number elements */
+.reveal .hljs-ln-numbers,
+.reveal .hljs-ln-code,
+.reveal .hljs-ln-n,
+.reveal td.hljs-ln-numbers,
+.reveal td.hljs-ln-code {
+  border: none !important;
+  background: transparent !important;
+}
+
+/* ==========================================
+   LISTS
+   ========================================== */
+
+.reveal ul,
+.reveal ol {
+  display: block;
+  text-align: left;
+  margin: 0 0 0 1em;
+  font-size: 0.9em;
+}
+
+.reveal ul {
+  list-style-type: none;
+}
+
+.reveal ul li {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.reveal ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  font-family: var(--r-code-font);
+  color: var(--r-main-color);
+}
+
+.reveal ol {
+  list-style-type: decimal;
+}
+
+/* ==========================================
+   QUOTES
+   ========================================== */
+
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: var(--r-block-margin) auto;
+  padding: 1em;
+  font-style: italic;
+  background: var(--color-grey);
+  border-left: 4px solid var(--color-border);
+  box-shadow: none;
+}
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block;
+}
+
+/* ==========================================
+   IMAGES
+   ========================================== */
+
+.reveal section img {
+  margin: 15px 0px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* ==========================================
+   TABLES
+   ========================================== */
+
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 2px solid var(--color-border);
+}
+
+.reveal table th {
+  font-weight: 700;
+  font-family: var(--r-code-font);
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.05em;
+  background: var(--color-grey);
+}
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.5em 1em;
+  border: 1px solid var(--color-border);
+}
+
+.reveal table tr:nth-child(even) {
+  background-color: var(--color-grey);
+}
+
+/* ==========================================
+   UTILITY CLASSES
+   ========================================== */
+
+.reveal .text-mono {
+  font-family: var(--r-code-font);
+}
+
+.reveal .text-muted {
+  color: var(--color-muted);
+}
+
+.reveal .text-upper {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Buttons/CTAs */
+.reveal .btn {
+  display: inline-block;
+  font-family: var(--r-code-font);
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.8em 1.5em;
+  border: 2px solid var(--color-border);
+  background: var(--r-background-color);
+  color: var(--r-main-color);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+
+.reveal .btn:hover {
+  background: var(--r-main-color);
+  color: var(--r-background-color);
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0 var(--color-border);
+}
+
+/* Highlight box */
+.reveal .highlight-box {
+  background: var(--color-grey);
+  border-left: 4px solid var(--color-border);
+  padding: 1em;
+  margin: 1em 0;
+}
+
+/* ==========================================
+   FRAGMENT STYLES
+   ========================================== */
+
+.reveal .fragment {
+  transition: all var(--transition-base);
+}
+
+/* ==========================================
+   PROGRESS BAR
+   ========================================== */
+
+.reveal .progress {
+  background: var(--color-grey);
+  color: var(--r-main-color);
+  height: 3px;
+}
+
+.reveal .progress span {
+  background: var(--r-main-color);
+}
+
+/* ==========================================
+   CONTROLS
+   ========================================== */
+
+.reveal .controls {
+  color: var(--r-main-color);
+}
+
+/* ==========================================
+   SLIDE NUMBER
+   ========================================== */
+
+.reveal .slide-number {
+  font-family: var(--r-code-font);
+  font-size: 0.6em;
+  color: var(--r-main-color);
+  background-color: transparent;
+}
+
+/* ==========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================== */
+
+@media screen and (max-width: 768px) {
+  .reveal {
+    font-size: 28px;
+  }
+
+  .reveal h1 {
+    font-size: 2em;
+  }
+
+  .reveal h2 {
+    font-size: 1.5em;
+  }
+
+  .reveal pre {
+    font-size: 0.45em;
+  }
+}
+
+/* ==========================================
+   DARK/LIGHT THEME TOGGLE
+   ========================================== */
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  padding: 0.5em 1em;
+  background: var(--r-background-color);
+  border: 2px solid var(--color-border);
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: var(--r-code-font);
+  font-size: 0.8em;
+  color: var(--r-main-color);
+  transition: all var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  background: var(--r-main-color);
+  color: var(--r-background-color);
+  transform: rotate(180deg);
+}
+
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
+
+@media print {
+  .reveal .progress,
+  .reveal .controls,
+  .theme-toggle {
+    display: none !important;
+  }
+}
