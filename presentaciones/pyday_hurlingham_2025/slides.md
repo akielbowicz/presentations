@@ -379,7 +379,6 @@ class Verdadero:
     def si_verdadero(cls, bloque_de_codigo):
         bloque_de_codigo()
         return cls
-
     @classmethod
     def si_falso(cls, bloque_de_codigo):
         return cls
@@ -571,12 +570,31 @@ libros = [ Biblioteca.buscar(id) for id in ids ]
 # <__main__.Libro object at 0x7f0f48e10190> id:Ocio]
 ```
 
+```python
+for libro in libros:
+    print(libro.autor)
+
+```
+<!-- .element: class="fragment" -->
+
+--
+
+<!-- .slide: data-transition="none" -->
+
+```python
+ids = ["Los Sorias", "", "Ocio"]
+
+libros = [ Biblioteca.buscar(id) for id in ids ]
+# => [<__main__.Libro object at 0x7f0f4bf35940> id:Los Sorias,
+# None,
+# <__main__.Libro object at 0x7f0f48e10190> id:Ocio]
+```
+
 ```python [|3]
 for libro in libros:
     print(libro.autor)
 # => AttributeError: 'NoneType' object has no attribute 'autor'
 ```
-<!-- .element: class="fragment" -->
 
 --
 
@@ -619,6 +637,8 @@ for libro in libros:
 <!-- .element: class="fragment" -->
 
 --
+
+<!-- .slide: data-transition="none" -->
 
 ```python [9]
 ids = ["Los Sorias", "", "Ocio"]
@@ -1452,11 +1472,7 @@ Pero vamos a detallar la Abstracción
 
 --
 
-![](./images/taza.png)
-
---
-
-![](./images/zen-python.png)
+<img src="./images/taza.png" width="70%">
 
 --
 
@@ -1471,30 +1487,46 @@ Pero vamos a detallar la Abstracción
 NOTES:
 La abstracción se esconde en el espacio vacío (la ausencia de if)
 
----
-
 --
+
+<img src="./images/zen-python.png" width="70%">
+
+---
 
 <!-- .slide: id="monoides" -->
 
-## Paralelo Funcional: Monoides
+- 10 + 0 = 10
+<!-- .element: class="fragment" -->
 
-### El Objeto Nulo en Data Processing
+- 4 * 1 = 4
+<!-- .element: class="fragment" -->
 
-* En el procesamiento de datos, la **Identidad Monoidal** es el "Null Object"
-* Ejemplo Clásico: Si queremos appendear resultados de múltiples procesos
+- `"Hola" + "" = "Hola"`
+<!-- .element: class="fragment" -->
 
----
+- `[1, 2] + [] = [1, 2]`
+<!-- .element: class="fragment" -->
 
-<!-- .slide: id="lista-vacia" -->
+- `pd.concat([df, pd.DataFrame()]) = df`
+<!-- .element: class="fragment" -->
 
-## La Lista Vacía y el DataFrame Vacío
+- `set.union(A, set()) = A`
+<!-- .element: class="fragment" -->
 
-* Si un proceso no encuentra datos ("Nada"), debe devolver la **Identidad**
-* **Identidad:** Una lista vacía `[]` o un DataFrame vacío `pd.DataFrame()`
-* **Beneficio:** Permite que el paso siguiente (concatenación) se ejecute sin if y sin errores
+- $\mathbb{M} * \mathbb{I} = \mathbb{M}$
+<!-- .element: class="fragment" -->
 
-> **Nota:** Crear un DataFrame vacío puede ser más costoso que un simple if en loops muy rápidos. Es una compensación entre legibilidad/robustez y velocidad.
+<div>
+
+- `lambda x: x`
+
+- `def identidad(x): return x`
+</div>
+<!-- .element: class="fragment" -->
+
+--
+
+**Monoide:** Una estructura algebraica con una operación binaria y un elemento identidad
 
 ---
 
@@ -1502,7 +1534,7 @@ La abstracción se esconde en el espacio vacío (la ausencia de if)
 
 ## ¡Preguntas!
 
-**[Tu Contacto Principal / Twitter]**
+**[sasha@phorma.sh](mailto:sasha@phorma.sh)]**
 
 ---
 
