@@ -6,6 +6,8 @@
 
 **29 de Noviembre 2025**
 
+[saxa.xyz/charla-nadie](https://saxa.xyz/charla-nadie)
+
 ---
 
 <!-- .slide: data-transition="none" -->

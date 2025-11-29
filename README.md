@@ -18,6 +18,8 @@ Cada charla tiene su propio subdirectorio bajo [`presentaciones`](./presentacion
 Presentaciones (en orden cronológico, con las más recientes arriba)
 -------------------------------------------------------------------
 
+[Nadie nada nunca (PyDay Hurlingham 2025)](./presentaciones/pyday_hurlingham_2025/)
+
 [Interoperabilidad entre Python y Julia Lang (PyDay Catamarca 2024)](./presentaciones/pyday_catamarca_2024/)
 
 [Intro a MS Windows para Pythonistas (PyDay Hurlingham 2024)](./presentaciones/pyday_hurlingham_2024/)
