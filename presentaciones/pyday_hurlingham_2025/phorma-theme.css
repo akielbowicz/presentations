@@ -452,6 +452,28 @@
 }
 
 /* ==========================================
+   THEME-DEPENDENT LOGOS
+   ========================================== */
+
+/* Light theme: show normal logo, hide inverted */
+.reveal .light-theme-logo {
+  display: block !important;
+}
+
+.reveal .dark-theme-logo {
+  display: none !important;
+}
+
+/* Dark theme: hide normal logo, show inverted */
+[data-theme="dark"] .reveal .light-theme-logo {
+  display: none !important;
+}
+
+[data-theme="dark"] .reveal .dark-theme-logo {
+  display: block !important;
+}
+
+/* ==========================================
    PRINT STYLES
    ========================================== */
 

@@ -1530,20 +1530,152 @@ La abstracción se esconde en el espacio vacío (la ausencia de if)
 
 ---
 
-<!-- .slide: id="preguntas" -->
+<!-- .slide: id="paralelizacion" -->
 
-## ¡Preguntas!
+## Los Monoides y la Paralelización
 
-**[sasha@phorma.sh](mailto:sasha@phorma.sh)]**
+NOTES:
+La abstracción de monoide no es solo elegancia matemática, es la clave para algoritmos paralelizables.
+
+--
+
+### ¿Por qué importan los monoides?
+
+Las operaciones asociativas se pueden **dividir**
+<!-- .element: class="fragment" -->\
+
+--
+
+```python
+# Operación asociativa: (a + b) + c = a + (b + c)
+total = sum([1, 2, 3, 4, 5, 6, 7, 8])
+```
+
+--
+
+<!-- .slide: data-transition="none" -->
+
+```python
+# Podemos dividir el trabajo
+chunk1 = sum([1, 2, 3, 4])  # = 10
+chunk2 = sum([5, 6, 7, 8])  # = 26
+total = chunk1 + chunk2      # = 36
+```
+
+--
+
+### Propiedades Clave para Paralelización
+
+1. **Asociatividad**: `(a ⊕ b) ⊕ c = a ⊕ (b ⊕ c)`
+<!-- .element: class="fragment" -->
+
+2. **Elemento Identidad**: `a ⊕ e = e ⊕ a = a`
+<!-- .element: class="fragment" -->
+
+3. **Sin efectos secundarios**: Funciones puras
+<!-- .element: class="fragment" -->
+
+--
+
+### De los Objetos Nulos a la Alta Performance
+
+- Los patrones que eliminan condicionales...
+<!-- .element: class="fragment" -->
+
+- ...facilitan el razonamiento sobre el código...
+<!-- .element: class="fragment" -->
+
+- ...y permiten optimizaciones automáticas
+<!-- .element: class="fragment" -->
+
+NOTES:
+El código bien abstraído es más fácil de paralelizar y optimizar.
+
+---
+
+<!-- .slide: id="servicios" -->
+
+## De la Teoría a la Práctica
+
+Llevamos estos principios a tu código de producción.
+<!-- .element: class="fragment" -->
+
+--
+
+<img src="./images/logo.svg" class="light-theme-logo" width="50%" style="display: block; margin: 0 auto;">
+<img src="./images/logo-invertido.svg" class="dark-theme-logo" width="50%" style="display: none; margin: 0 auto;">
+
+### [Phorma Scientific](https://phorma.sh/es)
+
+**Rigor. Rendimiento. Arquitectura.**
+
+--
+
+### [Phorma Scientific](https://phorma.sh/es)
+
+**Rigor. Rendimiento. Arquitectura.**
+
+<div style="font-size: 0.9em; margin-top: 2rem;">
+
+— Auditoría de Sistema y Arquitectura
+— Ingeniería de Software de Investigación (RSE)
+— Machine Learning Científico (SciML)
+— Síntesis de Rendimiento
+
+</div>
+
+
+--
+
+### Transformamos prototipos en sistemas de producción
+
+- Refactorización guiada por principios
+- Optimización de rendimiento (benchmarkeado)
+- Arquitecturas desacopladas y mantenibles
+- Stack: `Python` `Julia` `C#`
+
+--
+
+### Capacitación Técnica
+
+**Para laboratorios de investigación y equipos de I+D**
+
+<div style="font-size: 0.9em; margin-top: 2rem;">
+
+- Fundamentos de Computación Numérica
+- Rigor de Producción (TDD, CI/CD)
+- Machine Learning Científico
+- Julia de Alto Rendimiento
+- Diseño de Sistemas Arquitectónicos
+
+</div>
+
+<p style="margin-top: 2rem;">
+<a href="https://phorma.sh/es/trainees" style="border-bottom: 2px solid;">phorma.sh/es/trainees</a>
+</p>
+
+--
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+
+<h3>¿Listo para eliminar los condicionales de tu código?</h3>
+
+<div style="margin-top: 2rem; font-size: 1.2em;">
+
+**[info@phorma.sh](mailto:info@phorma.sh)**
+
+**[sasha@phorma.sh](mailto:sasha@phorma.sh)**
+
+</div>
+
+<p style="margin-top: 2rem; font-family: monospace; color: #666;">
+Estructura sobre el Caos
+</p>
+
+</div>
 
 ---
 
 <!-- .slide: id="gracias" -->
 
 ## Gracias
-
-### Contacto y Redes
-
-* **Email:** [Tu Email]
-* **LinkedIn:** [Tu LinkedIn]
-* ¡Hablemos de código!
