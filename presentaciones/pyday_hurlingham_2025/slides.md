@@ -31,8 +31,8 @@ Líder Técnico en Mercado Libre
 --
 
 - Estudié Física en la UBA
-- Trabaje como Desarrollador de Software en JP Morgan
-- Trabaje como Lead Quant Developer en **Qontigo/Simcorp**
+- Trabajé como Desarrollador de Software en JP Morgan
+- Trabajé como Lead Quant Developer en **Qontigo/Simcorp**
 
 NOTES:
 Acá tengo que mencionar un par de cosas de que me interesa y que motiva esta charla
@@ -49,7 +49,7 @@ Acá tengo que mencionar un par de cosas de que me interesa y que motiva esta ch
 
 
 NOTES:
-Hay demasiadas sutilezas en esta presentacion y muchas particularidades que me llevaron bastante tiempo entenderlas y más que entenderlas,internalizarlas y ver como podia utilizarlas en mi dia a dia.
+Hay demasiadas sutilezas en esta presentación y muchas particularidades que me llevaron bastante tiempo entenderlas y más que entenderlas, internalizarlas y ver como podia utilizarlas en mi dia a dia.
 
 ---
 
@@ -97,7 +97,7 @@ Hay una particularidad en como la gente que programa en Smalltalk piensa el cód
 
 NOTES:
 
-Voy a pasar rapido por un par de ideas que explico en mas detalle en esta charla pero que nos van a ayudar a sentar las bases para lo que sigue.
+Voy a pasar rápido por un par de ideas que explico en mas detalle en esta charla pero que nos van a ayudar a sentar las bases para lo que sigue.
 
 --
 
@@ -105,12 +105,12 @@ Definamos unas reglas para la Programación Orientada a Objetos.
 
 1. Todo es un objeto 
 <!-- .element: class="fragment" -->
-2. Los objetos se comunican enviandose mensajes
+2. Los objetos se comunican enviándose mensajes
 <!-- .element: class="fragment" -->
 
 
 NOTES:
-La programacion orientada a objetos tiene dos simples ideas o reglas:
+La programación orientada a objetos tiene dos simples ideas o reglas:
 y con estas reglas podemos generar todo tipo de comportamientos complejos.
 
 --
@@ -211,7 +211,7 @@ dir(int)
 ``` 
 
 NOTES:
-Esto es lo que es real, esto es lo que esta detras de la sintaxis especial que tenemos en Python para trabajar con los objetos. Estamos mandando un mensaje a un objeto.
+Esto es lo que es real, esto es lo que esta detrás de la sintaxis especial que tenemos en Python para trabajar con los objetos. Estamos mandando un mensaje a un objeto.
 
 ---
 
@@ -245,7 +245,7 @@ dir(bool)
 
 NOTES:
 
-Lo extrano es que en Python exista una sintaxis especial para trabajar con los booleanos, pero lo tenemos tan naturalizado que no lo cuestionamos.
+Lo extraño es que en Python exista una sintaxis especial para trabajar con los booleanos, pero lo tenemos tan naturalizado que no lo cuestionamos.
 
 ---
 
@@ -289,8 +289,8 @@ else:
 
 NOTES: 
 Esta es la manera en la que utilizamos esta sintaxis en Python y en muchos otros 
-lenguajes de programacion.
-Hay una expresion que se evalua y dependiendo de su valor se ejecuta un bloque de codigo u otro.
+lenguajes de programación.
+Hay una expresión que se evalúa y dependiendo de su valor se ejecuta un bloque de código u otro.
 
 --
 
@@ -770,7 +770,7 @@ else:
 </div>
 
 NOTES:
-Esto es abosolutamente terrible y el problema central es que los condicionales 
+Esto es absolutamente terrible y el problema central es que los condicionales 
 se multiplican.
 
 --
@@ -1116,7 +1116,7 @@ for libro in libros:
 ```
 
 NOTES:
-¿Es mejor este codigo?
+¿Es mejor este código?
 - tenemos una nueva dependencia
 - todavía tenemos un condicional
 - pero ya no somos responsables del comportamiento
@@ -1476,7 +1476,7 @@ es ultra recomendable seguirlo
 
 --
 
-## Pensemos el Vacio
+## Pensemos el Vacío
 
 NOTES:
 Pero vamos a detallar la Abstracción 
