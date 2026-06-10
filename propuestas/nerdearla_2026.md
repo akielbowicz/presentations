@@ -5,118 +5,91 @@
 
 ## Phorma (RSE)
 
-### Principios y prácticas del Research Software Engineering (RSE)
+### Research Software Engineering: prácticas que nadie enseña en el lab
 
-¿Cuántas veces corriste un script que funcionaba perfecto la semana pasada y hoy no reproduce los mismos resultados? ¿O recibiste código de alguien que ya no está y no tenés idea por dónde empezar?
-Eso no es mala suerte — es la ausencia de prácticas. Y esas prácticas existen, solo que nadie las enseña en los laboratorios.
-En esta charla vamos a ver los principios del Research Software Engineering para producir código que sea:
+¿Cuántas veces corriste un script analítico que funcionaba perfecto la semana pasada y hoy no reproduce los mismos resultados? ¿O heredaste código de alguien que ya no está en el equipo y no tenés idea por dónde empezar a tocar?
 
-Probado: que alguien más pueda verificar que funciona
-Habitable: que se pueda leer seis meses después
-Operable: que corra en otra máquina
-Robusto: que sobreviva el cambio de hipótesis
-Mantenible: que no sea un monolito intocable
-Auditable: que se pueda rastrear qué produjo qué resultado
+Esto no es mala suerte, ni culpa de los datos. Es la ausencia de prácticas de ingeniería aplicadas a la investigación y experimentación. El software para ciencia y análisis de datos tiene ciclos de vida distintos al software comercial, y la necesidad de poder pivotar hipótesis rápido muchas veces atenta contra la robustez del código.
 
-----
+En esta charla vamos a hablar sobre el Research Software Engineering (RSE). Vamos a agarrar metodologías ya validadas en la industria del software tradicional y ver cómo bajarlas a la trinchera del código científico y analítico sin burocracia innecesaria. 
 
-- El software para Investigación es muy distinto a otro tipo de aplicaciones y en la mayoría de los casos lo desarrollan
-investigadorxs y cientifiqxs a quienes le toca aprender una y otra vez. El hecho a medida que se obtienen más datos 
-
-- Los problemas cientificos suelen ser muy variados pero en general tienen estructuras claras.
-- Analisis estadístico de datos, comprobación de hipótesis, en otros casos crear simulaciones para validar modelos. Automatizar la adquicision y procesamiento de mediciones.
-- Los problemas principales con los que se encuentran son, la flexibilidad para probar nuevos experimentos o variaciones de estos, falta de estructura en el código que impacta en la robustez y la reproducibilidad, pero en la Industria del Software exísten muchas prácticas y metodologías ya validadas 
-
-- Esperamos que salgan de esta charla entendiendo las prácticas del Research Software Engineering para producir código que sea: Probado, Habitable, Operable, Robusto, Mantenible y Auditable
-
-En esta charla vamos a introducir el tipo de problemas que se atacan en el research fotware engineering y cuales son las diferencias con el desarrollo de fotware comercial o de aplicaciones. Vamos a entender cuales son varios principios en los cuales vamos a preocuparnos de que el sistema sea Probado, el código Habitable, el sistema sea Operable, ademas de practicas para producir Codigo Robusto, Mantenible y que la posisibilidad que nos de para poder sr Auditable. 
-Entre otras cosas vamos a pensan en como el codigo puede tener el distintos sistemas qe nos permitan tener el proceso. Cuales son las practicas y como lo podemos plantear para nuevas soluciones.
+Te vas a llevar herramientas prácticas para dejar de escribir código descartable y empezar a producir software que sea:
+- **Probado:** que alguien más (incluido tu "yo" del futuro) pueda verificar que funciona.
+- **Habitable:** que se deje leer y modificar seis meses después sin dolor.
+- **Operable:** que corra sin problemas en otra máquina.
+- **Robusto:** que sobreviva al cambio constante de hipótesis.
+- **Mantenible:** que no termine siendo un monolito intocable.
+- **Auditable:** que permita rastrear exactamente qué versión de código produjo qué resultado.
 
 
 
-### Practicas para el desarrollo de software cientifico apalancándonos con IA
+### Software científico e IA: cómo usar LLMs sin romper todo
 
-Los LLMs saben más de buenas prácticas de software que la mayoría de los proyectos de investigación que los usan.
-El problema no es el modelo — es que nadie les enseñó a usarlo para otra cosa que no sea autocompletar.
-En este taller vamos a explorar:
+Generar código que siga las buenas prácticas de ingeniería suele ser el eslabón débil en los proyectos de investigación. Pero eso está cambiando: hoy los LLMs y Coding Agents saben más de arquitectura de software que la mayoría de la academia.
 
-Qué tareas del ciclo científico podemos delegar y cuáles no
-Cómo estructurar el contexto para recuperar determinismo sin perder velocidad
-Cómo usar los LLMs para entender los problemas, no solo para generar código
-Qué restricciones y fricciones agregar a la mesa de trabajo para que vaya por donde nos interesa
+El problema no es el modelo de lenguaje, sino que nadie nos enseñó a usarlo para otra cosa que no sea autocompletar líneas sueltas o generar scripts descartables. Si queremos producir código de mejor calidad (y no solo código en mayor cantidad), tenemos que cambiar la forma en la que interactuamos con la IA.
 
+En esta charla vamos a ver cómo extraer el conocimiento de arquitectura de los LLMs metiéndolos en procesos donde prima el determinismo y la reproducibilidad científica. Vamos a explorar qué fricciones y restricciones hay que agregarle intencionalmente a la "mesa de trabajo" del modelo para que vaya por el camino que a nosotros nos interesa.
 
-----
+Básicamente, vamos a dejar de usar la IA como un pasante que tipea rápido y vamos a empezar a usarla como una herramienta de validación, diseño y aprendizaje continuo.
 
-- Generar código que siga las buenas prácticas del desarrollo e ingeniería de software es un limitante para los proyectos de investigación. Pero eso está cambiando mucho con la disponibilidad de los Modelos de Lenguaje y Coding Agents.
-
-- Los modelos tienen la información de las mejores prácticas del desarrollo pero hay que entender como extraer esa información de entre todo el ruido y cómo devolverle el determinismo a la práctica del desarrollo de software.
-- Practicas necesarias para apalancarnos en los LLMs para producir código de mejor calidad y no unicamente en producir código en mayor cantidad
-
-- Reconocer maneras de realizar los prompts, entender que restricciones y fricciones hay que agregar en la mesa de trabajo de los LLM para que vaya por el camino que nos interesa. 
-- No solo requerir que produzca código pero usarlo como herramientas para entender los problemas y aprender.
-
-En este taller vamos a enfocarnos en explorar las distintas prácticas para automatizar el desarrollo, la validación y la construccion de software cientifico,
-Nos vamos a enfocar en entender que tipo de tareas podemos delegar a la inteligencia artificial y como prodemos aprovaecharla al macimo. como aplicar las buenas practicas del desarrollo de software a el desarrollo de codigo de investigacion y delegar las tareas que no nos competen a la ia para no tener que aprender todo. cuales son las distintas cosas en las que tenemos evaluar. cuales son las distintas aplicaciones. vamos a tratar de entender las limitaciones de los distintos worflos y llms y eplorar herramientas ye strategias para obtener los mejores resultados. entre otras cosas ver como podemos utilizar distintas herramientas no solo para crear pero tambien para mantener y mejorar lo que tenemos y tambien para ayudarnos a entender las buenas practicas del desarrollo. 
+En la charla vamos a ver:
+- Qué tareas del ciclo científico podemos delegarle a la IA y cuáles definitivamente no.
+- Cómo estructurar el contexto para recuperar determinismo sin perder velocidad.
+- Estrategias y herramientas para que la IA aplique RSE y mantenga bases de código existentes.
+- Cómo usar los modelos para entender los problemas a fondo en lugar de solo pedirles la solución. 
 
 
 
 ## General
 
-### Maldición eterna a quien vea esta charla
-O el acto de leer como rebelión ante la hiper-productividad 
-   
-¿Tiene sentido insistir en que leer nos va a salvar?
-Probablemente no. Pero quizás tampoco necesitamos salvarnos de nada.
-En esta charla vamos a explorar el acto de leer como una forma de ser improductivx para el sistema — y por qué eso podría ser exactamente lo que necesitamos. Vamos a desmitificar la lectura, perderle el miedo, y pensar por qué ejercitarla es la manera más eficiente que tenemos de procesar la experiencia de otrxs.
-Sin spoilers: también hay tips concretos para empezar o retomar el hábito, y una defensa personal de por qué la curiosidad bien alimentada es la habilidad más subestimada de cualquier carrera técnica.
-   
-   
+### Maldición eterna a quien vea esta charla: leer para no quemarse
 
-- En un mundo en el cual no se nos permite parar, y siempre quiere más de nosotros. 
+En un rubro donde parece que nunca se nos permite parar, siempre hay que aprender un framework nuevo, entender una arquitectura distinta o trackear horas. En ese contexto, sentarse a leer un libro que no tenga aplicación inmediata en el sprint se siente como un acto de rebeldía.
 
-- Desmitificar el acto de lectura y llevarnos herramientas para empezar a leer de otras formas, porque creo fervientemente que todxs deberían poder disfrutarla. 
-- La lectura como el mejor aliado de la curiosidad.
-- Es algo que cuesta bastante y todos asumimos que deberíamos saber como hacerlo.
-- En el día a día necesitamos comunicarnos y entender al resto, entender que el lenguaje es diverso y ambiguo.
-- Una forma de obtener la experiencia de otrxs.
-- Porque ejercitar la lectura es la manera más eficiente que tenemos como humanos de procesar la información.
+¿Tiene sentido insistir en que leer nos va a salvar de algo? Probablemente no, porque quizás no necesitamos salvarnos. Esta charla no es sobre libros de programación. Vamos a explorar el acto de leer por placer como una forma de ser deliberadamente improductivos, y por qué esa desconexión sistemática podría ser exactamente lo que nuestras cabezas cansadas necesitan.
 
+Trabajar en tecnología exige comunicarnos constantemente y enfrentarnos a requerimientos y lenguajes que son inherentemente ambiguos. Ejercitar la lectura no es solo una vía de escape; sigue siendo la interfaz de transferencia de datos más eficiente de la historia humana para procesar la experiencia ajena.
 
-¿Tiene algún sentido insistir en que leer nos va a salvar? 
-no tienen ningun sentido porque ya sabemos que no existe la salvacion porque no hay nada de que salvarnos.  entonces que es lo que nos puede servir mas que para parar un momento y dedicarnos a ser improductivos. Quizas el problema no este en nosotros sino en el otro, como podemos saberlo? porque tantas preguntas? En esta charla vamos a ver todas las maneras en las que uno puede ser improductivo para al sistema mientras lee y como aprovechar eso para ser mejores personas. Como podemos conectar con el resto, vivir una vida con menos preocuopaciones y entender que no todo lo que nos resentan nuestros ojos nos van a servrvir para algo o son realmente explicitos. otra cosa que podemos pensar es en el hecho de eplorar la capacidad de comunicarnos, antes de pensar tenemos que sentarnos y entedear. Otra charla más para desmitificar el acto de la lectura, presentar herramientas que nos ayuden a perderle el miedo y entender que no es necesario, pero es un disfrute que perdura.  Y quizas como addenda pensar en cómo leer ayudó a su humilde presentador a avanzar en su carrera profesional, tips and tricks.
+En esta charla vamos a desmitificar la lectura y sacarle la culpa asociada a "no estar produciendo", y vamos a ver:
+- Las excusas y los beneficios de ser improductivx por decisión propia.
+- Herramientas concretas para perderle el miedo a los libros y retomar el hábito sin presiones.
+- Por qué la lectura constante es el mejor aliado subestimado de la curiosidad técnica.
+- Una defensa personal de cómo leer me ayudó (irónicamente) a avanzar en mi carrera técnica y comunicarme mejor.
 
 
 
 ## Charly Vibes (AI Eng)
 
-### Resonant Coding
+### Resonant Coding: domando la incertidumbre de los LLMs
 
+Prompt Engineering, Context Engineering, Loop Engineering... todos los meses aparece una disciplina nueva para tratar de domesticar a los LLMs. Pero le estamos pidiendo a las herramientas incorrectas que nos resuelvan el problema de fondo: la generación de código con Inteligencia Artificial ya no es un proceso determinístico, es un proceso probabilístico. 
 
+Una vez que entendemos y aceptamos eso, podemos dejar de pelear contra el modelo y mirar hacia disciplinas que llevan décadas extrayendo valor de la pura incertidumbre. En el mundo de las Finanzas Cuantitativas se crean sistemas robustos montados sobre el ruido del mercado. ¿Cómo llevamos esas metodologías al desarrollo de software para controlar la incertidumbre de lo que produce la IA?
 
+En esta charla vamos a analizar qué pasa cuando te entregás completamente a la IA, experimentando con sus limitaciones reales y descubriendo cómo sacarle el mayor provecho. Hoy estamos en una etapa de pura "Artesanía del Software", donde primero tenemos que construir nuestros propios andamios antes de intentar escalar.
 
-- Prompt Engineering, Context Engineering, Harness Engineering, Loop Engineering y en unos meses ya serán nuevas las habilidades y prácticas de las que tendremos que estar atentos. 
+Te vas a llevar métodos prácticos para no ser rehén del "autocompletado mágico", incluyendo:
+- Cómo cambiar el mindset: de código determinístico a manejo predictivo de outputs.
+- Lecciones de las Finanzas Cuantitativas aplicadas a validaciones de código generado por IA.
+- Prácticas rescatadas de la Artesanía del Software para construir herramientas de control de calidad sobre los LLMs.
+- Protocolos para decidir cuándo automatizar, cuándo restringir y cuándo escribir a mano.
 
-- Lo principal es entender que el proceso de generación de resultados es algo probabilistico y no deterministico. Una vez que entendemos eso podemos mirar hacia disciplinas que se dedican desde hace mucho tiempo a trabajar con procesos no-deterministicos y pensar en cuales son las metodologías y protocolos que implementan para sacar el mayor valor de eso.
-Uno de los casos más claros es el de las Finanzas Cuantitativas, donde se crean instrumentos para extraer valor de la incertidumbre. Cómo podemos llevar en analogías los aprendizajes a la disciplina del desarrollo de Software. Si contemplamos además estamos en una etapa equivalente a la artesanía donde todavía estamos entendiendo que herramientas y procesos necesitamos construirnos para recién después tratar de llevarlos a escala.
+### Algoritmo Brujo: IA, dependencia tecnológica y cómo desembrujarnos
 
-- Explorar las prácticas de Artesanía del Software que durante 6 meses entregado explicitamente a explorar y encontrar las limitaciones y cómo sacarle el mayor provecho. 
+Cada vez interactuamos menos con colegas y más con modelos de lenguaje. Delegamos decisiones, la atención se fragmenta y empezamos a sentir una dependencia profunda que nos desconecta del ecosistema real del desarrollo y de nuestros propios equipos.
 
-El desarrollo de software coon LLMs es algo que nos atraviesa a todos en el dia a dia la . en esta charla vamos a explorar los resultados y conclusiones de un experimento de entregarse completamente al vibe coding sin py explorar cuales son las limitaciones que encontramos y como podemos crear nuestras propias herramientas en la que no tenemos que preocuparnos. EComo aplicamos elas conocimientos de ingenieria en sistemas y e in y finanzas cuantitativas para controlar la incertidumbre de lo que producimos. Todos los dias aparece un nuevo tipo de ingenieria Prompt Engineering, Context Engineering, Harness Engineering, Loop egineerien, yesguramente al momento de esta charla apareceran un par mas. Pero No tenemos que tomarnos el desarrollo en este estado actual como aun proceso de ingenieria sino mas bien el proceso de Artesania de software donde tenemos a posibilidad de crear nuestras herramientas, nuestros procesos para a construccion de sistemas o productos más complejos.
+En esta charla no vamos a hablar de cómo optimizar prompts. Vamos a usar la tecnología como lente social, apoyándonos en las ideas del libro "La hechicería capitalista" (Capitalismo Brujo) de Isabelle Stengers y Philippe Pignarre, para entender el shock de la Inteligencia Artificial actual y cómo funciona como un mecanismo de "captura".
 
-### Algoritmo Brujo en la era de la Inteligencia Artificial masiva
+¿Qué pasa cuando el código que usamos cada día actúa como un hechizo que adormece nuestra capacidad analítica? Vamos a tratar de entender qué nos está pasando como profesionales cuando la IA invade nuestras realidades a niveles masivos, y qué pasa con nuestra agencia técnica.
 
--
+No vengo a traer una solución mágica contra el modelo productivo, sino a proponer preguntas incómodas y herramientas para pensar otras formas de actuar.
 
--
--
--
-
-- 
-
-Existe salida del capitalismo? Como está mutando ahora  que la Inteligencia Artificial Produce una dependencia en nosotros y nos desconecta del resto?
-
-En estacharla vamos a tratar de explorar las ideas del libro de Capitalismo Brujo de Isabelle Stengers y Pignare para tratar de entender como una de las tantas facetas de la sociedad pued f ssdsddssdsdsdsdfsk como podemos hacer para tener entendimiendo de algo que nos esta passando y como el proceso de intersección con la inteligencia artificial invadiendo nuestra realidades o se hace cada vez mas presente en nuestras realidades. Vamos a explorar, plantear, y pensresentar estas ideas, para discutir y entender qye maneras podemos actuar para salir de los esados de captura delcapitalismoy pensar otros formas de pensar y analizar nestra realidad. como sabemos que esto va a ser posible, es una duda, pero siempre lo tenemos que tener presente y no evitar que las cosas se marquen
+En la charla vamos a explorar:
+- Cómo la IA está mutando nuestras relaciones laborales y generando estados de dependencia pasiva.
+- El concepto de "hechicería tecnológica": por qué cedemos nuestro criterio sin darnos cuenta.
+- Cómo recuperar la agencia y "desembrujarnos": estrategias para interactuar con la IA sin perder la conexión humana ni el sentido crítico.
+- Formas de pensar escenarios alternativos para el desarrollo en nuestro día a día.
 
 ### Evals
 
@@ -125,27 +98,21 @@ En estacharla vamos a tratar de explorar las ideas del libro de Capitalismo Bruj
 
 ## Software Eng
 
-### El río sin orillas: revelando las abstracciones de nuestro sistema
+### El río sin orillas: revelando las abstracciones de tu sistema
 
-Hay código que al leerlo te hace pensar que el problema era difícil. Y hay código que al leerlo hace que el problema parezca que siempre fue simple.
-La diferencia no es el lenguaje ni el framework.
-Esta charla es un cover en español y en python de la parte final de "Nothing is Something" de Sandi Metz — donde vamos a recorrer un ejemplo concreto de refactoring incremental:
+Hay código que al leerlo te hace pensar que el problema que resolvía era extremadamente difícil. Y hay código que, al leerlo, hace que el mismo problema parezca que siempre fue simple. La diferencia rara vez es el lenguaje ni el framework; la diferencia está en el diseño.
 
-- Cómo reemplazar condicionales con polimorfismo
-- Cuándo usar herencia y cuándo preferir composición con inyección de dependencias
-- Cómo cada pequeño cambio revela la estructura que el sistema siempre quiso tener
+Hay presentaciones que te hacen el clic en la cabeza y merecen ser replicadas. Hace más de 10 años, Sandi Metz dio la mítica charla "Nothing is Something", dejándonos lecciones invaluables de Diseño Orientado a Objetos. Esta charla es un cover en español y en Python, donde vamos a repasar esos conceptos para construir sistemas altamente componibles.
 
-Vas a salir con el ojo entrenado para ver las abstracciones que tu propio código está pidiendo.
+A través de un ejemplo de refactoring incremental concreto, vamos a ver cómo cada pequeño cambio metódico revela la estructura latente que el sistema siempre quiso tener. 
 
--------------------------------------------------------------------------------
+Vas a salir de la charla con el ojo entrenado para ver las abstracciones que tu propio código está pidiendo a gritos.
 
-- Hay charlas que nos hacen dar el click y cambiar nuestra manera de pensar por lo que merecen ser replicadas. Una de esas charlas la dio Sandi Metz ya hace más de 10 años y las lecciones de Diseño en Programación Orientada a Objetos que nos dejó siguen siendo un gran fuente de sabiduría así que vamos a hacer un cover en nuestra lengua y con Python.
-
-- Nos vamos a enfocar en entender las abstracciones necesarias para tener código en el que evitamos condicionales en favor del polimorfismo.
-- Un recorrido sobre un ejemplo concreto en el que podemos ver como al ir haciendo pequeños refactorizaciones revelamos la estructura latente y las abstracciones que requería nuestro sistema.
-- Vamos a entender cómo distinguir en que momentos usar herencia y cuando favorecer la composición a través de la inyección de dependencias.
-
-Esta charla es un cover de la segunda parte de Nothing is Someting donde Sandi Metz nos explica las caracteristicas de el desarrodo Diseño orientado a objetos y conforma una explicacion detallada de la construccion de systemas componibles, como identificar estas complicaciones en el codigo y como avanzar con la refactorizacion  para tener un sistema mucho mas sencillo, en el que entendamos que es lo que está pasando.  Nos vamos a enfocar en entender las abstracciones necesarias para tener código en el que evitamos los condicionales y en favor del polimorfismo.  Es una explicacion recorrido donde tenemos que aprender a identificar los patrones y nos permite acceder a ideas más generales en la programación. Entre tantas cosas vamos a entender ver el ejemplo de cómo refactorizar un caso sencillo en python para poducir un codigo mucho mejor, tambien entender bajo que lineamientos consideramos un codigo mejor que otro y como aplicarlo en nuestro dia a dia
+Puntualmente vamos a ver:
+- Cómo reemplazar una maraña de condicionales en favor del polimorfismo.
+- Cuándo tiene sentido usar herencia y cuándo hay que preferir la composición con inyección de dependencias.
+- Cómo cada pequeño cambio revela la estructura oculta del sistema.
+- Cómo identificar estas complicaciones en tu base de código y bajo qué lineamientos consideramos que un código es mejor que otro.
 
 
 
@@ -162,3 +129,25 @@ Esta charla es un cover de la segunda parte de Nothing is Someting donde Sandi M
 
 
 ### Otras formas de Pensar: Desarrollo en Clojure
+
+---
+
+## Perfiles / Bios sugeridas
+
+### 1. Perfil Principal: Computación Científica & Arquitectura de IA
+*(Ideal para la charla "El río sin orillas" o charlas de ingeniería pura)*
+
+**Sasha (Augusto) Kielbowicz**
+Sasha es Consultor y Arquitecto Científico con formación en Física (UBA). Se especializa en Cómputo de Alto Rendimiento, IA Agéntica y Arquitectura de Sistemas Cuantitativos. Cuenta con más de 7 años de experiencia construyendo motores matemáticos de nivel productivo y bibliotecas core en instituciones financieras de primer nivel y empresas tecnológicas (como Qontigo, J.P. Morgan y Mercado Libre). Actualmente, diseña la integración y los marcos de evaluación para que los Large Language Models puedan procesar datos científicos y financieros sin alucinaciones, buscando siempre reducir la brecha entre la "Investigación" y la "Producción".
+
+### 2. Perfil "Phorma": Research Software Engineering (RSE)
+*(Ideal para las charlas "Research Software Engineering: prácticas que nadie enseña" y "Software científico e IA")*
+
+**Sasha Kielbowicz**
+Sasha es Licenciado en Física (UBA) y co-fundador de Phorma, una consultora enfocada en Research Software Engineering (RSE). Su trabajo se centra en traducir investigación científica pura en ingeniería de software robusta, y en ayudar a equipos de I+D a construir sistemas estables, operables y reproducibles, permitiendo que lxs investigadorxs se enfoquen en la ciencia y no en los cuellos de botella computacionales. Además, se desempeña como Senior AI Engineer y trabaja integrando modelos matemáticos complejos y workflows agénticos para que el código sobreviva al test del tiempo.
+
+### 3. Perfil Avatar: Charly Vibes
+*(Ideal para las charlas "Resonant Coding", "Algoritmo Brujo", o como gimmick paralelo)*
+
+**Charly Vibes**
+Charly es un seudónimo y un avatar de experimentación nacido bajo el paradigma de la IA masiva y el Vibe Coding. Explora de manera pragmática y filosófica las limitaciones de los LLMs delegando la totalidad del tipeo de código a la Inteligencia Artificial. Su existencia remarca que producir código hoy es un acto probabilístico, y que la tarea humana ya no es "escribir", sino pensar los requerimientos, debatir los casos borde, entender qué sistema necesita existir y diseñar las fricciones que mantengan a la máquina bajo control.
