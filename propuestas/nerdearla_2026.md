@@ -7,6 +7,19 @@
 
 ### Principios y prácticas del Research Software Engineering (RSE)
 
+¿Cuántas veces corriste un script que funcionaba perfecto la semana pasada y hoy no reproduce los mismos resultados? ¿O recibiste código de alguien que ya no está y no tenés idea por dónde empezar?
+Eso no es mala suerte — es la ausencia de prácticas. Y esas prácticas existen, solo que nadie las enseña en los laboratorios.
+En esta charla vamos a ver los principios del Research Software Engineering para producir código que sea:
+
+Probado: que alguien más pueda verificar que funciona
+Habitable: que se pueda leer seis meses después
+Operable: que corra en otra máquina
+Robusto: que sobreviva el cambio de hipótesis
+Mantenible: que no sea un monolito intocable
+Auditable: que se pueda rastrear qué produjo qué resultado
+
+----
+
 - El software para Investigación es muy distinto a otro tipo de aplicaciones y en la mayoría de los casos lo desarrollan
 investigadorxs y cientifiqxs a quienes le toca aprender una y otra vez. El hecho a medida que se obtienen más datos 
 
@@ -22,6 +35,18 @@ Entre otras cosas vamos a pensan en como el codigo puede tener el distintos sist
 
 
 ### Practicas para el desarrollo de software cientifico apalancándonos con IA
+
+Los LLMs saben más de buenas prácticas de software que la mayoría de los proyectos de investigación que los usan.
+El problema no es el modelo — es que nadie les enseñó a usarlo para otra cosa que no sea autocompletar.
+En este taller vamos a explorar:
+
+Qué tareas del ciclo científico podemos delegar y cuáles no
+Cómo estructurar el contexto para recuperar determinismo sin perder velocidad
+Cómo usar los LLMs para entender los problemas, no solo para generar código
+Qué restricciones y fricciones agregar a la mesa de trabajo para que vaya por donde nos interesa
+
+
+----
 
 - Generar código que siga las buenas prácticas del desarrollo e ingeniería de software es un limitante para los proyectos de investigación. Pero eso está cambiando mucho con la disponibilidad de los Modelos de Lenguaje y Coding Agents.
 
@@ -39,7 +64,14 @@ Nos vamos a enfocar en entender que tipo de tareas podemos delegar a la intelige
 ## General
 
 ### Maldición eterna a quien vea esta charla
- O el acto de leer como rebelión ante la hiper-productividad 
+O el acto de leer como rebelión ante la hiper-productividad 
+   
+¿Tiene sentido insistir en que leer nos va a salvar?
+Probablemente no. Pero quizás tampoco necesitamos salvarnos de nada.
+En esta charla vamos a explorar el acto de leer como una forma de ser improductivx para el sistema — y por qué eso podría ser exactamente lo que necesitamos. Vamos a desmitificar la lectura, perderle el miedo, y pensar por qué ejercitarla es la manera más eficiente que tenemos de procesar la experiencia de otrxs.
+Sin spoilers: también hay tips concretos para empezar o retomar el hábito, y una defensa personal de por qué la curiosidad bien alimentada es la habilidad más subestimada de cualquier carrera técnica.
+   
+   
 
 - En un mundo en el cual no se nos permite parar, y siempre quiere más de nosotros. 
 
@@ -59,6 +91,9 @@ no tienen ningun sentido porque ya sabemos que no existe la salvacion porque no 
 ## Charly Vibes (AI Eng)
 
 ### Resonant Coding
+
+
+
 
 - Prompt Engineering, Context Engineering, Harness Engineering, Loop Engineering y en unos meses ya serán nuevas las habilidades y prácticas de las que tendremos que estar atentos. 
 
@@ -90,7 +125,19 @@ En estacharla vamos a tratar de explorar las ideas del libro de Capitalismo Bruj
 
 ## Software Eng
 
-### El río sin orillas: develando
+### El río sin orillas: revelando las abstracciones de nuestro sistema
+
+Hay código que al leerlo te hace pensar que el problema era difícil. Y hay código que al leerlo hace que el problema parezca que siempre fue simple.
+La diferencia no es el lenguaje ni el framework.
+Esta charla es un cover en español y en python de la parte final de "Nothing is Something" de Sandi Metz — donde vamos a recorrer un ejemplo concreto de refactoring incremental:
+
+- Cómo reemplazar condicionales con polimorfismo
+- Cuándo usar herencia y cuándo preferir composición con inyección de dependencias
+- Cómo cada pequeño cambio revela la estructura que el sistema siempre quiso tener
+
+Vas a salir con el ojo entrenado para ver las abstracciones que tu propio código está pidiendo.
+
+-------------------------------------------------------------------------------
 
 - Hay charlas que nos hacen dar el click y cambiar nuestra manera de pensar por lo que merecen ser replicadas. Una de esas charlas la dio Sandi Metz ya hace más de 10 años y las lecciones de Diseño en Programación Orientada a Objetos que nos dejó siguen siendo un gran fuente de sabiduría así que vamos a hacer un cover en nuestra lengua y con Python.
 
@@ -99,6 +146,11 @@ En estacharla vamos a tratar de explorar las ideas del libro de Capitalismo Bruj
 - Vamos a entender cómo distinguir en que momentos usar herencia y cuando favorecer la composición a través de la inyección de dependencias.
 
 Esta charla es un cover de la segunda parte de Nothing is Someting donde Sandi Metz nos explica las caracteristicas de el desarrodo Diseño orientado a objetos y conforma una explicacion detallada de la construccion de systemas componibles, como identificar estas complicaciones en el codigo y como avanzar con la refactorizacion  para tener un sistema mucho mas sencillo, en el que entendamos que es lo que está pasando.  Nos vamos a enfocar en entender las abstracciones necesarias para tener código en el que evitamos los condicionales y en favor del polimorfismo.  Es una explicacion recorrido donde tenemos que aprender a identificar los patrones y nos permite acceder a ideas más generales en la programación. Entre tantas cosas vamos a entender ver el ejemplo de cómo refactorizar un caso sencillo en python para poducir un codigo mucho mejor, tambien entender bajo que lineamientos consideramos un codigo mejor que otro y como aplicarlo en nuestro dia a dia
+
+
+
+
+## Otras ideas
 
 ### Automatic Differentiation
 
