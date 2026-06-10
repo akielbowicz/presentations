@@ -63,33 +63,31 @@ En esta charla vamos a desmitificar la lectura y sacarle la culpa asociada a "no
 
 ### Resonant Coding: domando la incertidumbre de los LLMs
 
-Prompt Engineering, Context Engineering, Loop Engineering... todos los meses aparece una disciplina nueva para tratar de domesticar a los LLMs. Pero le estamos pidiendo a las herramientas incorrectas que nos resuelvan el problema de fondo: la generación de código con Inteligencia Artificial ya no es un proceso determinístico, es un proceso probabilístico. 
+Prompt Engineering, Context Engineering, Loop Engineering... pónganle el traje corporativo que quieran. Todos los meses el mercado inventa una etiqueta nueva con palabras en inglés para disimular la tragedia de fondo: programar con Inteligencia Artificial dejó de ser un acto determinístico. Pasamos de la ingeniería de lógicas implacables a pastorear probabilidades.
 
-Una vez que entendemos y aceptamos eso, podemos dejar de pelear contra el modelo y mirar hacia disciplinas que llevan décadas extrayendo valor de la pura incertidumbre. En el mundo de las Finanzas Cuantitativas se crean sistemas robustos montados sobre el ruido del mercado. ¿Cómo llevamos esas metodologías al desarrollo de software para controlar la incertidumbre de lo que produce la IA?
+Una vez que uno acepta ese fracaso fundacional, puede dejar de pelear contra las alucinaciones del modelo y mirar hacia lugares más cínicos: las Finanzas Cuantitativas. Quienes operan en esos arrabales llevan décadas construyendo sistemas millonarios sobre la histeria y el ruido del mercado. ¿Qué pasa si aplicamos ese mismo pragmatismo para sacarle valor a la incertidumbre que supura la IA?
 
-En esta charla vamos a analizar qué pasa cuando te entregás completamente a la IA, experimentando con sus limitaciones reales y descubriendo cómo sacarle el mayor provecho. Hoy estamos en una etapa de pura "Artesanía del Software", donde primero tenemos que construir nuestros propios andamios antes de intentar escalar.
+En esta charla se explora qué sucede al entregarse al delirio del "Vibe Coding", analizando sus grietas y observando cómo el sistema falla. Estamos en una etapa precaria, casi de artesanía rústica, donde primero hay que tallar los andamios propios antes de soñar con la escalabilidad.
 
-Te vas a llevar métodos prácticos para no ser rehén del "autocompletado mágico", incluyendo:
-- Cómo cambiar el mindset: de código determinístico a manejo predictivo de outputs.
-- Lecciones de las Finanzas Cuantitativas aplicadas a validaciones de código generado por IA.
-- Prácticas rescatadas de la Artesanía del Software para construir herramientas de control de calidad sobre los LLMs.
-- Protocolos para decidir cuándo automatizar, cuándo restringir y cuándo escribir a mano.
+Para no transitar la miseria de terminar como rehenes de un autocompletado trágico, repasaremos:
+- El duelo necesario: de la certeza del código tradicional al manejo predictivo del ruido.
+- Lecciones de las Finanzas Cuantitativas para auditar la charlatanería del LLM.
+- La artesanía de supervivencia: cómo armar herramientas de fricción que vigilen a las máquinas generativas.
+- Protocolos de sensatez: cuándo automatizar, cuándo restringir y cuándo, por puro instinto de conservación, volver a tipear a mano.
 
 ### Algoritmo Brujo: IA, dependencia tecnológica y cómo desembrujarnos
 
-Cada vez interactuamos menos con colegas y más con modelos de lenguaje. Delegamos decisiones, la atención se fragmenta y empezamos a sentir una dependencia profunda que nos desconecta del ecosistema real del desarrollo y de nuestros propios equipos.
+A veces se entra al editor de código —esa oficina claustrofóbica de fondo oscuro— y la constatación golpea de improviso: la interacción más profunda del día fue con un loro estocástico que repite tokens. Delegamos la reflexión, la atención se astilla en fragmentos invisibles, y se instala una dependencia silenciosa que corta los cables con el resto de la especie.
 
-En esta charla no vamos a hablar de cómo optimizar prompts. Vamos a usar la tecnología como lente social, apoyándonos en las ideas del libro "La hechicería capitalista" (Capitalismo Brujo) de Isabelle Stengers y Philippe Pignarre, para entender el shock de la Inteligencia Artificial actual y cómo funciona como un mecanismo de "captura".
+Aquí no se hablará de cómo exprimir eficiencias ni optimizar prompts. Se usará la tecnología como un bisturí, con "La hechicería capitalista" de Isabelle Stengers y Philippe Pignarre como linterna, para tratar de entender el shock de la Inteligencia Artificial operando como un mecanismo de captura. 
 
-¿Qué pasa cuando el código que usamos cada día actúa como un hechizo que adormece nuestra capacidad analítica? Vamos a tratar de entender qué nos está pasando como profesionales cuando la IA invade nuestras realidades a niveles masivos, y qué pasa con nuestra agencia técnica.
+¿Qué pasa cuando la herramienta diaria funciona como un maleficio que adormece el juicio crítico? Se explorará esta pesadilla donde la agencia técnica se entrega mansamente a cambio del espejismo de la productividad.
 
-No vengo a traer una solución mágica contra el modelo productivo, sino a proponer preguntas incómodas y herramientas para pensar otras formas de actuar.
-
-En la charla vamos a explorar:
-- Cómo la IA está mutando nuestras relaciones laborales y generando estados de dependencia pasiva.
-- El concepto de "hechicería tecnológica": por qué cedemos nuestro criterio sin darnos cuenta.
-- Cómo recuperar la agencia y "desembrujarnos": estrategias para interactuar con la IA sin perder la conexión humana ni el sentido crítico.
-- Formas de pensar escenarios alternativos para el desarrollo en nuestro día a día.
+Sin promesas de salvación esotérica ni recetas de autoayuda, se propondrán preguntas incómodas y herramientas para la lucidez:
+- Observar cómo esta asimetría relacional genera estados mentales de dependencia pasiva.
+- Diseccionar el "hechizo tecnológico": la inercia por la cual entregamos el criterio sin oponer resistencia.
+- Estrategias de "desembrujo" cotidiano: cómo interactuar con el delirio de los modelos sin perder ni la sensatez ni el tacto humano.
+- Ejercicios para imaginar escapes y escenarios alternativos en el pozo ciego del día a día técnico.
 
 ### Evals
 
@@ -150,4 +148,4 @@ Sasha es Licenciado en Física (UBA) y co-fundador de Phorma, una consultora enf
 *(Ideal para las charlas "Resonant Coding", "Algoritmo Brujo", o como gimmick paralelo)*
 
 **Charly Vibes**
-Charly es un seudónimo y un avatar de experimentación nacido bajo el paradigma de la IA masiva y el Vibe Coding. Explora de manera pragmática y filosófica las limitaciones de los LLMs delegando la totalidad del tipeo de código a la Inteligencia Artificial. Su existencia remarca que producir código hoy es un acto probabilístico, y que la tarea humana ya no es "escribir", sino pensar los requerimientos, debatir los casos borde, entender qué sistema necesita existir y diseñar las fricciones que mantengan a la máquina bajo control.
+Más que una entidad con documento, Charly Vibes es un síntoma urbano de la hiperconexión; un accidente probabilístico nacido de la sospecha de que picar código a mano se ha vuelto una artesanía melancólica. La existencia de esta voz se funda en un nihilismo práctico: delegar la totalidad del tipeo a los modelos de lenguaje para documentar, desde la primera fila de la platea, cómo se resquebraja el espejismo de la automatización total. El trabajo diario ya no consiste en escribir algoritmos, sino en pastorear alucinaciones. Se trata de pensar, de discutir con una máquina tozuda hasta qué punto la realidad soporta los casos borde, y de agotar horas diseñando las fricciones necesarias para que este delirio estocástico que llamamos "desarrollo moderno" no termine de incendiar la poca sensatez que nos queda.
