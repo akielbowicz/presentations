@@ -35,4 +35,6 @@ Todas las seniorities. Especialmente recomendada para estudiantes y quienes est�
 ## Labels
 Diseño Orientado a Objetos, Patrones de diseño, Refactoring, Clean Code, Artesanía de software, Python
 
-<!-- PENDIENTE: falta definir la segunda charla para Hurlingham -->
+# After Chatbon
+
+<!-- PENDIENTE: stub, falta armar descripción -->

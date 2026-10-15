@@ -61,3 +61,7 @@ Todas las seniorities. Especialmente útil para estudiantes y investigadores que
 
 ## Labels
 Inteligencia Artificial, LLMs, Coding Agents, Research Software Engineering, Ciencia reproducible, Productividad
+
+# Specs de placer
+
+<!-- PENDIENTE: stub, falta armar descripción -->
