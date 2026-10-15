@@ -64,4 +64,27 @@ Inteligencia Artificial, LLMs, Coding Agents, Research Software Engineering, Cie
 
 # Specs de placer
 
-<!-- PENDIENTE: stub, falta armar descripción -->
+## Short Abstract (300 caracteres)
+
+Delegar código a agentes es fácil; asegurarse de que hagan lo que uno quiere, no. Cómo escribir especificaciones que los agentes realmente sigan: qué incluir, qué omitir, cómo validarlas y cómo convertir la especificación en la fuente de verdad del desarrollo asistido por IA.
+
+## Long Description
+
+Pedirle código a un agente de IA toma segundos. Asegurarse de que ese código haga lo que uno quería, en el contexto de una base existente y sin romper nada, es otro deporte. El problema casi nunca es el modelo: es que pedimos con la misma precisión con la que le contestamos un mail.
+
+En esta charla vamos a hablar de especificaciones: la práctica de escribir, antes de programar, qué hay que construir, bajo qué restricciones y cómo se verifica que quedó bien. No como burocracia, sino como la herramienta más rentable que tenemos para dirigir agentes de IA.
+
+La tesis es simple: una buena especificación convierte el desarrollo asistido por IA de una lotería en un proceso verificable. La especificación pasa a ser la fuente de verdad, y el código —generado por la máquina— pasa a ser un detalle de implementación que se valida contra ella.
+
+Vamos a ver:
+- Qué hace buena a una especificación: criterios verificables, restricciones explícitas, alcance acotado.
+- Qué omitir: especificar demasiado temprano también mata.
+- Cómo validar que los agentes realmente siguen la especificación (y detectar cuando se la saltean).
+- Cómo integrar specs al flujo de trabajo: del ticket a la revisión, con tests como contrato.
+- Errores comunes al arrancar y cómo evitarlos.
+
+## Audiencia
+Todas las seniorities. Especialmente útil para quienes ya usan agentes o asistentes de IA en su trabajo y sienten que el resultado es una caja misteriosa, y para estudiantes que quieren aprender a trabajar así desde el arranque.
+
+## Labels
+Spec-Driven Development, Inteligencia Artificial, Coding Agents, Buenas prácticas, Testing, Metodologías

@@ -37,4 +37,26 @@ Diseño Orientado a Objetos, Patrones de diseño, Refactoring, Clean Code, Artes
 
 # After Chatbon
 
-<!-- PENDIENTE: stub, falta armar descripción -->
+## Short Abstract (300 caracteres)
+
+Ahora que producir código es casi gratuito, ¿qué vale la pena aprender? Repasamos las prácticas de ingeniería y ciencia que siguen importando para desarrollar e implementar, en qué fijarnos cuando la IA genera, y cómo aprovechar que programar con IA es un proceso probabilístico y no determinístico.
+
+## Long Description
+
+Escribir código dejó de ser el cuello de botella. Entre chatbots, asistentes y agentes, generar un archivo con código plausible cuesta cada vez menos que escribir un mail. Pero producir código nunca fue el trabajo: el trabajo es decidir qué construir, verificar que funciona y hacer que sobreviva al contacto con la realidad.
+
+Esta charla es una discusión sobre qué tenemos que aprender ahora, después del Chatbon. Cuando el código es casi gratuito, lo escaso es otra cosa: el criterio. Vamos a repasar las prácticas de ingeniería y de ciencia que siguen siendo indispensables para desarrollar, implementar y mantener software, y cuáles perdieron valor.
+
+También vamos a cambiar la mirada sobre cómo trabajamos: programar con IA no es un proceso determinístico, es probabilístico. Pelear contra eso es perder el tiempo; la pregunta interesante es cómo aprovecharlo.
+
+En la charla vamos a discutir:
+- Qué prácticas de ingeniería y ciencia siguen importando (y cuáles ya no) ahora que el código se produce casi gratis.
+- En qué cosas tenemos que fijarnos cuando la IA genera: tests, reproducibilidad, diseño, dependencias, seguridad.
+- Cómo trabajar con un proceso probabilístico: iteración, verificación, y diseño de fricciones intencionales.
+- Cómo puede esa misma probabilisticidad jugar a nuestro favor para explorar, aprender y prototipar más rápido.
+
+## Audiencia
+Todas las seniorities. Pensada para estudiantes y quienes están definiendo qué aprender, pero también para profesionales que quieren reordenar sus prioridades en la era de la IA.
+
+## Labels
+Inteligencia Artificial, Prácticas de ingeniería, Vibe Coding, Aprendizaje, Software Craftsmanship, Ciencia reproducible
