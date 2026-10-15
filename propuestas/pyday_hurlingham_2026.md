@@ -1,91 +1,38 @@
 ## Bio / Perfil
 
-Sasha es Tech Lead en Mercado Libre con experiencia en desarrollo de software financiero y científico. Trabajó en empresas como J.P. Morgan, SimCorp y Qontigo, especializándose en Python, C# y Julia. Licenciado en Física por la UBA.
-
-Recientemente formó dos equipos de desarrollo desde cero, donde aplicó prácticas de diseño orientado a objetos, artesanía de software y desarrollo open source. Contribuidor activo en proyectos de análisis y visualización de datos.
+Sasha (Augusto) Kielbowicz
+Sasha es Consultor y Arquitecto Científico con formación en Física (UBA). Se especializa en Cómputo de Alto Rendimiento, IA Agéntica y Arquitectura de Sistemas Cuantitativos. Cuenta con más de 7 años de experiencia construyendo motores matemáticos de nivel productivo y bibliotecas core en instituciones financieras de primer nivel y empresas tecnológicas (como Qontigo, J.P. Morgan y Mercado Libre). Actualmente, diseña la integración y los marcos de evaluación para que los Large Language Models puedan procesar datos científicos y financieros sin alucinaciones, buscando siempre reducir la brecha entre la "Investigación" y la "Producción".
 
 Expositor regular en conferencias y meetups de tecnología (PyConAr, PyDay, Nerdearla), donde comparte experiencias sobre patrones de diseño, clean code, formación de equipos y buenas prácticas de desarrollo aplicadas a problemas reales.
 
 ---
 
-# Nadie, nada, nunca
+# El río sin orillas: revelando las abstracciones de tu sistema
 
 ## Short Abstract (300 caracteres)
 
-Introducción al Null Object Pattern como herramienta para simplificar código Python. Vamos a ver cómo evitar los clásicos `if obj is not None:` que complican el código, ejemplos de NoneType exceptions, cuándo conviene aplicar este patrón, y comparación entre enfoques orientados a objetos y funcionales para manejar la ausencia.
+Hace 10 años, Sandi Metz dio la mítica charla "Nothing is Something". Esta es un cover en español y Python: un refactoring incremental concreto donde cada pequeño cambio revela la estructura latente que el sistema siempre quiso tener. Vas a salir con el ojo entrenado para ver las abstracciones que tu código pide a gritos.
 
 ## Long Description
 
-Hace diez años, Sandy Metz nos mostró que "la nada también es algo". ¿Cómo representamos aquello que no existe dentro del diseño de nuestro software?
+Hay código que al leerlo te hace pensar que el problema que resolvía era extremadamente difícil. Y hay código que, al leerlo, hace que el mismo problema parezca que siempre fue simple. La diferencia rara vez es el lenguaje ni el framework; la diferencia está en el diseño.
 
-En esta charla vamos a hablar sobre el Null Object Pattern y cómo usarlo para simplificar tu código. Si viste mi charla de "Programar (casi) sin condicionales", ahí hablamos de cómo los `if` agregan complejidad al código. Acá vamos a ver cómo el Null Object Pattern te ayuda a evitar esos `if obj is not None:` que terminan apareciendo por todos lados y complican la lectura y mantenimiento del código.
+Hay presentaciones que te hacen el clic en la cabeza y merecen ser replicadas. Hace más de 10 años, Sandi Metz dio la mítica charla "Nothing is Something", dejándonos lecciones invaluables de Diseño Orientado a Objetos. Esta charla es un cover en español y en Python, donde vamos a repasar esos conceptos para construir sistemas altamente componibles.
 
-Vamos a ver ejemplos prácticos en Python de cómo modelar "la nada" para que tu código sea más simple y robusto. Vamos a analizar los clásicos errores con `NoneType exceptions` que aparecen cuando no manejamos bien la ausencia de valores, y cómo este patrón nos ayuda a prevenirlos. También vamos a comparar brevemente cómo se maneja la ausencia en orientación a objetos versus programación funcional, para entender qué nos ofrece cada paradigma y cuándo conviene usar cada enfoque.
+A través de un ejemplo de refactoring incremental concreto, vamos a ver cómo cada pequeño cambio metódico revela la estructura latente que el sistema siempre quiso tener.
 
-En la charla vamos a ver:
-- Qué es el Null Object Pattern y para qué sirve
-- Por qué los `if obj is not None:` complican tu código
-- Cuándo conviene usar Null Object y cuándo no
-- Ejemplos prácticos que podés aplicar en tus proyectos
+Vas a salir de la charla con el ojo entrenado para ver las abstracciones que tu propio código está pidiendo a gritos.
 
-## Audiencia
-Nivel medio. Se recomienda conocimiento básico de programación orientada a objetos en Python.
-
-## Labels
-Patrones de diseño, Null Object Pattern, Orientación a objetos, Clean Code, Programación funcional, Artesanía de software
-
-# Raros Peinados Nuevos
-
-## Short Abstract (300 caracteres)
-
-Ya no programamos como antes. Exploramos Vibe Coding (Gene Kim y Steve Yegge) aplicado a Python: cómo mantener criterio técnico con estas nuevas formas de trabajo, qué prácticas funcionan en equipos reales, y cómo adaptarse cuando las herramientas evolucionan más rápido que nosotros.
-
-## Long Description
-
-Ya no programamos como antes, las herramientas son otras, las prácticas cambiaron. ¿Cómo nos adaptamos sin perder lo esencial?
-
-La IA cambió el mapa del desarrollo, pero no cambió algo fundamental: necesitamos entender lo que hacemos. En esta charla vamos a ver las ideas del libro Vibe Coding de Gene Kim y Steve Yegge, y cómo aplicarlas para mantener criterio técnico cuando la IA genera cada vez más partes de nuestro código.
-
-Vamos a hablar de prácticas que se probaron en equipos reales: qué funcionó, qué no, qué métricas importan de verdad y cuáles son vanidad. Cómo trabajar de manera más artesanal sin volvernos locos, y qué significa eso en la práctica cuando tenés deadlines y presión para entregar.
-
-También vamos a tocar el impacto en la formación: qué habilidades son más importantes ahora que antes, qué desafíos aparecen cuando estás estudiando o empezando tu carrera y las herramientas cambian más rápido que los planes de estudio. Cómo prepararte para un futuro donde las herramientas van a seguir evolucionando pero los fundamentos siguen siendo los mismos.
-
-En la charla vamos a ver:
-- Prácticas de Vibe Coding aplicables a proyectos chicos y grandes
-- Cómo trabajar con IA sin perder el criterio técnico
-- Qué habilidades importan hoy y cuáles van a importar
-- Cuándo aplicar artesanía de software y cuándo no
+Puntualmente vamos a ver:
+- Cómo reemplazar una maraña de condicionales en favor del polimorfismo.
+- Cuándo tiene sentido usar herencia y cuándo hay que preferir la composición con inyección de dependencias.
+- Cómo cada pequeño cambio revela la estructura oculta del sistema.
+- Cómo identificar estas complicaciones en tu base de código y bajo qué lineamientos consideramos que un código es mejor que otro.
 
 ## Audiencia
-Todas las seniorities. Especialmente útil para estudiantes y quienes están arrancando, y para quienes enseñan programación.
+Todas las seniorities. Especialmente recomendada para estudiantes y quienes están dando sus primeros pasos en diseño de software, pero también para quienes ya programan y quieren mejorar cómo lo hacen.
 
 ## Labels
-Vibe Coding, Inteligencia Artificial, Artesanía de software, Software Craftsmanship, Educación, Liderazgo técnico, Prácticas de desarrollo
+Diseño Orientado a Objetos, Patrones de diseño, Refactoring, Clean Code, Artesanía de software, Python
 
-# Como eran las cosas
-
-## Short Abstract (300 caracteres)
-
-Ya no es como era antes. Guía práctica para crecer profesionalmente en tecnología: qué se espera de cada nivel de seniority, cómo agregar valor real en tu equipo, y cómo usar IA para aprender sin caer en malos hábitos. Basado en experiencia formando equipos.
-
-## Long Description
-
-Ya no es como era antes: el camino profesional en tecnología cambió, los roles evolucionaron, las expectativas son otras, y los criterios con los que te evalúan también.
-
-Estos últimos meses me dediqué a formar y armar dos equipos de desarrollo, entrevistar personas y definir roles. Voy a compartir lo que aprendí en el proceso: cómo eran las cosas antes y cómo son ahora. Qué se espera realmente de un junior, un semisenior y un senior, qué habilidades marcan la diferencia en cada etapa, y cómo priorizar el aprendizaje para no estancarte.
-
-No vamos a hablar de "pasión" ni de trabajar 12 horas por día. Vamos a hablar de cosas concretas: cómo agregar valor real en tu equipo, qué significa ser senior más allá de los años de experiencia, cómo comunicarte mejor con tu equipo y tomar mejores decisiones técnicas.
-
-Vamos a tocar el tema de la IA: cómo usarla a tu favor en entrevistas, para práctica técnica, para organizar el estudio, sin caer en malos hábitos que te perjudiquen a largo plazo. Y qué habilidades desarrollar para seguir siendo relevante cuando las herramientas cambian.
-
-En la charla vamos a hablar sobre:
-- ¿Qué se espera de vos en cada nivel de seniority?
-- Cómo agregar valor real en tu equipo
-- Usar IA para crecer sin perder criterio técnico
-- Qué habilidades desarrollar para avanzar
-
-## Audiencia
-Todas las seniorities. Especialmente útil para estudiantes, juniors y semis que buscan crecer, y seniors que quieren entender mejor cómo formar gente.
-
-## Labels
-Carrera profesional, Desarrollo profesional, Liderazgo, Formación de equipos, Entrevistas técnicas, Inteligencia Artificial, Seniority
+<!-- PENDIENTE: falta definir la segunda charla para Hurlingham -->
