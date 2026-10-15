@@ -1,9 +1,8 @@
 ## Bio / Perfil
 
-Sasha (Augusto) Kielbowicz
-Sasha es Consultor y Arquitecto Científico con formación en Física (UBA). Se especializa en Cómputo de Alto Rendimiento, IA Agéntica y Arquitectura de Sistemas Cuantitativos. Cuenta con más de 7 años de experiencia construyendo motores matemáticos de nivel productivo y bibliotecas core en instituciones financieras de primer nivel y empresas tecnológicas (como Qontigo, J.P. Morgan y Mercado Libre). Actualmente, diseña la integración y los marcos de evaluación para que los Large Language Models puedan procesar datos científicos y financieros sin alucinaciones, buscando siempre reducir la brecha entre la "Investigación" y la "Producción".
+Sasha es Consultor y Arquitecto Científico con formación en Física (UBA). Se especializa en Cómputo de Alto Rendimiento, IA Agéntica y Arquitectura de Sistemas Cuantitativos. Cuenta con más de 7 años de experiencia construyendo motores matemáticos de nivel productivo y bibliotecas core en instituciones financieras de primer nivel y empresas tecnológicas (como Qontigo, J.P. Morgan, Mercado Libre, AstraZeneca). Actualmente, diseña la integración y los marcos de evaluación para que los Modelos de Lenguaje puedan procesar datos científicos y financieros sin alucinaciones, buscando siempre reducir la brecha entre la "Investigación" y la "Producción".
 
-Expositor regular en conferencias y meetups de tecnología (PyConAr, PyDay, Nerdearla), donde comparte experiencias sobre patrones de diseño, clean code, formación de equipos y buenas prácticas de desarrollo aplicadas a problemas reales.
+Expositor regular en conferencias y meetups de tecnología (PyConAr, PyDay, SciPy Latam), donde comparte experiencias sobre patrones de diseño, clean code, formación de equipos y buenas prácticas de desarrollo aplicadas a problemas reales.
 
 ---
 
@@ -45,7 +44,7 @@ Ahora que producir código es casi gratuito, ¿qué vale la pena aprender? Repas
 
 Escribir código dejó de ser el cuello de botella. Entre chatbots, asistentes y agentes, generar un archivo con código plausible cuesta cada vez menos que escribir un mail. Pero producir código nunca fue el trabajo: el trabajo es decidir qué construir, verificar que funciona y hacer que sobreviva al contacto con la realidad.
 
-Esta charla es una discusión sobre qué tenemos que aprender ahora, después del Chatbon. Cuando el código es casi gratuito, lo escaso es otra cosa: el criterio. Vamos a repasar las prácticas de ingeniería y de ciencia que siguen siendo indispensables para desarrollar, implementar y mantener software, y cuáles perdieron valor.
+Esta charla es una discusión sobre qué tenemos que aprender ahora, después del Chatbon. Cuando el código es casi gratuito, lo escaso es otra cosa: el criterio. Vamos a repasar las prácticas de ingeniería y de ciencia que siguen siendo indispensables para desarrollar, implementar y mantener software.
 
 También vamos a cambiar la mirada sobre cómo trabajamos: programar con IA no es un proceso determinístico, es probabilístico. Pelear contra eso es perder el tiempo; la pregunta interesante es cómo aprovecharlo.
 
@@ -53,7 +52,7 @@ En la charla vamos a discutir:
 - Qué prácticas de ingeniería y ciencia siguen importando (y cuáles ya no) ahora que el código se produce casi gratis.
 - En qué cosas tenemos que fijarnos cuando la IA genera: tests, reproducibilidad, diseño, dependencias, seguridad.
 - Cómo trabajar con un proceso probabilístico: iteración, verificación, y diseño de fricciones intencionales.
-- Cómo puede esa misma probabilisticidad jugar a nuestro favor para explorar, aprender y prototipar más rápido.
+- Cómo puede esa misma aleatoriedad jugar a nuestro favor para explorar, aprender y prototipar más rápido.
 
 ## Audiencia
 Todas las seniorities. Pensada para estudiantes y quienes están definiendo qué aprender, pero también para profesionales que quieren reordenar sus prioridades en la era de la IA.

@@ -1,8 +1,8 @@
 ## Bio / Perfil
 
-Sasha es Consultor y Arquitecto Científico con formación en Física (UBA). Se especializa en Cómputo de Alto Rendimiento, IA Agéntica y Arquitectura de Sistemas Cuantitativos. Cuenta con más de 7 años de experiencia construyendo motores matemáticos de nivel productivo y bibliotecas core en instituciones financieras de primer nivel y empresas tecnológicas (como Qontigo, J.P. Morgan y Mercado Libre). Actualmente, diseña la integración y los marcos de evaluación para que los Large Language Models puedan procesar datos científicos y financieros sin alucinaciones, buscando siempre reducir la brecha entre la "Investigación" y la "Producción".
+Sasha es Consultor y Arquitecto Científico con formación en Física (UBA). Se especializa en Cómputo de Alto Rendimiento, IA Agéntica y Arquitectura de Sistemas Cuantitativos. Cuenta con más de 7 años de experiencia construyendo motores matemáticos de nivel productivo y bibliotecas core en instituciones financieras de primer nivel y empresas tecnológicas (como Qontigo, J.P. Morgan, Mercado Libre, AstraZeneca). Actualmente, diseña la integración y los marcos de evaluación para que los Modelos de Lenguaje puedan procesar datos científicos y financieros sin alucinaciones, buscando siempre reducir la brecha entre la "Investigación" y la "Producción".
 
-Expositor regular en conferencias y meetups de tecnología (PyConAr, PyDay, Nerdearla), donde comparte experiencias sobre patrones de diseño, clean code, formación de equipos y buenas prácticas de desarrollo aplicadas a problemas reales.
+Expositor regular en conferencias y meetups de tecnología (PyConAr, PyDay, SciPy Latam), donde comparte experiencias sobre patrones de diseño, clean code, formación de equipos y buenas prácticas de desarrollo aplicadas a problemas reales.
 
 ---
 
