@@ -1,8 +1,10 @@
 ## Bio / Perfil
 
-Sasha es Consultor y Arquitecto Científico con formación en Física (UBA). Se especializa en Cómputo de Alto Rendimiento, IA Agéntica y Arquitectura de Sistemas Cuantitativos. Cuenta con más de 7 años de experiencia construyendo motores matemáticos de nivel productivo y bibliotecas core en instituciones financieras de primer nivel y empresas tecnológicas (como Qontigo, J.P. Morgan, Mercado Libre, AstraZeneca). Actualmente, diseña la integración y los marcos de evaluación para que los Modelos de Lenguaje puedan procesar datos científicos y financieros sin alucinaciones, buscando siempre reducir la brecha entre la "Investigación" y la "Producción".
+Sasha es licenciado en Física por la UBA, consultor en software científico e inteligencia artificial y cofundador de Phorma, donde ayuda a equipos de investigación a convertir sus modelos y experimentos en software que puedan usar, mantener y compartir.
 
-Expositor regular en conferencias y meetups de tecnología (PyConAr, PyDay, SciPy Latam), donde comparte experiencias sobre patrones de diseño, clean code, formación de equipos y buenas prácticas de desarrollo aplicadas a problemas reales.
+Tiene más de 7 años de experiencia desarrollando software científico y financiero en J.P. Morgan, Qontigo, SimCorp y Mercado Libre. Trabajó en bibliotecas de cálculo, optimización de rendimiento y formación de equipos. Recientemente fue Senior AI Engineer en AstraZeneca, donde desarrolló integraciones y evaluaciones para una plataforma de agentes de IA aplicada a investigación y desarrollo en oncología.
+
+Participa como orador en PyConAr, PyDay, SciPy Latam y meetups de Python y Julia. En sus charlas comparte experiencias y herramientas para entender mejor el código, probarlo y trabajar en equipo, tanto para quienes recién empiezan como para quienes llevan años programando.
 
 ---
 
@@ -10,17 +12,18 @@ Expositor regular en conferencias y meetups de tecnología (PyConAr, PyDay, SciP
 
 ## Short Abstract (300 caracteres)
 
-¿Corriste un script que funcionaba perfecto la semana pasada y hoy no reproduce los resultados? Son prácticas de ingeniería que nadie enseña en el lab. Metodologías validadas en la industria aplicadas al código científico: código probado, habitable, operable, robusto, mantenible y auditable, sin burocracia.
+¿Tu script funcionaba la semana pasada y hoy no reproduce los resultados? Vamos a ver cómo aplicar prácticas de ingeniería al código científico: tests, entornos reproducibles y formas de organizar el código para que puedas modificarlo y rastrear qué versión produjo cada resultado.
 
 ## Long Description
 
 ¿Cuántas veces corriste un script analítico que funcionaba perfecto la semana pasada y hoy no reproduce los mismos resultados? ¿O heredaste código de alguien que ya no está en el equipo y no tenés idea por dónde empezar a tocar?
 
-Esto no es mala suerte, ni culpa de los datos. Es la ausencia de prácticas de ingeniería aplicadas a la investigación y experimentación. El software para ciencia y análisis de datos tiene ciclos de vida distintos al software comercial, y la necesidad de poder pivotar hipótesis rápido muchas veces atenta contra la robustez del código.
+En investigación necesitamos cambiar hipótesis y probar ideas rápido. Muchas veces el código crece a medida que exploramos, y dejamos para después los tests, la documentación o el registro del entorno. El problema aparece cuando queremos repetir un resultado o compartir el trabajo con alguien más.
 
-En esta charla vamos a hablar sobre el Research Software Engineering (RSE). Vamos a agarrar metodologías ya validadas en la industria del software tradicional y ver cómo bajarlas a la trinchera del código científico y analítico sin burocracia innecesaria.
+En esta charla vamos a hablar sobre el Research Software Engineering (RSE). Vamos a agarrar metodologías ya validadas en la industria del software tradicional y ver cómo aplicarlas al código científico y analítico sin agregar burocracia innecesaria.
 
 Te vas a llevar herramientas prácticas para dejar de escribir código descartable y empezar a producir software que sea:
+
 - **Probado:** que alguien más (incluido tu "yo" del futuro) pueda verificar que funciona.
 - **Habitable:** que se deje leer y modificar seis meses después sin dolor.
 - **Operable:** que corra sin problemas en otra máquina.
@@ -29,62 +32,70 @@ Te vas a llevar herramientas prácticas para dejar de escribir código descartab
 - **Auditable:** que permita rastrear exactamente qué versión de código produjo qué resultado.
 
 ## Audiencia
-Ideal para estudiantes avanzados, investigación académica y cualquiera que escriba código para análisis de datos, tesis o experimentos. Nivel básico-intermedio de Python.
+
+Ideal para estudiantes avanzados, personas que trabajan en investigación y cualquiera que escriba código para análisis de datos, tesis o experimentos. Nivel básico-intermedio de Python.
 
 ## Labels
+
 Research Software Engineering, Ciencia reproducible, Buenas prácticas, Análisis de datos, Metodologías ágiles, Python
 
 # Software científico e IA: cómo usar LLMs sin romper todo
 
 ## Short Abstract (300 caracteres)
 
-Generar código con buenas prácticas es el eslabón débil en proyectos de investigación, pero está cambiando: los LLMs y Coding Agents saben más de arquitectura que la mayoría de la academia. Cómo estructurar el contexto, qué delegar a la IA y qué no, y cómo usarla para validar y aprender, no solo para autocompletar.
+¿Usás IA para escribir código científico? Vamos a ver qué tareas podés delegar, cómo darle contexto y cómo revisar lo que genera. Ejemplos de uso de modelos de lenguaje y agentes para diseñar, probar y entender código sin perder de vista la reproducibilidad de los resultados.
 
 ## Long Description
 
-Generar código que siga las buenas prácticas de ingeniería suele ser el eslabón débil en los proyectos de investigación. Pero eso está cambiando: hoy los LLMs y Coding Agents saben más de arquitectura de software que la mayoría de la academia.
+En investigación solemos aprender a programar mientras resolvemos otro problema. Los modelos de lenguaje y los agentes de programación pueden ayudarnos a explorar diseños, escribir tests y entender código que no conocemos. ¿Cómo los usamos sin perder el control sobre los resultados?
 
-El problema no es el modelo de lenguaje, sino que nadie nos enseñó a usarlo para otra cosa que no sea autocompletar líneas sueltas o generar scripts descartables. Si queremos producir código de mejor calidad (y no solo código en mayor cantidad), tenemos que cambiar la forma en la que interactuamos con la IA.
+Si los usamos solo para autocompletar líneas o generar scripts sueltos, dejamos afuera buena parte de esas posibilidades. Vamos a ver cómo darles el contexto del proyecto y pedir cambios que podamos revisar y probar.
 
-En esta charla vamos a ver cómo extraer el conocimiento de arquitectura de los LLMs metiéndolos en procesos donde prima el determinismo y la reproducibilidad científica. Vamos a explorar qué fricciones y restricciones hay que agregarle intencionalmente a la "mesa de trabajo" del modelo para que vaya por el camino que a nosotros nos interesa.
+En esta charla vamos a ver cómo integrar estas herramientas a un proceso de trabajo que necesita resultados reproducibles. Qué restricciones conviene explicitar, qué verificaciones podemos automatizar y qué decisiones siguen necesitando nuestra revisión.
 
-Básicamente, vamos a dejar de usar la IA como un pasante que tipea rápido y vamos a empezar a usarla como una herramienta de validación, diseño y aprendizaje continuo.
+La idea es usar la IA para diseñar, validar y aprender, además de generar código.
 
 En la charla vamos a ver:
+
 - Qué tareas del ciclo científico podemos delegarle a la IA y cuáles definitivamente no.
-- Cómo estructurar el contexto para recuperar determinismo sin perder velocidad.
-- Estrategias y herramientas para que la IA aplique RSE y mantenga bases de código existentes.
+- Cómo estructurar el contexto y registrar el entorno para poder verificar los resultados.
+- Estrategias y herramientas para aplicar prácticas de Research Software Engineering (RSE) con IA y mantener bases de código existentes.
 - Cómo usar los modelos para entender los problemas a fondo en lugar de solo pedirles la solución.
 
 ## Audiencia
+
 Todas las seniorities. Especialmente útil para estudiantes y investigadores que ya usan IA en su flujo de trabajo y quieren sacarle más partido sin perder rigor.
 
 ## Labels
+
 Inteligencia Artificial, LLMs, Coding Agents, Research Software Engineering, Ciencia reproducible, Productividad
 
 # Specs de placer
 
 ## Short Abstract (300 caracteres)
 
-Delegar código a agentes es fácil; asegurarse de que hagan lo que uno quiere, no. Cómo escribir especificaciones que los agentes realmente sigan: qué incluir, qué omitir, cómo validarlas y cómo convertir la especificación en la fuente de verdad del desarrollo asistido por IA.
+Pedirle código a un agente lleva segundos. ¿Cómo verificás que hace lo que querías? Vamos a ver cómo escribir especificaciones: qué incluir, qué dejar abierto y cómo usarlas para guiar el desarrollo y revisar los resultados con tests y criterios concretos.
 
 ## Long Description
 
-Pedirle código a un agente de IA toma segundos. Asegurarse de que ese código haga lo que uno quería, en el contexto de una base existente y sin romper nada, es otro deporte. El problema casi nunca es el modelo: es que pedimos con la misma precisión con la que le contestamos un mail.
+Pedirle código a un agente de IA toma segundos. Asegurarse de que ese código haga lo que uno quería, en el contexto de una base existente y sin romper nada, es otro deporte. A veces pedimos con la misma precisión con la que le contestamos un mail. Y aunque el pedido sea claro, el agente puede equivocarse: necesitamos una forma de comprobar qué hizo.
 
-En esta charla vamos a hablar de especificaciones: la práctica de escribir, antes de programar, qué hay que construir, bajo qué restricciones y cómo se verifica que quedó bien. No como burocracia, sino como la herramienta más rentable que tenemos para dirigir agentes de IA.
+En esta charla vamos a hablar de especificaciones: escribir, antes de programar, qué hay que construir, bajo qué restricciones y cómo se verifica que quedó bien. Vamos a ver qué conviene dejar por escrito para que un agente pueda trabajar y vos puedas revisar el resultado.
 
-La tesis es simple: una buena especificación convierte el desarrollo asistido por IA de una lotería en un proceso verificable. La especificación pasa a ser la fuente de verdad, y el código —generado por la máquina— pasa a ser un detalle de implementación que se valida contra ella.
+Vamos a usar la especificación como referencia para revisar el código generado y comprobar si cumple lo que pedimos. También vamos a discutir qué pasa cuando cambia el pedido o cuando descubrimos que habíamos dejado algo sin definir.
 
-Vamos a ver:
+En la charla vamos a ver:
+
 - Qué hace buena a una especificación: criterios verificables, restricciones explícitas, alcance acotado.
-- Qué omitir: especificar demasiado temprano también mata.
+- Qué conviene dejar abierto y qué necesitamos definir antes de delegar.
 - Cómo validar que los agentes realmente siguen la especificación (y detectar cuando se la saltean).
 - Cómo integrar specs al flujo de trabajo: del ticket a la revisión, con tests como contrato.
 - Errores comunes al arrancar y cómo evitarlos.
 
 ## Audiencia
-Todas las seniorities. Especialmente útil para quienes ya usan agentes o asistentes de IA en su trabajo y sienten que el resultado es una caja misteriosa, y para estudiantes que quieren aprender a trabajar así desde el arranque.
+
+Todas las seniorities. Especialmente útil para quienes ya usan agentes o asistentes de IA en su trabajo y quieren poder verificar mejor el resultado, y para estudiantes que quieren aprender a trabajar así desde el arranque.
 
 ## Labels
+
 Spec-Driven Development, Inteligencia Artificial, Coding Agents, Buenas prácticas, Testing, Metodologías
