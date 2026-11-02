@@ -1,0 +1,70 @@
+#+title: Ejemplos — PyDay La Plata 2026
+#+language: es
+
+* Ejecutar
+
+Ejemplos de tiro parabólico para =../slides.md=. Solo necesitás tener =uv=:
+administra Python y las dependencias localmente, sin activar un entorno ni usar
+=pip install=. La primera ejecución requiere Internet.
+
+Desde la raíz del repositorio:
+
+#+begin_src sh
+cd presentaciones/pyday_la_plata_2026/codigo
+uv run --locked 01_tiro_parabolico.py
+uv run --locked 02_inputs.py
+uv run --locked 03_simular.py
+#+end_src
+
+Cada comando termina con código 0, sin imprimir mensajes, y genera un archivo:
+
+| Script                  | Archivo generado                          |
+|-------------------------+-------------------------------------------|
+| =01_tiro_parabolico.py=  | =trayectoria.png=: cálculo y gráfico juntos |
+| =02_inputs.py=           | =entrada.json=: parámetros del experimento |
+| =03_simular.py=          | =resultado.json=: inputs y outputs juntos  |
+
+Abrí =trayectoria.png= con un visor de imágenes. Para repetir el experimento con
+otros parámetros, editá =entrada.json= y ejecutá otra vez =03_simular.py=.
+Los archivos se leen y escriben en el directorio desde el que ejecutás el comando.
+
+* Leer el modelo
+
+=tiro_parabolico.py= separa el cálculo en una función que recibe parámetros y
+devuelve un diccionario. El script inicial repite las ecuaciones intencionalmente:
+es el antes de esa separación.
+
+#+begin_src python
+from tiro_parabolico import simular
+
+salida = simular(velocidad=10, angulo=45, gravedad=10)
+print(salida["alcance"])  # 10.0 metros
+#+end_src
+
+Supuestos: lanzamiento desde el suelo, sin rozamiento, velocidad y gravedad
+positivas y finitas, ángulo entre 0 y 90 grados. Se usan 101 muestras.
+Las unidades son metros y segundos; el ángulo se ingresa en grados.
+La gravedad 10 m/s² facilita los cálculos a mano; podés cambiarla por 9.81.
+
+* Probar
+
+#+begin_src sh
+uv run --locked pytest -q
+#+end_src
+
+Resultado esperado: =8 passed= y código de salida 0. Los tests muestran un caso
+conocido, cinco casos parametrizados, una propiedad con Hypothesis y la ejecución
+de los scripts en una carpeta temporal.
+
+* Errores
+
+No hay CLI, validación de inputs ni capturas de excepciones. Si falta
+=entrada.json= o contiene JSON inválido, Python muestra el error original y el
+script termina con código distinto de cero. Los supuestos físicos son
+precondiciones del ejemplo, no un contrato validado para inputs no confiables.
+Si la ejecución falla, un =resultado.json= anterior puede seguir existiendo:
+no interpretarlo como un resultado nuevo.
+
+En un servidor sin pantalla se puede ejecutar el gráfico con
+=MPLBACKEND=Agg uv run --locked 01_tiro_parabolico.py=; también termina con
+código 0 y genera =trayectoria.png= sin imprimir mensajes.
