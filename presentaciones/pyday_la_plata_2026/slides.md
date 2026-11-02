@@ -158,7 +158,15 @@ Este cambio en las restricciones que le imponemos a nuestro código nos permite 
 
 <!-- 6	Diseño / Implementación / Verificación	4 min -->
 
+--
 
+Lo que necesitamos es entender lo que un sistema hace, y poner restricciones.
+
+Conversar, describir lo que queremos hacer, entender que tiene que pasar y cómo puede fallar.
+
+Describirlo en lenguaje natural, o explicito como pruebas automáticas (tests) o propiedades. 
+
+Intención, Restricciones, Propiedades/Invariantes
 
 --
 
@@ -168,7 +176,41 @@ Este cambio en las restricciones que le imponemos a nuestro código nos permite 
 
 --
 
+Pruebas Automáticas
 
+NOTES:
+Acá es donde el mayor valor del LLM aparece, en sintetizar el código para lo que queremos.
+Pero las especificaciones en texto no son ejecutables, así que tenemos que construir la definición en
+algo ejecutable, que cada vez que cambiemos algo nos avise si rompimos algo.
+
+
+--
+
+```py
+#generación de unit-tests de casos que conozco
+```
+
+--
+
+```py
+#parametrización de los unit tests
+```
+
+--
+
+
+```py
+#pbt de propiedades del sistema
+```
+
+
+--
+
+Implementación
+
+--
+
+Verificación
 
 --
 
@@ -182,6 +224,12 @@ Este cambio en las restricciones que le imponemos a nuestro código nos permite 
 
 --
 
+
+[Kent Beck: Software Engineering in the Age of AI](https://www.youtube.com/watch?v=F8fBgDCf2Y4)
+
+--
+
+
 ---
 
 <!-- 8	P.H.O.R.M.A.	2 min -->
@@ -189,9 +237,9 @@ Este cambio en las restricciones que le imponemos a nuestro código nos permite 
 - Probado (testado, validado) <!-- .element: class="fragment" -->
 - Habitable (legible, human-friendly) <!-- .element: class="fragment" -->
 - Operable (ejecuta en cualquier lugar) <!-- .element: class="fragment" -->
-- Robusto (maneja fallas de manera correct) <!-- .element: class="fragment" -->
+- Robusto (maneja fallas de manera correcta) <!-- .element: class="fragment" -->
 - Mantenible (construido para durar) <!-- .element: class="fragment" -->
-- Auditable (transparente, traceable) <!-- .element: class="fragment" -->
+- Auditable (transparente, rastreable/*traceable*) <!-- .element: class="fragment" -->
 
 --
 
@@ -200,9 +248,9 @@ Este cambio en las restricciones que le imponemos a nuestro código nos permite 
 - **P**robado (testado, validado) 
 - **H**abitable (legible, human-friendly)
 - **O**perable (ejecuta en cualquier lugar)
-- **R**obusto (maneja fallas de manera correct) 
+- **R**obusto (maneja fallas de manera correcta) 
 - **M**antenible (construido para durar) 
-- **A**uditable (transparente, traceable)
+- **A**uditable (transparente, rastreable/*traceable*)
 
 --
 
@@ -211,6 +259,8 @@ Este cambio en las restricciones que le imponemos a nuestro código nos permite 
 ---
 
 <!-- 9	Skill	2 min -->
+
+
 
 ---
 
@@ -251,14 +301,6 @@ Llevamos estos principios a tu código de producción.
 
 --
 
-### Transformamos prototipos en sistemas de producción
-
-- Refactorización guiada por principios
-- Optimización de rendimiento (benchmarkeado)
-- Arquitecturas desacopladas y mantenibles
-- Stack: `Python` `Julia` `C#`
-
---
 
 ### Capacitación Técnica
 
@@ -269,8 +311,7 @@ Llevamos estos principios a tu código de producción.
 - Fundamentos de Computación Numérica
 - Rigor de Producción (TDD, CI/CD)
 - Machine Learning Científico
-- Programación con Julia para Software de Alto Rendimiento
-- Diseño de Sistemas Arquitectónicos
+- Diseño de Sistemas Cuantitativos
 
 </div>
 
@@ -280,7 +321,7 @@ Llevamos estos principios a tu código de producción.
 
 --
 
-> Y una técnica que te sirve para escribir te tiene que servir también para vivir. O sea que si yo lo único que te voy a dar es tecniquería (sic), no sirve para nada. 
+> Una técnica que te sirve para escribir te tiene que servir también para vivir. O sea que si yo lo único que te voy a dar es tecniquería (sic), no sirve para nada. 
 — **Fabián Casas**
 
 --
