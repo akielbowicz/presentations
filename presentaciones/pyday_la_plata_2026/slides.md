@@ -359,29 +359,48 @@ from pathlib import Path
 from tiro_parabolico import simular
 
 random.seed(42)  # experimento reproducible
-experimentos = {
-    "velocidad": [
-        simular(velocidad=random.gauss(10, 0.5), angulo=45)
-        for _ in range(1000)
-    ],
-    "angulo": [
-        simular(velocidad=10, angulo=random.gauss(45, 2))
-        for _ in range(1000)
-    ],
-}
+experimentos = {"velocidad": [], "angulo": []}
+for _ in range(1000):
+    velocidad = random.gauss(10, 0.5)
+    angulo = random.gauss(45, 2)
+    experimentos["velocidad"].append({
+        "entrada": {"velocidad": velocidad, "angulo": 45},
+        "salida": simular(velocidad=velocidad, angulo=45),
+    })
+    experimentos["angulo"].append({
+        "entrada": {"velocidad": 10, "angulo": angulo},
+        "salida": simular(velocidad=10, angulo=angulo),
+    })
 Path("montecarlo.json").write_text(json.dumps(experimentos), encoding="utf-8")
 ```
+
+--
 
 ```py
 experimentos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
 for nombre, lanzamientos in experimentos.items():
     for lanzamiento in lanzamientos:
-        plt.plot(lanzamiento["x"], lanzamiento["y"], alpha=0.1)
+        plt.plot(lanzamiento["salida"]["x"], lanzamiento["salida"]["y"], alpha=0.1)
     plt.title(f"Monte Carlo variando {nombre}")
     plt.savefig(f"montecarlo-{nombre}.png")
     plt.close()
 ```
-<!-- .element: class="fragment" -->
+
+--
+
+```py
+experimentos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
+for nombre, lanzamientos in experimentos.items():
+    plt.scatter(
+        [lanzamiento["entrada"][nombre] for lanzamiento in lanzamientos],
+        [lanzamiento["salida"]["alcance"] for lanzamiento in lanzamientos],
+        alpha=0.1,
+    )
+    plt.xlabel(nombre)
+    plt.ylabel("Distancia final [m]")
+    plt.savefig(f"montecarlo-{nombre}-dispersion.png")
+    plt.close()
+```
 
 --
 
@@ -389,7 +408,7 @@ for nombre, lanzamientos in experimentos.items():
 # paso extra sobre los datos guardados: distribución del alcance final
 experimentos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
 for nombre, lanzamientos in experimentos.items():
-    alcances = [lanzamiento["alcance"] for lanzamiento in lanzamientos]
+    alcances = [lanzamiento["salida"]["alcance"] for lanzamiento in lanzamientos]
     plt.hist(alcances, bins=50)
     plt.axvline(mean(alcances), color="black")
     plt.savefig(f"montecarlo-{nombre}-distribucion.png")
@@ -403,9 +422,20 @@ for nombre, lanzamientos in experimentos.items():
 <img src="./images/montecarlo-angulo.png" style="width: 100%; height: auto;">
 </div>
 
-<p class="fragment" style="font-size: 0.7em;">velocidad: 8.39 a 11.82 m — angulo: 9.91 a 10.00 m</p>
+<p class="fragment" style="font-size: 0.7em;">velocidad: 8.39 a 11.76 m — angulo: 9.90 a 10.00 m</p>
 
 <p class="fragment" style="font-size: 0.7em;">cerca de 45 grados, controlar la velocidad importa mucho más que el angulo</p>
+
+--
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center;">
+<img src="./images/montecarlo-velocidad-dispersion.png" style="width: 100%; height: auto;">
+<img src="./images/montecarlo-angulo-dispersion.png" style="width: 100%; height: auto;">
+</div>
+
+<p class="fragment" style="font-size: 0.7em;">correlación: +1.00 variando velocidad, -0.05 variando angulo</p>
+
+<p class="fragment" style="font-size: 0.7em;">el scatter muestra el efecto: la nube de velocidad sube, la de angulo es plana</p>
 
 --
 
