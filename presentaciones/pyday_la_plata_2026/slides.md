@@ -376,6 +376,12 @@ plt.savefig("montecarlo.png")
 
 --
 
+<img src="./images/montecarlo.png" style="max-height: 13rem;">
+
+alcance medio: 9.98 m — percentiles 5 y 95: 8.39 m y 11.73 m  <!-- .element: class="fragment" -->
+
+--
+
 "Revisemos que esto no sea YAGNI"  <!-- .element: class="fragment" --> 
 
 "No estamos haciendo sobre-ingenieria"  <!-- .element: class="fragment" --> 
