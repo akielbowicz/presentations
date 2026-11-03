@@ -72,7 +72,12 @@ Artesanía de Software
 <!-- .element: class="fragment" -->
 
 NOTES:
-Importante mencionar la escala del software
+Importante mencionar la escala del software.
+
+En investigación no conocemos todo el problema al empezar: hacemos un script para
+responder una pregunta, vemos el resultado y aparecen nuevas preguntas. Con IA ese
+ciclo se acelera muchísimo. La pregunta para la audiencia: ¿el software está
+evolucionando junto con nuestra comprensión del problema, o solo acumulamos código?
 
 ---
 
@@ -200,6 +205,8 @@ Path("resultado.json").write_text(json.dumps(registro, indent=2), encoding="utf-
 
 Este cambio en las restricciones que le imponemos a nuestro código nos permite pensar en nuestro sistema de manera modular y componible.
 
+cada resultado viaja con su provenance: versión del código y commit hash  <!-- .element: class="fragment" -->
+
 ---
 
 <!-- 6	Diseño / Implementación / Verificación	4 min -->
@@ -291,6 +298,12 @@ Implementación
 --
 
 Verificación y Validación
+
+¿cumple lo especificado? ≠ ¿la especificación es correcta?  <!-- .element: class="fragment" -->
+
+un test verde puede ser dos códigos del mismo modelo coincidiendo entre sí  <!-- .element: class="fragment" -->
+
+el caso a 45 grados es el oráculo: derivado a mano, independiente del código  <!-- .element: class="fragment" -->
 
 NOTES:
 
@@ -450,6 +463,14 @@ for nombre, lanzamientos in experimentos.items():
 
 --
 
+extender no siempre significa agregar funcionalidad
+
+- el modelo: resistencia del aire y viento — con resistencia nula recuperamos el modelo ideal  <!-- .element: class="fragment" -->
+- la implementación: python puro → numpy → optimizado — los tests siguen pasando  <!-- .element: class="fragment" -->
+- el análisis: el Monte Carlo que acabamos de correr  <!-- .element: class="fragment" -->
+
+--
+
 "Revisemos que esto no sea YAGNI"  <!-- .element: class="fragment" --> 
 
 "No estamos haciendo sobre-ingenieria"  <!-- .element: class="fragment" --> 
@@ -458,6 +479,14 @@ for nombre, lanzamientos in experimentos.items():
 
 <span class="fragment" data-fragment-index="1">A</span>
 <span class="fragment" data-fragment-index="0">B</span>
+
+--
+
+la IA acelera la implementación  <!-- .element: class="fragment" -->
+
+el desafío: que la comprensión y el diseño acompañen esa velocidad  <!-- .element: class="fragment" -->
+
+vale para simulaciones, análisis de datos y pipelines de investigación  <!-- .element: class="fragment" -->
 
 ---
 
@@ -484,6 +513,27 @@ for nombre, lanzamientos in experimentos.items():
 --
 
 **P.H.O.R.M.A**
+
+---
+
+<!-- 9	Skill	2 min -->
+
+### `scientific-tdd`
+
+- **Diseño** — ¿qué estamos intentando representar?  <!-- .element: class="fragment" -->
+- **Implementación** — ¿qué comportamiento debe tener el programa?  <!-- .element: class="fragment" -->
+- **Verificación** — ¿qué sabemos sobre lo que construimos?  <!-- .element: class="fragment" -->
+
+la serialización es la fricción que hace visibles esas preguntas  <!-- .element: class="fragment" -->
+
+esta charla se construyó con ese mismo flujo  <!-- .element: class="fragment" -->
+
+NOTES:
+El skill combina tres actividades, cada una con su pregunta y su mecanismo de
+fricción: diseño con serialización, implementación con TDD como especificación
+ejecutable, y verificación contra oráculos independientes. El paso a paso de la
+construcción va en el blog de Phorma. Dogfooding: las slides, los ejemplos y los
+tests de esta charla se produjeron con este mismo flujo.
 
 ---
 
