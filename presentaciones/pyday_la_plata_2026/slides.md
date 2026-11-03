@@ -240,20 +240,47 @@ Pero las especificaciones en texto no son ejecutables, así que tenemos que cons
 --
 
 ```py
-#generación de unit-tests de casos que conozco
+import pytest
+
+from tiro_parabolico import simular
+
+
+def test_lanzamiento_a_45_grados():
+    salida = simular(velocidad=10, angulo=45, gravedad=10)
+
+    # Calculado a mano: alcance = v²·sen(2θ)/g, duración = 2v·sen(θ)/g, h = v²·sen²(θ)/(2g)
+    assert salida["alcance"] == pytest.approx(10)
+    assert salida["duracion"] == pytest.approx(2**0.5)
+    assert salida["altura_maxima"] == pytest.approx(2.5)
 ```
 
 --
 
 ```py
-#parametrización de los unit tests
+@pytest.mark.parametrize("angulo, alcance", [
+    (0, 0),
+    (30, 5 * 3**0.5),
+    (45, 10),
+    (60, 5 * 3**0.5),
+    (90, 0),
+])
+def test_alcances_conocidos(angulo, alcance):
+    salida = simular(velocidad=10, angulo=angulo, gravedad=10)
+    assert salida["alcance"] == pytest.approx(alcance, abs=1e-12)
 ```
 
 --
 
 
 ```py
-#pbt de propiedades del sistema
+from hypothesis import given, strategies as st
+
+
+@given(angulo=st.floats(min_value=1, max_value=89))
+def test_angulos_complementarios_tienen_el_mismo_alcance(angulo):
+    uno = simular(velocidad=10, angulo=angulo, gravedad=10)
+    otro = simular(velocidad=10, angulo=90 - angulo, gravedad=10)
+    assert uno["alcance"] == pytest.approx(otro["alcance"])
 ```
 
 
