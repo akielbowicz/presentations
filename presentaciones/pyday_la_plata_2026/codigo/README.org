@@ -14,15 +14,20 @@ cd presentaciones/pyday_la_plata_2026/codigo
 uv run --locked 01_tiro_parabolico.py
 uv run --locked 02_inputs.py
 uv run --locked 03_simular.py
+uv run --locked 04_montecarlo.py
+uv run --locked 05_trayectorias.py
 #+end_src
 
-Cada comando termina con código 0, sin imprimir mensajes, y genera un archivo:
+Cada comando termina con código 0 y genera un archivo; =05_trayectorias.py=
+además imprime el resumen estadístico en la terminal:
 
 | Script                  | Archivo generado                          |
 |-------------------------+-------------------------------------------|
 | =01_tiro_parabolico.py=  | =trayectoria.png=: cálculo y gráfico juntos |
 | =02_inputs.py=           | =entrada.json=: parámetros del experimento |
 | =03_simular.py=          | =resultado.json=: inputs y outputs juntos  |
+| =04_montecarlo.py=      | =montecarlo.json=: 1000 lanzamientos guardados |
+| =05_trayectorias.py=    | =montecarlo.png=: todas las trayectorias    |
 
 Abrí =trayectoria.png= con un visor de imágenes. Para repetir el experimento con
 otros parámetros, editá =entrada.json= y ejecutá otra vez =03_simular.py=.
@@ -52,9 +57,9 @@ La gravedad 10 m/s² facilita los cálculos a mano; podés cambiarla por 9.81.
 uv run --locked pytest -q
 #+end_src
 
-Resultado esperado: =8 passed= y código de salida 0. Los tests muestran un caso
-conocido, cinco casos parametrizados, una propiedad con Hypothesis y la ejecución
-de los scripts en una carpeta temporal.
+Resultado esperado: =9 passed= y código de salida 0. Los tests muestran un caso
+conocido, cinco casos parametrizados, una propiedad con Hypothesis, la ejecución
+de los scripts en una carpeta temporal y la reproducibilidad de Monte Carlo.
 
 * Errores
 
