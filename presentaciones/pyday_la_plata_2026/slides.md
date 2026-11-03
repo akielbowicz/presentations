@@ -359,26 +359,40 @@ from pathlib import Path
 from tiro_parabolico import simular
 
 random.seed(42)  # experimento reproducible
-lanzamientos = [
-    simular(velocidad=random.gauss(10, 0.5), angulo=random.gauss(45, 2))
-    for _ in range(1000)
-]
-Path("montecarlo.json").write_text(json.dumps(lanzamientos), encoding="utf-8")
+experimentos = {
+    "velocidad": [
+        simular(velocidad=random.gauss(10, 0.5), angulo=45)
+        for _ in range(1000)
+    ],
+    "angulo": [
+        simular(velocidad=10, angulo=random.gauss(45, 2))
+        for _ in range(1000)
+    ],
+}
+Path("montecarlo.json").write_text(json.dumps(experimentos), encoding="utf-8")
 ```
 
 ```py
-lanzamientos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
-for lanzamiento in lanzamientos:
-    plt.plot(lanzamiento["x"], lanzamiento["y"], alpha=0.1)
-plt.savefig("montecarlo.png")
+experimentos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
+for nombre, lanzamientos in experimentos.items():
+    for lanzamiento in lanzamientos:
+        plt.plot(lanzamiento["x"], lanzamiento["y"], alpha=0.1)
+    plt.title(f"Monte Carlo variando {nombre}")
+    plt.savefig(f"montecarlo-{nombre}.png")
+    plt.close()
 ```
 <!-- .element: class="fragment" -->
 
 --
 
-<img src="./images/montecarlo.png" style="max-height: 13rem;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+<img src="./images/montecarlo-velocidad.png">
+<img src="./images/montecarlo-angulo.png">
+</div>
 
-alcance medio: 9.98 m — percentiles 5 y 95: 8.39 m y 11.73 m  <!-- .element: class="fragment" -->
+velocidad: 8.39 a 11.82 m — angulo: 9.91 a 10.00 m  <!-- .element: class="fragment" -->
+
+cerca de 45 grados, controlar la velocidad importa mucho más que el angulo  <!-- .element: class="fragment" -->
 
 --
 
