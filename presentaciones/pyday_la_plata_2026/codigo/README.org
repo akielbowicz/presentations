@@ -26,8 +26,8 @@ además imprime el resumen estadístico en la terminal:
 | =01_tiro_parabolico.py=  | =trayectoria.png=: cálculo y gráfico juntos |
 | =02_inputs.py=           | =entrada.json=: parámetros del experimento |
 | =03_simular.py=          | =resultado.json=: inputs y outputs juntos  |
-| =04_montecarlo.py=      | =montecarlo.json=: 1000 lanzamientos guardados |
-| =05_trayectorias.py=    | =montecarlo.png=: todas las trayectorias    |
+| =04_montecarlo.py=      | =montecarlo.json=: dos experimentos, 1000 lanzamientos cada uno |
+| =05_trayectorias.py=    | =montecarlo-*.png=: trayectorias por experimento  |
 
 Abrí =trayectoria.png= con un visor de imágenes. Para repetir el experimento con
 otros parámetros, editá =entrada.json= y ejecutá otra vez =03_simular.py=.
