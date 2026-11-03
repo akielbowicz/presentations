@@ -16,10 +16,11 @@ uv run --locked 02_inputs.py
 uv run --locked 03_simular.py
 uv run --locked 04_montecarlo.py
 uv run --locked 05_trayectorias.py
+uv run --locked 06_distribucion.py
 #+end_src
 
-Cada comando termina con código 0 y genera un archivo; =05_trayectorias.py=
-además imprime el resumen estadístico en la terminal:
+Cada comando termina con código 0 y genera un archivo; =05_trayectorias.py= y
+=06_distribucion.py= además imprimen su resumen en la terminal:
 
 | Script                  | Archivo generado                          |
 |-------------------------+-------------------------------------------|
@@ -27,7 +28,8 @@ además imprime el resumen estadístico en la terminal:
 | =02_inputs.py=           | =entrada.json=: parámetros del experimento |
 | =03_simular.py=          | =resultado.json=: inputs y outputs juntos  |
 | =04_montecarlo.py=      | =montecarlo.json=: dos experimentos, 1000 lanzamientos cada uno |
-| =05_trayectorias.py=    | =montecarlo-*.png=: trayectorias por experimento  |
+| =05_trayectorias.py=    | =montecarlo-{velocidad,angulo}.png=: trayectorias  |
+| =06_distribucion.py=    | =montecarlo-{velocidad,angulo}-distribucion.png=: histogramas |
 
 Abrí =trayectoria.png= con un visor de imágenes. Para repetir el experimento con
 otros parámetros, editá =entrada.json= y ejecutá otra vez =03_simular.py=.

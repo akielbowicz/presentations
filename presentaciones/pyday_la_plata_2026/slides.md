@@ -385,6 +385,19 @@ for nombre, lanzamientos in experimentos.items():
 
 --
 
+```py
+# paso extra sobre los datos guardados: distribución del alcance final
+experimentos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
+for nombre, lanzamientos in experimentos.items():
+    alcances = [lanzamiento["alcance"] for lanzamiento in lanzamientos]
+    plt.hist(alcances, bins=50)
+    plt.axvline(mean(alcances), color="black")
+    plt.savefig(f"montecarlo-{nombre}-distribucion.png")
+    plt.close()
+```
+
+--
+
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center;">
 <img src="./images/montecarlo-velocidad.png" style="width: 100%; height: auto;">
 <img src="./images/montecarlo-angulo.png" style="width: 100%; height: auto;">
@@ -393,6 +406,17 @@ for nombre, lanzamientos in experimentos.items():
 <p class="fragment" style="font-size: 0.7em;">velocidad: 8.39 a 11.82 m — angulo: 9.91 a 10.00 m</p>
 
 <p class="fragment" style="font-size: 0.7em;">cerca de 45 grados, controlar la velocidad importa mucho más que el angulo</p>
+
+--
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center;">
+<img src="./images/montecarlo-velocidad-distribucion.png" style="width: 100%; height: auto;">
+<img src="./images/montecarlo-angulo-distribucion.png" style="width: 100%; height: auto;">
+</div>
+
+<p class="fragment" style="font-size: 0.7em;">velocidad: media 10.01 m, desviación estándar 1.02 m — angulo: media 9.98 m, desviación estándar 0.03 m</p>
+
+<p class="fragment" style="font-size: 0.7em;">la desviación por velocidad es más de 30 veces la del angulo</p>
 
 --
 
