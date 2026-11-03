@@ -292,7 +292,43 @@ Implementación
 
 Verificación y Validación
 
+NOTES:
+
+Para validar y verificar podemos pedir que nos cree herramientas
+que nos permitan visualizar los resultados
+
 --
+
+<div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.5rem; align-items: start; font-size: 0.8em;">
+<div>
+<h4>Trayectoria — Python en el navegador</h4>
+<div id="tray-editor">
+<pre id="tray-highlight" aria-hidden="true"><code class="hljs language-python"></code></pre>
+<textarea id="tray-codigo" spellcheck="false" wrap="off"></textarea>
+</div>
+<p>
+<button id="tray-boton" onclick="ejecutarPyodide('tray')">▶ Ejecutar</button>
+<button onclick="restablecerTrayectoria()">↺ Restablecer</button>
+<span id="tray-estado" style="color: #999;"></span>
+</p>
+</div>
+<div>
+<img id="tray-imagen" style="display: none; max-height: 15rem;">
+<pre id="tray-salida" style="text-align: left; font-size: 0.5em;"></pre>
+</div>
+</div>
+
+--
+
+<div style="font-size: 0.8em;">
+<h4>Resultados de las simulaciones</h4>
+<p>
+<input type="file" id="res-archivo" accept=".json,application/json">
+<button id="res-boton" onclick="graficarResultado()">Graficar</button>
+<span id="res-estado" style="color: #999;"></span>
+</p>
+<img id="res-imagen" style="display: none; max-height: 12rem;">
+</div>
 
 ---
 
@@ -301,8 +337,12 @@ Verificación y Validación
 --
 
 ```py
-# computo se sensibilidades 
+# computo de sensibilidades
 ```
+
+--
+
+
 
 --
 
@@ -312,6 +352,27 @@ Verificación y Validación
 
 --
 
+```py
+import json
+import random
+from pathlib import Path
+from tiro_parabolico import simular
+
+random.seed(42)  # experimento reproducible
+lanzamientos = [
+    simular(velocidad=random.gauss(10, 0.5), angulo=random.gauss(45, 2))
+    for _ in range(1000)
+]
+Path("montecarlo.json").write_text(json.dumps(lanzamientos), encoding="utf-8")
+```
+
+```py
+lanzamientos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
+for lanzamiento in lanzamientos:
+    plt.plot(lanzamiento["x"], lanzamiento["y"], alpha=0.1)
+plt.savefig("montecarlo.png")
+```
+<!-- .element: class="fragment" -->
 
 --
 
