@@ -473,17 +473,26 @@ extender no siempre significa agregar funcionalidad
 
 crecer acumulando — el estilo clojure
 
-funciones puras y datos inmutables: cada paso se suma sobre lo que ya funciona  <!-- .element: class="fragment" -->
+lo que funciona no se modifica; lo nuevo se suma encima  <!-- .element: class="fragment" -->
 
-los scripts viejos siguen corriendo y los tests se acumulan: hoy, 9 en verde  <!-- .element: class="fragment" -->
+```text
+01_tiro_parabolico.py   el script original, sigue corriendo
+02_inputs.py            agrega el registro de inputs
+03_simular.py           agrega el registro de outputs
+04_montecarlo.py        agrega el experimento
+05_trayectorias.py      análisis: solo lee el registro
+06_dispersion.py        análisis: solo lee el registro
+07_distribucion.py      análisis: solo lee el registro
+```
+<!-- .element: class="fragment" -->
 
-un análisis nuevo es un script más que lee lo guardado  <!-- .element: class="fragment" -->
+9 tests en verde — uno por etapa, ninguno descartado  <!-- .element: class="fragment" -->
 
 NOTES:
-Rich Hickey, Clojure: desarrollo aditivo. Nada se reescribe: 01_tiro_parabolico.py
-todavía corre, la función pura sigue pasando sus tests, y cada análisis nuevo
-(05, 06, 07) lee el mismo registro sin mutarlo. Los tests se acumulan, no se
-descartan: esa acumulación es la garantía de que las cosas nunca se rompen.
+El estilo clojure (Rich Hickey): desarrollo aditivo — funciones puras, datos
+inmutables. Cada línea del listing existe hoy en el repositorio y funciona.
+Las tres reglas están en el listing: lo viejo no se toca, lo nuevo se agrega,
+el registro solo se lee. El detalle y los ejemplos están en el apéndice.
 
 --
 
