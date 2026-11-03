@@ -634,3 +634,72 @@ Estructura sobre el Caos
 <!-- .slide: id="gracias" -->
 
 ## Gracias
+
+---
+
+<!-- .slide: id="apendice" -->
+
+## Apéndice — crecer acumulando
+
+*Lo que vimos en la charla, con el detalle del repositorio.*
+
+--
+
+### La suite se acumula, no se reescribe
+
+| etapa | tests que agregó | hoy |
+|-------|------------------|-----|
+| caso a 45 grados | +1 | en verde |
+| parametrizados | +5 | en verde |
+| propiedad (Hypothesis) | +1 | en verde |
+| cadena de scripts 01→03 | +1 | en verde |
+| cadena de Monte Carlo 04→07 | +1 | en verde |
+
+uv run --locked pytest -q  <!-- .element: style="font-family: monospace; font-size: 0.7em;" -->
+
+=9 passed=  <!-- .element: class="fragment" -->
+
+ningún test fue descartado: cada etapa conserva los anteriores  <!-- .element: class="fragment" -->
+
+--
+
+### Función pura, registro inmutable
+
+```py
+def simular(velocidad, angulo, gravedad=10):
+    # sin I/O, sin estado, sin azar
+    # mismas entradas → mismas salidas
+```
+
+04 escribe montecarlo.json una sola vez  <!-- .element: class="fragment" -->
+
+05, 06 y 07 solo lo leen  <!-- .element: class="fragment" -->
+
+el mismo registro responde preguntas distintas  <!-- .element: class="fragment" -->
+
+--
+
+### Un registro, tres análisis — y el que venga
+
+04 guarda una vez: =montecarlo.json=
+
+05 lee → trayectorias · 06 lee → dispersión · 07 lee → distribución  <!-- .element: class="fragment" -->
+
+si mañana aparece otra pregunta, es un script más:  <!-- .element: class="fragment" -->
+
+```py
+alturas = [l["salida"]["altura_maxima"]
+           for l in experimentos["velocidad"]]
+```
+
+agregar un análisis no toca los existentes  <!-- .element: class="fragment" -->
+
+--
+
+### La garantía: reproducibilidad byte a byte
+
+misma semilla → el mismo montecarlo.json  <!-- .element: class="fragment" -->
+
+lo verifica el test de la cadena en una carpeta temporal  <!-- .element: class="fragment" -->
+
+acumular sin romper necesita esta promesa  <!-- .element: class="fragment" -->
