@@ -385,14 +385,14 @@ for nombre, lanzamientos in experimentos.items():
 
 --
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-<img src="./images/montecarlo-velocidad.png">
-<img src="./images/montecarlo-angulo.png">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center;">
+<img src="./images/montecarlo-velocidad.png" style="width: 100%; height: auto;">
+<img src="./images/montecarlo-angulo.png" style="width: 100%; height: auto;">
 </div>
 
-velocidad: 8.39 a 11.82 m — angulo: 9.91 a 10.00 m  <!-- .element: class="fragment" -->
+<p class="fragment" style="font-size: 0.7em;">velocidad: 8.39 a 11.82 m — angulo: 9.91 a 10.00 m</p>
 
-cerca de 45 grados, controlar la velocidad importa mucho más que el angulo  <!-- .element: class="fragment" -->
+<p class="fragment" style="font-size: 0.7em;">cerca de 45 grados, controlar la velocidad importa mucho más que el angulo</p>
 
 --
 
