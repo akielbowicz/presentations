@@ -471,6 +471,22 @@ extender no siempre significa agregar funcionalidad
 
 --
 
+crecer acumulando — el estilo clojure
+
+funciones puras y datos inmutables: cada paso se suma sobre lo que ya funciona  <!-- .element: class="fragment" -->
+
+los scripts viejos siguen corriendo y los tests se acumulan: hoy, 9 en verde  <!-- .element: class="fragment" -->
+
+un análisis nuevo es un script más que lee lo guardado  <!-- .element: class="fragment" -->
+
+NOTES:
+Rich Hickey, Clojure: desarrollo aditivo. Nada se reescribe: 01_tiro_parabolico.py
+todavía corre, la función pura sigue pasando sus tests, y cada análisis nuevo
+(05, 06, 07) lee el mismo registro sin mutarlo. Los tests se acumulan, no se
+descartan: esa acumulación es la garantía de que las cosas nunca se rompen.
+
+--
+
 "Revisemos que esto no sea YAGNI"  <!-- .element: class="fragment" --> 
 
 "No estamos haciendo sobre-ingenieria"  <!-- .element: class="fragment" --> 
