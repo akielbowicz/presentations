@@ -91,9 +91,20 @@ Necesitamos mucho más control sobre lo que hacemos.
 
 --
 
+
+NOTES:
+En esta charla no vamos a hablar de Regla y Escuadra y no de Serrucho y Martillo
+
+--
+
 Al poder producir de manera probabilística el código,
 necesitamos establecer protocolos, procedimientos que nos ayuden a 
 elegir, evaluar, verificar lo que se produce.
+
+
+NOTES:
+
+No se trata de producir más código, necesitamos producir cosas de mayor calidad.
 
 --
 
@@ -107,7 +118,7 @@ En vez de crear un montón de cosas, tenemos que enfocarnos en mejorar la calida
 
 --
 
-**WARNING**
+<h2 style="color: #e53935;">WARNING</h2>
 
 Los proveedores de tokens quieren que utilicemos sus herramientas lo más que se pueda, están diseñadas para ser adictivas.  <!-- .element: class="fragment" -->
 
@@ -121,8 +132,28 @@ Piensen en los Chats en los mismos términos que Facebook, Instagram, TikTok, X/
 
 <!-- 5	Fricción: serialización	3 min -->
 
+Lo más importante es lograr un código bien modularizado, que nos permita
+abstraer componentes.
+
+--
+
 ```py
-#script de tiro parabólico
+from math import cos, radians, sin
+import matplotlib.pyplot as plt
+
+velocidad = 10  # m/s
+angulo = radians(45)
+gravedad = 10  # m/s²
+
+vx = velocidad * cos(angulo)
+vy = velocidad * sin(angulo)
+duracion = 2 * vy / gravedad
+t = [duracion * i / 100 for i in range(101)]
+x = [vx * instante for instante in t]
+y = [vy * instante - gravedad * instante**2 / 2 for instante in t]
+
+plt.plot(x, y)
+plt.savefig("trayectoria.png")
 ```
 
 Necesitamos registrar los inputs y los outputs
@@ -131,22 +162,37 @@ Necesitamos registrar los inputs y los outputs
 --
 
 ```py
-#construcción de los inputs
+import json
+from pathlib import Path
+
+entrada = {"velocidad": 10, "angulo": 45, "gravedad": 10}
+Path("entrada.json").write_text(json.dumps(entrada, indent=2), encoding="utf-8")
 ```
 
 ```py
-#script de tiro parabólico - inputs
+# script de tiro parabólico
+entrada = json.loads(Path("entrada.json").read_text(encoding="utf-8"))
+velocidad = entrada["velocidad"]
+angulo = radians(entrada["angulo"])
+gravedad = entrada["gravedad"]
+
+# ... las mismas ecuaciones de antes ...
 ```
 <!-- .element: class="fragment" -->
 
 --
 
 ```py
-#script de tiro parabólico - (inputs+outputs)
+# script de tiro parabólico
+from tiro_parabolico import simular
+
+entrada = json.loads(Path("entrada.json").read_text(encoding="utf-8"))
+salida = simular(**entrada)
 ```
 
 ```py
-#construcción de los outputs 
+registro = {"entrada": entrada, "salida": salida}
+Path("resultado.json").write_text(json.dumps(registro, indent=2), encoding="utf-8")
 ```
 <!-- .element: class="fragment" -->
 
@@ -168,11 +214,19 @@ Describirlo en lenguaje natural, o explicito como pruebas automáticas (tests) o
 
 Intención, Restricciones, Propiedades/Invariantes
 
+NOTES:
+
+Tracer bullet
+
 --
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/c5QF2HjHLSE?si=96Hcss0gU9AApBwv&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 [Design In Practice](https://www.youtube.com/watch?v=c5QF2HjHLSE)
 
-[WAI Decision Matrix](https://charly-vibes.github.io/wai/concepts/decision-matrix.html)
+
+[WAI Decision Matrix](https://charly-vibes.github.io/wai/concepts/decision-matrix.html) <!-- .element: class="fragment" --> 
 
 --
 
@@ -180,8 +234,7 @@ Pruebas Automáticas
 
 NOTES:
 Acá es donde el mayor valor del LLM aparece, en sintetizar el código para lo que queremos.
-Pero las especificaciones en texto no son ejecutables, así que tenemos que construir la definición en
-algo ejecutable, que cada vez que cambiemos algo nos avise si rompimos algo.
+Pero las especificaciones en texto no son ejecutables, así que tenemos que construir la definición en algo ejecutable, que cada vez que cambiemos algo nos avise si rompimos algo.
 
 
 --
@@ -210,7 +263,7 @@ Implementación
 
 --
 
-Verificación
+Verificación y Validación
 
 --
 
@@ -220,26 +273,40 @@ Verificación
 
 --
 
-
+```py
+# computo se sensibilidades 
+```
 
 --
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/F8fBgDCf2Y4?si=KUeMyrdQTVIwb4Cf&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 [Kent Beck: Software Engineering in the Age of AI](https://www.youtube.com/watch?v=F8fBgDCf2Y4)
 
 --
 
 
+--
+
+"Revisemos que esto no sea YAGNI"  <!-- .element: class="fragment" --> 
+
+"No estamos haciendo sobre-ingenieria"  <!-- .element: class="fragment" --> 
+
+--
+
+<span class="fragment" data-fragment-index="1">A</span>
+<span class="fragment" data-fragment-index="0">B</span>
+
 ---
 
 <!-- 8	P.H.O.R.M.A.	2 min -->
 
-- Probado (testado, validado) <!-- .element: class="fragment" -->
+- Probado (testado, validado) <!-- .element: class="fragment" --> 
 - Habitable (legible, human-friendly) <!-- .element: class="fragment" -->
 - Operable (ejecuta en cualquier lugar) <!-- .element: class="fragment" -->
 - Robusto (maneja fallas de manera correcta) <!-- .element: class="fragment" -->
 - Mantenible (construido para durar) <!-- .element: class="fragment" -->
-- Auditable (transparente, rastreable/*traceable*) <!-- .element: class="fragment" -->
+- <!-- .element: class="fragment" --> Auditable (transparente, rastreable/traceable) 
 
 --
 
@@ -250,17 +317,11 @@ Verificación
 - **O**perable (ejecuta en cualquier lugar)
 - **R**obusto (maneja fallas de manera correcta) 
 - **M**antenible (construido para durar) 
-- **A**uditable (transparente, rastreable/*traceable*)
+- **A**uditable (transparente, rastreable/traceable)
 
 --
 
 **P.H.O.R.M.A**
-
----
-
-<!-- 9	Skill	2 min -->
-
-
 
 ---
 
@@ -328,13 +389,9 @@ Llevamos estos principios a tu código de producción.
 
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
 
-<h3>¿Listo para eliminar los condicionales de tu código?</h3>
-
 <div style="margin-top: 2rem; font-size: 1.2em;">
 
 **[info@phorma.sh](mailto:info@phorma.sh)**
-
-**[sasha@phorma.sh](mailto:sasha@phorma.sh)**
 
 </div>
 
