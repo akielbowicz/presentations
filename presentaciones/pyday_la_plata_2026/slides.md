@@ -496,6 +496,34 @@ el registro solo se lee. El detalle y los ejemplos están en el apéndice.
 
 --
 
+el diseño tiene que permitir cumplir la regla
+
+el modelo no conoce el registro: puro, sin I/O, sin azar  <!-- .element: class="fragment" -->
+
+el registro se escribe una vez; los análisis solo lo leen  <!-- .element: class="fragment" -->
+
+--
+
+¿cómo detectamos que el diseño sigue cumpliendo?
+
+```sh
+rg -n "json|random|write" tiro_parabolico.py
+# sin resultados: el modelo no conoce la serialización
+```
+<!-- .element: class="fragment" -->
+
+```sh
+rg -n "montecarlo.json" 05_*.py 06_*.py 07_*.py
+# tres lecturas, ninguna escritura
+```
+<!-- .element: class="fragment" -->
+
+el test acumulado compara bytes: si el registro muta, falla  <!-- .element: class="fragment" -->
+
+la fricción es el detector: si agregar un análisis obliga a tocar los anteriores, el diseño se rompió  <!-- .element: class="fragment" -->
+
+--
+
 "Revisemos que esto no sea YAGNI"  <!-- .element: class="fragment" --> 
 
 "No estamos haciendo sobre-ingenieria"  <!-- .element: class="fragment" --> 
