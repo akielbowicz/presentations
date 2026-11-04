@@ -6,7 +6,7 @@
 
 **7 de Noviembre 2026**
 
-[saxa.xyz/charla-rs](https://saxa.xyz/charla-rs)
+[saxa.xyz/charla-rsia](https://saxa.xyz/charla-rsia)
 
 ---
 
@@ -38,9 +38,9 @@ me gusta resolver problemas.
 
 --
 
-Los generadores (probabilísticos) de texto<sup>1</sup> son una gran ayuda.
+Los generadores (probabilísticos) de texto¹ son una gran ayuda.
 
-<p style="font-size: 0.55em;"><sup>1</sup> Grandes Modelos de Lenguaje</p>
+<div style="font-size: 0.55em;">¹ Grandes Modelos de Lenguaje</div>
 
 ---
 
