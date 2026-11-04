@@ -38,9 +38,9 @@ me gusta resolver problemas.
 
 --
 
-Los generadores (probabilísticos) de texto^1 son una gran ayuda.
+Los generadores (probabilísticos) de texto<sup>1</sup> son una gran ayuda.
 
-^1: Grandes Modelos de Lenguaje
+<p style="font-size: 0.55em;"><sup>1</sup> Grandes Modelos de Lenguaje</p>
 
 ---
 
