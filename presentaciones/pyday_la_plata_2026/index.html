@@ -189,6 +189,12 @@ fig.savefig(buf, format="png")
             if (el) el.textContent = texto;
         }
 
+        function soltarFoco() {
+            if (document.activeElement && document.activeElement !== document.body) {
+                document.activeElement.blur();
+            }
+        }
+
         function cuandoExista(id, fn) {
             const el = document.getElementById(id);
             if (el) { fn(el); return; }
@@ -219,6 +225,7 @@ fig.savefig(buf, format="png")
             const area = document.getElementById("tray-codigo");
             area.value = plantillaTrayectoria();
             resaltarTrayectoria();
+            soltarFoco();
         }
 
         function iniciarPyodide() {
@@ -239,6 +246,14 @@ fig.savefig(buf, format="png")
             resaltarTrayectoria();
             area.addEventListener("input", resaltarTrayectoria);
             area.addEventListener("scroll", sincronizarTrayectoria);
+            area.addEventListener("keydown", (evento) => {
+                if (evento.key === "Escape") area.blur();
+                if (evento.key === " " && evento.shiftKey) {
+                    evento.preventDefault();
+                    area.blur();
+                    Reveal.prev();
+                }
+            });
         });
 
         async function ejecutarPyodide(base) {
@@ -264,6 +279,7 @@ fig.savefig(buf, format="png")
                 document.getElementById(base + "-salida").textContent = String(error);
             } finally {
                 boton.disabled = false;
+                soltarFoco();
             }
         }
 
@@ -287,6 +303,7 @@ fig.savefig(buf, format="png")
                 estado("res-estado", String(error));
             } finally {
                 document.getElementById("res-boton").disabled = false;
+                soltarFoco();
             }
         }
     </script>
