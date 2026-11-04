@@ -46,12 +46,16 @@ Los generadores (probabilísticos) de texto¹ son una gran ayuda.
 
 <!-- 3	Presentación del problema	3 min -->
 
-El Software Científico tiene características muy distintas a los de una aplicación
+El Software Científico y su desarrollo tiene características muy distintas a los de una aplicación
 comercial.
 
-- Experimental
-- Dinámico
-- Repetitivo
+<div class="fragment">
+<ul>
+<li>Dinámico</li>
+<li>Repetitivo</li>
+<li>Experimental</li>
+</ul>
+</div>
 
 --
 
