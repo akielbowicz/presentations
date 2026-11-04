@@ -33,6 +33,7 @@ terminal:
 | =05_trayectorias.py=    | =montecarlo-{velocidad,angulo}.png=: trayectorias  |
 | =06_dispersion.py=      | =montecarlo-{velocidad,angulo}-dispersion.png=: scatter parámetro vs alcance |
 | =07_distribucion.py=    | =montecarlo-{velocidad,angulo}-distribucion.png=: histogramas |
+| =grafico_estandar.py=   | módulo: el formato único que reusan 05, 06 y 07 |
 
 Abrí =trayectoria.png= con un visor de imágenes. Para repetir el experimento con
 otros parámetros, editá =entrada.json= y ejecutá otra vez =03_simular.py=.

@@ -7,14 +7,15 @@ import json
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from grafico_estandar import nueva_figura
 from pathlib import Path
 
 experimentos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
 
 for nombre, lanzamientos in experimentos.items():
+    nueva_figura(f"Monte Carlo variando {nombre}")
     for lanzamiento in lanzamientos:
         plt.plot(lanzamiento["salida"]["x"], lanzamiento["salida"]["y"], alpha=0.1)
-    plt.title(f"Monte Carlo variando {nombre}")
     plt.savefig(f"montecarlo-{nombre}.png")
     plt.close()
     alcances = sorted(lanzamiento["salida"]["alcance"] for lanzamiento in lanzamientos)

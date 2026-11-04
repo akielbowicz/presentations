@@ -6,7 +6,7 @@
 
 **7 de Noviembre 2026**
 
-[saxa.xyz/charla-rsia](https://saxa.xyz/charla-rsia)
+[saxa.xyz/charla-rcia](https://saxa.xyz/charla-scia)
 
 ---
 
@@ -60,9 +60,25 @@ comercial.
 --
 
 ```py
-#armar script de tiro parabólico
-Y el plot
+from math import cos, radians, sin
+import matplotlib.pyplot as plt
+
+velocidad = 10  # m/s
+angulo = radians(45)
+gravedad = 10  # m/s²
+
+vx = velocidad * cos(angulo)
+vy = velocidad * sin(angulo)
+duracion = 2 * vy / gravedad
+t = [duracion * i / 100 for i in range(101)]
+x = [vx * instante for instante in t]
+y = [vy * instante - gravedad * instante**2 / 2 for instante in t]
+
+plt.plot(x, y)
+plt.savefig("trayectoria.png")
 ```
+
+<img src="./images/trayectoria.png" style="width: 55%; height: auto; display: block; margin: 0 auto;">
 
 --
 
@@ -70,7 +86,7 @@ Y el plot
 
 --
 
-Artesanía de Software
+### Artesanía de Software
 
 > Prácticas y metodologías para producir artefactos de mejor calidad.
 <!-- .element: class="fragment" -->
@@ -396,9 +412,9 @@ Path("montecarlo.json").write_text(json.dumps(experimentos), encoding="utf-8")
 ```py
 experimentos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
 for nombre, lanzamientos in experimentos.items():
+    nueva_figura(f"Monte Carlo variando {nombre}")
     for lanzamiento in lanzamientos:
         plt.plot(lanzamiento["salida"]["x"], lanzamiento["salida"]["y"], alpha=0.1)
-    plt.title(f"Monte Carlo variando {nombre}")
     plt.savefig(f"montecarlo-{nombre}.png")
     plt.close()
 ```
@@ -408,13 +424,13 @@ for nombre, lanzamientos in experimentos.items():
 ```py
 experimentos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
 for nombre, lanzamientos in experimentos.items():
+    nueva_figura(f"Monte Carlo variando {nombre}", xlabel=nombre,
+                 ylabel="Distancia final [m]")
     plt.scatter(
         [lanzamiento["entrada"][nombre] for lanzamiento in lanzamientos],
         [lanzamiento["salida"]["alcance"] for lanzamiento in lanzamientos],
         alpha=0.1,
     )
-    plt.xlabel(nombre)
-    plt.ylabel("Distancia final [m]")
     plt.savefig(f"montecarlo-{nombre}-dispersion.png")
     plt.close()
 ```
@@ -425,12 +441,28 @@ for nombre, lanzamientos in experimentos.items():
 # paso extra sobre los datos guardados: distribución del alcance final
 experimentos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
 for nombre, lanzamientos in experimentos.items():
+    nueva_figura(f"Monte Carlo variando {nombre}", xlabel="Distancia final [m]")
     alcances = [lanzamiento["salida"]["alcance"] for lanzamiento in lanzamientos]
     plt.hist(alcances, bins=50)
     plt.axvline(mean(alcances), color="black")
     plt.savefig(f"montecarlo-{nombre}-distribucion.png")
     plt.close()
 ```
+
+--
+
+```py
+# el formato único, reusado por 05, 06 y 07
+def nueva_figura(titulo, xlabel="Distancia [m]", ylabel="Altura [m]"):
+    plt.figure()
+    plt.title(titulo)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+```
+
+los datos quedan en el registro; el ploting se reusa: un solo formato  <!-- .element: class="fragment" -->
+
+los tres gráficos que vimos salieron de estas cinco líneas  <!-- .element: class="fragment" -->
 
 --
 
@@ -744,3 +776,20 @@ misma semilla → el mismo montecarlo.json  <!-- .element: class="fragment" -->
 lo verifica el test de la cadena en una carpeta temporal  <!-- .element: class="fragment" -->
 
 acumular sin romper necesita esta promesa  <!-- .element: class="fragment" -->
+
+--
+
+### Separar los datos del ploting
+
+el registro guarda los datos; el ploting es código aparte que los lee  <!-- .element: class="fragment" -->
+
+graficar sin recalcular: tres análisis sobre un solo montecarlo.json  <!-- .element: class="fragment" -->
+
+el formato único estandariza: mismas etiquetas en los tres gráficos  <!-- .element: class="fragment" -->
+
+```py
+nueva_figura(f"Monte Carlo variando {nombre}")
+nueva_figura(f"Monte Carlo variando {nombre}", xlabel=nombre,
+             ylabel="Distancia final [m]")
+nueva_figura(f"Monte Carlo variando {nombre}", xlabel="Distancia final [m]")
+```

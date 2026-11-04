@@ -7,19 +7,20 @@ import json
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from grafico_estandar import nueva_figura
 from pathlib import Path
 from statistics import correlation
 
 experimentos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
 
 for nombre, lanzamientos in experimentos.items():
+    nueva_figura(f"Monte Carlo variando {nombre}", xlabel=nombre,
+                 ylabel="Distancia final [m]")
     plt.scatter(
         [lanzamiento["entrada"][nombre] for lanzamiento in lanzamientos],
         [lanzamiento["salida"]["alcance"] for lanzamiento in lanzamientos],
         alpha=0.1,
     )
-    plt.xlabel(nombre)
-    plt.ylabel("Distancia final [m]")
     plt.savefig(f"montecarlo-{nombre}-dispersion.png")
     plt.close()
     correlacion = correlation(
