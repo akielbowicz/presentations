@@ -59,6 +59,8 @@ comercial.
 
 --
 
+<!-- .slide: id="script-inicial" -->
+
 ```py
 from math import cos, radians, sin
 import matplotlib.pyplot as plt
@@ -78,7 +80,7 @@ plt.plot(x, y)
 plt.savefig("trayectoria.png")
 ```
 
-<img src="./images/trayectoria.png" style="width: 55%; height: auto; display: block; margin: 0 auto;">
+<img src="./images/trayectoria.png">
 
 --
 
