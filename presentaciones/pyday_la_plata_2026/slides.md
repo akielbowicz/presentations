@@ -505,10 +505,53 @@ def simular(velocidad, angulo):
 ```
 
 ```py
+
+```
+
+--
+
+<!-- .slide: data-transition="none" -->
+
+```py
+parametros = {"velocidad": 10, "angulo": 45 }
+
+velocidad = parametros["velocidad"]
+angulo = parametros["angulo"]
+GRAVEDAD = 10  # m/s²
+```
+
+```py
+def simular(velocidad, angulo):
+    ...
+```
+
+```py
+
+```
+
+--
+
+<!-- .slide: data-transition="none" -->
+
+```py
+parametros = {"velocidad": 10, "angulo": 45 }
+
+velocidad = parametros["velocidad"]
+angulo = parametros["angulo"]
+GRAVEDAD = 10  # m/s²
+```
+
+```py
+def simular(velocidad, angulo):
+    ...
+```
+
+```py
 resultado = simular(**parametros)
 ```
 
 --
+
 <!-- .slide: data-transition="none" -->
 
 ```py
@@ -521,52 +564,104 @@ GRAVEDAD = 10  # m/s²
 resultado = simular(**parametros)
 ```
 
+```py
+experimento = {"parametros":parametros, "resultado":resultado }
+```
+
 --
 
+<!-- .slide: data-transition="none" -->
 
-```py
+```
 import json
-from pathlib import Path
-
-entrada = {"velocidad": 10, "angulo": 45, "gravedad": 10}
-Path("entrada.json").write_text(json.dumps(entrada, indent=2), encoding="utf-8")
 ```
 
 ```py
-# script de tiro parabólico
-entrada = json.loads(Path("entrada.json").read_text(encoding="utf-8"))
+parametros = {"velocidad": 10, "angulo": 45 }
 
-# ... las mismas ecuaciones de antes ...
+GRAVEDAD = 10  # m/s²
 ```
-<!-- .element: class="fragment" -->
+
+```py
+resultado = simular(**parametros)
+```
+
+```py
+experimento = {"parametros":parametros, "resultado":resultado }
+```
 
 --
 
-```py
-# script de tiro parabólico
-from tiro_parabolico import simular
+<!-- .slide: data-transition="none" -->
 
-entrada = json.loads(Path("entrada.json").read_text(encoding="utf-8"))
-salida = simular(**entrada)
+```
+import json
 ```
 
 ```py
-registro = {"entrada": entrada, "salida": salida}
-Path("resultado.json").write_text(json.dumps(registro, indent=2), encoding="utf-8")
+parametros = {"velocidad": 10, "angulo": 45 }
+
+GRAVEDAD = 10  # m/s²
 ```
-<!-- .element: class="fragment" -->
+
+```py
+resultado = simular(**parametros)
+```
+
+```py
+experimento = {"parametros":parametros, "resultado":resultado }
+serializado = json.dumps(experimento)
+```
 
 --
 
-Este cambio en las restricciones que le imponemos a nuestro código nos permite pensar en nuestro sistema de manera modular y componible.
+<!-- .slide: data-transition="none" -->
 
-cada resultado viaja con su provenance: versión del código y commit hash  <!-- .element: class="fragment" -->
+```
+import json
+import Pathlib
+```
+
+```py
+parametros = {"velocidad": 10, "angulo": 45 }
+GRAVEDAD = 10  # m/s²
+```
+
+```py
+resultado = simular(**parametros)
+```
+
+```py
+experimento = {"parametros":parametros, "resultado":resultado }
+serializado = json.dumps(experimento)
+Path("experimento.json").write_text(serializado, encoding="utf-8")
+```
+
+Requerimos que nuestros componentes tengan inputs y outputs serializables.<!-- .element: class="fragment" -->
+
+--
+
+Requerimos que nuestros componentes tengan inputs y outputs serializables.
+
+Este cambio en las restricciones que le imponemos a nuestro código nos permite pensar en nuestro sistema de manera modular y componible. <!-- .element: class="fragment" -->
 
 ---
 
 <!-- 6	Diseño / Implementación / Verificación	4 min -->
 
+Ahora que **delegamos** la implementación de los componentes. 
+
+¿qué tenemos que hacer nosotros? <!-- .element: class="fragment" -->
+
+Diseño |<!-- .element: class="fragment" -->
+Implementación |<!-- .element: class="fragment" -->
+Verificación <!-- .element: class="fragment" -->
+
 --
+
+NOTES:
+
+Tracer bullet
 
 Lo que necesitamos es entender lo que un sistema hace, y poner restricciones.
 
@@ -576,17 +671,11 @@ Describirlo en lenguaje natural, o explicito como pruebas automáticas (tests) o
 
 Intención, Restricciones, Propiedades/Invariantes
 
-NOTES:
-
-Tracer bullet
-
 --
-
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/c5QF2HjHLSE?si=96Hcss0gU9AApBwv&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 [Design In Practice](https://www.youtube.com/watch?v=c5QF2HjHLSE)
-
 
 [WAI Decision Matrix](https://charly-vibes.github.io/wai/concepts/decision-matrix.html) <!-- .element: class="fragment" -->
 
@@ -608,7 +697,7 @@ from tiro_parabolico import simular
 
 
 def test_lanzamiento_a_45_grados():
-    salida = simular(velocidad=10, angulo=45, gravedad=10)
+    salida = simular(velocidad=10, angulo=45)
 
     # Calculado a mano: alcance = v²·sen(2θ)/g, duración = 2v·sen(θ)/g, h = v²·sen²(θ)/(2g)
     assert salida["alcance"] == pytest.approx(10)
@@ -645,10 +734,6 @@ def test_angulos_complementarios_tienen_el_mismo_alcance(angulo):
     assert uno["alcance"] == pytest.approx(otro["alcance"])
 ```
 
-
---
-
-Implementación
 
 --
 
