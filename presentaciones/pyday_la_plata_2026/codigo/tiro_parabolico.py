@@ -5,7 +5,7 @@ Rationale: La gravedad es constante del módulo: la salida es solo la trayectori
 
 from math import cos, radians, sin
 
-GRAVEDAD = 10  # m/s², para facilitar el cálculo a mano
+GRAVEDAD = 10.0  # m/s², para facilitar el cálculo a mano
 
 
 def simular(velocidad, angulo):
@@ -16,9 +16,9 @@ def simular(velocidad, angulo):
     angulo_rad = radians(angulo)
     vx = velocidad * cos(angulo_rad)
     vy = velocidad * sin(angulo_rad)
-    duracion = 2 * vy / GRAVEDAD
-    t = [duracion * i / 100 for i in range(101)]
+    duracion = 2.0 * vy / GRAVEDAD
+    t = [duracion * i / 100.0 for i in range(101)]
     x = [vx * instante for instante in t]
-    y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+    y = [vy * instante - GRAVEDAD * instante**2 / 2.0 for instante in t]
     resultado = {"x": x, "y": y}
     return resultado

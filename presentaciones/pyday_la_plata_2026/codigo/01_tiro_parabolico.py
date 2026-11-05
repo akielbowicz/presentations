@@ -7,16 +7,16 @@ from math import cos, radians, sin
 
 import matplotlib.pyplot as plt
 
-velocidad = 10  # m/s
-angulo = radians(45)
-gravedad = 10  # m/s², para facilitar el cálculo a mano
+velocidad = 10.0  # m/s
+angulo = radians(45.0)
+gravedad = 10.0  # m/s², para facilitar el cálculo a mano
 
 vx = velocidad * cos(angulo)
 vy = velocidad * sin(angulo)
-duracion = 2 * vy / gravedad
-t = [duracion * i / 100 for i in range(101)]
+duracion = 2.0 * vy / gravedad
+t = [duracion * i / 100.0 for i in range(101)]
 x = [vx * instante for instante in t]
-y = [vy * instante - gravedad * instante**2 / 2 for instante in t]
+y = [vy * instante - gravedad * instante**2 / 2.0 for instante in t]
 
 plt.plot(x, y)
 plt.xlabel("Distancia [m]")

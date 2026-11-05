@@ -65,16 +65,16 @@ comercial.
 from math import cos, radians, sin
 import matplotlib.pyplot as plt
 
-velocidad = 10  # m/s
-angulo = radians(45)
-GRAVEDAD = 10  # m/s²
+velocidad = 10.0  # m/s
+angulo = radians(45.0)
+GRAVEDAD = 10.0  # m/s²
 
 vx = velocidad * cos(angulo)
 vy = velocidad * sin(angulo)
-duracion = 2 * vy / GRAVEDAD
-t = [duracion * i / 100 for i in range(101)]
+duracion = 2.0 * vy / GRAVEDAD
+t = [duracion * i / 100.0 for i in range(101)]
 x = [vx * instante for instante in t]
-y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2.0 for instante in t]
 
 plt.plot(x, y)
 plt.savefig("trayectoria.png")
@@ -206,16 +206,16 @@ intercambiar un componente sin romper nada  <!-- .element: class="fragment" -->
 from math import cos, radians, sin
 import matplotlib.pyplot as plt
 
-velocidad = 10  # m/s
-angulo = radians(45)
-GRAVEDAD = 10  # m/s²
+velocidad = 10.0  # m/s
+angulo = radians(45.0)
+GRAVEDAD = 10.0  # m/s²
 
 vx = velocidad * cos(angulo)
 vy = velocidad * sin(angulo)
-duracion = 2 * vy / GRAVEDAD
-t = [duracion * i / 100 for i in range(101)]
+duracion = 2.0 * vy / GRAVEDAD
+t = [duracion * i / 100.0 for i in range(101)]
 x = [vx * instante for instante in t]
-y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2.0 for instante in t]
 
 plt.plot(x, y)
 plt.savefig("trayectoria.png")
@@ -230,16 +230,16 @@ Paso 1: Necesitamos registrar los inputs y los outputs
 from math import cos, radians, sin
 import matplotlib.pyplot as plt
 
-velocidad = 10  # m/s
-angulo = radians(45)
-GRAVEDAD = 10  # m/s²
+velocidad = 10.0  # m/s
+angulo = radians(45.0)
+GRAVEDAD = 10.0  # m/s²
 
 vx = velocidad * cos(angulo)
 vy = velocidad * sin(angulo)
-duracion = 2 * vy / GRAVEDAD
-t = [duracion * i / 100 for i in range(101)]
+duracion = 2.0 * vy / GRAVEDAD
+t = [duracion * i / 100.0 for i in range(101)]
 x = [vx * instante for instante in t]
-y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2.0 for instante in t]
 
 plt.plot(x, y)
 plt.savefig("trayectoria.png")
@@ -255,16 +255,16 @@ import matplotlib.pyplot as plt
 ```
 
 ```py
-velocidad = 10  # m/s
-angulo = radians(45)
-GRAVEDAD = 10  # m/s²
+velocidad = 10.0  # m/s
+angulo = radians(45.0)
+GRAVEDAD = 10.0  # m/s²
 
 vx = velocidad * cos(angulo)
 vy = velocidad * sin(angulo)
-duracion = 2 * vy / GRAVEDAD
-t = [duracion * i / 100 for i in range(101)]
+duracion = 2.0 * vy / GRAVEDAD
+t = [duracion * i / 100.0 for i in range(101)]
 x = [vx * instante for instante in t]
-y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2.0 for instante in t]
 
 plt.plot(x, y)
 plt.savefig("trayectoria.png")
@@ -275,16 +275,16 @@ plt.savefig("trayectoria.png")
 <!-- .slide: data-transition="none" -->
 
 ```py
-velocidad = 10  # m/s
-angulo = radians(45)
-GRAVEDAD = 10  # m/s²
+velocidad = 10.0  # m/s
+angulo = radians(45.0)
+GRAVEDAD = 10.0  # m/s²
 
 vx = velocidad * cos(angulo)
 vy = velocidad * sin(angulo)
-duracion = 2 * vy / GRAVEDAD
-t = [duracion * i / 100 for i in range(101)]
+duracion = 2.0 * vy / GRAVEDAD
+t = [duracion * i / 100.0 for i in range(101)]
 x = [vx * instante for instante in t]
-y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2.0 for instante in t]
 
 plt.plot(x, y)
 plt.savefig("trayectoria.png")
@@ -295,18 +295,18 @@ plt.savefig("trayectoria.png")
 <!-- .slide: data-transition="none" -->
 
 ```py
-velocidad = 10  # m/s
-angulo = radians(45)
-GRAVEDAD = 10  # m/s²
+velocidad = 10.0  # m/s
+angulo = radians(45.0)
+GRAVEDAD = 10.0  # m/s²
 ```
 
 ```py
 vx = velocidad * cos(angulo)
 vy = velocidad * sin(angulo)
-duracion = 2 * vy / GRAVEDAD
-t = [duracion * i / 100 for i in range(101)]
+duracion = 2.0 * vy / GRAVEDAD
+t = [duracion * i / 100.0 for i in range(101)]
 x = [vx * instante for instante in t]
-y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2.0 for instante in t]
 
 plt.plot(x, y)
 plt.savefig("trayectoria.png")
@@ -317,18 +317,18 @@ plt.savefig("trayectoria.png")
 <!-- .slide: data-transition="none" -->
 
 ```py
-velocidad = 10  # m/s
-angulo = radians(45)
-GRAVEDAD = 10  # m/s²
+velocidad = 10.0  # m/s
+angulo = radians(45.0)
+GRAVEDAD = 10.0  # m/s²
 ```
 
 ```py
 vx = velocidad * cos(angulo)
 vy = velocidad * sin(angulo)
-duracion = 2 * vy / GRAVEDAD
-t = [duracion * i / 100 for i in range(101)]
+duracion = 2.0 * vy / GRAVEDAD
+t = [duracion * i / 100.0 for i in range(101)]
 x = [vx * instante for instante in t]
-y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2.0 for instante in t]
 ```
 
 ```py
@@ -341,18 +341,18 @@ plt.savefig("trayectoria.png")
 <!-- .slide: data-transition="none" -->
 
 ```py
-velocidad = 10  # m/s
-angulo = radians(45)
-GRAVEDAD = 10  # m/s²
+velocidad = 10.0  # m/s
+angulo = radians(45.0)
+GRAVEDAD = 10.0  # m/s²
 ```
 
 ```py
 vx = velocidad * cos(angulo)
 vy = velocidad * sin(angulo)
-duracion = 2 * vy / GRAVEDAD
-t = [duracion * i / 100 for i in range(101)]
+duracion = 2.0 * vy / GRAVEDAD
+t = [duracion * i / 100.0 for i in range(101)]
 x = [vx * instante for instante in t]
-y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2.0 for instante in t]
 ```
 
 ```py
@@ -364,11 +364,11 @@ resultado = {"x":x, "y": y}
 <!-- .slide: data-transition="none" -->
 
 ```py
-parametros = {"velocidad": 10, "angulo": 45 }
+parametros = {"velocidad": 10.0, "angulo": 45.0 }
 
 velocidad = parametros["velocidad"]
 angulo = parametros["angulo"]
-GRAVEDAD = 10  # m/s²
+GRAVEDAD = 10.0  # m/s²
 ```
 
 ```py
@@ -376,10 +376,10 @@ GRAVEDAD = 10  # m/s²
 angulo_rad = radians(angulo)
 vx = velocidad * cos(angulo_rad)
 vy = velocidad * sin(angulo_rad)
-duracion = 2 * vy / GRAVEDAD
-t = [duracion * i / 100 for i in range(101)]
+duracion = 2.0 * vy / GRAVEDAD
+t = [duracion * i / 100.0 for i in range(101)]
 x = [vx * instante for instante in t]
-y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2.0 for instante in t]
 
 
 
@@ -394,11 +394,11 @@ resultado = {"x":x, "y": y}
 <!-- .slide: data-transition="none" -->
 
 ```py
-parametros = {"velocidad": 10, "angulo": 45 }
+parametros = {"velocidad": 10.0, "angulo": 45.0 }
 
 velocidad = parametros["velocidad"]
 angulo = parametros["angulo"]
-GRAVEDAD = 10  # m/s²
+GRAVEDAD = 10.0  # m/s²
 ```
 
 ```py
@@ -406,10 +406,10 @@ GRAVEDAD = 10  # m/s²
 angulo_rad = radians(angulo)
 vx = velocidad * cos(angulo_rad)
 vy = velocidad * sin(angulo_rad)
-duracion = 2 * vy / GRAVEDAD
-t = [duracion * i / 100 for i in range(101)]
+duracion = 2.0 * vy / GRAVEDAD
+t = [duracion * i / 100.0 for i in range(101)]
 x = [vx * instante for instante in t]
-y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2.0 for instante in t]
 resultado = {"x":x, "y": y}
 
 
@@ -424,11 +424,11 @@ resultado = {"x":x, "y": y}
 <!-- .slide: data-transition="none" -->
 
 ```py
-parametros = {"velocidad": 10, "angulo": 45 }
+parametros = {"velocidad": 10.0, "angulo": 45.0 }
 
 velocidad = parametros["velocidad"]
 angulo = parametros["angulo"]
-GRAVEDAD = 10  # m/s²
+GRAVEDAD = 10.0  # m/s²
 ```
 
 ```py
@@ -436,10 +436,10 @@ GRAVEDAD = 10  # m/s²
     angulo_rad = radians(angulo)
     vx = velocidad * cos(angulo_rad)
     vy = velocidad * sin(angulo_rad)
-    duracion = 2 * vy / GRAVEDAD
-    t = [duracion * i / 100 for i in range(101)]
+    duracion = 2.0 * vy / GRAVEDAD
+    t = [duracion * i / 100.0 for i in range(101)]
     x = [vx * instante for instante in t]
-    y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+    y = [vy * instante - GRAVEDAD * instante**2 / 2.0 for instante in t]
     resultado = {"x":x, "y": y}
 
 
@@ -455,11 +455,11 @@ GRAVEDAD = 10  # m/s²
 
 
 ```py
-parametros = {"velocidad": 10, "angulo": 45 }
+parametros = {"velocidad": 10.0, "angulo": 45.0 }
 
 velocidad = parametros["velocidad"]
 angulo = parametros["angulo"]
-GRAVEDAD = 10  # m/s²
+GRAVEDAD = 10.0  # m/s²
 ```
 
 ```py
@@ -467,10 +467,10 @@ def simular(velocidad, angulo):
     angulo_rad = radians(angulo)
     vx = velocidad * cos(angulo_rad)
     vy = velocidad * sin(angulo_rad)
-    duracion = 2 * vy / GRAVEDAD
-    t = [duracion * i / 100 for i in range(101)]
+    duracion = 2.0 * vy / GRAVEDAD
+    t = [duracion * i / 100.0 for i in range(101)]
     x = [vx * instante for instante in t]
-    y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+    y = [vy * instante - GRAVEDAD * instante**2 / 2.0 for instante in t]
     resultado = {"x":x, "y": y}
     return resultado
 ```
@@ -484,11 +484,11 @@ def simular(velocidad, angulo):
 
 
 ```py
-parametros = {"velocidad": 10, "angulo": 45 }
+parametros = {"velocidad": 10.0, "angulo": 45.0 }
 
 velocidad = parametros["velocidad"]
 angulo = parametros["angulo"]
-GRAVEDAD = 10  # m/s²
+GRAVEDAD = 10.0  # m/s²
 ```
 
 ```py
@@ -496,10 +496,10 @@ def simular(velocidad, angulo):
     angulo_rad = radians(angulo)
     vx = velocidad * cos(angulo_rad)
     vy = velocidad * sin(angulo_rad)
-    duracion = 2 * vy / GRAVEDAD
-    t = [duracion * i / 100 for i in range(101)]
+    duracion = 2.0 * vy / GRAVEDAD
+    t = [duracion * i / 100.0 for i in range(101)]
     x = [vx * instante for instante in t]
-    y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+    y = [vy * instante - GRAVEDAD * instante**2 / 2.0 for instante in t]
     resultado = {"x":x, "y": y}
     return resultado
 ```
@@ -513,11 +513,11 @@ def simular(velocidad, angulo):
 <!-- .slide: data-transition="none" -->
 
 ```py
-parametros = {"velocidad": 10, "angulo": 45 }
+parametros = {"velocidad": 10.0, "angulo": 45.0 }
 
 velocidad = parametros["velocidad"]
 angulo = parametros["angulo"]
-GRAVEDAD = 10  # m/s²
+GRAVEDAD = 10.0  # m/s²
 ```
 
 ```py
@@ -534,11 +534,11 @@ def simular(velocidad, angulo):
 <!-- .slide: data-transition="none" -->
 
 ```py
-parametros = {"velocidad": 10, "angulo": 45 }
+parametros = {"velocidad": 10.0, "angulo": 45.0 }
 
 velocidad = parametros["velocidad"]
 angulo = parametros["angulo"]
-GRAVEDAD = 10  # m/s²
+GRAVEDAD = 10.0  # m/s²
 ```
 
 ```py
@@ -555,9 +555,9 @@ resultado = simular(**parametros)
 <!-- .slide: data-transition="none" -->
 
 ```py
-parametros = {"velocidad": 10, "angulo": 45 }
+parametros = {"velocidad": 10.0, "angulo": 45.0 }
 
-GRAVEDAD = 10  # m/s²
+GRAVEDAD = 10.0  # m/s²
 ```
 
 ```py
@@ -577,9 +577,9 @@ import json
 ```
 
 ```py
-parametros = {"velocidad": 10, "angulo": 45 }
+parametros = {"velocidad": 10.0, "angulo": 45.0 }
 
-GRAVEDAD = 10  # m/s²
+GRAVEDAD = 10.0  # m/s²
 ```
 
 ```py
@@ -599,9 +599,9 @@ import json
 ```
 
 ```py
-parametros = {"velocidad": 10, "angulo": 45 }
+parametros = {"velocidad": 10.0, "angulo": 45.0 }
 
-GRAVEDAD = 10  # m/s²
+GRAVEDAD = 10.0  # m/s²
 ```
 
 ```py
@@ -623,8 +623,8 @@ import Pathlib
 ```
 
 ```py
-parametros = {"velocidad": 10, "angulo": 45 }
-GRAVEDAD = 10  # m/s²
+parametros = {"velocidad": 10.0, "angulo": 45.0 }
+GRAVEDAD = 10.0  # m/s²
 ```
 
 ```py
@@ -826,8 +826,8 @@ from tiro_parabolico import simular
 random.seed(42)  # experimento reproducible
 experimentos = {"velocidad": [], "angulo": []}
 for _ in range(1000):
-    velocidad = random.gauss(10, 0.5)
-    angulo = random.gauss(45, 2)
+    velocidad = random.gauss(10.0, 0.5)
+    angulo = random.gauss(45.0, 2.0)
     experimentos["velocidad"].append({
         "entrada": {"velocidad": velocidad, "angulo": 45},
         "salida": simular(velocidad=velocidad, angulo=45),

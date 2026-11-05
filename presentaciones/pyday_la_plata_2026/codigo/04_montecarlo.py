@@ -11,8 +11,8 @@ from tiro_parabolico import simular
 random.seed(42)  # experimento reproducible
 experimentos = {"velocidad": [], "angulo": []}
 for _ in range(1000):
-    velocidad = random.gauss(10, 0.5)
-    angulo = random.gauss(45, 2)
+    velocidad = random.gauss(10.0, 0.5)
+    angulo = random.gauss(45.0, 2.0)
     experimentos["velocidad"].append({
         "entrada": {"velocidad": velocidad, "angulo": 45},
         "salida": simular(velocidad=velocidad, angulo=45),
