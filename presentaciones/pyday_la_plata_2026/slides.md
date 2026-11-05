@@ -177,21 +177,28 @@ Piensen en los Chats en los mismos términos que Facebook, Instagram, TikTok, X/
 ## Principios para describir un mejor software
 
 --
-
 Lo más importante es lograr un código bien modularizado, que nos permita
 abstraer componentes.
 
 <div class="fragment">
-<img src="./images/flujo-serializacion.svg" style="width: 80%;">
+<img src="./images/flujo-serializacion.svg" class="light-theme-logo" style="width: 80%;">
+<img src="./images/flujo-serializacion-dark.svg" class="dark-theme-logo" style="width: 80%;">
 </div>
 
 --
 
-intercambiar un componente sin romper nada  <!-- .element: class="fragment" -->
+<!-- .slide: data-transition="none" -->
+
+Lo más importante es lograr un código bien modularizado, que nos permita
+abstraer componentes.
+
 
 <div class="fragment">
-<img src="./images/intercambio-componente.svg" style="width: 80%;">
+<img src="./images/intercambio-componente.svg" class="light-theme-logo" style="width: 80%;">
+<img src="./images/intercambio-componente-dark.svg" class="dark-theme-logo" style="width: 80%;">
 </div>
+
+intercambiar un componente sin romper nada  <!-- .element: class="fragment" -->
 
 --
 
@@ -214,7 +221,7 @@ plt.plot(x, y)
 plt.savefig("trayectoria.png")
 ```
 
-Necesitamos registrar los inputs y los outputs
+Paso 1: Necesitamos registrar los inputs y los outputs
 <!-- .element: class="fragment" -->
 
 --
@@ -240,6 +247,8 @@ plt.savefig("trayectoria.png")
 
 --
 
+<!-- .slide: data-transition="none" -->
+
 ```py
 from math import cos, radians, sin
 import matplotlib.pyplot as plt
@@ -261,9 +270,9 @@ plt.plot(x, y)
 plt.savefig("trayectoria.png")
 ```
 
-
 --
 
+<!-- .slide: data-transition="none" -->
 
 ```py
 velocidad = 10  # m/s
@@ -283,6 +292,8 @@ plt.savefig("trayectoria.png")
 
 --
 
+<!-- .slide: data-transition="none" -->
+
 ```py
 velocidad = 10  # m/s
 angulo = radians(45)
@@ -303,6 +314,8 @@ plt.savefig("trayectoria.png")
 
 --
 
+<!-- .slide: data-transition="none" -->
+
 ```py
 velocidad = 10  # m/s
 angulo = radians(45)
@@ -324,6 +337,8 @@ plt.savefig("trayectoria.png")
 ```
 
 --
+
+<!-- .slide: data-transition="none" -->
 
 ```py
 velocidad = 10  # m/s
@@ -346,7 +361,7 @@ resultado = {"x":x, "y": y}
 
 --
 
---
+<!-- .slide: data-transition="none" -->
 
 ```py
 parametros = {"velocidad": 10, "angulo": 45 }
@@ -357,6 +372,7 @@ GRAVEDAD = 10  # m/s²
 ```
 
 ```py
+
 angulo_rad = radians(angulo)
 vx = velocidad * cos(angulo_rad)
 vy = velocidad * sin(angulo_rad)
@@ -364,6 +380,9 @@ duracion = 2 * vy / GRAVEDAD
 t = [duracion * i / 100 for i in range(101)]
 x = [vx * instante for instante in t]
 y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+
+
+
 ```
 
 ```py
@@ -371,6 +390,98 @@ resultado = {"x":x, "y": y}
 ```
 
 --
+
+<!-- .slide: data-transition="none" -->
+
+```py
+parametros = {"velocidad": 10, "angulo": 45 }
+
+velocidad = parametros["velocidad"]
+angulo = parametros["angulo"]
+GRAVEDAD = 10  # m/s²
+```
+
+```py
+
+angulo_rad = radians(angulo)
+vx = velocidad * cos(angulo_rad)
+vy = velocidad * sin(angulo_rad)
+duracion = 2 * vy / GRAVEDAD
+t = [duracion * i / 100 for i in range(101)]
+x = [vx * instante for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+resultado = {"x":x, "y": y}
+
+
+```
+
+```py
+
+```
+
+--
+
+<!-- .slide: data-transition="none" -->
+
+```py
+parametros = {"velocidad": 10, "angulo": 45 }
+
+velocidad = parametros["velocidad"]
+angulo = parametros["angulo"]
+GRAVEDAD = 10  # m/s²
+```
+
+```py
+
+    angulo_rad = radians(angulo)
+    vx = velocidad * cos(angulo_rad)
+    vy = velocidad * sin(angulo_rad)
+    duracion = 2 * vy / GRAVEDAD
+    t = [duracion * i / 100 for i in range(101)]
+    x = [vx * instante for instante in t]
+    y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+    resultado = {"x":x, "y": y}
+
+
+```
+
+```py
+
+```
+
+--
+
+<!-- .slide: data-transition="none" -->
+
+
+```py
+parametros = {"velocidad": 10, "angulo": 45 }
+
+velocidad = parametros["velocidad"]
+angulo = parametros["angulo"]
+GRAVEDAD = 10  # m/s²
+```
+
+```py
+def simular(velocidad, angulo):
+    angulo_rad = radians(angulo)
+    vx = velocidad * cos(angulo_rad)
+    vy = velocidad * sin(angulo_rad)
+    duracion = 2 * vy / GRAVEDAD
+    t = [duracion * i / 100 for i in range(101)]
+    x = [vx * instante for instante in t]
+    y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+    resultado = {"x":x, "y": y}
+    return resultado
+```
+
+```py
+
+```
+
+--
+<!-- .slide: data-transition="none" -->
+
 
 ```py
 parametros = {"velocidad": 10, "angulo": 45 }
@@ -398,6 +509,7 @@ resultado = simular(**parametros)
 ```
 
 --
+<!-- .slide: data-transition="none" -->
 
 ```py
 parametros = {"velocidad": 10, "angulo": 45 }
@@ -423,9 +535,6 @@ Path("entrada.json").write_text(json.dumps(entrada, indent=2), encoding="utf-8")
 ```py
 # script de tiro parabólico
 entrada = json.loads(Path("entrada.json").read_text(encoding="utf-8"))
-velocidad = entrada["velocidad"]
-angulo = radians(entrada["angulo"])
-gravedad = entrada["gravedad"]
 
 # ... las mismas ecuaciones de antes ...
 ```
@@ -1012,7 +1121,8 @@ el registro guarda los datos; el ploting es código aparte que los lee  <!-- .el
 graficar sin recalcular: tres análisis sobre un solo montecarlo.json  <!-- .element: class="fragment" -->
 
 <div class="fragment">
-<img src="./images/capas-analisis.svg" style="width: 70%;">
+<img src="./images/capas-analisis.svg" class="light-theme-logo" style="width: 70%;">
+<img src="./images/capas-analisis-dark.svg" class="dark-theme-logo" style="width: 70%;">
 </div>
 
 el formato único estandariza: mismas etiquetas en los tres gráficos  <!-- .element: class="fragment" -->
