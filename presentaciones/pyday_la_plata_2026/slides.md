@@ -661,6 +661,16 @@ Ahora que **delegamos** la implementación de los componentes.
 
 --
 
+
+<h5>Diseño | Implementación | Verificación</h5>
+
+<div class="fragment">
+<img src="./images/tracer-bullet.svg" class="light-theme-logo" style="width: 60%;">
+<img src="./images/tracer-bullet-dark.svg" class="dark-theme-logo" style="width: 60%;">
+</div>
+
+Tracer-bullet o bala trazadora: esto
+
 NOTES:
 
 Tracer bullet
