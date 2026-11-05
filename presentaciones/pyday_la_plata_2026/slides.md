@@ -699,7 +699,6 @@ NOTES:
 Acá es donde el mayor valor del LLM aparece, en sintetizar el código para lo que queremos.
 Pero las especificaciones en texto no son ejecutables, así que tenemos que construir la definición en algo ejecutable, que cada vez que cambiemos algo nos avise si rompimos algo.
 
-
 --
 
 ```py
@@ -711,10 +710,11 @@ from tiro_parabolico import simular
 def test_lanzamiento_a_45_grados():
     salida = simular(velocidad=10, angulo=45)
 
-    # Calculado a mano: alcance = v²·sen(2θ)/g, duración = 2v·sen(θ)/g, h = v²·sen²(θ)/(2g)
-    assert salida["alcance"] == pytest.approx(10)
-    assert salida["duracion"] == pytest.approx(2**0.5)
-    assert salida["altura_maxima"] == pytest.approx(2.5)
+    # Calculado a mano: alcance = v²·sen(2θ)/g = 10 m, altura = v²·sen²(θ)/(2g) = 2.5 m
+    assert salida["x"][-1] == pytest.approx(10)
+    assert max(salida["y"]) == pytest.approx(2.5)
+    assert salida["y"][0] == pytest.approx(0)
+    assert salida["y"][-1] == pytest.approx(0, abs=1e-12)
 ```
 
 --
@@ -728,8 +728,8 @@ def test_lanzamiento_a_45_grados():
     (90, 0),
 ])
 def test_alcances_conocidos(angulo, alcance):
-    salida = simular(velocidad=10, angulo=angulo, gravedad=10)
-    assert salida["alcance"] == pytest.approx(alcance, abs=1e-12)
+    salida = simular(velocidad=10, angulo=angulo)
+    assert salida["x"][-1] == pytest.approx(alcance, abs=1e-12)
 ```
 
 --
@@ -741,9 +741,9 @@ from hypothesis import given, strategies as st
 
 @given(angulo=st.floats(min_value=1, max_value=89))
 def test_angulos_complementarios_tienen_el_mismo_alcance(angulo):
-    uno = simular(velocidad=10, angulo=angulo, gravedad=10)
-    otro = simular(velocidad=10, angulo=90 - angulo, gravedad=10)
-    assert uno["alcance"] == pytest.approx(otro["alcance"])
+    uno = simular(velocidad=10, angulo=angulo)
+    otro = simular(velocidad=10, angulo=90 - angulo)
+    assert uno["x"][-1] == pytest.approx(otro["x"][-1])
 ```
 
 
@@ -860,7 +860,7 @@ for nombre, lanzamientos in experimentos.items():
                  ylabel="Distancia final [m]")
     plt.scatter(
         [lanzamiento["entrada"][nombre] for lanzamiento in lanzamientos],
-        [lanzamiento["salida"]["alcance"] for lanzamiento in lanzamientos],
+        [lanzamiento["salida"]["x"][-1] for lanzamiento in lanzamientos],
         alpha=0.1,
     )
     plt.savefig(f"montecarlo-{nombre}-dispersion.png")
@@ -874,7 +874,7 @@ for nombre, lanzamientos in experimentos.items():
 experimentos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
 for nombre, lanzamientos in experimentos.items():
     nueva_figura(f"Monte Carlo variando {nombre}", xlabel="Distancia final [m]")
-    alcances = [lanzamiento["salida"]["alcance"] for lanzamiento in lanzamientos]
+    alcances = [lanzamiento["salida"]["x"][-1] for lanzamiento in lanzamientos]
     plt.hist(alcances, bins=50)
     plt.axvline(mean(alcances), color="black")
     plt.savefig(f"montecarlo-{nombre}-distribucion.png")
