@@ -664,12 +664,17 @@ Ahora que **delegamos** la implementación de los componentes.
 
 <h5>Diseño | Implementación | Verificación</h5>
 
-<div class="fragment">
-<img src="./images/tracer-bullet.svg" class="light-theme-logo" style="width: 60%;">
-<img src="./images/tracer-bullet-dark.svg" class="dark-theme-logo" style="width: 60%;">
+<div style="position: relative; width: 65%; margin: 0 auto;">
+<img src="./images/tracer-bullet.svg" class="light-theme-logo" style="width: 100%; height: auto; display: block;">
+<img src="./images/tracer-bullet-dark.svg" class="dark-theme-logo" style="width: 100%; height: auto; display: block; position: absolute; inset: 0;">
+<div class="fragment" style="position: absolute; inset: 0;">
+<img src="./images/tracer-bullet-disparo.svg" class="light-theme-logo" style="width: 100%; height: auto; display: block;">
+<img src="./images/tracer-bullet-disparo-dark.svg" class="dark-theme-logo" style="width: 100%; height: auto; display: block; position: absolute; inset: 0;">
+</div>
 </div>
 
-Tracer-bullet o bala trazadora: esto
+Tracer-bullet o bala trazadora:
+<!-- esto deberia ser una definicion y ser un footnote -->
 
 NOTES:
 
@@ -682,14 +687,6 @@ Conversar, describir lo que queremos hacer, entender que tiene que pasar y cómo
 Describirlo en lenguaje natural, o explicito como pruebas automáticas (tests) o propiedades.
 
 Intención, Restricciones, Propiedades/Invariantes
-
---
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/c5QF2HjHLSE?si=96Hcss0gU9AApBwv&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-[Design In Practice](https://www.youtube.com/watch?v=c5QF2HjHLSE)
-
-[WAI Decision Matrix](https://charly-vibes.github.io/wai/concepts/decision-matrix.html) <!-- .element: class="fragment" -->
 
 --
 
@@ -1230,3 +1227,13 @@ nueva_figura(f"Monte Carlo variando {nombre}", xlabel=nombre,
              ylabel="Distancia final [m]")
 nueva_figura(f"Monte Carlo variando {nombre}", xlabel="Distancia final [m]")
 ```
+
+---
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/c5QF2HjHLSE?si=96Hcss0gU9AApBwv&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+[Design In Practice](https://www.youtube.com/watch?v=c5QF2HjHLSE)
+
+[WAI Decision Matrix](https://charly-vibes.github.io/wai/concepts/decision-matrix.html) <!-- .element: class="fragment" -->
+
+--

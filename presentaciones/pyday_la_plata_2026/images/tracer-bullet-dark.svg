@@ -1,17 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220">
-  <defs>
-    <marker id="f" markerWidth="9" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0L8,4L0,8Z" fill="#cccccc"/>
-    </marker>
-  </defs>
-  <line x1="40" y1="115" x2="760" y2="115" stroke="#cccccc" stroke-width="3" marker-end="url(#f)"/>
-  <g fill="#FFFFFF">
-    <rect x="170" y="70" width="150" height="90" rx="14"/>
-  </g>
+  <line x1="40" y1="115" x2="760" y2="115" stroke="#cccccc" stroke-width="3"/>
+  <rect x="170" y="70" width="150" height="90" rx="14" fill="#FFFFFF"/>
   <rect x="350" y="70" width="150" height="90" rx="14" fill="#666666"/>
   <rect x="530" y="70" width="150" height="90" rx="14" fill="#1a1a1a" stroke="#cccccc" stroke-width="1.5"/>
-  <g stroke="#cccccc" stroke-width="3">
-    <line x1="322" y1="115" x2="344" y2="115" marker-end="url(#f)"/>
-    <line x1="502" y1="115" x2="524" y2="115" marker-end="url(#f)"/>
-  </g>
 </svg>
