@@ -48,14 +48,15 @@ es el antes de esa separación.
 #+begin_src python
 from tiro_parabolico import simular
 
-salida = simular(velocidad=10, angulo=45, gravedad=10)
-print(salida["alcance"])  # 10.0 metros
+salida = simular(velocidad=10, angulo=45)
+print(salida["x"][-1])  # 10.0 metros
 #+end_src
 
 Supuestos: lanzamiento desde el suelo, sin rozamiento, velocidad y gravedad
 positivas y finitas, ángulo entre 0 y 90 grados. Se usan 101 muestras.
 Las unidades son metros y segundos; el ángulo se ingresa en grados.
-La gravedad 10 m/s² facilita los cálculos a mano; podés cambiarla por 9.81.
+La gravedad es la constante GRAVEDAD = 10 m/s² del módulo, pensada para los
+cálculos a mano; cambiala ahí si querés 9.81.
 
 * Probar
 

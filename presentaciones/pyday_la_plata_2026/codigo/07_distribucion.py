@@ -16,7 +16,7 @@ experimentos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
 
 for nombre, lanzamientos in experimentos.items():
     nueva_figura(f"Monte Carlo variando {nombre}", xlabel="Distancia final [m]")
-    alcances = [lanzamiento["salida"]["alcance"] for lanzamiento in lanzamientos]
+    alcances = [lanzamiento["salida"]["x"][-1] for lanzamiento in lanzamientos]
     plt.hist(alcances, bins=50)
     plt.axvline(mean(alcances), color="black")
     plt.savefig(f"montecarlo-{nombre}-distribucion.png")

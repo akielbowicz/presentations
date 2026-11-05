@@ -11,6 +11,6 @@ from tiro_parabolico import simular
 
 @given(angulo=st.floats(min_value=1, max_value=89))
 def test_angulos_complementarios_tienen_el_mismo_alcance(angulo):
-    uno = simular(velocidad=10, angulo=angulo, gravedad=10)
-    otro = simular(velocidad=10, angulo=90 - angulo, gravedad=10)
-    assert uno["alcance"] == pytest.approx(otro["alcance"])
+    uno = simular(velocidad=10, angulo=angulo)
+    otro = simular(velocidad=10, angulo=90 - angulo)
+    assert uno["x"][-1] == pytest.approx(otro["x"][-1])

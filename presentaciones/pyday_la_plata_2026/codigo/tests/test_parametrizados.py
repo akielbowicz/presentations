@@ -1,5 +1,5 @@
 """Purpose: Mostrar cómo probar varios ángulos sin copiar el mismo test.
-Responsibilities: Comparar alcances con resultados conocidos.
+Responsibilities: Comparar la distancia final con resultados conocidos.
 Rationale: Una tabla hace visible qué cambia entre los casos.
 """
 
@@ -16,5 +16,5 @@ from tiro_parabolico import simular
     (90, 0),
 ])
 def test_alcances_conocidos(angulo, alcance):
-    salida = simular(velocidad=10, angulo=angulo, gravedad=10)
-    assert salida["alcance"] == pytest.approx(alcance, abs=1e-12)
+    salida = simular(velocidad=10, angulo=angulo)
+    assert salida["x"][-1] == pytest.approx(alcance, abs=1e-12)

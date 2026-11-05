@@ -22,4 +22,4 @@ def test_ejemplos(tmp_path, monkeypatch):
     entrada = json.loads(Path("entrada.json").read_text())
     registro = json.loads(Path("resultado.json").read_text())
     assert registro["entrada"] == entrada
-    assert registro["salida"]["alcance"] == pytest.approx(10)
+    assert registro["salida"]["x"][-1] == pytest.approx(10)

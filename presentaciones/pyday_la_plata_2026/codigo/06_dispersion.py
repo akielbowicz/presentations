@@ -18,13 +18,13 @@ for nombre, lanzamientos in experimentos.items():
                  ylabel="Distancia final [m]")
     plt.scatter(
         [lanzamiento["entrada"][nombre] for lanzamiento in lanzamientos],
-        [lanzamiento["salida"]["alcance"] for lanzamiento in lanzamientos],
+        [lanzamiento["salida"]["x"][-1] for lanzamiento in lanzamientos],
         alpha=0.1,
     )
     plt.savefig(f"montecarlo-{nombre}-dispersion.png")
     plt.close()
     correlacion = correlation(
         [lanzamiento["entrada"][nombre] for lanzamiento in lanzamientos],
-        [lanzamiento["salida"]["alcance"] for lanzamiento in lanzamientos],
+        [lanzamiento["salida"]["x"][-1] for lanzamiento in lanzamientos],
     )
     print(f"{nombre}: correlación {correlacion:+.2f}")

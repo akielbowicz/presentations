@@ -1,27 +1,24 @@
 """Purpose: Calcular un tiro parabólico para los ejemplos de la charla.
-Responsibilities: Recibir parámetros y devolver resultados en un diccionario.
-Rationale: Una función basta para separar la física de los archivos y el gráfico.
+Responsibilities: Recibir velocidad y angulo, devolver la trayectoria x e y.
+Rationale: La gravedad es constante del módulo: la salida es solo la trayectoria.
 """
 
 from math import cos, radians, sin
 
+GRAVEDAD = 10  # m/s², para facilitar el cálculo a mano
 
-def simular(velocidad, angulo, gravedad=10):
-    """Sin rozamiento, desde el suelo. v > 0, g > 0 y ángulo entre 0 y 90°.
 
-    Velocidad en m/s, ángulo en grados y gravedad en m/s².
+def simular(velocidad, angulo):
+    """Sin rozamiento, desde el suelo. v > 0 y ángulo entre 0 y 90°.
+
+    Velocidad en m/s. Devuelve las posiciones x e y en metros.
     """
-    vx = velocidad * cos(radians(angulo))
-    vy = velocidad * sin(radians(angulo))
-    duracion = 2 * vy / gravedad
+    angulo_rad = radians(angulo)
+    vx = velocidad * cos(angulo_rad)
+    vy = velocidad * sin(angulo_rad)
+    duracion = 2 * vy / GRAVEDAD
     t = [duracion * i / 100 for i in range(101)]
     x = [vx * instante for instante in t]
-    y = [vy * instante - gravedad * instante**2 / 2 for instante in t]
-    return {
-        "t": t,
-        "x": x,
-        "y": y,
-        "duracion": duracion,
-        "alcance": vx * duracion,
-        "altura_maxima": vy**2 / (2 * gravedad),
-    }
+    y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+    resultado = {"x": x, "y": y}
+    return resultado

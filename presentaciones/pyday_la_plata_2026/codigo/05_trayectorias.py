@@ -18,7 +18,7 @@ for nombre, lanzamientos in experimentos.items():
         plt.plot(lanzamiento["salida"]["x"], lanzamiento["salida"]["y"], alpha=0.1)
     plt.savefig(f"montecarlo-{nombre}.png")
     plt.close()
-    alcances = sorted(lanzamiento["salida"]["alcance"] for lanzamiento in lanzamientos)
+    alcances = sorted(lanzamiento["salida"]["x"][-1] for lanzamiento in lanzamientos)
     media = sum(alcances) / len(alcances)
     print(f"{nombre}: alcance medio {media:.2f} m, "
           f"percentiles 5 y 95: {alcances[49]:.2f} y {alcances[949]:.2f} m")
