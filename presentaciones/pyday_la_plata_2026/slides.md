@@ -1171,7 +1171,7 @@ ningún test fue descartado: cada etapa conserva los anteriores  <!-- .element: 
 ### Función pura, registro inmutable
 
 ```py
-def simular(velocidad, angulo, gravedad=10):
+def simular(velocidad, angulo):
     # sin I/O, sin estado, sin azar
     # mismas entradas → mismas salidas
 ```
@@ -1193,7 +1193,7 @@ el mismo registro responde preguntas distintas  <!-- .element: class="fragment" 
 si mañana aparece otra pregunta, es un script más:  <!-- .element: class="fragment" -->
 
 ```py
-alturas = [l["salida"]["altura_maxima"]
+alturas = [max(l["salida"]["y"])
            for l in experimentos["velocidad"]]
 ```
 
