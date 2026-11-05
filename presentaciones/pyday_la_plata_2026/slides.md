@@ -641,6 +641,8 @@ Requerimos que nuestros componentes tengan inputs y outputs serializables.<!-- .
 
 --
 
+# REGLA 1
+
 Requerimos que nuestros componentes tengan inputs y outputs serializables.
 
 Este cambio en las restricciones que le imponemos a nuestro código nos permite pensar en nuestro sistema de manera modular y componible. <!-- .element: class="fragment" -->
@@ -665,11 +667,10 @@ Ahora que **delegamos** la implementación de los componentes.
 <h5>Diseño | Implementación | Verificación</h5>
 
 <div style="position: relative; width: 65%; margin: 0 auto;">
-<img src="./images/tracer-bullet.svg" class="light-theme-logo" style="width: 100%; height: auto; display: block;">
-<img src="./images/tracer-bullet-dark.svg" class="dark-theme-logo" style="width: 100%; height: auto; display: block; position: absolute; inset: 0;">
-<div class="fragment" style="position: absolute; inset: 0;">
-<img src="./images/tracer-bullet-disparo.svg" class="light-theme-logo" style="width: 100%; height: auto; display: block;">
-<img src="./images/tracer-bullet-disparo-dark.svg" class="dark-theme-logo" style="width: 100%; height: auto; display: block; position: absolute; inset: 0;">
+<img src="./images/tracer-bullet.svg" class="light-theme-logo" style="width: 100%; height: auto; display: block; margin: 0;">
+<img src="./images/tracer-bullet-dark.svg" class="dark-theme-logo" style="width: 100%; height: auto; display: block; position: absolute; inset: 0; margin: 0;">
+<div class="fragment" style="position: absolute; left: 7.5%; width: 85%; top: calc(52.3% - 3px); height: 6px; background: #e53935;">
+<div style="position: absolute; right: -16px; top: -15px; width: 0; height: 0; border-top: 18px solid transparent; border-bottom: 18px solid transparent; border-left: 24px solid #e53935;"></div>
 </div>
 </div>
 
@@ -690,7 +691,9 @@ Intención, Restricciones, Propiedades/Invariantes
 
 --
 
-Pruebas Automáticas
+## Pruebas Automáticas
+
+También conocidas como "Tests"  <!-- .element: class="fragment" -->
 
 NOTES:
 Acá es donde el mayor valor del LLM aparece, en sintetizar el código para lo que queremos.
