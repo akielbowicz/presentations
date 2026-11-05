@@ -1,12 +1,12 @@
 <!-- .slide: id="titulo" -->
 
-# Software científico e IA: cómo usar LLMs sin romper todo
+## Software científico e IA: cómo usar LLMs sin romper todo
 
 **PyDay La Plata**
 
 **7 de Noviembre 2026**
 
-[saxa.xyz/charla-rcia](https://saxa.xyz/charla-scia)
+[saxa.xyz/charla-scia](https://saxa.xyz/charla-scia)
 
 ---
 
@@ -16,7 +16,7 @@
 
 Consultor independiente
 
-**[Phorma Scientific](https://phorma.sh)** 
+**[Phorma Scientific](https://phorma.sh)**
 
 --
 
@@ -31,7 +31,7 @@ Acá tengo que mencionar un par de cosas de que me interesa y que motiva esta ch
 
 --
 
-No me gusta programar, 
+No me gusta programar,
 
 me gusta resolver problemas.
 <!-- .element: class="fragment" -->
@@ -40,7 +40,7 @@ me gusta resolver problemas.
 
 Los generadores (probabilísticos) de texto¹ son una gran ayuda.
 
-<div style="font-size: 0.55em;">¹ Grandes Modelos de Lenguaje</div>
+<div style="font-size: 0.55em;">¹ Grandes Modelos de Lenguaje o LLMs</div>
 
 ---
 
@@ -67,24 +67,24 @@ import matplotlib.pyplot as plt
 
 velocidad = 10  # m/s
 angulo = radians(45)
-gravedad = 10  # m/s²
+GRAVEDAD = 10  # m/s²
 
 vx = velocidad * cos(angulo)
 vy = velocidad * sin(angulo)
-duracion = 2 * vy / gravedad
+duracion = 2 * vy / GRAVEDAD
 t = [duracion * i / 100 for i in range(101)]
 x = [vx * instante for instante in t]
-y = [vy * instante - gravedad * instante**2 / 2 for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
 
 plt.plot(x, y)
 plt.savefig("trayectoria.png")
 ```
 
-<img src="./images/trayectoria.png">
+<img class="fragment" src="./images/trayectoria.png">
 
 --
 
-¿Cuáles son las prácticas de Ingeniería de Software que podemos re-utilizar para mejorar nuestras herramientas?
+¿Cuáles son las prácticas de Ingeniería y Arquitectura de Software que podemos utilizar para mejorar nuestras herramientas?
 
 --
 
@@ -105,12 +105,24 @@ evolucionando junto con nuestra comprensión del problema, o solo acumulamos có
 
 <!-- 4	IA como herramienta	3 min -->
 
-Lo que cambió es el sustrato sobre el que trabajamos:
-
-Madera -> Melamina/MDF
+Cuando trabajamos con madera:
 <!-- .element: class="fragment" -->
 
-Escribir código -> Generar código
+<div class="fragment">
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; align-items: center;">
+<img src="./images/madera.jpg" style="width: 100%; height: auto;">
+<img src="./images/serrucho.jpg" style="width: 100%; height: auto;">
+<img src="./images/sierra-circular.jpg" style="width: 100%; height: auto;">
+</div>
+</div>
+
+> Serrucho -> Sierra Circular
+<!-- .element: class="fragment" -->
+
+Cuando trabajamos con software:
+<!-- .element: class="fragment" -->
+
+> Escribir código -> Generar código
 <!-- .element: class="fragment" -->
 
 NOTES:
@@ -118,24 +130,27 @@ Necesitamos mucho más control sobre lo que hacemos.
 
 --
 
+Lo que cambió es el sustrato sobre el que trabajamos:
 
-NOTES:
-En esta charla no vamos a hablar de Regla y Escuadra y no de Serrucho y Martillo
+> Madera -> Melamina/MDF
+<!-- .element: class="fragment" -->
+
+El sustrato es más uniforme, homogéneo, fácil de trabajar.
+<!-- .element: class="fragment" -->
 
 --
 
 Al poder producir de manera probabilística el código,
-necesitamos establecer protocolos, procedimientos que nos ayuden a 
-elegir, evaluar, verificar lo que se produce.
-
+necesitamos establecer protocolos, procedimientos que nos ayuden a
+definir, elegir, evaluar, verificar lo que se produce.
 
 NOTES:
-
+En esta charla vamos a hablar de Regla y Escuadra y no de Serrucho y Martillo
 No se trata de producir más código, necesitamos producir cosas de mayor calidad.
 
 --
 
-El valor del código es despreciable, es como el plástico, es algo descartable. 
+El valor del código es despreciable, es como el plástico, es algo descartable.
 
 Lo que tiene valor es lo que produce.
 <!-- .element: class="fragment" -->
@@ -159,8 +174,15 @@ Piensen en los Chats en los mismos términos que Facebook, Instagram, TikTok, X/
 
 <!-- 5	Fricción: serialización	3 min -->
 
+## Principios para describir un mejor software
+
+--
+
 Lo más importante es lograr un código bien modularizado, que nos permita
 abstraer componentes.
+
+<!-- acá necesito un diagrama en mermaid con varias cajas unidas por flechas y
+en la siguiente diapositiva algo que nos muestre como intercambiamos un componente -->
 
 --
 
@@ -170,14 +192,14 @@ import matplotlib.pyplot as plt
 
 velocidad = 10  # m/s
 angulo = radians(45)
-gravedad = 10  # m/s²
+GRAVEDAD = 10  # m/s²
 
 vx = velocidad * cos(angulo)
 vy = velocidad * sin(angulo)
-duracion = 2 * vy / gravedad
+duracion = 2 * vy / GRAVEDAD
 t = [duracion * i / 100 for i in range(101)]
 x = [vx * instante for instante in t]
-y = [vy * instante - gravedad * instante**2 / 2 for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
 
 plt.plot(x, y)
 plt.savefig("trayectoria.png")
@@ -187,6 +209,199 @@ Necesitamos registrar los inputs y los outputs
 <!-- .element: class="fragment" -->
 
 --
+
+```py
+from math import cos, radians, sin
+import matplotlib.pyplot as plt
+
+velocidad = 10  # m/s
+angulo = radians(45)
+GRAVEDAD = 10  # m/s²
+
+vx = velocidad * cos(angulo)
+vy = velocidad * sin(angulo)
+duracion = 2 * vy / GRAVEDAD
+t = [duracion * i / 100 for i in range(101)]
+x = [vx * instante for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+
+plt.plot(x, y)
+plt.savefig("trayectoria.png")
+```
+
+--
+
+```py
+from math import cos, radians, sin
+import matplotlib.pyplot as plt
+```
+
+```py
+velocidad = 10  # m/s
+angulo = radians(45)
+GRAVEDAD = 10  # m/s²
+
+vx = velocidad * cos(angulo)
+vy = velocidad * sin(angulo)
+duracion = 2 * vy / GRAVEDAD
+t = [duracion * i / 100 for i in range(101)]
+x = [vx * instante for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+
+plt.plot(x, y)
+plt.savefig("trayectoria.png")
+```
+
+
+--
+
+
+```py
+velocidad = 10  # m/s
+angulo = radians(45)
+GRAVEDAD = 10  # m/s²
+
+vx = velocidad * cos(angulo)
+vy = velocidad * sin(angulo)
+duracion = 2 * vy / GRAVEDAD
+t = [duracion * i / 100 for i in range(101)]
+x = [vx * instante for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+
+plt.plot(x, y)
+plt.savefig("trayectoria.png")
+```
+
+--
+
+```py
+velocidad = 10  # m/s
+angulo = radians(45)
+GRAVEDAD = 10  # m/s²
+```
+
+```py
+vx = velocidad * cos(angulo)
+vy = velocidad * sin(angulo)
+duracion = 2 * vy / GRAVEDAD
+t = [duracion * i / 100 for i in range(101)]
+x = [vx * instante for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+
+plt.plot(x, y)
+plt.savefig("trayectoria.png")
+```
+
+--
+
+```py
+velocidad = 10  # m/s
+angulo = radians(45)
+GRAVEDAD = 10  # m/s²
+```
+
+```py
+vx = velocidad * cos(angulo)
+vy = velocidad * sin(angulo)
+duracion = 2 * vy / GRAVEDAD
+t = [duracion * i / 100 for i in range(101)]
+x = [vx * instante for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+```
+
+```py
+plt.plot(x, y)
+plt.savefig("trayectoria.png")
+```
+
+--
+
+```py
+velocidad = 10  # m/s
+angulo = radians(45)
+GRAVEDAD = 10  # m/s²
+```
+
+```py
+vx = velocidad * cos(angulo)
+vy = velocidad * sin(angulo)
+duracion = 2 * vy / GRAVEDAD
+t = [duracion * i / 100 for i in range(101)]
+x = [vx * instante for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+```
+
+```py
+resultado = {"x":x, "y": y}
+```
+
+--
+
+--
+
+```py
+parametros = {"velocidad": 10, "angulo": 45 }
+
+velocidad = parametros["velocidad"]
+angulo = parametros["angulo"]
+GRAVEDAD = 10  # m/s²
+```
+
+```py
+angulo_rad = radians(angulo)
+vx = velocidad * cos(angulo_rad)
+vy = velocidad * sin(angulo_rad)
+duracion = 2 * vy / GRAVEDAD
+t = [duracion * i / 100 for i in range(101)]
+x = [vx * instante for instante in t]
+y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+```
+
+```py
+resultado = {"x":x, "y": y}
+```
+
+--
+
+```py
+parametros = {"velocidad": 10, "angulo": 45 }
+
+velocidad = parametros["velocidad"]
+angulo = parametros["angulo"]
+GRAVEDAD = 10  # m/s²
+```
+
+```py
+def simular(velocidad, angulo):
+    angulo_rad = radians(angulo)
+    vx = velocidad * cos(angulo_rad)
+    vy = velocidad * sin(angulo_rad)
+    duracion = 2 * vy / GRAVEDAD
+    t = [duracion * i / 100 for i in range(101)]
+    x = [vx * instante for instante in t]
+    y = [vy * instante - GRAVEDAD * instante**2 / 2 for instante in t]
+    resultado = {"x":x, "y": y}
+    return resultado
+```
+
+```py
+resultado = simular(**parametros)
+```
+
+--
+
+```py
+parametros = {"velocidad": 10, "angulo": 45 }
+
+GRAVEDAD = 10  # m/s²
+```
+
+```py
+resultado = simular(**parametros)
+```
+
+--
+
 
 ```py
 import json
@@ -239,7 +454,7 @@ Lo que necesitamos es entender lo que un sistema hace, y poner restricciones.
 
 Conversar, describir lo que queremos hacer, entender que tiene que pasar y cómo puede fallar.
 
-Describirlo en lenguaje natural, o explicito como pruebas automáticas (tests) o propiedades. 
+Describirlo en lenguaje natural, o explicito como pruebas automáticas (tests) o propiedades.
 
 Intención, Restricciones, Propiedades/Invariantes
 
@@ -255,7 +470,7 @@ Tracer bullet
 [Design In Practice](https://www.youtube.com/watch?v=c5QF2HjHLSE)
 
 
-[WAI Decision Matrix](https://charly-vibes.github.io/wai/concepts/decision-matrix.html) <!-- .element: class="fragment" --> 
+[WAI Decision Matrix](https://charly-vibes.github.io/wai/concepts/decision-matrix.html) <!-- .element: class="fragment" -->
 
 --
 
@@ -562,9 +777,9 @@ la fricción es el detector: si agregar un análisis obliga a tocar los anterior
 
 --
 
-"Revisemos que esto no sea YAGNI"  <!-- .element: class="fragment" --> 
+"Revisemos que esto no sea YAGNI"  <!-- .element: class="fragment" -->
 
-"No estamos haciendo sobre-ingenieria"  <!-- .element: class="fragment" --> 
+"No estamos haciendo sobre-ingenieria"  <!-- .element: class="fragment" -->
 
 --
 
@@ -583,22 +798,22 @@ vale para simulaciones, análisis de datos y pipelines de investigación  <!-- .
 
 <!-- 8	P.H.O.R.M.A.	2 min -->
 
-- Probado (testado, validado) <!-- .element: class="fragment" --> 
+- Probado (testado, validado) <!-- .element: class="fragment" -->
 - Habitable (legible, human-friendly) <!-- .element: class="fragment" -->
 - Operable (ejecuta en cualquier lugar) <!-- .element: class="fragment" -->
 - Robusto (maneja fallas de manera correcta) <!-- .element: class="fragment" -->
 - Mantenible (construido para durar) <!-- .element: class="fragment" -->
-- <!-- .element: class="fragment" --> Auditable (transparente, rastreable/traceable) 
+- <!-- .element: class="fragment" --> Auditable (transparente, rastreable/traceable)
 
 --
 
 <!-- .slide: data-transition="none" -->
 
-- **P**robado (testado, validado) 
+- **P**robado (testado, validado)
 - **H**abitable (legible, human-friendly)
 - **O**perable (ejecuta en cualquier lugar)
-- **R**obusto (maneja fallas de manera correcta) 
-- **M**antenible (construido para durar) 
+- **R**obusto (maneja fallas de manera correcta)
+- **M**antenible (construido para durar)
 - **A**uditable (transparente, rastreable/traceable)
 
 --
@@ -685,7 +900,7 @@ Llevamos estos principios a tu código de producción.
 
 --
 
-> Una técnica que te sirve para escribir te tiene que servir también para vivir. O sea que si yo lo único que te voy a dar es tecniquería (sic), no sirve para nada. 
+> Una técnica que te sirve para escribir te tiene que servir también para vivir. O sea que si yo lo único que te voy a dar es tecniquería (sic), no sirve para nada.
 — **Fabián Casas**
 
 --
