@@ -181,8 +181,17 @@ Piensen en los Chats en los mismos términos que Facebook, Instagram, TikTok, X/
 Lo más importante es lograr un código bien modularizado, que nos permita
 abstraer componentes.
 
-<!-- acá necesito un diagrama en mermaid con varias cajas unidas por flechas y
-en la siguiente diapositiva algo que nos muestre como intercambiamos un componente -->
+<div class="fragment">
+<img src="./images/flujo-serializacion.svg" style="width: 80%;">
+</div>
+
+--
+
+intercambiar un componente sin romper nada  <!-- .element: class="fragment" -->
+
+<div class="fragment">
+<img src="./images/intercambio-componente.svg" style="width: 80%;">
+</div>
 
 --
 
@@ -1001,6 +1010,10 @@ acumular sin romper necesita esta promesa  <!-- .element: class="fragment" -->
 el registro guarda los datos; el ploting es código aparte que los lee  <!-- .element: class="fragment" -->
 
 graficar sin recalcular: tres análisis sobre un solo montecarlo.json  <!-- .element: class="fragment" -->
+
+<div class="fragment">
+<img src="./images/capas-analisis.svg" style="width: 70%;">
+</div>
 
 el formato único estandariza: mismas etiquetas en los tres gráficos  <!-- .element: class="fragment" -->
 
