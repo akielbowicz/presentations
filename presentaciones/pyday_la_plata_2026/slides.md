@@ -653,11 +653,11 @@ Ahora que **delegamos** la implementación de los componentes.
 
 ¿qué tenemos que hacer nosotros? <!-- .element: class="fragment" -->
 
-<p>
-<span class="fragment">Diseño →</span>
-<span class="fragment">Implementación →</span>
-<span class="fragment">Verificación</span>
-</p>
+<h4>
+<span class="fragment">Implementación |</span>
+<span class="fragment">Diseño</span>
+<span class="fragment">| Verificación</span>
+</h4>
 
 --
 
