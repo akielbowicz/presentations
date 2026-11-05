@@ -651,13 +651,13 @@ Este cambio en las restricciones que le imponemos a nuestro código nos permite 
 
 Ahora que **delegamos** la implementación de los componentes. 
 
-¿qué tenemos que hacer nosotros? <!-- .element: class="fragment" -->
+¿qué tenemos que hacer nosotros? <!-- .element: class="fragment" data-fragment-index="0" -->
 
-<h4>
-<span class="fragment">Implementación |</span>
-<span class="fragment">Diseño</span>
-<span class="fragment">| Verificación</span>
-</h4>
+<h5>
+<span class="fragment" data-fragment-index="2">Diseño |</span>
+<span class="fragment" data-fragment-index="1"> Implementación </span>
+<span class="fragment" data-fragment-index="3">| Verificación</span>
+</h5>
 
 --
 
