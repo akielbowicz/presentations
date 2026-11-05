@@ -653,9 +653,9 @@ Ahora que **delegamos** la implementación de los componentes.
 
 ¿qué tenemos que hacer nosotros? <!-- .element: class="fragment" -->
 
-Diseño |<!-- .element: class="fragment" -->
-Implementación |<!-- .element: class="fragment" -->
-Verificación <!-- .element: class="fragment" -->
+<p class="fragment">Diseño</p>
+<p class="fragment">Implementación</p>
+<p class="fragment">Verificación</p>
 
 --
 
