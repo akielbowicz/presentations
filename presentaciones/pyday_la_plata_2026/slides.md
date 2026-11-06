@@ -1059,7 +1059,9 @@ Los cambios que realizamos siempre tienen que "   " nunca romper lo que ya exist
 --
 
 [James Powell: Keynote](https://www.youtube.com/watch?v=iKzOBWOHGFE&t=830s)
+
 [Rich Hickey: Spec-ulation](https://www.youtube.com/watch?v=oyLBGkS5ICk)
+
 [Kent Beck: Software Engineering in the Age of AI](https://www.youtube.com/watch?v=F8fBgDCf2Y4)
 
 --
