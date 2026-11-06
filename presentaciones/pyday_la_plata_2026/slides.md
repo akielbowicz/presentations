@@ -110,7 +110,6 @@ Cuando trabajamos con madera:
 
 <div class="fragment">
 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; align-items: center;">
-<img src="./images/madera.jpg" style="width: 100%; height: auto;">
 <img src="./images/serrucho.jpg" style="width: 100%; height: auto;">
 <img src="./images/sierra-circular.jpg" style="width: 100%; height: auto;">
 </div>
@@ -132,7 +131,12 @@ Necesitamos mucho más control sobre lo que hacemos.
 
 Lo que cambió es el sustrato sobre el que trabajamos:
 
-> Madera -> Melamina/MDF
+<div class="fragment">
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; align-items: center;">
+<img src="./images/madera.jpg" style="width: 100%; height: auto;">
+<img src="./images/melamina.jpg" style="width: 100%; height: auto;">
+</div>
+</div>
 <!-- .element: class="fragment" -->
 
 El sustrato es más uniforme, homogéneo, fácil de trabajar.
