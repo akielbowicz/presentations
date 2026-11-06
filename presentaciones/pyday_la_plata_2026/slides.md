@@ -979,7 +979,7 @@ def simular(velocidad, angulo,*, gravedad=10, pasos=100):
     t = [duracion * i / float(pasos) for i in range(int(pasos)+1)]
     x = [vx * instante for instante in t]
     y = [vy * instante - gravedad * instante**2 / 2.0 for instante in t]
-    resultado = {"x":x, "y": y}
+    resultado = {"x":x, "y": y, "t": t, "velocidad": {"x":vx,"y":y}}
     return resultado
 ```
 
@@ -1030,6 +1030,13 @@ extender no siempre significa agregar funcionalidad
 - el modelo: resistencia del aire y viento — con resistencia nula recuperamos el modelo ideal  <!-- .element: class="fragment" -->
 - la implementación: python puro → numpy → optimizado — los tests siguen pasando  <!-- .element: class="fragment" -->
 - el análisis: el Monte Carlo que acabamos de correr  <!-- .element: class="fragment" -->
+
+
+--
+
+# REGLA 2: Acreción (accretion)
+
+Los cambios que realizamos siempre tienen que "   " nunca romper lo que ya existe. 
 
 --
 
