@@ -2,6 +2,8 @@
 
 *la lista de diapositivas online está [acá](http://slides.saxa.xyz)*
 
+[Software científico e IA: cómo usar LLMs sin romper todo (PyDay La Plata 2026)](./presentaciones/pyday_la_plata_2026/)
+
 [Nadie nada nunca (PyDay Hurlingham 2025)](./presentaciones/pyday_hurlingham_2025/)
 
 [Interoperabilidad entre Python y Julia Lang (PyDay Catamarca 2024)](./presentaciones/pyday_catamarca_2024/)
