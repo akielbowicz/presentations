@@ -619,9 +619,9 @@ serializado = json.dumps(experimento)
 
 <!-- .slide: data-transition="none" -->
 
-```
+```py
 import json
-import Pathlib
+from pathlib import Path
 ```
 
 ```py
@@ -772,8 +772,8 @@ experimentos = {"velocidad": [], "angulo": []}
 
 for _ in range(1000):
     parametros = {
-        "velocidad" = random.gauss(10.0, 0.5)
-        "angulo"    = 45.0
+        "velocidad": random.gauss(10.0, 0.5),
+        "angulo": 45.0,
     }
     
     experimentos["velocidad"].append({
@@ -783,11 +783,11 @@ for _ in range(1000):
 
 for _ in range(1000):
     parametros = {
-        "velocidad" = 10.0
-        "angulo"    = random.gauss(45.0, 2.0)
+        "velocidad": 10.0,
+        "angulo": random.gauss(45.0, 2.0),
     }
     
-    experimentos["velocidad"].append({
+    experimentos["angulo"].append({
         "entrada": parametros,
         "salida" : simular(**parametros),
     })
@@ -797,6 +797,17 @@ Path("montecarlo.json").write_text(json.dumps(experimentos), encoding="utf-8")
 
 --
 
+```py
+def nueva_figura(titulo, xlabel="Distancia [m]", ylabel="Altura [m]"):
+    plt.figure()
+    plt.title(titulo)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+```
+
+los datos quedan en el registro; el ploting se reusa: un solo formato  <!-- .element: class="fragment" -->
+
+--
 
 ```py
 experimentos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
@@ -833,6 +844,8 @@ for nombre, lanzamientos in experimentos.items():
 --
 
 ```py
+from statistics import mean
+
 # paso extra sobre los datos guardados: distribución del alcance final
 experimentos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
 for nombre, lanzamientos in experimentos.items():
@@ -843,18 +856,6 @@ for nombre, lanzamientos in experimentos.items():
     plt.savefig(f"montecarlo-{nombre}-distribucion.png")
     plt.close()
 ```
-
---
-
-```py
-def nueva_figura(titulo, xlabel="Distancia [m]", ylabel="Altura [m]"):
-    plt.figure()
-    plt.title(titulo)
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-```
-
-los datos quedan en el registro; el ploting se reusa: un solo formato  <!-- .element: class="fragment" -->
 
 --
 
@@ -946,7 +947,7 @@ resultado = simular(**parametros)
 <!-- .slide: data-transition="none" -->
 
 ```py
-parametros = {"velocidad": 10.0, "angulo": 45.0, "gravedad"=10.0 }
+parametros = {"velocidad": 10.0, "angulo": 45.0, "gravedad": 10.0 }
 ```
 
 ```py
@@ -970,7 +971,7 @@ resultado = simular(**parametros)
 <!-- .slide: data-transition="none" -->
 
 ```py
-parametros = {"velocidad": 10.0, "angulo": 45.0, "gravedad"=10.0  }
+parametros = {"velocidad": 10.0, "angulo": 45.0, "gravedad": 10.0  }
 ```
 
 ```py
@@ -982,7 +983,7 @@ def simular(velocidad, angulo,*, gravedad=10, pasos=100):
     t = [duracion * i / float(pasos) for i in range(int(pasos)+1)]
     x = [vx * instante for instante in t]
     y = [vy * instante - gravedad * instante**2 / 2.0 for instante in t]
-    resultado = {"x":x, "y": y, "t": t, "velocidad": {"x":vx,"y":y}}
+    resultado = {"x":x, "y": y, "t": t, "velocidad": {"x":vx,"y":vy}}
     return resultado
 ```
 
@@ -994,7 +995,7 @@ resultado = simular(**parametros)
 <!-- .slide: data-transition="none" -->
 
 ```py
-parametros = {"velocidad": 10.0, "angulo": 45.0, "gravedad"=10.0  }
+parametros = {"velocidad": 10.0, "angulo": 45.0, "gravedad": 10.0  }
 ```
 
 ```py
@@ -1005,7 +1006,7 @@ def simular_np(velocidad, angulo,*, gravedad=10, pasos=100):
 ```
 
 ```py
-resultado = simular(**parametros)
+resultado = simular_np(**parametros)
 ```
 
 --
@@ -1015,11 +1016,11 @@ resultado = simular(**parametros)
 from hypothesis import given, strategies as st
 
 @given(angulo=st.floats(min_value=1, max_value=89))
-def test_compatibulidad_con_oraculo(angulo):
-    uno = simular(velocidad=10, angulo=angulo)
-    otro = simular_np(velocidad=10, angulo=angulo)
-    assert uno["x"][-1] == pytest.approx(otro["x"][-1])
-    ...
+def test_compatibilidad_con_oraculo(angulo):
+    uno = simular(velocidad=10.0, angulo=angulo)
+    otro = simular_np(velocidad=10.0, angulo=angulo)
+    assert uno["x"] == pytest.approx(otro["x"])
+    assert uno["y"] == pytest.approx(otro["y"])
 ```
 
 --
