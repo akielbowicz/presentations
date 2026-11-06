@@ -882,7 +882,7 @@ for nombre, lanzamientos in experimentos.items():
 
 <p class="fragment" style="font-size: 0.7em;">la desviación por velocidad es más de 30 veces la del angulo</p>
 
---
+---
 
 <!-- 7	Extensión y evolución	3 min -->
 
@@ -1037,6 +1037,8 @@ extender no siempre significa agregar funcionalidad
 # REGLA 2: Acreción
 
 Los cambios que realizamos siempre tienen que crecer el software nunca romper lo que ya existe. 
+
+--
 
 **Cambios seguros**
 - Relajar requisitos: aceptar más que antes
