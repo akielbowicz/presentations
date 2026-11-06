@@ -1063,6 +1063,8 @@ Los cambios que realizamos siempre tienen que crecer el software nunca romper lo
 
 "Asegurte que el documento cumpla con el amnesia test (no more context) y funcione cold-read" <!-- .element: class="fragment" -->
 
+--
+
 "Revisa siguiendo el Rule of 5: Boceto, Correctitud, Claridad, Casos borde, Excelencia" <!-- .element: class="fragment" -->
 
 [Incitaciones skills](charly-vibes.github.io/incitaciones) <!-- .element: class="fragment" -->
@@ -1077,9 +1079,9 @@ Los cambios que realizamos siempre tienen que crecer el software nunca romper lo
 
 --
 
-Acelerar la implementación al tener un sustrato más homogeneo, <!-- .element: class="fragment" -->
+Ahora que se acelera la implementación al tener un sustrato más homogeneo, <!-- .element: class="fragment" -->
 
-el desafío que tenemos ahora es que la comprensión y el diseño acompañen esa velocidad  <!-- .element: class="fragment" -->
+el desafío que tenemos es que la comprensión y el diseño acompañen esa velocidad  <!-- .element: class="fragment" -->
 
 ---
 
