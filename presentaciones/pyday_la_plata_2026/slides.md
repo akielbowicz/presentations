@@ -111,12 +111,9 @@ Cuando trabajamos con madera:
 <div class="fragment">
 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; align-items: center;">
 <img src="./images/serrucho.jpg" style="width: 100%; height: auto;">
-<img src="./images/sierra-circular.jpg" style="width: 100%; height: auto;">
+-> <img class="fragment" src="./images/sierra-circular.jpg" style="width: 100%; height: auto;">
 </div>
 </div>
-
-> Serrucho -> Sierra Circular
-<!-- .element: class="fragment" -->
 
 Cuando trabajamos con software:
 <!-- .element: class="fragment" -->
@@ -133,8 +130,9 @@ Lo que cambió es el sustrato sobre el que trabajamos:
 
 <div class="fragment">
 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; align-items: center;">
-<img src="./images/madera.jpg" style="width: 100%; height: auto;">
-<img src="./images/melamina.jpg" style="width: 100%; height: auto;">
+<img src="./images/madera.jpg" style="width: 60%; height: 60%;">
+->
+<img class="fragment" src="./images/melamina.jpg" style="width: 60%; height: 60%;">
 </div>
 </div>
 <!-- .element: class="fragment" -->
@@ -144,9 +142,9 @@ El sustrato es más uniforme, homogéneo, fácil de trabajar.
 
 --
 
-Al poder producir de manera probabilística el código,
-necesitamos establecer protocolos, procedimientos que nos ayuden a
-definir, elegir, evaluar, verificar lo que se produce.
+Al poder producir de manera probabilística el código, <span class="fragment">
+necesitamos establecer protocolos</span><span class="fragment">, procedimientos que nos ayuden a
+definir</span><span class="fragment">, elegir,</span><span class="fragment"> evaluar,</span><span class="fragment"> verificar lo que se produce.</span>
 
 NOTES:
 En esta charla vamos a hablar de Regla y Escuadra y no de Serrucho y Martillo
@@ -1057,6 +1055,12 @@ Los cambios que realizamos siempre tienen que "   " nunca romper lo que ya exist
 "Revisa siguiendo el Rule of 5: Boceto, Correctitud, Claridad, Casos borde, Excelencia" <!-- .element: class="fragment" -->
 
 [Incitaciones skills](charly-vibes.github.io/incitaciones) <!-- .element: class="fragment" -->
+
+--
+
+[James Powell: Keynote](https://www.youtube.com/watch?v=iKzOBWOHGFE&t=830s)
+[Rich Hickey: Spec-ulation](https://www.youtube.com/watch?v=oyLBGkS5ICk)
+[Kent Beck: Software Engineering in the Age of AI](https://www.youtube.com/watch?v=F8fBgDCf2Y4)
 
 --
 
