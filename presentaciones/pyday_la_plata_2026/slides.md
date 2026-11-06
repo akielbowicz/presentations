@@ -1064,9 +1064,9 @@ Los cambios que realizamos siempre tienen que "   " nunca romper lo que ya exist
 
 --
 
-la IA acelera la implementación  <!-- .element: class="fragment" -->
+Acelerar la implementación al tener un sustrato más homogeneo, <!-- .element: class="fragment" -->
 
-el desafío: que la comprensión y el diseño acompañen esa velocidad  <!-- .element: class="fragment" -->
+el desafío que tenemos ahora es que la comprensión y el diseño acompañen esa velocidad  <!-- .element: class="fragment" -->
 
 ---
 
