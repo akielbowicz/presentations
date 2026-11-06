@@ -919,7 +919,6 @@ resultado = simular(**parametros)
 
 <!-- .slide: data-transition="none" -->
 
-
 ```py
 parametros = {"velocidad": 10.0, "angulo": 45.0 }
 
@@ -944,6 +943,7 @@ resultado = simular(**parametros)
 ```
 
 --
+<!-- .slide: data-transition="none" -->
 
 ```py
 parametros = {"velocidad": 10.0, "angulo": 45.0, "gravedad"=10.0 }
@@ -967,6 +967,7 @@ resultado = simular(**parametros)
 ```
 
 --
+<!-- .slide: data-transition="none" -->
 
 ```py
 parametros = {"velocidad": 10.0, "angulo": 45.0, "gravedad"=10.0  }
@@ -990,6 +991,7 @@ resultado = simular(**parametros)
 ```
 
 --
+<!-- .slide: data-transition="none" -->
 
 ```py
 parametros = {"velocidad": 10.0, "angulo": 45.0, "gravedad"=10.0  }
@@ -1007,6 +1009,7 @@ resultado = simular(**parametros)
 ```
 
 --
+<!-- .slide: data-transition="none" -->
 
 ```py
 from hypothesis import given, strategies as st
@@ -1021,12 +1024,6 @@ def test_compatibulidad_con_oraculo(angulo):
 
 --
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F8fBgDCf2Y4?si=KUeMyrdQTVIwb4Cf&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-[Kent Beck: Software Engineering in the Age of AI](https://www.youtube.com/watch?v=F8fBgDCf2Y4)
-
---
-
 extender no siempre significa agregar funcionalidad
 
 - el modelo: resistencia del aire y viento — con resistencia nula recuperamos el modelo ideal  <!-- .element: class="fragment" -->
@@ -1036,11 +1033,22 @@ extender no siempre significa agregar funcionalidad
 
 --
 
-# REGLA 2: Acreción (accretion)
+# REGLA 2: Acreción
 
-Los cambios que realizamos siempre tienen que "   " nunca romper lo que ya existe. 
+Los cambios que realizamos siempre tienen que crecer el software nunca romper lo que ya existe. 
 
---
+**Cambios seguros**
+- Relajar requisitos: aceptar más que antes
+- Reforzar garantías: devover más que antes
+- Agregar cosas nuevas: funciones, campos, modulos
+
+**Cambios que rompen**
+- Eliminar o renombrar algo
+- Exigir más entradas
+- Producir menos salidas
+- Cambiar el significado
+
+---
 
 ## Pequeñas incitaciones para guiar a la IA 
 
