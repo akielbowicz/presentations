@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title> Software científico e IA: cómo usar LLMs sin romper todo - PyDay La Plata 2026</title>
+
+    <!-- Phorma Scientific Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.css">
+
+    <!-- Custom Phorma Scientific Theme -->
+    <link rel="stylesheet" href="phorma-theme.css">
+
+    <!-- Overlay del editor Pyodide: pre resaltado detrás + textarea transparente encima -->
+    <style>
+        #tray-editor { position: relative; }
+        #tray-highlight,
+        #tray-codigo {
+            margin: 0;
+            width: 100%;
+            height: 16rem;
+            box-sizing: border-box;
+            padding: 0.5rem;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            font-family: var(--r-code-font, 'JetBrains Mono', monospace);
+            font-size: 0.55em;
+            line-height: 1.4;
+            text-align: left;
+            white-space: pre;
+            overflow: auto;
+        }
+        /* Neutraliza .reveal code / .reveal pre code del tema (padding, borde, fondo, 0.9em) */
+        #tray-highlight code {
+            display: block;
+            margin: 0;
+            padding: 0 !important;
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            max-height: none;
+            overflow: visible;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            white-space: pre;
+            word-wrap: normal;
+        }
+        #tray-codigo {
+            position: absolute;
+            inset: 0;
+            background: transparent;
+            color: transparent;
+            caret-color: #555;
+            resize: none;
+            outline: none;
+            border-color: transparent;
+        }
+        [data-theme="dark"] #tray-codigo { caret-color: #ddd; }
+
+        /* Script inicial: código y plot lado a lado */
+        #script-inicial { overflow: hidden; }
+        #script-inicial pre {
+            float: left;
+            width: 56%;
+            margin: 0;
+        }
+        #script-inicial img {
+            float: right;
+            width: 38%;
+            margin: 1.5rem 0 0 0;
+        }
+    </style>
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="highlight-theme-light">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" id="highlight-theme-dark" disabled>
+
+    <style>
+        /* Additional custom overrides if needed */
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-icon">☀️</span>
+    </button>
+
+    <div class="reveal">
+        <div class="slides">
+            <section data-markdown="slides.md"
+                     data-separator="^---$"
+                     data-separator-vertical="^--$"
+                     data-separator-notes="^NOTES:"
+                     data-charset="utf-8">
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.0.4/plugin/math/math.js"></script>
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('.theme-icon');
+        const htmlElement = document.documentElement;
+        const lightTheme = document.getElementById('highlight-theme-light');
+        const darkTheme = document.getElementById('highlight-theme-dark');
+
+        // Load saved theme preference or default to light
+        const savedTheme = localStorage.getItem('phorma-theme') || 'light';
+        if (savedTheme === 'dark') {
+            htmlElement.setAttribute('data-theme', 'dark');
+            themeIcon.textContent = '🌙';
+            lightTheme.disabled = true;
+            darkTheme.disabled = false;
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('phorma-theme', newTheme);
+
+            if (newTheme === 'dark') {
+                themeIcon.textContent = '🌙';
+                lightTheme.disabled = true;
+                darkTheme.disabled = false;
+            } else {
+                themeIcon.textContent = '☀️';
+                lightTheme.disabled = false;
+                darkTheme.disabled = true;
+            }
+        });
+
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            center: true,
+            transition: 'slide',
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+        });
+    </script>
+
+    <!-- Pyodide: Python en el navegador para la demo de Verificación y Validación -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script type="text/x-python" id="plantilla-trayectoria">
+from tiro_parabolico import simular
+import io, base64
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+
+salida = simular(velocidad=10, angulo=45)
+
+fig, ax = plt.subplots()
+ax.plot(salida["x"], salida["y"])
+ax.set(xlabel="Distancia [m]", ylabel="Altura [m]", title="Tiro parabólico")
+ax.grid()
+buf = io.BytesIO()
+fig.savefig(buf, format="png")
+"data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
+    </script>
+    <script type="text/x-python" id="plantilla-resultado">
+import io, base64, json
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+
+registro = json.loads(resultado_json)
+salida = registro["salida"]
+fig, ax = plt.subplots()
+ax.plot(salida["t"], salida["y"])
+ax.set(xlabel="Tiempo [s]", ylabel="Altura [m]", title="Tiro parabólico")
+ax.grid()
+buf = io.BytesIO()
+fig.savefig(buf, format="png")
+"data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
+    </script>
+    <script>
+        let pyodide = null;
+        let pyodideIniciando = null;
+
+        function estado(id, texto) {
+            const el = document.getElementById(id);
+            if (el) el.textContent = texto;
+        }
+
+        function soltarFoco() {
+            if (document.activeElement && document.activeElement !== document.body) {
+                document.activeElement.blur();
+            }
+        }
+
+        function cuandoExista(id, fn) {
+            const el = document.getElementById(id);
+            if (el) { fn(el); return; }
+            setTimeout(() => cuandoExista(id, fn), 200);
+        }
+
+        function plantillaTrayectoria() {
+            return document.getElementById("plantilla-trayectoria").textContent.trim() + "\n";
+        }
+
+        function resaltarTrayectoria() {
+            const area = document.getElementById("tray-codigo");
+            const codigo = document.querySelector("#tray-highlight code");
+            codigo.innerHTML = window.hljs
+                ? hljs.highlight(area.value, { language: "python" }).value
+                : area.value.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+            sincronizarTrayectoria();
+        }
+
+        function sincronizarTrayectoria() {
+            const area = document.getElementById("tray-codigo");
+            const pre = document.getElementById("tray-highlight");
+            pre.scrollTop = area.scrollTop;
+            pre.scrollLeft = area.scrollLeft;
+        }
+
+        function restablecerTrayectoria() {
+            const area = document.getElementById("tray-codigo");
+            area.value = plantillaTrayectoria();
+            resaltarTrayectoria();
+            soltarFoco();
+        }
+
+        function iniciarPyodide() {
+            if (!pyodideIniciando) {
+                pyodideIniciando = (async () => {
+                    pyodide = await loadPyodide();
+                    const modulo = await (await fetch("codigo/tiro_parabolico.py")).text();
+                    pyodide.FS.writeFile("tiro_parabolico.py", modulo);
+                    pyodide.loadPackage("matplotlib").catch(() => {}); // Precarga en segundo plano
+                    return pyodide;
+                })();
+            }
+            return pyodideIniciando;
+        }
+        iniciarPyodide(); // Precarga al abrir el mazo
+        cuandoExista("tray-codigo", (area) => {
+            area.value = plantillaTrayectoria();
+            resaltarTrayectoria();
+            area.addEventListener("input", resaltarTrayectoria);
+            area.addEventListener("scroll", sincronizarTrayectoria);
+            area.addEventListener("keydown", (evento) => {
+                if (evento.key === "Escape") area.blur();
+                if (evento.key === " " && evento.shiftKey) {
+                    evento.preventDefault();
+                    area.blur();
+                    Reveal.prev();
+                }
+            });
+        });
+
+        async function ejecutarPyodide(base) {
+            const boton = document.getElementById(base + "-boton");
+            boton.disabled = true;
+            try {
+                estado(base + "-estado", pyodide ? "ejecutando…" : "descargando Python…");
+                const py = await iniciarPyodide();
+                const codigo = document.getElementById("tray-codigo").value;
+                const resultado = await py.runPythonAsync(codigo);
+                const imagen = document.getElementById(base + "-imagen");
+                const salida = document.getElementById(base + "-salida");
+                if (typeof resultado === "string" && resultado.startsWith("data:image")) {
+                    imagen.src = resultado;
+                    imagen.style.display = "block";
+                    salida.textContent = "";
+                } else {
+                    salida.textContent = resultado == null ? "(sin salida)" : String(resultado);
+                }
+                estado(base + "-estado", "");
+            } catch (error) {
+                estado(base + "-estado", "");
+                document.getElementById(base + "-salida").textContent = String(error);
+            } finally {
+                boton.disabled = false;
+                soltarFoco();
+            }
+        }
+
+        async function graficarResultado() {
+            const archivo = document.getElementById("res-archivo").files[0];
+            if (!archivo) {
+                estado("res-estado", "elegí un resultado.json");
+                return;
+            }
+            document.getElementById("res-boton").disabled = true;
+            try {
+                estado("res-estado", pyodide ? "ejecutando…" : "descargando Python…");
+                const py = await iniciarPyodide();
+                py.globals.set("resultado_json", await archivo.text());
+                const plantilla = document.getElementById("plantilla-resultado").textContent;
+                const resultado = await py.runPythonAsync(plantilla);
+                document.getElementById("res-imagen").src = resultado;
+                document.getElementById("res-imagen").style.display = "block";
+                estado("res-estado", "");
+            } catch (error) {
+                estado("res-estado", String(error));
+            } finally {
+                document.getElementById("res-boton").disabled = false;
+                soltarFoco();
+            }
+        }
+    </script>
+</body>
+</html>

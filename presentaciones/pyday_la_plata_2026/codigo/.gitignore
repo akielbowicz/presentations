@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.hypothesis/
+trayectoria.png
+entrada.json
+resultado.json
+montecarlo.json
+montecarlo-*.png
