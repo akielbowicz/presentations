@@ -734,10 +734,8 @@ def test_alcances_conocidos(angulo, alcance):
 
 --
 
-
 ```py
 from hypothesis import given, strategies as st
-
 
 @given(angulo=st.floats(min_value=1, max_value=89))
 def test_angulos_complementarios_tienen_el_mismo_alcance(angulo):
@@ -746,14 +744,11 @@ def test_angulos_complementarios_tienen_el_mismo_alcance(angulo):
     assert uno["x"][-1] == pytest.approx(otro["x"][-1])
 ```
 
-
 --
 
 Verificación y Validación
 
 ¿cumple lo especificado? ≠ ¿la especificación es correcta?  <!-- .element: class="fragment" -->
-
-un test verde puede ser dos códigos del mismo modelo coincidiendo entre sí  <!-- .element: class="fragment" -->
 
 el caso a 45 grados es el oráculo: derivado a mano, independiente del código  <!-- .element: class="fragment" -->
 
@@ -761,59 +756,6 @@ NOTES:
 
 Para validar y verificar podemos pedir que nos cree herramientas
 que nos permitan visualizar los resultados
-
---
-
-<div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.5rem; align-items: start; font-size: 0.8em;">
-<div>
-<h4>Trayectoria — Python en el navegador</h4>
-<div id="tray-editor">
-<pre id="tray-highlight" aria-hidden="true"><code class="hljs language-python"></code></pre>
-<textarea id="tray-codigo" spellcheck="false" wrap="off"></textarea>
-</div>
-<p>
-<button id="tray-boton" onclick="ejecutarPyodide('tray')">▶ Ejecutar</button>
-<button onclick="restablecerTrayectoria()">↺ Restablecer</button>
-<span id="tray-estado" style="color: #999;"></span>
-</p>
-</div>
-<div>
-<img id="tray-imagen" style="display: none; max-height: 15rem;">
-<pre id="tray-salida" style="text-align: left; font-size: 0.5em;"></pre>
-</div>
-</div>
-
---
-
-<div style="font-size: 0.8em;">
-<h4>Resultados de las simulaciones</h4>
-<p>
-<input type="file" id="res-archivo" accept=".json,application/json">
-<button id="res-boton" onclick="graficarResultado()">Graficar</button>
-<span id="res-estado" style="color: #999;"></span>
-</p>
-<img id="res-imagen" style="display: none; max-height: 12rem;">
-</div>
-
----
-
-<!-- 7	Extensión y evolución	3 min -->
-
---
-
-```py
-# computo de sensibilidades
-```
-
---
-
-
-
---
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F8fBgDCf2Y4?si=KUeMyrdQTVIwb4Cf&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-[Kent Beck: Software Engineering in the Age of AI](https://www.youtube.com/watch?v=F8fBgDCf2Y4)
 
 --
 
@@ -825,28 +767,45 @@ from tiro_parabolico import simular
 
 random.seed(42)  # experimento reproducible
 experimentos = {"velocidad": [], "angulo": []}
+
 for _ in range(1000):
-    velocidad = random.gauss(10.0, 0.5)
-    angulo = random.gauss(45.0, 2.0)
+    parametros = {
+        "velocidad" = random.gauss(10.0, 0.5)
+        "angulo"    = 45.0
+    }
+    
     experimentos["velocidad"].append({
-        "entrada": {"velocidad": velocidad, "angulo": 45},
-        "salida": simular(velocidad=velocidad, angulo=45),
+        "entrada": parametros,
+        "salida" : simular(**parametros),
     })
-    experimentos["angulo"].append({
-        "entrada": {"velocidad": 10, "angulo": angulo},
-        "salida": simular(velocidad=10, angulo=angulo),
+
+for _ in range(1000):
+    parametros = {
+        "velocidad" = 10.0
+        "angulo"    = random.gauss(45.0, 2.0)
+    }
+    
+    experimentos["velocidad"].append({
+        "entrada": parametros,
+        "salida" : simular(**parametros),
     })
+
 Path("montecarlo.json").write_text(json.dumps(experimentos), encoding="utf-8")
 ```
 
 --
 
+
 ```py
 experimentos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
+
 for nombre, lanzamientos in experimentos.items():
+    
     nueva_figura(f"Monte Carlo variando {nombre}")
+    
     for lanzamiento in lanzamientos:
         plt.plot(lanzamiento["salida"]["x"], lanzamiento["salida"]["y"], alpha=0.1)
+    
     plt.savefig(f"montecarlo-{nombre}.png")
     plt.close()
 ```
@@ -855,8 +814,10 @@ for nombre, lanzamientos in experimentos.items():
 
 ```py
 experimentos = json.loads(Path("montecarlo.json").read_text(encoding="utf-8"))
+
 for nombre, lanzamientos in experimentos.items():
-    nueva_figura(f"Monte Carlo variando {nombre}", xlabel=nombre,
+    nueva_figura(f"Monte Carlo variando {nombre}", 
+                 xlabel=nombre,
                  ylabel="Distancia final [m]")
     plt.scatter(
         [lanzamiento["entrada"][nombre] for lanzamiento in lanzamientos],
@@ -884,7 +845,6 @@ for nombre, lanzamientos in experimentos.items():
 --
 
 ```py
-# el formato único, reusado por 05, 06 y 07
 def nueva_figura(titulo, xlabel="Distancia [m]", ylabel="Altura [m]"):
     plt.figure()
     plt.title(titulo)
@@ -894,8 +854,6 @@ def nueva_figura(titulo, xlabel="Distancia [m]", ylabel="Altura [m]"):
 
 los datos quedan en el registro; el ploting se reusa: un solo formato  <!-- .element: class="fragment" -->
 
-los tres gráficos que vimos salieron de estas cinco líneas  <!-- .element: class="fragment" -->
-
 --
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center;">
@@ -903,20 +861,12 @@ los tres gráficos que vimos salieron de estas cinco líneas  <!-- .element: cla
 <img src="./images/montecarlo-angulo.png" style="width: 100%; height: auto;">
 </div>
 
-<p class="fragment" style="font-size: 0.7em;">velocidad: 8.39 a 11.76 m — angulo: 9.90 a 10.00 m</p>
-
-<p class="fragment" style="font-size: 0.7em;">cerca de 45 grados, controlar la velocidad importa mucho más que el angulo</p>
-
 --
 
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center;">
 <img src="./images/montecarlo-velocidad-dispersion.png" style="width: 100%; height: auto;">
 <img src="./images/montecarlo-angulo-dispersion.png" style="width: 100%; height: auto;">
 </div>
-
-<p class="fragment" style="font-size: 0.7em;">correlación: +1.00 variando velocidad, -0.05 variando angulo</p>
-
-<p class="fragment" style="font-size: 0.7em;">el scatter muestra el efecto: la nube de velocidad sube, la de angulo es plana</p>
 
 --
 
@@ -931,6 +881,150 @@ los tres gráficos que vimos salieron de estas cinco líneas  <!-- .element: cla
 
 --
 
+<!-- 7	Extensión y evolución	3 min -->
+
+### Extensión y Evolución del Software
+
+--
+
+<!-- .slide: data-transition="none" -->
+
+
+```py
+parametros = {"velocidad": 10.0, "angulo": 45.0 }
+
+GRAVEDAD = 10.0  # m/s²
+```
+
+```py
+def simular(velocidad, angulo):
+    angulo_rad = radians(angulo)
+    vx = velocidad * cos(angulo_rad)
+    vy = velocidad * sin(angulo_rad)
+    duracion = 2.0 * vy / GRAVEDAD
+    t = [duracion * i / 100.0 for i in range(101)]
+    x = [vx * instante for instante in t]
+    y = [vy * instante - GRAVEDAD * instante**2 / 2.0 for instante in t]
+    resultado = {"x":x, "y": y}
+    return resultado
+```
+
+```py
+resultado = simular(**parametros)
+```
+
+--
+
+<!-- .slide: data-transition="none" -->
+
+
+```py
+parametros = {"velocidad": 10.0, "angulo": 45.0 }
+
+GRAVEDAD = 10.0  # m/s²
+```
+
+```py
+def simular(velocidad, angulo,*,gravedad=10):
+    angulo_rad = radians(angulo)
+    vx = velocidad * cos(angulo_rad)
+    vy = velocidad * sin(angulo_rad)
+    duracion = 2.0 * vy / gravedad
+    t = [duracion * i / 100.0 for i in range(101)]
+    x = [vx * instante for instante in t]
+    y = [vy * instante - gravedad * instante**2 / 2.0 for instante in t]
+    resultado = {"x":x, "y": y}
+    return resultado
+```
+
+```py
+resultado = simular(**parametros)
+```
+
+--
+
+```py
+parametros = {"velocidad": 10.0, "angulo": 45.0, "gravedad"=10.0 }
+```
+
+```py
+def simular(velocidad, angulo,*,gravedad=10):
+    angulo_rad = radians(angulo)
+    vx = velocidad * cos(angulo_rad)
+    vy = velocidad * sin(angulo_rad)
+    duracion = 2.0 * vy / gravedad
+    t = [duracion * i / 100.0 for i in range(101)]
+    x = [vx * instante for instante in t]
+    y = [vy * instante - gravedad * instante**2 / 2.0 for instante in t]
+    resultado = {"x":x, "y": y}
+    return resultado
+```
+
+```py
+resultado = simular(**parametros)
+```
+
+--
+
+```py
+parametros = {"velocidad": 10.0, "angulo": 45.0, "gravedad"=10.0  }
+```
+
+```py
+def simular(velocidad, angulo,*, gravedad=10, pasos=100):
+    angulo_rad = radians(angulo)
+    vx = velocidad * cos(angulo_rad)
+    vy = velocidad * sin(angulo_rad)
+    duracion = 2.0 * vy / gravedad
+    t = [duracion * i / float(pasos) for i in range(int(pasos)+1)]
+    x = [vx * instante for instante in t]
+    y = [vy * instante - gravedad * instante**2 / 2.0 for instante in t]
+    resultado = {"x":x, "y": y}
+    return resultado
+```
+
+```py
+resultado = simular(**parametros)
+```
+
+--
+
+```py
+parametros = {"velocidad": 10.0, "angulo": 45.0, "gravedad"=10.0  }
+```
+
+```py
+def simular_np(velocidad, angulo,*, gravedad=10, pasos=100):
+    # IMPLEMENTAR con numpy
+    resultado = {"x":x, "y": y}
+    return resultado
+```
+
+```py
+resultado = simular(**parametros)
+```
+
+--
+
+```py
+from hypothesis import given, strategies as st
+
+@given(angulo=st.floats(min_value=1, max_value=89))
+def test_compatibulidad_con_oraculo(angulo):
+    uno = simular(velocidad=10, angulo=angulo)
+    otro = simular_np(velocidad=10, angulo=angulo)
+    assert uno["x"][-1] == pytest.approx(otro["x"][-1])
+    ...
+```
+
+--
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/F8fBgDCf2Y4?si=KUeMyrdQTVIwb4Cf&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+[Kent Beck: Software Engineering in the Age of AI](https://www.youtube.com/watch?v=F8fBgDCf2Y4)
+
+--
+
 extender no siempre significa agregar funcionalidad
 
 - el modelo: resistencia del aire y viento — con resistencia nula recuperamos el modelo ideal  <!-- .element: class="fragment" -->
@@ -939,75 +1033,25 @@ extender no siempre significa agregar funcionalidad
 
 --
 
-crecer acumulando — el estilo clojure
-
-lo que funciona no se modifica; lo nuevo se suma encima  <!-- .element: class="fragment" -->
-
-```text
-01_tiro_parabolico.py   el script original, sigue corriendo
-02_inputs.py            agrega el registro de inputs
-03_simular.py           agrega el registro de outputs
-04_montecarlo.py        agrega el experimento
-05_trayectorias.py      análisis: solo lee el registro
-06_dispersion.py        análisis: solo lee el registro
-07_distribucion.py      análisis: solo lee el registro
-```
-<!-- .element: class="fragment" -->
-
-9 tests en verde — uno por etapa, ninguno descartado  <!-- .element: class="fragment" -->
-
-NOTES:
-El estilo clojure (Rich Hickey): desarrollo aditivo — funciones puras, datos
-inmutables. Cada línea del listing existe hoy en el repositorio y funciona.
-Las tres reglas están en el listing: lo viejo no se toca, lo nuevo se agrega,
-el registro solo se lee. El detalle y los ejemplos están en el apéndice.
-
---
-
-el diseño tiene que permitir cumplir la regla
-
-el modelo no conoce el registro: puro, sin I/O, sin azar  <!-- .element: class="fragment" -->
-
-el registro se escribe una vez; los análisis solo lo leen  <!-- .element: class="fragment" -->
-
---
-
-¿cómo detectamos que el diseño sigue cumpliendo?
-
-```sh
-rg -n "json|random|write" tiro_parabolico.py
-# sin resultados: el modelo no conoce la serialización
-```
-<!-- .element: class="fragment" -->
-
-```sh
-rg -n "montecarlo.json" 05_*.py 06_*.py 07_*.py
-# tres lecturas, ninguna escritura
-```
-<!-- .element: class="fragment" -->
-
-el test acumulado compara bytes: si el registro muta, falla  <!-- .element: class="fragment" -->
-
-la fricción es el detector: si agregar un análisis obliga a tocar los anteriores, el diseño se rompió  <!-- .element: class="fragment" -->
-
---
+## Pequeñas incitaciones para guiar a la IA 
 
 "Revisemos que esto no sea YAGNI"  <!-- .element: class="fragment" -->
 
-"No estamos haciendo sobre-ingenieria"  <!-- .element: class="fragment" -->
+"No estamos haciendo sobre-ingenieria?"  <!-- .element: class="fragment" -->
 
---
+"Revisa que el prompt no tenga sesgos (bias) y eliminalos" <!-- .element: class="fragment" -->
 
-<span class="fragment" data-fragment-index="1">A</span>
-<span class="fragment" data-fragment-index="0">B</span>
+"Asegurte que el documento cumpla con el amnesia test (no more context) y funcione cold-read" <!-- .element: class="fragment" -->
+
+"Revisa siguiendo el Rule of 5: Boceto, Correctitud, Claridad, Casos borde, Excelencia" <!-- .element: class="fragment" -->
+
+[Incitaciones skills](charly-vibes.github.io/incitaciones) <!-- .element: class="fragment" -->
 
 --
 
 la IA acelera la implementación  <!-- .element: class="fragment" -->
 
 el desafío: que la comprensión y el diseño acompañen esa velocidad  <!-- .element: class="fragment" -->
-
-vale para simulaciones, análisis de datos y pipelines de investigación  <!-- .element: class="fragment" -->
 
 ---
 
@@ -1033,28 +1077,14 @@ vale para simulaciones, análisis de datos y pipelines de investigación  <!-- .
 
 --
 
-**P.H.O.R.M.A**
+<!-- .slide: data-transition="none" -->
 
----
-
-<!-- 9	Skill	2 min -->
-
-### `scientific-tdd`
-
-- **Diseño** — ¿qué estamos intentando representar?  <!-- .element: class="fragment" -->
-- **Implementación** — ¿qué comportamiento debe tener el programa?  <!-- .element: class="fragment" -->
-- **Verificación** — ¿qué sabemos sobre lo que construimos?  <!-- .element: class="fragment" -->
-
-la serialización es la fricción que hace visibles esas preguntas  <!-- .element: class="fragment" -->
-
-esta charla se construyó con ese mismo flujo  <!-- .element: class="fragment" -->
-
-NOTES:
-El skill combina tres actividades, cada una con su pregunta y su mecanismo de
-fricción: diseño con serialización, implementación con TDD como especificación
-ejecutable, y verificación contra oráculos independientes. El paso a paso de la
-construcción va en el blog de Phorma. Dogfooding: las slides, los ejemplos y los
-tests de esta charla se produjeron con este mismo flujo.
+- **P**
+- **H**
+- **O**
+- **R**
+- **M**
+- **A**
 
 ---
 
@@ -1240,3 +1270,36 @@ nueva_figura(f"Monte Carlo variando {nombre}", xlabel="Distancia final [m]")
 [WAI Decision Matrix](https://charly-vibes.github.io/wai/concepts/decision-matrix.html) <!-- .element: class="fragment" -->
 
 --
+
+<div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.5rem; align-items: start; font-size: 0.8em;">
+<div>
+<h4>Trayectoria — Python en el navegador</h4>
+<div id="tray-editor">
+<pre id="tray-highlight" aria-hidden="true"><code class="hljs language-python"></code></pre>
+<textarea id="tray-codigo" spellcheck="false" wrap="off"></textarea>
+</div>
+<p>
+<button id="tray-boton" onclick="ejecutarPyodide('tray')">▶ Ejecutar</button>
+<button onclick="restablecerTrayectoria()">↺ Restablecer</button>
+<span id="tray-estado" style="color: #999;"></span>
+</p>
+</div>
+<div>
+<img id="tray-imagen" style="display: none; max-height: 15rem;">
+<pre id="tray-salida" style="text-align: left; font-size: 0.5em;"></pre>
+</div>
+</div>
+
+--
+
+<div style="font-size: 0.8em;">
+<h4>Resultados de las simulaciones</h4>
+<p>
+<input type="file" id="res-archivo" accept=".json,application/json">
+<button id="res-boton" onclick="graficarResultado()">Graficar</button>
+<span id="res-estado" style="color: #999;"></span>
+</p>
+<img id="res-imagen" style="display: none; max-height: 12rem;">
+</div>
+
+---
