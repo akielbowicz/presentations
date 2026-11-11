@@ -40,7 +40,8 @@ def test_quita_tendencia_saca_la_gravedad():
     osc = [0.5 * (i % 2) for i in range(n)]  # media 0.25
     a = [G + x for x in osc]
     sin_gravedad = quita_tendencia(a, ventana=120)
-    assert abs(sum(sin_gravedad) / len(sin_gravedad) - 0.25) < 0.05
+    # el high-pass elimina TODO el contenido lento: gravedad y DC de la oscilación
+    assert abs(sum(sin_gravedad) / len(sin_gravedad)) < 0.05
 
 
 def test_ruido_filtrado_deriva_menos():
