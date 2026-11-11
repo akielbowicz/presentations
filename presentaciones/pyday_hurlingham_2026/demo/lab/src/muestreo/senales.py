@@ -68,6 +68,11 @@ def generar(especificacion=REGIMENES, seed: int = 7) -> Sintetica:
                 "v_max": v_max,
                 "f_dyn": f_osc,
             }
+        else:
+            verdad.setdefault(
+                nombre,
+                {"desde_s": desde, "hasta_s": hasta, "a_max": None, "v_max": None, "f_dyn": None},
+            )
     serie = Serie(
         t=t, ax=ax, ay=ay, az=az, f_captura=F_CAPTURA, f_medida=F_CAPTURA
     )
