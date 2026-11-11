@@ -152,7 +152,7 @@
    CODE BLOCKS
    ========================================== */
 
-/* Remove ALL borders and backgrounds from pre elements */
+/* Code blocks: tarjeta blanca, letra negra, dentro del marco */
 .reveal pre,
 .reveal pre.code-wrapper,
 .reveal div.code-wrapper pre,
@@ -161,7 +161,8 @@
 .reveal .slides section pre {
   display: block;
   position: relative;
-  width: 100%;
+  width: auto;
+  max-width: 82%;
   margin: var(--r-block-margin) auto;
   text-align: left;
   font-size: 0.55em;
@@ -178,13 +179,15 @@
 .reveal code {
   font-family: var(--r-code-font);
   font-size: 0.9em;
-  background: var(--color-grey);
+  background: var(--sumo-white);
+  color: var(--sumo-black);
   padding: 0.125rem 0.375rem;
   border-radius: 2px;
-  border: none;
+  border: 1px solid rgba(26, 25, 23, .35);
 }
 
-/* Code blocks - THIS is where the border should be */
+/* Code blocks - tarjeta clara en AMBOS temas (legibilidad en proyector):
+   fondo blanco, letra negra; en modo claro el borde la separa de la slide */
 .reveal pre code,
 .reveal pre > code,
 .reveal section pre code,
@@ -195,9 +198,30 @@
   overflow: auto;
   max-height: 600px;
   word-wrap: normal;
-  background: var(--color-grey) !important;
+  background: var(--sumo-white) !important;
+  color: var(--sumo-black) !important;
   border-radius: 0;
-  border: 2px solid var(--color-border) !important;
+  border: 2px solid var(--sumo-black) !important;
+}
+
+/* Tokens hljs: monocromo negro con acento sumo-rojo — independientes del
+   stylesheet activo (github-dark deja colores claros ilegibles sobre blanco) */
+.reveal pre code span[class^="hljs-"] {
+  color: var(--sumo-black) !important;
+  background: transparent !important;
+}
+.reveal pre code span.hljs-keyword,
+.reveal pre code span.hljs-built_in,
+.reveal pre code span.hljs-title,
+.reveal pre code span.hljs-attr,
+.reveal pre code span.hljs-symbol {
+  color: var(--sumo-red) !important;
+}
+.reveal pre code span.hljs-comment,
+.reveal pre code span.hljs-quote {
+  color: #6b6b66 !important;
+  font-style: italic;
+}
   box-shadow: none !important;
 }
 
