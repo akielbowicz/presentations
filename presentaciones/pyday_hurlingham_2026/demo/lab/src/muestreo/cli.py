@@ -29,18 +29,18 @@ def sintetizar(ruta_csv: Path, seed: int = 7) -> Path:
     return ruta_csv
 
 
-def _verdad_si_existe(ruta_csv: Path) -> dict:
+def _verdad_si_existe(ruta_csv: Path) -> list:
     candidato = ruta_csv.with_suffix(".verdad.json")
     if candidato.exists():
         return json.loads(candidato.read_text())
-    return {}
+    return []
 
 
-def _nombre_ventana(desde_s: float, hasta_s: float, verdad: dict) -> str:
+def _nombre_ventana(desde_s: float, hasta_s: float, tramos: list) -> str:
     medio = (desde_s + hasta_s) / 2
-    for nombre, r in verdad.items():
-        if r["desde_s"] <= medio < r["hasta_s"]:
-            return nombre
+    for tramo in tramos:
+        if tramo["desde_s"] <= medio < tramo["hasta_s"]:
+            return tramo["nombre"]
     return f"t={desde_s:.0f}s"
 
 
@@ -57,7 +57,7 @@ def analizar(ruta_csv: Path, ruta_salida: Path | None = None) -> dict:
         for i in range(0, len(a) - paso_ventana + 1, paso_ventana)
     )
 
-    verdad = _verdad_si_existe(ruta_csv)
+    tramos = _verdad_si_existe(ruta_csv)
     segmentos = []
     for inicio in range(0, len(a) - 1, paso_ventana):
         sub_t = serie.t[inicio : inicio + paso_ventana]
@@ -80,7 +80,7 @@ def analizar(ruta_csv: Path, ruta_salida: Path | None = None) -> dict:
 
         segmentos.append(
             {
-                "nombre": _nombre_ventana(sub_t[0], sub_t[-1], verdad),
+                "nombre": _nombre_ventana(sub_t[0], sub_t[-1], tramos),
                 "desde_s": round(sub_t[0], 2),
                 "hasta_s": round(sub_t[-1], 2),
                 "f_opt": f_opt,

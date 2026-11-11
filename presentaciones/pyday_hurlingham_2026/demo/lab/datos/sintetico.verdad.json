@@ -1,23 +1,22 @@
-{
-  "quieto": {
+[
+  {
+    "nombre": "quieto",
     "desde_s": 0.0,
-    "hasta_s": 10.0,
-    "a_max": null,
-    "v_max": null,
-    "f_dyn": null
+    "hasta_s": 10.0
   },
-  "caminando": {
+  {
+    "nombre": "caminando",
     "desde_s": 10.0,
-    "hasta_s": 30.0,
-    "a_max": 1.5,
-    "v_max": 0.1193662073189215,
-    "f_dyn": 2.0
+    "hasta_s": 30.0
   },
-  "temblor": {
+  {
+    "nombre": "quieto",
+    "desde_s": 30.0,
+    "hasta_s": 40.0
+  },
+  {
+    "nombre": "temblor",
     "desde_s": 40.0,
-    "hasta_s": 50.0,
-    "a_max": 8.0,
-    "v_max": 0.12732395447351627,
-    "f_dyn": 10.0
+    "hasta_s": 50.0
   }
-}
+]

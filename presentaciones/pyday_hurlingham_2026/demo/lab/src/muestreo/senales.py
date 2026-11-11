@@ -35,6 +35,7 @@ FRECUENCIAS = {"caminando": 2.0, "temblor": 10.0}
 class Sintetica:
     serie: Serie
     verdad: dict  # nombre → {desde_s, hasta_s, a_max, v_max, f_dyn}
+    tramos: list  # [{nombre, desde_s, hasta_s}] — para etiquetar ventanas
 
     def __iter__(self):
         yield self.serie
@@ -48,6 +49,7 @@ def generar(especificacion=REGIMENES, seed: int = 7) -> Sintetica:
     ay: list[float] = []
     az: list[float] = []
     verdad: dict = {}
+    tramos: list = []
     for nombre, desde, hasta, a_max in especificacion:
         n = int((hasta - desde) * F_CAPTURA)
         f_osc = FRECUENCIAS.get(nombre, 0.0)
@@ -73,10 +75,11 @@ def generar(especificacion=REGIMENES, seed: int = 7) -> Sintetica:
                 nombre,
                 {"desde_s": desde, "hasta_s": hasta, "a_max": None, "v_max": None, "f_dyn": None},
             )
+        tramos.append({"nombre": nombre, "desde_s": desde, "hasta_s": hasta})
     serie = Serie(
         t=t, ax=ax, ay=ay, az=az, f_captura=F_CAPTURA, f_medida=F_CAPTURA
     )
-    return Sintetica(serie=serie, verdad=verdad)
+    return Sintetica(serie=serie, verdad=verdad, tramos=tramos)
 
 
 def math_sin_2pi_f(t: float, f: float) -> float:
@@ -99,5 +102,5 @@ def escribir_sensorlog(sintetica: Sintetica, ruta: Path) -> None:
         )
     ruta.write_text("\n".join(lineas) + "\n", encoding="utf-8")
     ruta.with_suffix(".verdad.json").write_text(
-        json.dumps(sintetica.verdad, indent=2) + "\n", encoding="utf-8"
+        json.dumps(sintetica.tramos, indent=2) + "\n", encoding="utf-8"
     )
