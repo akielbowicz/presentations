@@ -1,0 +1,190 @@
+{
+  "documento": "talleres.md",
+  "extractor": {
+    "version": "atomico-0.1.0"
+  },
+  "episodios": [
+    {
+      "id": "ep-001",
+      "seccion": "título",
+      "linea": 1,
+      "texto": "Talleres gratuitos de verano"
+    },
+    {
+      "id": "ep-002",
+      "seccion": "encabezado",
+      "linea": 3,
+      "texto": "Inscripción"
+    },
+    {
+      "id": "ep-003",
+      "seccion": "Inscripción",
+      "linea": 5,
+      "texto": "La inscripción es obligatoria para todos los talleres.\nLos formularios abren el primer lunes de cada mes."
+    },
+    {
+      "id": "ep-004",
+      "seccion": "encabezado",
+      "linea": 8,
+      "texto": "Cupos"
+    },
+    {
+      "id": "ep-005",
+      "seccion": "Cupos",
+      "linea": 10,
+      "texto": "Cada taller tiene un cupo máximo de 25 personas.\nLa inscripción es obligatoria para todos los talleres.\nSi el cupo se completa, se abre una lista de espera."
+    },
+    {
+      "id": "ep-006",
+      "seccion": "encabezado",
+      "linea": 14,
+      "texto": "Horarios y lugares"
+    },
+    {
+      "id": "ep-007",
+      "seccion": "Horarios y lugares",
+      "linea": 16,
+      "texto": "Las clases comienzan a las 18:00 en el salón del club.\nLos sábados hay actividades especiales para familias.\nLos talleres de robótica funcionan en la biblioteca.\nEl taller de música necesita que traigas tu propio instrumento."
+    },
+    {
+      "id": "ep-008",
+      "seccion": "encabezado",
+      "linea": 21,
+      "texto": "Preguntas frecuentes"
+    },
+    {
+      "id": "ep-009",
+      "seccion": "Preguntas frecuentes",
+      "linea": 23,
+      "texto": "¿Qué pasa si no puedo asistir a una clase?\nPodés avisar por el formulario y reservar en otra fecha.\n¿Los talleres son gratuitos?\nSí, todos los talleres son gratuitos."
+    }
+  ],
+  "afirmaciones": [
+    {
+      "id": "af-001",
+      "texto": "Talleres gratuitos de verano",
+      "seccion": "título",
+      "linea": 1,
+      "cita": "Talleres gratuitos de verano"
+    },
+    {
+      "id": "af-002",
+      "texto": "Inscripción",
+      "seccion": "encabezado",
+      "linea": 3,
+      "cita": "Inscripción"
+    },
+    {
+      "id": "af-003",
+      "texto": "La inscripción es obligatoria para todos los talleres.",
+      "seccion": "Inscripción",
+      "linea": 5,
+      "cita": "La inscripción es obligatoria para todos los talleres."
+    },
+    {
+      "id": "af-004",
+      "texto": "Los formularios abren el primer lunes de cada mes.",
+      "seccion": "Inscripción",
+      "linea": 6,
+      "cita": "Los formularios abren el primer lunes de cada mes."
+    },
+    {
+      "id": "af-005",
+      "texto": "Cupos",
+      "seccion": "encabezado",
+      "linea": 8,
+      "cita": "Cupos"
+    },
+    {
+      "id": "af-006",
+      "texto": "Cada taller tiene un cupo máximo de 25 personas.",
+      "seccion": "Cupos",
+      "linea": 10,
+      "cita": "Cada taller tiene un cupo máximo de 25 personas."
+    },
+    {
+      "id": "af-007",
+      "texto": "La inscripción es obligatoria para todos los talleres.",
+      "seccion": "Cupos",
+      "linea": 11,
+      "cita": "La inscripción es obligatoria para todos los talleres."
+    },
+    {
+      "id": "af-008",
+      "texto": "Si el cupo se completa, se abre una lista de espera.",
+      "seccion": "Cupos",
+      "linea": 12,
+      "cita": "Si el cupo se completa, se abre una lista de espera."
+    },
+    {
+      "id": "af-009",
+      "texto": "Horarios y lugares",
+      "seccion": "encabezado",
+      "linea": 14,
+      "cita": "Horarios y lugares"
+    },
+    {
+      "id": "af-010",
+      "texto": "Las clases comienzan a las 18:00 en el salón del club.",
+      "seccion": "Horarios y lugares",
+      "linea": 16,
+      "cita": "Las clases comienzan a las 18:00 en el salón del club."
+    },
+    {
+      "id": "af-011",
+      "texto": "Los sábados hay actividades especiales para familias.",
+      "seccion": "Horarios y lugares",
+      "linea": 17,
+      "cita": "Los sábados hay actividades especiales para familias."
+    },
+    {
+      "id": "af-012",
+      "texto": "Los talleres de robótica funcionan en la biblioteca.",
+      "seccion": "Horarios y lugares",
+      "linea": 18,
+      "cita": "Los talleres de robótica funcionan en la biblioteca."
+    },
+    {
+      "id": "af-013",
+      "texto": "El taller de música necesita que traigas tu propio instrumento.",
+      "seccion": "Horarios y lugares",
+      "linea": 19,
+      "cita": "El taller de música necesita que traigas tu propio instrumento."
+    },
+    {
+      "id": "af-014",
+      "texto": "Preguntas frecuentes",
+      "seccion": "encabezado",
+      "linea": 21,
+      "cita": "Preguntas frecuentes"
+    },
+    {
+      "id": "af-015",
+      "texto": "¿Qué pasa si no puedo asistir a una clase?",
+      "seccion": "Preguntas frecuentes",
+      "linea": 23,
+      "cita": "¿Qué pasa si no puedo asistir a una clase?"
+    },
+    {
+      "id": "af-016",
+      "texto": "Podés avisar por el formulario y reservar en otra fecha.",
+      "seccion": "Preguntas frecuentes",
+      "linea": 24,
+      "cita": "Podés avisar por el formulario y reservar en otra fecha."
+    },
+    {
+      "id": "af-017",
+      "texto": "¿Los talleres son gratuitos?",
+      "seccion": "Preguntas frecuentes",
+      "linea": 25,
+      "cita": "¿Los talleres son gratuitos?"
+    },
+    {
+      "id": "af-018",
+      "texto": "Sí, todos los talleres son gratuitos.",
+      "seccion": "Preguntas frecuentes",
+      "linea": 26,
+      "cita": "Sí, todos los talleres son gratuitos."
+    }
+  ]
+}
