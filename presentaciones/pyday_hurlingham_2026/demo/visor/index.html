@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>conocimiento — visor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>conocimiento</h1>
+    <p id="meta" class="meta">cargando…</p>
+  </header>
+
+  <section class="controles">
+    <div class="interruptores" id="datos"></div>
+    <input
+      id="busqueda"
+      type="search"
+      placeholder="buscar afirmaciones…"
+      autocomplete="off"
+    />
+    <div class="chips" id="secciones"></div>
+  </section>
+
+  <main>
+    <ul id="afirmaciones" class="lista"></ul>
+    <aside id="evidencia" class="evidencia" hidden>
+      <h2>evidencia</h2>
+      <p class="cita" id="cita"></p>
+      <p class="fuente" id="fuente"></p>
+    </aside>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
