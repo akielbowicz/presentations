@@ -346,6 +346,23 @@ html.reveal-print .reveal .slides .pdf-page::after {
   pointer-events: none;
 }
 
+/* Recorte del marco en la esquina inferior derecha, como la tapa
+   (los elementos rompen el marco). Ahí viven las flechas de reveal,
+   que son de tamaño fijo en px (no escalan con la deck): el parche
+   va en px sobre el color de fondo y borra las líneas de la esquina.
+   z-index 1 para pintar por encima de la línea (::after). */
+.reveal > .backgrounds .slide-background:not(.stack)::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 180px;
+  height: 130px;
+  background: var(--r-background-color);
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* ==========================================
    TÍTULOS COMO LA TAPA — abajo, rojo, espaciados
    "AFTER·CHABON" corre por la franja inferior del
