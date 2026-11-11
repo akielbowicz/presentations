@@ -339,9 +339,10 @@
 html.reveal-print .reveal .slides .pdf-page::after {
   content: '';
   position: absolute;
-  /* Proporciones de la tapa: inset ~2.7%, línea ~0.42% del ancho */
+  /* Proporciones de la tapa: inset ~2.7%; línea afinada a pedido
+     (la tapa tiene ~0.42% del ancho, usamos 0.3vw para pantalla) */
   inset: 2.7vw;
-  border: 0.42vw solid var(--sumo-red);
+  border: 0.3vw solid var(--sumo-red);
   pointer-events: none;
 }
 
