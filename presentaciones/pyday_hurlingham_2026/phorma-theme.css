@@ -33,13 +33,13 @@
 
   /* Typography */
   --r-main-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
-  --r-heading-font: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  --r-heading-font: 'Poiret One', 'Comfortaa', 'Quicksand', var(--r-code-font);
   --r-code-font: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
 
   --r-main-font-size: 38px;
-  --r-heading-letter-spacing: -0.02em;
-  --r-heading-text-transform: none;
-  --r-heading-font-weight: 700;
+  --r-heading-letter-spacing: 0.3em;
+  --r-heading-text-transform: uppercase;
+  --r-heading-font-weight: 400;
 
   /* Spacing */
   --r-block-margin: 20px;
@@ -343,6 +343,57 @@ html.reveal-print .reveal .slides .pdf-page::after {
   inset: 2.7vw;
   border: 0.42vw solid var(--sumo-red);
   pointer-events: none;
+}
+
+/* ==========================================
+   TÍTULOS COMO LA TAPA — abajo, rojo, espaciados
+   "AFTER·CHABON" corre por la franja inferior del
+   disco; el título de cada diapo hace lo mismo.
+   Las sections hoja se estiran al alto completo
+   del slide (flex) para anclar el título abajo
+   sin mover el contenido, que queda centrado.
+   ========================================== */
+
+.reveal .slides > section:not(.stack),
+.reveal .slides > section > section {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* reveal.js pone display:block INLINE en la section visible (.present);
+   hace falta !important para que el contenido centre en flex.
+   Scope a .present únicamente: en .past/.future el display:none inline
+   de reveal es lo que mantiene ocultas las demás slides. */
+.reveal .slides > section.present:not(.stack),
+.reveal .slides > section > section.present {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: safe center;
+}
+
+.reveal .slides section > h1:first-of-type,
+.reveal .slides section > h2:first-of-type,
+.reveal .slides section > h3:first-of-type {
+  position: absolute;
+  bottom: 3.5vw;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  color: var(--sumo-red);
+}
+
+.reveal .slides section > h1:first-of-type { font-size: 2em; }
+.reveal .slides section > h2:first-of-type { font-size: 1.6em; }
+.reveal .slides section > h3:first-of-type { font-size: 1.3em; }
+
+/* Subtítulos internos (h4+) vuelven a mono, sin tratamiento de tapa */
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-family: var(--r-code-font);
+  letter-spacing: 0.02em;
 }
 
 /* ==========================================
