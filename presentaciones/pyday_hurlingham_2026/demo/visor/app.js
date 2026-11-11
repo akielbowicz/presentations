@@ -90,7 +90,15 @@ function renderInterruptores() {
 function renderChips() {
   const contenedor = $("#secciones");
   contenedor.replaceChildren();
-  const opciones = [["todas", `todas (${estado.datos.afirmaciones.length})`], ...seccionesConConteo()];
+  const conteadas = seccionesConConteo();
+  // Documentos reales traen cientos de secciones: top por conteo,
+  // y la sección activa queda siempre visible aunque no entre en el top.
+  const tope = conteadas.slice(0, 12);
+  if (estado.seccion !== "todas" && !tope.some(([s]) => s === estado.seccion)) {
+    tope.push(...conteadas.filter(([s]) => s === estado.seccion));
+  }
+  const opciones = [["todas", `todas (${estado.datos.afirmaciones.length})`],
+    ...tope.map(([seccion, conteo]) => [seccion, `${seccion} (${conteo})`])];
   for (const [seccion, etiqueta] of opciones) {
     const boton = document.createElement("button");
     boton.textContent = etiqueta;
