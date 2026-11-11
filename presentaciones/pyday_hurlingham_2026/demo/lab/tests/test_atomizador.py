@@ -6,6 +6,7 @@ from conocimiento.atomizador import (
     proponer_afirmaciones_atomicas,
     unidades_de,
 )
+from conocimiento.especificaciones import especifica
 from conocimiento.modelo import Episodio
 
 
@@ -13,6 +14,7 @@ def episodio(texto: str, seccion: str = "prueba") -> Episodio:
     return Episodio(id="ep-001", seccion=seccion, linea=1, texto=texto)
 
 
+@especifica("atomizador.units.verbatim")
 def test_unidades_son_subcadenas_verbatim() -> None:
     texto = "La inscripción es obligatoria. Los formularios abren el lunes."
     unidades = unidades_de(texto)
@@ -21,6 +23,7 @@ def test_unidades_son_subcadenas_verbatim() -> None:
         assert unidad in texto, f"no verbatim: {unidad!r}"
 
 
+@especifica("atomizador.units.reconstruccion")
 def test_unidades_reconstruyen_el_texto_sin_espacios() -> None:
     texto = "Primera oración. Segunda oración; con conector. Fin."
     unidades = unidades_de(texto)
@@ -29,6 +32,7 @@ def test_unidades_reconstruyen_el_texto_sin_espacios() -> None:
     assert sin_espacios(reconstruido) == sin_espacios(texto)
 
 
+@especifica("atomizador.units.fusion-adelante")
 def test_fragments_cortos_se_fusionan_hacia_adelante() -> None:
     # Semántica de bajan: la unidad bajo mínimo absorbe la siguiente oración
     # y deja de absorber apenas alcanza el mínimo.
@@ -39,6 +43,7 @@ def test_fragments_cortos_se_fusionan_hacia_adelante() -> None:
     assert len(unidades[0]) >= MIN_UNIDAD
 
 
+@especifica("atomizador.units.fusion-atras")
 def test_fragmento_final_corto_se_fusiona_hacia_atras() -> None:
     texto = "Las clases comienzan a las 18:00 en el salón del club. ¡Vamos!"
     unidades = unidades_de(texto)
@@ -46,6 +51,7 @@ def test_fragmento_final_corto_se_fusiona_hacia_atras() -> None:
     assert unidades[0].endswith("¡Vamos!")
 
 
+@especifica("atomizador.units.division-conector")
 def test_unidad_larga_se_divide_en_conector_punto_y_coma() -> None:
     cuerpo = "x" * (MAX_UNIDAD + 10)  # sin puntos dentro; debe dividir en '; '
     texto = f"Parte izquierda larga {cuerpo}; parte derecha también muy larga {cuerpo}."
@@ -56,18 +62,22 @@ def test_unidad_larga_se_divide_en_conector_punto_y_coma() -> None:
         assert unidad in texto, "la división es verbatim, mejor esfuerzo"
 
 
+@especifica("atomizador.units.sin-puntuacion")
 def test_texto_sin_puntuacion_final_es_una_unidad() -> None:
     # Los encabezados no llevan punto: el extractor los propone igual
     # (el defecto conocido que la visualización hace visible).
     assert unidades_de("Horarios y lugares") == ["Horarios y lugares"]
 
 
+@especifica("atomizador.units.constantes-bajan")
 def test_min_unidad_coincide_con_bajan() -> None:
     # Espeja ATOMIZER_MIN_UNIT_CHARS = 20 y MAX = 300 de bajan.
     assert MIN_UNIDAD == 20
     assert MAX_UNIDAD == 300
 
 
+@especifica("atomizador.units.evidencia")
+@especifica("extractor.seam.un-episodio")
 def test_extractor_atomico_devuelve_afirmaciones_con_evidencia() -> None:
     episodio_ = episodio("La inscripción es obligatoria. Los formularios abren el lunes.")
     afirmaciones = proponer_afirmaciones_atomicas(episodio_)
@@ -79,6 +89,7 @@ def test_extractor_atomico_devuelve_afirmaciones_con_evidencia() -> None:
         assert a.evidencia.cita == a.texto
 
 
+@especifica("extractor.seam.version-cache")
 def test_extractor_declara_su_version_para_el_cache() -> None:
     # Espeja bajan: la versión del extractor es identidad de caché.
     from conocimiento.atomizador import EXTRACTOR_ATOMICO
@@ -86,6 +97,7 @@ def test_extractor_declara_su_version_para_el_cache() -> None:
     assert EXTRACTOR_ATOMICO.version().startswith("atomico-")
 
 
+@especifica("atomizador.units.preguntas-sobreviven")
 def test_preguntas_sobreviven_como_candidatas() -> None:
     # El defecto conocido: las preguntas se extraen como si fueran conocimiento.
     episodio_ = episodio("¿Qué pasa si no puedo asistir a una clase?")

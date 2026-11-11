@@ -5,11 +5,14 @@ que convierte documentos en afirmaciones con evidencia verbatim.
 
 Espeja los conceptos del contrato de **bajan**: episodios, candidatos de
 afirmaciones, costura de extractores (`version()` + `proponer()`), corpus
-dorado y evaluación.
+dorado y evaluación; y sus specs (`specs/*.md` con frontmatter
+`id/kind/statement` y propiedades `[[ancla]]`) con verificación de
+correspondencia spec ↔ test (`conocimiento specs`).
 
 ```bash
 uv sync
 uv run python -m pytest -q
+uv run conocimiento specs
 uv run conocimiento procesar datos/talleres.md --extractor atomico --salida salida/conocimiento.json
 uv run conocimiento evaluar salida/conocimiento.json evals/corpus-dorado.json
 ```

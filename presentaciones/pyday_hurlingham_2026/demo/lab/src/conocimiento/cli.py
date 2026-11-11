@@ -13,6 +13,7 @@ from rich.table import Table
 
 from .atomizador import EXTRACTOR_ATOMICO
 from .estructura import EXTRACTOR_ESTRUCTURA
+from .especificaciones import anclas_de_directorio, cargar_especificaciones, cobertura
 from .evaluar import evaluar
 from .pipeline import procesar, escribir
 
@@ -58,6 +59,46 @@ def _evaluar(args: argparse.Namespace) -> None:
     )
 
 
+def _specs(args: argparse.Namespace) -> None:
+    """Reporte de correspondencia spec ↔ test (la idea de espectacular)."""
+    specs = cargar_especificaciones(Path(args.specs))
+    anclas = anclas_de_directorio(Path(args.tests))
+    reporte = cobertura(specs, anclas)
+
+    tabla = Table(title="Correspondencia spec ↔ test", show_lines=False)
+    tabla.add_column("spec")
+    tabla.add_column("statement")
+    tabla.add_column("verificadas", justify="right")
+    for spec in specs.values():
+        cubiertas = sum(1 for p in spec.propiedades if p in anclas)
+        tabla.add_row(
+            spec.id,
+            spec.statement,
+            f"{cubiertas}/{len(spec.propiedades)}",
+        )
+    console.print(tabla)
+
+    ok = True
+    if reporte.fantasma:
+        ok = False
+        console.print(
+            "[red]anclas sin spec (¿typo?):[/red] " + ", ".join(sorted(reporte.fantasma))
+        )
+    if reporte.olvidadas:
+        ok = False
+        console.print(
+            "[red]propiedades sin test:[/red] " + ", ".join(sorted(reporte.olvidadas))
+        )
+    if ok:
+        console.print(
+            f"[green]todo cubierto:[/green] {len(anclas)} anclas verifican "
+            f"{sum(len(s.propiedades) for s in specs.values())} propiedades "
+            f"de {len(specs)} especificaciones"
+        )
+    else:
+        raise SystemExit(1)
+
+
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(
         prog="conocimiento",
@@ -76,11 +117,20 @@ def main(argv: list[str] | None = None) -> None:
     p_evaluar.add_argument("producido", help="JSON producido por `procesar`")
     p_evaluar.add_argument("dorado", help="JSON con el corpus dorado")
 
+    p_specs = sub.add_parser(
+        "specs",
+        help="correspondencia spec ↔ test: sin fantasmas, sin olvidadas",
+    )
+    p_specs.add_argument("--specs", default="specs", help="directorio de specs")
+    p_specs.add_argument("--tests", default="tests", help="directorio de tests")
+
     args = parser.parse_args(argv)
     if args.comando == "procesar":
         _procesar(args)
     elif args.comando == "evaluar":
         _evaluar(args)
+    elif args.comando == "specs":
+        _specs(args)
 
 
 if __name__ == "__main__":

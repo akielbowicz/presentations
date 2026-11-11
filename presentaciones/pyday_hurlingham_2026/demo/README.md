@@ -15,23 +15,34 @@ demo/
 ```bash
 cd lab
 uv sync                      # entorno reproducible desde el lockfile
-uv run python -m pytest -q   # 22 tests verdes: el contrato está protegido
+uv run python -m pytest -q   # 29 tests verdes: el contrato está protegido
+uv run conocimiento specs    # correspondencia spec ↔ test: sin fantasmas, sin olvidadas
 ```
 
 Contar: el contrato `Extractor` (`version()` + `proponer(episodio)`) es la
 costura — espeja el contrato real de **bajan**. El pipeline valida y registra;
 los extractores solo proponen candidatos.
 
+Lo que realmente queremos está escrito en `specs/*.md` (formato bajan:
+frontmatter `id/kind/statement` + propiedades `[[ancla]]`), y la herramienta
+no nos deja olvidarlo: cada propiedad tiene un test que la verifica y cada
+ancla declarada existe en alguna spec. Es la idea de espectacular, en
+miniatura y en Python.
+
 ### Slide 5 — Romper sin miedo · ~1:30
 
-En vivo, con red de seguridad:
+En vivo, con red de seguridad (dos roturas, dos redes distintas):
 
 1. Abrir `src/conocimiento/atomizador.py`, cambiar `MIN_UNIDAD = 20` → `100`.
 2. `uv run python -m pytest -q` → **rojo**: el test `test_min_unidad_coincide_con_bajan` avisa.
 3. `git restore src/conocimiento/atomizador.py` → verde otra vez.
+4. Variante spec: cambiar una ancla en `specs/atomizador.md` →
+   `uv run conocimiento specs` → **exit 1** con `propiedades sin test`.
+5. `git restore specs/atomizador.md` → exit 0.
 
 Mensaje: equivocarse cuesta un `git restore`. Las reglas son parámetros para
-experimentar; los tests defienden lo que decidimos no negociar.
+experimentar; los tests defienden lo que decidimos no negociar; las specs
+impiden que lo que queremos se divorcie de lo que verificamos.
 
 ### Slide 6 — Experimentar con conocimiento · ~2:00
 
@@ -109,6 +120,7 @@ sobreviven. Eso es el software como sustrato para pensar.
 cd lab
 uv sync
 uv run python -m pytest -q
+uv run conocimiento specs
 uv run conocimiento procesar datos/talleres.md --extractor atomico --salida salida/conocimiento.json
 uv run conocimiento procesar datos/talleres.md --extractor estructura --salida salida/conocimiento-estructura.json
 cp salida/*.json ../visor/data/
