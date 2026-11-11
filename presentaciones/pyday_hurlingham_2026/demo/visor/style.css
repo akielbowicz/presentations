@@ -28,7 +28,15 @@ canvas {
   border: 1px solid #333; border-radius: 4px;
   background: #111;
 }
-.hint { color: var(--gris); font-size: .85rem; }
+.hint { color: var(--blanco); font-size: 1.05rem; margin: .4rem 0; }
+#leyenda { color: var(--gris); font-size: .85rem; margin: 0 0 .4rem; }
+#leyenda .punto { color: var(--rojo); }
+
+#error {
+  border: 1px solid var(--rojo); border-radius: 4px;
+  padding: .8rem 1rem; margin: 1rem 0; color: var(--blanco);
+}
+#error code { color: var(--rojo); }
 
 #regla { margin-top: 2rem; }
 #regla h2 { font-size: 1.1rem; color: var(--rojo); }

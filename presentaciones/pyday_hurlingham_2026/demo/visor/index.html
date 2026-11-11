@@ -13,11 +13,18 @@
     <p id="ahorro" class="sumo-red"></p>
   </header>
 
+  <div id="error" hidden>
+    No pude leer <code>data/recomendacion.json</code>. El visor se sirve por HTTP:
+    <code>python3 -m http.server</code> en esta carpeta y abrir
+    <code>http://localhost:8000</code>.
+  </div>
+
   <nav id="chips"></nav>
 
   <main>
+    <p class="hint" id="hint">Elegí un tramo arriba: la señal entera (60 Hz) contra lo mismo medido al ritmo justo.</p>
+    <p id="leyenda">— toda la data (60 Hz) &nbsp;·&nbsp; <span class="punto">●</span> lo que alcanza guardar</p>
     <canvas id="grafico" width="1150" height="360"></canvas>
-    <p class="hint" id="hint">Click en un tramo: la señal original (60 Hz) contra la misma señal al ritmo recomendado.</p>
     <section id="regla">
       <h2>La regla que emerge</h2>
       <p>Nyquist (2×) basta para que la señal <strong>exista</strong>.

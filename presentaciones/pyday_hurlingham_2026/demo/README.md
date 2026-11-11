@@ -83,9 +83,14 @@ python3 -m http.server 8642 --directory visor
 # abrir http://localhost:8642
 ```
 
-Recorrido: titular (27% de la data) → chips por tramo → click en *caminando*:
-la señal gris (60 Hz) contra los puntos rojos (15 Hz) — **son la misma
-historia**. Click en *temblor*: a 15 Hz la vibración MIENTE (aliasing visible).
+Recorrido con la captura real (46 s a 60 Hz, 2774 lecturas): titular (alcanzan
+1027 de 2774 muestras, 37%) → chips en palabras (quieto · se mueve poco ·
+se mueve mucho · sacudón) → click en *quieto* (20–25 s): con 1 lectura por
+segundo alcanza, y el gráfico era una línea plana — **son la misma historia**.
+Click en *sacudón* (40–45 s): recién con 40 Hz no miente.
+El aliasing didáctico (el *temblor* etiquetado del sintético mintiendo a 15 Hz)
+vive en la captura sintética: `uv run muestreo sintetizar datos/sintetico.csv`,
+analizar, copiar a `visor/data/` y recargar el server.
 
 ### Track 11 — Noche de paz · descubrir algo que no sabíamos (~1:30)
 
