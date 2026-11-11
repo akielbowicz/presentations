@@ -1,7 +1,9 @@
 /*
- * Phorma Scientific - Reveal.js Theme
- * Based on Phorma Scientific brand identity
- * Light and Dark theme variants
+ * Reveal.js Theme — "After Chabón" (Sumo)
+ * Paleta de 3 colores medida de la tapa del disco:
+ *   negro  #1A1917   blanco #FBFAFA   rojo #C83534
+ * Fondo claro/oscuro conmutable (toggle / ?theme=light|dark).
+ * El rojo es el MISMO en ambos temas (como la tapa: rojo sobre negro).
  */
 
 /* ==========================================
@@ -9,20 +11,25 @@
    ========================================== */
 
 :root {
-  /* Light Theme (default) */
-  --r-background-color: #FFFFFF;
-  --r-main-color: #000000;
-  --r-heading-color: #000000;
-  --r-link-color: #000000;
-  --r-link-color-hover: #666666;
-  --r-selection-background-color: #000000;
-  --r-selection-color: #FFFFFF;
+  /* Paleta Sumo (medida de la tapa de After Chabón) */
+  --sumo-black: #1A1917;
+  --sumo-white: #FBFAFA;
+  --sumo-red: #C83534;
 
-  /* Phorma brand colors */
+  /* Light Theme (fondo blanco, default) */
+  --r-background-color: var(--sumo-white);
+  --r-main-color: var(--sumo-black);
+  --r-heading-color: var(--sumo-black);
+  --r-link-color: var(--sumo-red);
+  --r-link-color-hover: var(--sumo-red);
+  --r-selection-background-color: var(--sumo-red);
+  --r-selection-color: var(--sumo-white);
+
+  /* Neutrales */
   --color-grey: #E5E5E5;
   --color-grey-dark: #333333;
   --color-muted: #666666;
-  --color-border: #000000;
+  --color-border: var(--sumo-black);
 
   /* Typography */
   --r-main-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
@@ -43,20 +50,20 @@
   --transition-base: 250ms ease;
 }
 
-/* Dark Theme */
+/* Dark Theme (fondo negro, como la tapa) */
 [data-theme="dark"] {
-  --r-background-color: #0a0a0a;
-  --r-main-color: #FFFFFF;
-  --r-heading-color: #FFFFFF;
-  --r-link-color: #FFFFFF;
-  --r-link-color-hover: #999999;
-  --r-selection-background-color: #FFFFFF;
-  --r-selection-color: #000000;
+  --r-background-color: var(--sumo-black);
+  --r-main-color: var(--sumo-white);
+  --r-heading-color: var(--sumo-white);
+  --r-link-color: var(--sumo-red);
+  --r-link-color-hover: var(--sumo-red);
+  --r-selection-background-color: var(--sumo-red);
+  --r-selection-color: var(--sumo-white);
 
-  --color-grey: #1a1a1a;
+  --color-grey: #262523;
   --color-grey-dark: #cccccc;
   --color-muted: #999999;
-  --color-border: #FFFFFF;
+  --color-border: var(--sumo-white);
 }
 
 /* ==========================================
@@ -130,10 +137,10 @@
    ========================================== */
 
 .reveal a {
-  color: var(--r-link-color);
+  color: var(--sumo-red);
   text-decoration: none;
   transition: opacity var(--transition-fast);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--sumo-red);
 }
 
 .reveal a:hover {
@@ -244,7 +251,7 @@
   position: absolute;
   left: 0;
   font-family: var(--r-code-font);
-  color: var(--r-main-color);
+  color: var(--sumo-red);
 }
 
 .reveal ol {
@@ -263,7 +270,7 @@
   padding: 1em;
   font-style: italic;
   background: var(--color-grey);
-  border-left: 4px solid var(--color-border);
+  border-left: 4px solid var(--sumo-red);
   box-shadow: none;
 }
 
@@ -315,8 +322,37 @@
 }
 
 /* ==========================================
+   MARCO SUMO — rojo en todas las diapositivas
+   Réplica del marco de la tapa de After Chabón:
+   línea fina roja, insetada del borde, tamaño
+   completo de la diapo (no del contenido).
+
+   Va sobre la capa .backgrounds (elementos del
+   tamaño exacto de cada slide, detrás del
+   contenido); en export PDF reveal oculta esa
+   capa, así que hay regla paralela sobre
+   .pdf-page. Los .stack (contenedores de slides
+   verticales) no llevan marco propio.
+   ========================================== */
+
+.reveal > .backgrounds .slide-background:not(.stack)::after,
+html.reveal-print .reveal .slides .pdf-page::after {
+  content: '';
+  position: absolute;
+  /* Proporciones de la tapa: inset ~2.7%, línea ~0.42% del ancho */
+  inset: 2.7vw;
+  border: 0.42vw solid var(--sumo-red);
+  pointer-events: none;
+}
+
+/* ==========================================
    UTILITY CLASSES
    ========================================== */
+
+/* Acento rojo Sumo (títulos destacados, labels) */
+.reveal .sumo-red {
+  color: var(--sumo-red);
+}
 
 .reveal .text-mono {
   font-family: var(--r-code-font);
@@ -357,7 +393,7 @@
 /* Highlight box */
 .reveal .highlight-box {
   background: var(--color-grey);
-  border-left: 4px solid var(--color-border);
+  border-left: 4px solid var(--sumo-red);
   padding: 1em;
   margin: 1em 0;
 }
@@ -431,8 +467,8 @@
 
 .theme-toggle {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: calc(2.7vw + 12px);
+  right: calc(2.7vw + 12px);
   z-index: 100;
   padding: 0.5em 1em;
   background: var(--r-background-color);

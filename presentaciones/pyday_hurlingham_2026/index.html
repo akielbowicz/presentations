@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title> Software científico e IA: cómo usar LLMs sin romper todo - PyDay La Plata 2026</title>
+    <title>After Chabón — PyDay Hurlingham 2026</title>
 
     <!-- Phorma Scientific Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,8 +70,12 @@
         const lightTheme = document.getElementById('highlight-theme-light');
         const darkTheme = document.getElementById('highlight-theme-dark');
 
-        // Load saved theme preference or default to light
-        const savedTheme = localStorage.getItem('phorma-theme') || 'light';
+        // Load saved theme preference or default to dark (como la tapa del disco).
+        // Override puntual por query param: index.html?theme=light|dark
+        const urlTheme = new URLSearchParams(location.search).get('theme');
+        const savedTheme = (urlTheme === 'light' || urlTheme === 'dark')
+            ? urlTheme
+            : (localStorage.getItem('phorma-theme') || 'dark');
         if (savedTheme === 'dark') {
             htmlElement.setAttribute('data-theme', 'dark');
             themeIcon.textContent = '🌙';
@@ -104,6 +108,8 @@
         Reveal.initialize({
             hash: true,
             center: true,
+            width: 1280,
+            height: 720,
             transition: 'slide',
             // Learn about plugins: https://revealjs.com/plugins/
             plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
