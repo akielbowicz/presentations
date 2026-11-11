@@ -28,3 +28,9 @@ def media_movil(valores: list[float], ventana: int) -> list[float]:
         hi = min(len(valores), i + mitad + 1)
         salida.append(sum(valores[lo:hi]) / (hi - lo))
     return salida
+
+
+def quita_tendencia(valores: list[float], ventana: int) -> list[float]:
+    """High-pass casero: resta la media móvil lenta (gravedad, bias del sensor)."""
+    base = media_movil(valores, ventana)
+    return [v - b for v, b in zip(valores, base)]
