@@ -35,6 +35,20 @@ class Serie:
     def magnitud(self) -> list[float]:
         return [( (x * x + y * y + z * z) ** 0.5) for x, y, z in zip(self.ax, self.ay, self.az)]
 
+    def eje_principal(self) -> list[float]:
+        """El eje con más variación de alta frecuencia (el que siente la dinámica)."""
+        candidatos = (self.ax, self.ay, self.az)
+        variaciones = []
+        for eje in candidatos:
+            diffs = [abs(eje[i + 1] - eje[i]) for i in range(len(eje) - 1)]
+            variaciones.append(sum(diffs) / len(diffs) if diffs else 0.0)
+        return list(candidatos[variaciones.index(max(variaciones))])
+
+    @property
+    def a(self) -> list[float]:
+        """La aceleración del eje dominante: la que se analiza."""
+        return self.eje_principal()
+
 
 def leer_sensorlog(ruta: Path) -> Serie:
     lineas = ruta.read_text(encoding="utf-8-sig").splitlines()
