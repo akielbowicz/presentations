@@ -10,6 +10,8 @@ Formato real (app.js de jams/sensor-log):
 
 from pathlib import Path
 
+import pytest
+
 from muestreo.csv_sensorlog import leer_sensorlog
 
 FIXTURE = Path(__file__).parent / "datos" / "acelerometro-mini.csv"
@@ -23,7 +25,7 @@ def test_lee_bom_y_comentarios():
 def test_columnas_timestamp_x_y_z():
     series = leer_sensorlog(FIXTURE)
     assert series.t[0] == 0.0
-    assert series.t[1] == 0.016  # ms → segundos, relativos a la primera muestra
+    assert series.t[1] == pytest.approx(0.016)  # ms → segundos, relativos a la primera muestra
     assert series.ax[0] == 0.123456
     assert series.ay[0] == -1.0
     assert series.az[0] == 9.81

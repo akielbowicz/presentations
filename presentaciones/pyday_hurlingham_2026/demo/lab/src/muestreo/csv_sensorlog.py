@@ -50,11 +50,11 @@ def leer_sensorlog(ruta: Path) -> Serie:
         if len(partes) != 4 or partes[0] == "timestamp_ms":
             continue
         ts, x, y, z = (float(p) for p in partes)
-        filas.append((ts / 1000.0, x, y, z))
+        filas.append((ts, x, y, z))  # timestamp en ms; a segundos recién tras restar t0
     if not filas:
         raise ValueError(f"{ruta}: sin muestras")
-    t0 = filas[0][0]
-    t = [f[0] - t0 for f in filas]
+    t0_ms = filas[0][0]
+    t = [(f[0] - t0_ms) / 1000.0 for f in filas]
     f_medida = (len(t) - 1) / t[-1] if t[-1] > 0 else 0.0
     return Serie(
         t=t,
