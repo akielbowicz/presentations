@@ -380,7 +380,10 @@ html.reveal-print .reveal .slides .pdf-page::after {
   left: 0;
   right: 0;
   margin: 0;
-  text-align: center;
+  padding-left: 4.8vw;
+  text-align: left;
+  font-style: italic;
+  font-weight: 700;
   color: var(--sumo-red);
 }
 
