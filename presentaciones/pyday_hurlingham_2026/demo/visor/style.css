@@ -1,0 +1,39 @@
+:root {
+  --negro: #1A1917;
+  --blanco: #FBFAFA;
+  --rojo: #C83534;
+  --gris: #8a8a86;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 1.5rem;
+  background: var(--negro); color: var(--blanco);
+  font: 16px/1.5 ui-monospace, "SF Mono", Menlo, monospace;
+}
+header h1 { font-size: 1.4rem; margin: 0 0 .3rem; }
+header h1 em { color: var(--rojo); font-style: italic; }
+#meta { color: var(--gris); margin: .2rem 0; }
+.sumo-red { color: var(--rojo); font-size: 1.25rem; font-weight: bold; margin: .3rem 0 0; }
+
+#chips { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.2rem 0; }
+.chip {
+  border: 1px solid var(--gris); border-radius: 4px;
+  padding: .35rem .7rem; cursor: pointer; user-select: none;
+}
+.chip strong { color: var(--rojo); }
+.chip.activa { border-color: var(--rojo); background: rgba(200, 53, 52, .15); }
+
+canvas {
+  width: 100%; height: auto;
+  border: 1px solid #333; border-radius: 4px;
+  background: #111;
+}
+.hint { color: var(--gris); font-size: .85rem; }
+
+#regla { margin-top: 2rem; }
+#regla h2 { font-size: 1.1rem; color: var(--rojo); }
+.formula { font-size: 1.1rem; background: #222; padding: .6rem 1rem; border-radius: 4px; }
+table { border-collapse: collapse; margin-top: .8rem; }
+td, th { border: 1px solid #333; padding: .3rem .8rem; text-align: left; }
+th { color: var(--gris); font-weight: normal; }
+footer { margin-top: 2.5rem; color: var(--gris); font-size: .85rem; }

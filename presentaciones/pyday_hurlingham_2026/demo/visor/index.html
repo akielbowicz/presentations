@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>muestreo — ¿cuánta data hace falta?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>¿Cuánta data hace falta <em>de verdad</em>?</h1>
+    <p id="meta"></p>
+    <p id="ahorro" class="sumo-red"></p>
+  </header>
+
+  <nav id="chips"></nav>
+
+  <main>
+    <canvas id="grafico" width="1150" height="360"></canvas>
+    <p class="hint" id="hint">Click en un tramo: la señal original (60 Hz) contra la misma señal al ritmo recomendado.</p>
+    <section id="regla">
+      <h2>La regla que emerge</h2>
+      <p>Nyquist (2×) basta para que la señal <strong>exista</strong>.
+      Para que su forma no <strong>mienta</strong> hacen falta ~4–8×:</p>
+      <p class="formula">f<sub>opt</sub> ≈ k · f<sub>dyn</sub> &nbsp;&nbsp;con&nbsp;&nbsp;
+        f<sub>dyn</sub> = a<sub>max</sub> / (2π · v<sub>max</sub>)</p>
+      <table id="tabla"></table>
+    </section>
+  </main>
+
+  <footer>
+    <p>Los datos vienen del lab (Lado A, Python + uv). Este visor es vanilla JS: el contrato es el JSON, no un framework.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
