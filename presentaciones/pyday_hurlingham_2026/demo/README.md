@@ -11,15 +11,10 @@ demo/
 └── visor/   Lado B · Vanilla JS   · la señal 60 Hz contra la recomendada, por tramo
 ```
 
-## Captura real (para integrar antes del ensayo)
+## La captura real (ya integrada — la demo va sobre esta captura)
 
-Con sensor-log (del propio JAMS), acelerómetro a 60 Hz, teléfono en el bolsillo:
-
-1. 10 s quieto → 2. 30 s caminando → 3. 10 s quieto → 4. 10 s con el teléfono
-temblando en la mano → 5. seguir caminando.
-
-Export CSV del acelerómetro → `lab/datos/captura.csv` (el parser ya conoce el
-formato exacto: BOM + comentarios `#` + `timestamp_ms,x,y,z`). Regenerar:
+Con sensor-log (del propio JAMS), acelerómetro a 60 Hz, 46 s, 2774 muestras
+(`lab/datos/captura.csv`, commiteada en 5e06de0). Para recapturar:
 
 ```bash
 cd lab
@@ -29,8 +24,9 @@ uv run muestreo analizar datos/captura.csv --salida salida/recomendacion.json
 cp salida/recomendacion.json ../visor/data/
 ```
 
-Plan B: `datos/sintetico.csv` ya está en el repo y produce todas las salidas
-de abajo sin captura real. Regenerarlo: `uv run muestreo sintetizar datos/sintetico.csv`.
+El sintético (`datos/sintetico.csv`) queda como recurso didáctico opcional:
+trae tramos etiquetados (quieto/caminando/temblor) para mostrar aliasing.
+Regenerarlo: `uv run muestreo sintetizar datos/sintetico.csv`.
 
 ## Guion (mapeado a las diapositivas)
 
@@ -41,7 +37,7 @@ aceleración a 60 Hz. Todo empezó como un script de 20 líneas que leía el CSV
 
 ```bash
 cd lab && uv sync
-uv run muestreo analizar datos/sintetico.csv
+uv run muestreo analizar datos/captura.csv
 ```
 
 La pregunta que guía el resto: **¿a 60 Hz la medición es mejor, o solo más grande?**
@@ -62,13 +58,14 @@ sintética) es el oráculo; los tests defienden lo que decidimos no negociar.
 
 Los números del análisis (salida del CLI, ya en pantalla si hace falta):
 
-| tramo | f_opt | redundancia | lectura |
-|---|---|---|---|
-| quieto | 1 Hz | ~80% | casi toda la data es ruido: no pasa nada |
-| caminando | 15 Hz | ~17% | la marcha vive en ~2 Hz |
-| temblor | 50 Hz | ~27% | la vibración vive en 10 Hz |
+| qué pasaba | ventana | f_dyn | alcanzan | guardan |
+|---|---|---|---|---|
+| quieto | 20–25 s | 0.8 Hz | 1 Hz | 5/300 |
+| se mueve poco | 0–5 s | 0.9 Hz | 12 Hz | 60/300 |
+| se mueve mucho | 5–10 s | 3 Hz | 25 Hz | 125/300 |
+| sacudón | 40–45 s | 5.5 Hz | 40 Hz | 200/300 |
 
-**27% de la data a 60 Hz alcanza.** La regla que emerge: f_opt ≈ (4–8)·f_dyn,
+**1027 de 2774 muestras (37%) alcanzan.** La regla que emerge: f_opt ≈ (4–8)·f_dyn,
 con f_dyn = a_max/(2π·v_max) — solo velocidad y aceleración.
 
 ### Track 7 — Lo quiero ya · cambio de lado (~1:30)
@@ -117,7 +114,8 @@ sobreviven. Eso es el software como sustrato para pensar.
 - Las salidas ya están generadas: `lab/salida/*.json` = `visor/data/*.json`.
 - Si `uv run muestreo` falla: abrir el visor y narrar los números de este README.
 - Si el server no arranca: los números del análisis están acá arriba.
-- La captura real es opcional: el sintético cuenta la historia completa.
+- La captura real es la demo: los números de arriba y del visor son reales.
+  El sintético solo entra si hay que mostrar aliasing con tramos etiquetados.
 
 ## Decisiones registradas
 
