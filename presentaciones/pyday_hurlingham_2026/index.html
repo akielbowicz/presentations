@@ -123,6 +123,14 @@
             // Learn about plugins: https://revealjs.com/plugins/
             plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
         });
+
+        // Los fences markdown terminan en \n y hljs lo deja como línea vacía:
+        // sin esto cada tarjeta de código tiene aire de más abajo.
+        Reveal.on('ready', () => {
+            document.querySelectorAll('pre code').forEach((c) => {
+                c.innerHTML = c.innerHTML.replace(/(\s|<br\s*\/?>)+$/i, '');
+            });
+        });
     </script>
 
 </body>

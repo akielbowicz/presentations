@@ -161,7 +161,7 @@
 .reveal .slides section pre {
   display: block;
   position: relative;
-  width: auto;
+  width: 82%;
   max-width: 82%;
   margin: var(--r-block-margin) auto;
   text-align: left;
@@ -196,6 +196,8 @@
   display: block;
   padding: 1em !important;
   overflow: auto;
+  height: auto !important;
+  min-height: 0 !important;
   max-height: 600px;
   word-wrap: normal;
   background: var(--sumo-white) !important;
