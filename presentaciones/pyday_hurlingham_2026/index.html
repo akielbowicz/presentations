@@ -43,7 +43,7 @@
 <body>
     <!-- Theme Toggle Button -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span class="theme-icon">☀️</span>
+        <span class="theme-icon"></span>
     </button>
 
     <div class="reveal">
@@ -70,6 +70,11 @@
         const lightTheme = document.getElementById('highlight-theme-light');
         const darkTheme = document.getElementById('highlight-theme-dark');
 
+        // Sol/luna como SVG currentColor: se recolorean con el tema (los
+        // emoji son glifos de fuente color y no aceptan color CSS)
+        const ICON_SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.4"/><path d="M12 2.2v2.3M12 19.5v2.3M2.2 12h2.3M19.5 12h2.3M4.8 4.8l1.7 1.7M17.5 17.5l1.7 1.7M19.2 4.8l-1.7 1.7M6.5 17.5l-1.7 1.7"/></svg>';
+        const ICON_MOON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+
         // Load saved theme preference or default to dark (como la tapa del disco).
         // Override puntual por query param: index.html?theme=light|dark
         const urlTheme = new URLSearchParams(location.search).get('theme');
@@ -78,9 +83,12 @@
             : (localStorage.getItem('phorma-theme') || 'dark');
         if (savedTheme === 'dark') {
             htmlElement.setAttribute('data-theme', 'dark');
-            themeIcon.textContent = '🌙';
+            themeIcon.innerHTML = ICON_MOON;
             lightTheme.disabled = true;
             darkTheme.disabled = false;
+        } else {
+            // light ya es el default de CSS y de las stylesheets de highlight
+            themeIcon.innerHTML = ICON_SUN;
         }
 
         // Toggle theme
@@ -92,11 +100,11 @@
             localStorage.setItem('phorma-theme', newTheme);
 
             if (newTheme === 'dark') {
-                themeIcon.textContent = '🌙';
+                themeIcon.innerHTML = ICON_MOON;
                 lightTheme.disabled = true;
                 darkTheme.disabled = false;
             } else {
-                themeIcon.textContent = '☀️';
+                themeIcon.innerHTML = ICON_SUN;
                 lightTheme.disabled = false;
                 darkTheme.disabled = true;
             }
@@ -110,6 +118,7 @@
             center: true,
             width: 1280,
             height: 720,
+            progress: true,
             transition: 'slide',
             // Learn about plugins: https://revealjs.com/plugins/
             plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]

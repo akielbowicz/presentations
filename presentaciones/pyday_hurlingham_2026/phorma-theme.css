@@ -472,7 +472,7 @@ html.reveal-print .reveal .slides .pdf-page::after {
 }
 
 .reveal .progress span {
-  background: var(--r-main-color);
+  background: var(--sumo-red);
 }
 
 /* ==========================================
@@ -480,7 +480,7 @@ html.reveal-print .reveal .slides .pdf-page::after {
    ========================================== */
 
 .reveal .controls {
-  color: var(--r-main-color);
+  color: var(--sumo-red);
 }
 
 /* ==========================================
@@ -532,7 +532,7 @@ html.reveal-print .reveal .slides .pdf-page::after {
   cursor: pointer;
   font-family: var(--r-code-font);
   font-size: 0.8em;
-  color: var(--r-main-color);
+  color: var(--sumo-red);
   transition: all var(--transition-fast);
 }
 
@@ -540,6 +540,12 @@ html.reveal-print .reveal .slides .pdf-page::after {
   background: var(--r-main-color);
   color: var(--r-background-color);
   transform: rotate(180deg);
+}
+
+.theme-toggle svg {
+  display: block;
+  width: 1em;
+  height: 1em;
 }
 
 /* ==========================================
