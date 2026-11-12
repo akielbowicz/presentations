@@ -35,7 +35,7 @@ fetch("data/recomendacion.json")
     pintoChips();
     // deep-link ?tramo=N&tasa=H: abrir el visor ya contando esa parte
     const q = new URLSearchParams(location.search);
-    const tramoQ = Number(q.get("tramo"));
+    const tramoQ = Math.trunc(Number(q.get("tramo")));
     activo(tramoQ >= 0 && tramoQ < contrato.segmentos.length ? tramoQ : 0);
     const tasaQ = Number(q.get("tasa"));
     if (tasaQ >= 1 && tasaQ <= 60) {
@@ -67,12 +67,16 @@ function describo(s) {
    alcanza → verdad; existe pero miente → Nyquist, la forma miente;
    miente → ni Nyquist. */
 function veredicto(seg, f) {
+  if (seg.f_dyn == null || seg.f_opt == null)
+    return { estado: "alcanza", roja: false }; // sin dinámica medible: nada que perder
   if (f >= seg.f_opt) return { estado: "alcanza", roja: false };
   if (f >= 2 * seg.f_dyn) return { estado: "existe pero miente", roja: true };
   return { estado: "miente", roja: true };
 }
 
 function porQue(seg) {
+  if (seg.f_dyn == null)
+    return `Este tramo no tiene dinámica medible: cualquier ritmo alcanza (el lab no midió f_dyn).`;
   const piso = (2 * seg.f_dyn).toFixed(1);
   if (fPrueba >= seg.f_opt)
     return `${fPrueba} Hz ≥ ${seg.f_opt} Hz (el ritmo justo que midió el lab): la forma no miente.`;
@@ -227,7 +231,7 @@ function pintoGrafico() {
     `${describo(seg)} entre ${Math.round(seg.desde_s)} y ${Math.round(seg.hasta_s)} s — ` +
     (seg.k
       ? `con ${seg.f_opt} lectura${seg.f_opt === 1 ? "" : "s"} por segundo alcanza: ` +
-        `${seg.muestras_f_opt} de ${seg.muestras_60hz} muestras (1 de cada ${paso}).`
+        `${seg.muestras_f_opt} de ${seg.muestras_60hz} muestras.`
       : `ni hace falta medir: era todo ruido.`);
 
   // el veredicto: el contrato traducido a palabras, con el por qué
