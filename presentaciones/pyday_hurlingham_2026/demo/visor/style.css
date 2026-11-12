@@ -45,6 +45,21 @@ canvas {
 #veredicto.alcanza { color: var(--blanco); border-color: var(--blanco); }
 #veredicto.miente { color: var(--rojo); border-color: var(--rojo); }
 #por-que { color: var(--gris); margin: .35rem 0 0; }
+
+/* el tercer acto: el grabador adaptativo */
+#grabador { margin-top: 2rem; }
+#grabador h2 { font-size: 1.1rem; color: var(--rojo); }
+#g-controls { display: flex; align-items: center; gap: .9rem; margin: .8rem 0; }
+#g-play {
+  background: none; color: var(--blanco);
+  border: 1px solid var(--blanco); border-radius: 4px;
+  font: inherit; padding: .35rem .9rem; cursor: pointer;
+}
+#g-play:hover { border-color: var(--rojo); color: var(--rojo); }
+#g-muestras { color: var(--gris); }
+#g-leyenda { color: var(--gris); font-size: .85rem; margin: .4rem 0 0; }
+#g-leyenda .punto { color: var(--rojo); }
+#g-linea-tasa { color: var(--blanco); }
 .hint { color: var(--blanco); font-size: 1.05rem; margin: .4rem 0; }
 #leyenda { color: var(--gris); font-size: .85rem; margin: 0 0 .4rem; }
 #leyenda .punto { color: var(--rojo); }

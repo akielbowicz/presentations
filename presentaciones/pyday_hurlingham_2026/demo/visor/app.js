@@ -281,3 +281,203 @@ function pintoTabla() {
     "<th>movimiento (f_dyn)</th><th>alcanzan (f_opt)</th><th>guardan</th><th>k</th></tr>" +
     filas.join("");
 }
+
+/* ─── Tercer acto: el grabador adaptativo sobre el stream real ───
+   Mismo principio de la casa: consume un contrato JSON (grabacion.json,
+   Lado A) y lo traduce a movimiento. Si el archivo no está, la sección
+   se esconde: el visor nunca depende de que el lab haya corrido. */
+
+const gcanvas = document.getElementById("g-canvas");
+const gctx = gcanvas.getContext("2d");
+const gBtn = document.getElementById("g-play");
+let grab = null;
+let gPlay = null; // id de requestAnimationFrame si está reproduciendo
+let gPh = 0; // playhead en segundos
+let gEscalaCache = null;
+
+// bandas del canvas: señal arriba, tasa abajo
+const G_BANDA = { senialY: 10, senialH: 195, tasaY: 250, tasaH: 55 };
+const G_PLAY_S = 14; // los 46 s reales se reproducen en 14 s de proyección
+
+fetch("data/grabacion.json")
+  .then((r) => {
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return r.json();
+  })
+  .then((data) => {
+    grab = data;
+    document.getElementById("g-cuenta").textContent =
+      `${grab.resumen.guardadas} de ${grab.resumen.totales} muestras persistidas ` +
+      `(${grab.resumen.pct}%), error de reconstrucción ${grab.resumen.error_reconstruccion_pct}% RMS. ` +
+      `El offline ideal llega a 37% porque ve el futuro; decidir solo con pasado cuesta 21 puntos ` +
+      `y sigue siendo menos de la mitad que los 60 Hz crudos.`;
+    pintoGrabador(gPlay ? gPh : grab.meta.duracion_s + 0.5, false);
+    // ?reproducir: abrir directamente con la película en movimiento
+    if (new URLSearchParams(location.search).has("reproducir")) gToggle();
+  })
+  .catch(() => {
+    document.getElementById("grabador").hidden = true;
+  });
+
+function gTasaEn(t) {
+  // arranca conservador: plena tasa hasta la primera decisión
+  let f = grab.meta.f_medida;
+  for (const [td, ft] of grab.decisiones) {
+    if (td <= t) f = ft;
+    else break;
+  }
+  return f;
+}
+
+function gEscala() {
+  if (gEscalaCache) return gEscalaCache;
+  const a = grab.senial.a;
+  const c = a.reduce((s, x) => s + x, 0) / a.length;
+  const d = a.map((x) => Math.abs(x - c)).sort((x, y) => x - y);
+  gEscalaCache = { c, t: Math.max(d[Math.floor(d.length * 0.985)] || 1, 0.5) };
+  return gEscalaCache;
+}
+
+function gY(valor) {
+  const { c, t: techo } = gEscala();
+  const rel = Math.max(-1.05, Math.min(1.05, (valor - c) / techo));
+  return G_BANDA.senialY + G_BANDA.senialH / 2 - rel * (G_BANDA.senialH / 2 - 8);
+}
+
+function gYtasa(f) {
+  return G_BANDA.tasaY + G_BANDA.tasaH * (1 - f / 60);
+}
+
+function pintoGrabador(ph, conVentana) {
+  if (!grab) return;
+  const w = gcanvas.width;
+  const dur = grab.meta.duracion_s;
+
+  gctx.clearRect(0, 0, w, gcanvas.height);
+
+  // banda de la tasa: fondo distinto para separar los dos mundos
+  gctx.fillStyle = "#161613";
+  gctx.fillRect(0, G_BANDA.tasaY - 14, w, G_BANDA.tasaH + 28);
+
+  // grilla de tiempo compartida
+  gctx.strokeStyle = "#2c2c2a";
+  gctx.fillStyle = GRIS;
+  gctx.font = "12px monospace";
+  gctx.lineWidth = 1;
+  [0, 0.25, 0.5, 0.75, 1].forEach((fr) => {
+    const x = Math.round(fr * w) + 0.5;
+    gctx.beginPath();
+    gctx.moveTo(x, 0);
+    gctx.lineTo(x, gcanvas.height);
+    gctx.stroke();
+    gctx.fillText(`${Math.round(fr * dur)} s`, Math.min(x + 4, w - 30), G_BANDA.tasaY + G_BANDA.tasaH + 12);
+  });
+
+  // la ventana RAM de 2 s deslizando (solo durante la reproducción)
+  if (conVentana) {
+    const vs = grab.meta.ventana_muestras / grab.meta.f_medida;
+    const x0 = (Math.max(0, ph - vs) / dur) * w;
+    const x1 = (ph / dur) * w;
+    gctx.fillStyle = "rgba(200, 53, 52, .12)";
+    gctx.fillRect(x0, 0, x1 - x0, G_BANDA.senialY + G_BANDA.senialH);
+  }
+
+  // la verdad gris hasta el playhead
+  gctx.strokeStyle = GRIS;
+  gctx.lineWidth = 1;
+  gctx.beginPath();
+  grab.senial.t.forEach((ti, i) => {
+    if (ti > ph) return;
+    const x = (ti / dur) * w;
+    i === 0 ? gctx.moveTo(x, gY(grab.senial.a[i])) : gctx.lineTo(x, gY(grab.senial.a[i]));
+  });
+  gctx.stroke();
+
+  // lo persistido: puntos rojos ≤ ph
+  gctx.fillStyle = ROJO;
+  grab.guardadas.t.forEach((ti, i) => {
+    if (ti > ph) return;
+    const x = (ti / dur) * w;
+    gctx.fillRect(x - 1.5, gY(grab.guardadas.a[i]) - 1.5, 3, 3);
+  });
+
+  // la traza de tasa: escalón blanco en la banda inferior
+  gctx.strokeStyle = BLANCO;
+  gctx.lineWidth = 1.5;
+  gctx.beginPath();
+  let fPrev = grab.meta.f_medida;
+  gctx.moveTo(0, gYtasa(fPrev));
+  grab.decisiones.forEach(([td, ft]) => {
+    if (td > ph) return;
+    const x = (td / dur) * w;
+    gctx.lineTo(x, gYtasa(fPrev));
+    gctx.lineTo(x, gYtasa(ft));
+    fPrev = ft;
+  });
+  gctx.lineTo((ph / dur) * w, gYtasa(fPrev));
+  gctx.stroke();
+
+  // marcas de decisión sobre la banda de tasa
+  gctx.fillStyle = GRIS;
+  gctx.font = "11px monospace";
+  grab.decisiones.forEach(([td, ft]) => {
+    if (td > ph) return;
+    const x = (td / dur) * w;
+    gctx.fillRect(x, G_BANDA.tasaY - 12, 1, 6);
+    gctx.fillText(`${ft}`, x + 3, G_BANDA.tasaY - 4);
+  });
+
+  // playhead
+  if (ph < dur) {
+    gctx.strokeStyle = BLANCO;
+    gctx.lineWidth = 1;
+    const x = (ph / dur) * w;
+    gctx.beginPath();
+    gctx.moveTo(x, 0);
+    gctx.lineTo(x, gcanvas.height);
+    gctx.stroke();
+  }
+
+  gContadores(ph);
+}
+
+function gContadores(ph) {
+  const f = gTasaEn(ph);
+  const badge = document.getElementById("g-tasa");
+  badge.textContent = `${f} Hz`;
+  badge.classList.toggle("activa", f < 60);
+  let n = 0;
+  while (n < grab.guardadas.t.length && grab.guardadas.t[n] <= ph) n++;
+  document.getElementById("g-muestras").textContent =
+    `${n} de ${grab.resumen.totales} muestras persistidas`;
+}
+
+function gToggle() {
+  if (gPlay) {
+    cancelAnimationFrame(gPlay);
+    gPlay = null;
+    gBtn.textContent = "▶ seguir";
+    return;
+  }
+  const dur = grab.meta.duracion_s;
+  if (gPh >= dur) gPh = 0;
+  let last = null;
+  gBtn.textContent = "⏸ pausa";
+  const paso = (ts) => {
+    if (last === null) last = ts;
+    gPh += ((ts - last) / 1000) * (dur / G_PLAY_S);
+    last = ts;
+    if (gPh >= dur) {
+      gPh = dur;
+      pintoGrabador(dur, false);
+      gPlay = null;
+      gBtn.textContent = "▶ reproducir de nuevo";
+      return;
+    }
+    pintoGrabador(gPh, true);
+    gPlay = requestAnimationFrame(paso);
+  };
+  gPlay = requestAnimationFrame(paso);
+}
+
+gBtn.addEventListener("click", () => grab && gToggle());

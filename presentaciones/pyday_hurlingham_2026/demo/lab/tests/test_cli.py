@@ -60,8 +60,42 @@ def test_grabar_decide_sobre_el_stream_y_ahorra(tmp_path):
     assert r["totales"] == 3000
     assert r["guardadas"] < r["totales"] / 2
     assert r["error_reconstruccion_pct"] <= 10.0
-    assert r["decisiones"], "debe haber al menos una cambio de tasa"
+    assert r["decisiones"], "debe haber al menos un cambio de tasa"
     # quieto → 1 Hz en algún momento; temblor → banda alta al final
     tasas_vistas = {f for _, f in r["decisiones"]}
     assert 1.0 in tasas_vistas
     assert max(f for _, f in r["decisiones"]) >= 40.0
+
+
+def test_grabar_produce_contrato_de_grabacion(tmp_path):
+    """El contrato del visor (Lado B) para el acto del grabador.
+
+    Si cambia la forma, el visor se rompe: este test es la costura.
+    """
+    csv = tmp_path / "sintetico.csv"
+    sintetizar(csv, seed=7)
+    salida = tmp_path / "grabacion.json"
+    grabar(csv, salida)
+    contrato = json.loads(salida.read_text())
+
+    assert set(contrato) == {"meta", "resumen", "decisiones", "guardadas", "senial"}
+    meta = contrato["meta"]
+    assert set(meta) == {
+        "fuente", "f_captura", "f_medida", "duracion_s", "n_muestras",
+        "ventana_muestras", "decision_cada_muestras", "bajadas_para_bajar",
+    }
+    assert meta["ventana_muestras"] == 120  # 2 s a 60 Hz
+    assert meta["decision_cada_muestras"] == 30  # cada 0.5 s
+
+    # decisiones: pares (t, tasa) ordenados en el tiempo
+    dec = contrato["decisiones"]
+    assert all(len(d) == 2 for d in dec)
+    assert [d[0] for d in dec] == sorted(d[0] for d in dec)
+
+    # guardadas alineadas y subconjunto del total
+    guard = contrato["guardadas"]
+    assert len(guard["t"]) == len(guard["a"]) == contrato["resumen"]["guardadas"]
+    assert contrato["resumen"]["guardadas"] < meta["n_muestras"]
+
+    # la señal decimada para el canvas, como el contrato offline
+    assert len(contrato["senial"]["t"]) == len(contrato["senial"]["a"]) <= 1500

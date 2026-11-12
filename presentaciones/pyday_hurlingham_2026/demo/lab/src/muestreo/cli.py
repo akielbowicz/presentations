@@ -117,12 +117,13 @@ def analizar(ruta_csv: Path, ruta_salida: Path | None = None) -> dict:
     return contrato
 
 
-def grabar(ruta_csv: Path) -> dict:
+def grabar(ruta_csv: Path, ruta_salida: Path | None = None) -> dict:
     """Simula el grabador adaptativo sobre el stream de una captura.
 
     El sensor muestrea a plena tasa en RAM; el grabador decide qué se
     persiste, muestra a muestra, sin ver futuro. Devuelve la traza de
     decisiones, la cuenta de guardadas y el error de reconstrucción.
+    Con --salida, además escribe el CONTRATO de grabación para el visor.
     """
     serie = leer_sensorlog(ruta_csv)
     a = serie.a
@@ -131,13 +132,40 @@ def grabar(ruta_csv: Path) -> dict:
     g = GrabadorAdaptativo(f_captura=f_medida, tasas=tasas)
     for t, x in zip(serie.t, a):
         g.ofrecer(t, x)
-    return {
+    resumen = {
         "decisiones": g.decisiones,
         "guardadas": len(g.a_guardadas),
         "totales": serie.n_muestras,
         "pct": round(100 * len(g.a_guardadas) / serie.n_muestras),
         "error_reconstruccion_pct": round(g.error_reconstruccion_pct(serie.t, a), 1),
     }
+    if ruta_salida is not None:
+        paso_visor = max(1, math.ceil(len(a) / PUNTOS_VISOR))
+        contrato = {
+            "meta": {
+                "fuente": ruta_csv.name,
+                "f_captura": serie.f_captura,
+                "f_medida": round(serie.f_medida, 1),
+                "duracion_s": round(serie.duracion_s, 1),
+                "n_muestras": serie.n_muestras,
+                "ventana_muestras": g.ventana.maxlen,
+                "decision_cada_muestras": g.decision_cada,
+                "bajadas_para_bajar": g.bajadas_para_bajar,
+            },
+            "resumen": resumen,
+            "decisiones": [[round(t, 2), f] for t, f in g.decisiones],
+            "guardadas": {
+                "t": [round(t, 3) for t in g.t_guardadas],
+                "a": [round(x, 4) for x in g.a_guardadas],
+            },
+            "senial": {
+                "t": [round(t, 2) for t in serie.t[::paso_visor]],
+                "a": [round(x, 4) for x in a[::paso_visor]],
+            },
+        }
+        ruta_salida.parent.mkdir(parents=True, exist_ok=True)
+        ruta_salida.write_text(json.dumps(contrato, ensure_ascii=False) + "\n")
+    return resumen
 
 
 def main() -> None:
@@ -156,12 +184,13 @@ def main() -> None:
         "grabar", help="simula el grabador adaptativo causal sobre el stream"
     )
     p_gra.add_argument("csv", type=Path)
+    p_gra.add_argument("--salida", type=Path, default=None)
 
     args = parser.parse_args()
     if args.comando == "sintetizar":
         print(f"señal sintética → {sintetizar(args.salida, seed=args.seed)}")
     elif args.comando == "grabar":
-        r = grabar(args.csv)
+        r = grabar(args.csv, args.salida)
         print(f"grabador adaptativo (causal, solo pasado) sobre {args.csv.name}:")
         for t, f in r["decisiones"]:
             print(f"  {t:6.2f}s → {f:.0f} Hz")

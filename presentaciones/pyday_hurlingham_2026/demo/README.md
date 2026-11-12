@@ -127,6 +127,18 @@ crudos y sin mentir. Los tests del oráculo lo defienden: subida
 inmediata, bajada con histéresis, decisiones causales, sin hueco en el
 onset del movimiento.
 
+En el visor es el **tercer acto** (sección bajo el gráfico): la verdad gris,
+los puntos persistidos en rojo, la traza de tasa en escalón blanco y la
+ventana de 2 s deslizándose. Botón ▶ para la película en vivo (46 s reales
+en 14 s de proyección); deep-link `visor/?reproducir` para abrirla andando.
+El contrato es `data/grabacion.json` (otro JSON del lab; la costura no
+cambia de principio). Regenerarlo:
+
+```bash
+cd lab && uv run muestreo grabar datos/captura.csv --salida salida/grabacion.json
+cp salida/grabacion.json ../visor/data/
+```
+
 ### Track 12 — Percussion baby · cierre
 
 El código puede reescribirse; el oráculo, los tests y la regla aprendida

@@ -32,6 +32,18 @@
       <span id="veredicto" aria-live="polite" hidden></span>
       <p id="por-que"></p>
     </section>
+    <section id="grabador">
+      <h2>El grabador adaptativo — un buffer de 2 s decidiendo sin futuro</h2>
+      <p class="hint" id="g-cuenta"></p>
+      <div id="g-controls">
+        <button id="g-play">▶ reproducir la grabación</button>
+        <span id="g-tasa" class="chip"></span>
+        <span id="g-muestras"></span>
+      </div>
+      <canvas id="g-canvas" width="1150" height="330"></canvas>
+      <p id="g-leyenda">▬ la verdad (60 Hz) &nbsp;·&nbsp; <span class="punto">●</span> lo persistido &nbsp;·&nbsp; <span id="g-linea-tasa">—</span> la tasa elegida &nbsp;·&nbsp; la zona roja es la ventana de 2 s que aún está en RAM</p>
+    </section>
+
     <section id="regla">
       <h2>La regla que emerge</h2>
       <p>Nyquist (2×) basta para que la señal <strong>exista</strong>.
