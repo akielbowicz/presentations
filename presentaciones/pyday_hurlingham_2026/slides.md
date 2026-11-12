@@ -34,11 +34,10 @@ No me gusta programar,
 me gusta resolver problemas.
 <!-- .element: class="fragment" -->
 
+
 ---
 
 <!-- 01 Crua chan · El salto · ~1:00 -->
-
-<div style="font-size: 0.55em; letter-spacing: 0.35em; color: #8a8a86;">AFTER CHATBON · LADO A · 01</div>
 
 ## “Come on London, here we come”
 
@@ -148,6 +147,34 @@ NOTES:
 Track 4 (~2:00). El teléfono es un laboratorio y sensor-log es la herramienta.
 Demo NO en vivo: bloques crecientes con salidas capturadas de la captura real.
 La pregunta que guía el resto: ¿a 60 Hz la medición es mejor, o solo más grande?
+
+--
+
+#### ¿Mejor, o solo más grande? La cuenta
+
+| duración | a 60 Hz | al ritmo justo (37%) |
+|---|---|---|
+| 1 min | 3.600 lecturas · 150 KB | 1.330 · 55 KB |
+| 10 min | 36.000 · 1,5 MB | 13.300 · 0,6 MB |
+| 30 min | 108.000 · 4,5 MB | 40.000 · 1,7 MB |
+| 1 hora | 216.000 · 9,1 MB | 80.000 · 3,4 MB |
+<!-- .element: style="font-size: 0.64em;" -->
+
+<div style="font-size: 0.8em; color: #8a8a86;">
+
+42 bytes por lectura: el tamaño real de una fila del CSV.
+<!-- .element: class="fragment" -->
+
+</div>
+
+**Cada hora en el bolsillo: 5,7 MB que son puro ruido.**
+<!-- .element: class="fragment" -->
+
+NOTES:
+Página vertical 3: la tabla extrapola la mezcla de actividad de la captura
+real a 1/10/30/60 min. El punchline no es que 9 MB llenen el teléfono — es
+que el 63% de lo que acumulás es ruido que además diluye la señal. Bajás al
+ritmo justo y la hora pasa a 3,4 MB sin perder forma.
 
 ---
 
@@ -476,6 +503,6 @@ La URL corta es real: charla-after-chatbon/index.html redirige al deck.
 
 # Gracias
 
-[saxa.xyz/charla-after-chatbon](https://saxa.xyz/charla-after-chatbon)
+[saxa.xyz/charla-after-chatbon](https://saxa.xyz/charla-after-chatbon)<!-- .element: class="fragment" -->
 
-[info@phorma.sh](mailto:info@phorma.sh)
+[info@phorma.sh](mailto:info@phorma.sh)<!-- .element: class="fragment" -->
