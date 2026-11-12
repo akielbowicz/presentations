@@ -6,7 +6,7 @@
 
 **14 de Noviembre 2026**
 
-[saxa.xyz/charla-after-chatbon](https://saxa.xyz/charla-after-chatbon)
+[charlas.saxa.xyz/charla-after-chatbon](https://charlas.saxa.xyz/charla-after-chatbon/)
 
 ---
 
@@ -262,29 +262,17 @@ construimos en el lado A. python3 -m http.server 8642 --directory visor.
 
 ---
 
-<!-- 09 El cieguito volador · Hacer visible · ~1:30 -->
+<!-- 09+10 El cieguito volador / No te pongas azul · Hacer visible e interactuar · ~2:00 -->
 
-<div style="font-size: 0.55em; letter-spacing: 0.35em; color: #8a8a86;">AFTER CHATBON · LADO B · 09 · DEMO</div>
+<div style="font-size: 0.55em; letter-spacing: 0.35em; color: #8a8a86;">AFTER CHATBON · LADO B · 09 + 10 · DEMO</div>
 
 ## “usan radar”
 
-#### Hacer visible
+#### Hacer visible, interactuar y explorar
 
-<img src="images/visor-captura-real.png" style="max-height: 60vh; width: auto; max-width: 88%; display: block; margin: 0 auto; border-radius: 4px;">
+<img src="images/visor-captura-real.png" style="max-height: 44vh; width: auto; max-width: 88%; display: block; margin: 0 auto; border-radius: 4px;">
 
-NOTES:
-Track 9 (~1:30). El titular: con medir al ritmo justo alcanzan 1027 de 2774
-muestras (37%): el resto era ruido. Captura real, 46 s a 60 Hz.
-
----
-
-<!-- 10 No te pongas azul · Interactuar y explorar · ~1:30 -->
-
-<div style="font-size: 0.55em; letter-spacing: 0.35em; color: #8a8a86;">AFTER CHATBON · LADO B · 10 · DEMO</div>
-
-## “real life is inside”
-
-#### Interactuar y explorar
+<div style="font-size: 0.72em; margin-top: 1rem;">
 
 Click en *quieto*: con 1 lectura por segundo alcanza — y el gráfico era una línea plana.
 <!-- .element: class="fragment" -->
@@ -295,10 +283,17 @@ Click en *sacudón*: recién con 40 Hz no miente.
 **Son la misma historia.** Sin una línea de Python.
 <!-- .element: class="fragment" -->
 
+</div>
+
 NOTES:
-Track 10 (~1:30). Recorrido: titular → chips en palabras (quieto · se mueve
-poco · se mueve mucho · sacudón) → click en quieto (20–25 s) → click en
-sacudón (40–45 s). El visor traduce el contrato a palabras; el JSON no cambia.
+Tracks 9 y 10 fusionados (~2:00) para pagar el cierre comercial sin perder la
+interacción: el 09 era solo la foto del visor, el 10 era el click. Se conserva el
+número doble en el kicker para no romper los 12 tracks del disco.
+Titular: con medir al ritmo justo alcanzan 1027 de 2774 muestras (37%), el resto
+era ruido. Captura real, 46 s a 60 Hz. Recorrido: titular → chips en palabras
+(quieto · se mueve poco · se mueve mucho · sacudón) → click en quieto (20–25 s)
+→ click en sacudón (40–45 s). El visor traduce el contrato a palabras; el JSON no
+cambia.
 
 ---
 
@@ -320,10 +315,15 @@ Muestreo adaptativo: decirle a sensor-log qué rate usar en cada tramo
 de una grabación real.
 <!-- .element: class="fragment" -->
 
+Esto es exactamente lo que hacemos en dos días con un equipo.
+<!-- .element: class="fragment" -->
+
 NOTES:
 Track 11 (~1:30). El descubrimiento está codificado en un test: si la regla
 dejara de sostenerse, el test avisa. La interacción sobre datos reales
 reveló algo que no estaba en el diseño original.
+El último fragment (~10 s) es el puente al cierre: decirlo con la prueba en
+pantalla vale más que decirlo al final. Track 11 pasa a ~1:40.
 
 ---
 
@@ -365,6 +365,21 @@ de preguntas.
 
 ---
 
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+
+<div class="sumo-red" style="font-size: 1.5em; font-style: italic; font-weight: 700; text-align: center; margin-top: -11.5vw;">
+
+Lo que no se codifica, se va con la persona
+
+</div>
+
+</div>
+
+NOTES:
+Bisagra (~0:20). Salir del track 12 y entrar al bloque de Phorma con la frase que
+convierte el mensaje 2 en costo: el conocimiento que no queda escrito se va con el
+que se va. Decirla y pasar, no explicarla.
+
 ---
 
 <img src="./images/logo.svg" class="light-theme-logo" width="50%" style="display: block; margin: 0 auto;">
@@ -374,53 +389,80 @@ de preguntas.
 
 **Rigor. Rendimiento. Arquitectura.**
 
+NOTES:
+(~0:10) No leer el tagline: decir "esto es lo que hacemos con lo que acabamos de
+ver". Una sola slide de logo (antes había dos idénticas seguidas).
 
 --
 
-### [Phorma Scientific](https://phorma.sh/es)
+### Dos días con tu equipo
 
-**Rigor. Rendimiento. Arquitectura.**
+Salís con un resultado que un colega puede reproducir desde una copia limpia.
 
+<div style="font-size: 0.8em; margin-top: 0.8rem;">
 
---
+Para laboratorios, cátedras y equipos de I+D:
 
-### Capacitación Técnica
+— Código de investigación reproducible · 2 días
 
-**Para laboratorios de investigación y equipos de I+D**
+— Prácticas de testing · 2 días
 
-<div style="font-size: 0.9em; margin-top: 2rem;">
-
-- Fundamentos de Computación Numérica
-- Rigor de Producción (TDD, CI/CD)
-- Machine Learning Científico
-- Diseño de Sistemas Cuantitativos
+— Liderando la adopción de IA · 1 día
 
 </div>
 
-<p style="margin-top: 2rem;">
+<p style="margin-top: 0.6rem;">
 <a href="https://phorma.sh/es/trainees" style="border-bottom: 2px solid;">phorma.sh/es/trainees</a>
 </p>
 
+NOTES:
+(~0:45) Hablar SOLO la primera línea: el resultado verificable, no la lista. Los
+tres cursos están en la slide para que cada uno se auto-identifique; el link lleva
+al catálogo real con alcance y horarios. Nombres verificados contra
+content/trainees/es/ del sitio de Phorma (83, 44, 75) — la slide anterior
+prometía un "Diseño de Sistemas Cuantitativos" que no existe y llamaba "Rigor de
+Producción (TDD, CI/CD)" a un curso que es de Git.
+Límite honesto, decirlo en voz alta: esto no es una receta, el laboratorio se
+diseña por proyecto.
+
 --
+
+### ¿Y ahora?
+
+<div style="font-size: 0.85em; margin-top: 0.8rem;">
+
+Tenés un proyecto que no te animás a tocar
+<!-- .element: class="fragment" -->
+
+→ **diagnóstico de una hora**, alcance fijo.
+<!-- .element: class="fragment" -->
+
+Estás estudiando
+<!-- .element: class="fragment" -->
+
+→ el código de esta demo está publicado: bajalo y rompelo.
+<!-- .element: class="fragment" -->
+
+</div>
+
+<p style="margin-top: 0.6rem; font-size: 1em;">
+<a href="https://charlas.saxa.xyz/charla-after-chatbon/" style="border-bottom: 2px solid;">charlas.saxa.xyz/charla-after-chatbon</a>
+· <a href="mailto:info@phorma.sh">info@phorma.sh</a>
+</p>
+
+NOTES:
+(~0:30) Dos ramas porque la sala es mixta: quien tiene presupuesto y quien no.
+Retomar textualmente la pregunta del track 02 ("¿qué proyecto tenés que no te
+animás a tocar?") para cerrar el arco. La rama estudiante cuesta cero y es la
+única que se puede ejecutar hoy mismo.
+PENDIENTE DE DECISIÓN: si el diagnóstico de una hora es pago o bonificado — la
+slide no dice precio a propósito; definir antes del ensayo del 13/11.
+La URL corta es real: charla-after-chatbon/index.html redirige al deck.
+
+---
 
 > Una técnica que te sirve para escribir te tiene que servir también para vivir. O sea que si yo lo único que te voy a dar es tecniquería (sic), no sirve para nada.
 — **Fabián Casas**
-
---
-
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-
-<div style="margin-top: 2rem; font-size: 1.2em;">
-
-**[info@phorma.sh](mailto:info@phorma.sh)**
-
-</div>
-
-<p style="margin-top: 2rem; font-family: monospace; color: #666;">
-Estructura sobre el Caos
-</p>
-
-</div>
 
 ---
 
