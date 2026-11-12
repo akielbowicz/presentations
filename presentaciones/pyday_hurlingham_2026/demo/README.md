@@ -40,7 +40,11 @@ cd lab && uv sync
 uv run muestreo analizar datos/captura.csv
 ```
 
-La pregunta que guía el resto: **¿a 60 Hz la medición es mejor, o solo más grande?**
+La pregunta que guía el resto: **¿a 60 Hz la medición es mejor, o solo más
+grande?** Página vertical: la cuenta en memoria — extrapolando la mezcla de
+actividad de la captura (42 B por lectura, el tamaño real de una fila del CSV),
+una hora a 60 Hz son 216.000 lecturas y 9,1 MB; al ritmo justo (37%), 3,4 MB.
+**5,7 MB por hora son puro ruido.**
 
 ### Track 5 — Hola Frank · romper sin miedo (~1:30)
 
