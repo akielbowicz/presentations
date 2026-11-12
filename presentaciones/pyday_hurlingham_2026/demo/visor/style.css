@@ -28,6 +28,23 @@ canvas {
   border: 1px solid #333; border-radius: 4px;
   background: #111;
 }
+
+/* el problema hecho juego: ¿y si mido a otra tasa? (veredicto tipo gate) */
+#prueba { margin: .7rem 0 0; }
+#prueba label { font-size: 1.15rem; font-weight: bold; }
+#prueba output { color: var(--rojo); }
+#tasa {
+  width: min(420px, 55%); vertical-align: middle;
+  accent-color: var(--rojo); margin: 0 .9rem;
+}
+#veredicto {
+  border: 1px solid; border-radius: 4px; padding: .15rem .7rem;
+  font-size: 1.2rem; font-weight: bold; vertical-align: middle;
+}
+#veredicto[hidden] { display: none; }
+#veredicto.alcanza { color: var(--blanco); border-color: var(--blanco); }
+#veredicto.miente { color: var(--rojo); border-color: var(--rojo); }
+#por-que { color: var(--gris); margin: .35rem 0 0; }
 .hint { color: var(--blanco); font-size: 1.05rem; margin: .4rem 0; }
 #leyenda { color: var(--gris); font-size: .85rem; margin: 0 0 .4rem; }
 #leyenda .punto { color: var(--rojo); }

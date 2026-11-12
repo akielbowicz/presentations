@@ -11,9 +11,17 @@ const BLANCO = "#FBFAFA";
 
 let contrato = null;
 let tramoActivo = null;
+let fPrueba = null; // el slider: ¿y si mido a esta tasa?
 
 const canvas = document.getElementById("grafico");
 const ctx = canvas.getContext("2d");
+const slider = document.getElementById("tasa");
+
+slider.addEventListener("input", () => {
+  if (!contrato || tramoActivo === null) return;
+  fPrueba = Number(slider.value);
+  pintoGrafico();
+});
 
 fetch("data/recomendacion.json")
   .then((r) => {
@@ -25,7 +33,16 @@ fetch("data/recomendacion.json")
     preparoEscala();
     pintoMeta();
     pintoChips();
-    pintoGrafico();
+    // deep-link ?tramo=N&tasa=H: abrir el visor ya contando esa parte
+    const q = new URLSearchParams(location.search);
+    const tramoQ = Number(q.get("tramo"));
+    activo(tramoQ >= 0 && tramoQ < contrato.segmentos.length ? tramoQ : 0);
+    const tasaQ = Number(q.get("tasa"));
+    if (tasaQ >= 1 && tasaQ <= 60) {
+      fPrueba = tasaQ;
+      slider.value = tasaQ;
+      pintoGrafico();
+    }
     pintoTabla();
   })
   .catch(() => {
@@ -42,6 +59,26 @@ function describo(s) {
   if (s.f_opt <= 16) return "se mueve poco";
   if (s.f_opt <= 30) return "se mueve mucho";
   return "sacudón";
+}
+
+/* El problema, hecho veredicto (idea de wanna: contrato con veredictos
+   explícitos, falsable en ambas direcciones). El contrato manda: f_opt es
+   el ritmo justo medido por el lab; Nyquist (2·f_dyn) es solo el piso.
+   alcanza → verdad; existe pero miente → Nyquist, la forma miente;
+   miente → ni Nyquist. */
+function veredicto(seg, f) {
+  if (f >= seg.f_opt) return { estado: "alcanza", roja: false };
+  if (f >= 2 * seg.f_dyn) return { estado: "existe pero miente", roja: true };
+  return { estado: "miente", roja: true };
+}
+
+function porQue(seg) {
+  const piso = (2 * seg.f_dyn).toFixed(1);
+  if (fPrueba >= seg.f_opt)
+    return `${fPrueba} Hz ≥ ${seg.f_opt} Hz (el ritmo justo que midió el lab): la forma no miente.`;
+  if (fPrueba >= 2 * seg.f_dyn)
+    return `${fPrueba} Hz superan Nyquist (2 · ${seg.f_dyn.toFixed(1)} = ${piso} Hz): la señal existe, pero su forma miente.`;
+  return `${fPrueba} Hz ni alcanzan Nyquist (${piso} Hz): la medición miente.`;
 }
 
 function totalMuestras() {
@@ -81,6 +118,9 @@ function pintoChips() {
 
 function activo(i) {
   tramoActivo = i;
+  fPrueba = contrato.segmentos[i].f_opt; // cada tramo abre en su ritmo justo
+  slider.value = fPrueba;
+  slider.disabled = false;
   document.querySelectorAll(".chip").forEach((c, j) =>
     c.classList.toggle("activa", j === i)
   );
@@ -108,6 +148,7 @@ function escalaY(valor) {
 function pintoGrafico() {
   const { t, a } = contrato.senial;
   const seg = contrato.segmentos[tramoActivo];
+  if (!fPrueba) fPrueba = seg.f_opt;
   const paso = Math.max(1, Math.round(contrato.meta.f_medida / seg.f_opt));
   const dur = contrato.meta.duracion_s;
   const w = canvas.width;
@@ -146,18 +187,27 @@ function pintoGrafico() {
   });
   ctx.stroke();
 
-  // lo que alcanza guardar (ritmo recomendado): blanco + puntos rojos
-  const tDec = t.filter((_, i) => i % paso === 0);
-  const aDec = a.filter((_, i) => i % paso === 0);
-  ctx.strokeStyle = BLANCO;
-  ctx.lineWidth = 1.5;
+  // tu prueba: reconstrucción al ritmo del slider — blanco si alcanza,
+  // rojo si miente (el problema visible, no narrado)
+  const vered = veredicto(seg, fPrueba);
+  const pasoP = Math.max(1, Math.round(contrato.meta.f_medida / fPrueba));
+  ctx.strokeStyle = vered.roja ? ROJO : BLANCO;
+  ctx.lineWidth = 2.5;
   ctx.beginPath();
-  tDec.forEach((ti, i) => {
+  let empezo = false;
+  t.forEach((ti, i) => {
+    if (i % pasoP !== 0) return;
+    if (ti < seg.desde_s - 1 / fPrueba || ti > seg.hasta_s) return;
     const x = (ti / dur) * w;
-    const y = escalaY(aDec[i]);
-    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    const y = escalaY(a[i]);
+    empezo ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+    empezo = true;
   });
   ctx.stroke();
+
+  // lo que el contrato guarda (ritmo justo): puntos rojos
+  const tDec = t.filter((_, i) => i % paso === 0);
+  const aDec = a.filter((_, i) => i % paso === 0);
   ctx.fillStyle = ROJO;
   tDec.forEach((ti, i) => {
     const x = (ti / dur) * w;
@@ -179,6 +229,17 @@ function pintoGrafico() {
       ? `con ${seg.f_opt} lectura${seg.f_opt === 1 ? "" : "s"} por segundo alcanza: ` +
         `${seg.muestras_f_opt} de ${seg.muestras_60hz} muestras (1 de cada ${paso}).`
       : `ni hace falta medir: era todo ruido.`);
+
+  // el veredicto: el contrato traducido a palabras, con el por qué
+  const badge = document.getElementById("veredicto");
+  badge.hidden = false;
+  badge.textContent = vered.estado;
+  badge.className = vered.roja ? "miente" : "alcanza";
+  document.getElementById("tasa-num").textContent = fPrueba;
+  document.getElementById("por-que").textContent = porQue(seg);
+  document.getElementById("prueba-linea").style.color = vered.roja
+    ? ROJO
+    : BLANCO;
 }
 
 function pintoTabla() {

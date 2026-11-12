@@ -85,6 +85,15 @@ Recorrido con la captura real (46 s a 60 Hz, 2774 lecturas): titular (alcanzan
 se mueve mucho · sacudón) → click en *quieto* (20–25 s): con 1 lectura por
 segundo alcanza, y el gráfico era una línea plana — **son la misma historia**.
 Click en *sacudón* (40–45 s): recién con 40 Hz no miente.
+
+La barra **¿y si mido a… Hz?** (bajo el gráfico) es el problema hecho juego:
+el slider reconstruye la señal al ritmo elegido y el veredicto sale del
+contrato (f_opt y 2·f_dyn del JSON). Sobre *sacudón*: bajar a 15 Hz — sobre
+Nyquist (2 · 5.5 ≈ 11 Hz) — y la línea se pinta roja: **existe pero miente**.
+A 40 Hz vuelve el blanco: **alcanza**. En *quieto* hasta 1 Hz alcanza: no hay
+forma que perder. Deep-link para abrir el visor ya contando esa parte:
+`visor/?tramo=8&tasa=15` (tramo 8 = sacudón, mintiendo a 15 Hz).
+
 El aliasing didáctico (el *temblor* etiquetado del sintético mintiendo a 15 Hz)
 vive en la captura sintética: `uv run muestreo sintetizar datos/sintetico.csv`,
 analizar, copiar a `visor/data/` y recargar el server.
@@ -92,7 +101,8 @@ analizar, copiar a `visor/data/` y recargar el server.
 ### Track 11 — Noche de paz · descubrir algo que no sabíamos (~1:30)
 
 El descubrimiento codificado en un test: **Nyquist no alcanza**. Con 2× la
-dinámica la señal existe, pero su forma miente. La regla honesta (4–8×) salió
+dinámica la señal existe, pero su forma miente. El slider del visor lo pinta:
+sacudón a 15 Hz (≥ 2·f_dyn) → *existe pero miente*. La regla honesta (4–8×) salió
 de los datos, no de un libro — y hoy le diría a sensor-log qué sample rate
 usar en cada tramo de una grabación real: muestreo adaptativo.
 
