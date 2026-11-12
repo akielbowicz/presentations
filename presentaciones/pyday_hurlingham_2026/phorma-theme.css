@@ -390,18 +390,29 @@ html.reveal-print .reveal .slides .pdf-page::after {
 }
 
 /* ==========================================
-   TÍTULOS COMO LA TAPA — abajo, rojo, espaciados
-   "AFTER·CHABON" corre por la franja inferior del
-   disco; el título de cada diapo hace lo mismo.
-   Las sections hoja se estiran al alto completo
-   del slide (flex) para anclar el título abajo
-   sin mover el contenido, que queda centrado.
+   TÍTULOS COMO LA TAPA — rojo, italic, espaciados
+   Dos posiciones, como en la tapa del disco:
+   · H1 → franja inferior, donde corre "AFTER·CHABON".
+   · H2 y H3 → esquina superior derecha, donde va
+     la palabra "SUMO".
+   Los títulos son absolute (fuera de flujo) y las
+   sections hoja se estiran al alto completo del
+   slide (flex) para anclarlos sin mover el
+   contenido, que queda centrado.
    ========================================== */
 
 .reveal .slides > section:not(.stack),
 .reveal .slides > section > section {
   height: 100%;
   box-sizing: border-box;
+  /* Reserva la franja superior para el título (H2/H3 en la
+     esquina, como "SUMO"): el contenido centrado no puede
+     subir a pisarlo. 11.5vw ≈ 3.5vw de inset + 2 líneas de
+     título a 1.1em con line-height 1.15 (141px a 1280×720).
+     Si se agranda el título de rincón, agrandar esto también:
+     la diapo más densa (track 06, tabla) desborda por abajo
+     si la franja crece de más. */
+  padding-top: 11.5vw;
 }
 
 /* reveal.js pone display:block INLINE en la section visible (.present);
@@ -416,24 +427,47 @@ html.reveal-print .reveal .slides .pdf-page::after {
   justify-content: safe center;
 }
 
+/* Tratamiento de tapa común a los tres niveles */
 .reveal .slides section > h1:first-of-type,
 .reveal .slides section > h2:first-of-type,
 .reveal .slides section > h3:first-of-type {
   position: absolute;
-  bottom: 3.5vw;
-  left: 0;
-  right: 0;
   margin: 0;
-  padding-left: 4.8vw;
-  text-align: left;
   font-style: italic;
   font-weight: 700;
   color: var(--sumo-red);
 }
 
-.reveal .slides section > h1:first-of-type { font-size: 2em; }
-.reveal .slides section > h2:first-of-type { font-size: 1.6em; }
-.reveal .slides section > h3:first-of-type { font-size: 1.3em; }
+/* H1 — franja inferior, como "AFTER·CHABON" (sin cambios) */
+.reveal .slides section > h1:first-of-type {
+  bottom: 3.5vw;
+  left: 0;
+  right: 0;
+  padding-left: 4.8vw;
+  text-align: left;
+  font-size: 2em;
+}
+
+/* H2 y H3 — esquina superior derecha, como la palabra "SUMO".
+   Cuerpo acotado y columna estrecha: en la tapa, SUMO es una
+   marca chica en el rincón, no un banner. Con 1.1em,
+   line-height 1.15 y max-width 62% la letra más larga ("No sé
+   lo que quiero, pero lo quiero ya") entra en 2 líneas dentro
+   de la franja reservada por el padding-top de la section. */
+.reveal .slides section > h2:first-of-type,
+.reveal .slides section > h3:first-of-type {
+  top: 3.5vw;
+  right: 0;
+  bottom: auto;
+  left: auto;
+  padding-right: 4.8vw;
+  text-align: right;
+  max-width: 62%;
+  line-height: 1.15;
+}
+
+.reveal .slides section > h2:first-of-type { font-size: 1.1em; }
+.reveal .slides section > h3:first-of-type { font-size: 0.95em; }
 
 /* Subtítulos internos (h4+) vuelven a mono, sin tratamiento de tapa */
 .reveal h4,
@@ -563,10 +597,13 @@ html.reveal-print .reveal .slides .pdf-page::after {
    DARK/LIGHT THEME TOGGLE
    ========================================== */
 
+/* Esquina inferior izquierda: la superior derecha ahora la ocupa
+   el título (H2/H3 como "SUMO" en la tapa) y la inferior derecha
+   lleva el parche del marco donde viven las flechas de reveal. */
 .theme-toggle {
   position: fixed;
-  top: calc(2.7vw + 12px);
-  right: calc(2.7vw + 12px);
+  bottom: calc(2.7vw + 12px);
+  left: calc(2.7vw + 12px);
   z-index: 100;
   padding: 0.5em 1em;
   background: var(--r-background-color);
