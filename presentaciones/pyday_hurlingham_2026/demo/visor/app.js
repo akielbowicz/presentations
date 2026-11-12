@@ -64,25 +64,34 @@ function describo(s) {
 /* El problema, hecho veredicto (idea de wanna: contrato con veredictos
    explícitos, falsable en ambas direcciones). El contrato manda: f_opt es
    el ritmo justo medido por el lab; Nyquist (2·f_dyn) es solo el piso.
-   alcanza → verdad; existe pero miente → Nyquist, la forma miente;
-   miente → ni Nyquist. */
+   Un solo árbol de decisión produce palabra (estado), color (roja) y
+   explicación (razon → porQue). */
 function veredicto(seg, f) {
   if (seg.f_dyn == null || seg.f_opt == null)
-    return { estado: "alcanza", roja: false }; // sin dinámica medible: nada que perder
-  if (f >= seg.f_opt) return { estado: "alcanza", roja: false };
-  if (f >= 2 * seg.f_dyn) return { estado: "existe pero miente", roja: true };
-  return { estado: "miente", roja: true };
+    return { estado: "alcanza", razon: "sin-dinamica", roja: false };
+  if (f >= seg.f_opt)
+    return { estado: "alcanza", razon: "ritmo-justo", roja: false };
+  if (f >= 2 * seg.f_dyn)
+    return { estado: "existe pero miente", razon: "sobre-nyquist", roja: true };
+  return { estado: "miente", razon: "bajo-nyquist", roja: true };
 }
 
-function porQue(seg) {
-  if (seg.f_dyn == null)
-    return `Este tramo no tiene dinámica medible: cualquier ritmo alcanza (el lab no midió f_dyn).`;
-  const piso = (2 * seg.f_dyn).toFixed(1);
-  if (fPrueba >= seg.f_opt)
-    return `${fPrueba} Hz ≥ ${seg.f_opt} Hz (el ritmo justo que midió el lab): la forma no miente.`;
-  if (fPrueba >= 2 * seg.f_dyn)
-    return `${fPrueba} Hz superan Nyquist (2 · ${seg.f_dyn.toFixed(1)} = ${piso} Hz): la señal existe, pero su forma miente.`;
-  return `${fPrueba} Hz ni alcanzan Nyquist (${piso} Hz): la medición miente.`;
+/* El por qué del veredicto, en palabras con los números del contrato. */
+function porQue(seg, f, vered) {
+  switch (vered.razon) {
+    case "sin-dinamica":
+      return "Este tramo no tiene dinámica medible: cualquier ritmo alcanza (el lab no midió f_dyn).";
+    case "ritmo-justo":
+      return `${f} Hz ≥ ${seg.f_opt} Hz (el ritmo justo que midió el lab): la forma no miente.`;
+    case "sobre-nyquist": {
+      const piso = (2 * seg.f_dyn).toFixed(1);
+      return `${f} Hz superan Nyquist (2 · ${seg.f_dyn.toFixed(1)} = ${piso} Hz): la señal existe, pero su forma miente.`;
+    }
+    default: {
+      const piso = (2 * seg.f_dyn).toFixed(1);
+      return `${f} Hz ni alcanzan Nyquist (${piso} Hz): la medición miente.`;
+    }
+  }
 }
 
 function totalMuestras() {
@@ -240,7 +249,7 @@ function pintoGrafico() {
   badge.textContent = vered.estado;
   badge.className = vered.roja ? "miente" : "alcanza";
   document.getElementById("tasa-num").textContent = fPrueba;
-  document.getElementById("por-que").textContent = porQue(seg);
+  document.getElementById("por-que").textContent = porQue(seg, fPrueba, vered);
   document.getElementById("prueba-linea").style.color = vered.roja
     ? ROJO
     : BLANCO;
