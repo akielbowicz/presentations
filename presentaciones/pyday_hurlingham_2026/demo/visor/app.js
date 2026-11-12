@@ -31,6 +31,7 @@ fetch("data/recomendacion.json")
   .then((data) => {
     contrato = data;
     preparoEscala();
+    preparoPrueba();
     pintoMeta();
     pintoChips();
     // deep-link ?tramo=N&tasa=H: abrir el visor ya contando esa parte
@@ -38,7 +39,7 @@ fetch("data/recomendacion.json")
     const tramoQ = Math.trunc(Number(q.get("tramo")));
     activo(tramoQ >= 0 && tramoQ < contrato.segmentos.length ? tramoQ : 0);
     const tasaQ = Number(q.get("tasa"));
-    if (tasaQ >= 1 && tasaQ <= 60) {
+    if (tasaQ >= Number(slider.min) && tasaQ <= Number(slider.max)) {
       fPrueba = tasaQ;
       slider.value = tasaQ;
       pintoGrafico();
@@ -152,6 +153,14 @@ function preparoEscala() {
   techo = Math.max(desvios[Math.floor(desvios.length * 0.985)] || 1, 0.5);
 }
 
+/* El rango del slider cubre el f_opt más exigente del contrato: si una
+   captura futura pide más que los 60 Hz de la grabación, hay dónde posar
+   el slider sobre el ritmo justo en vez de quedar clampado. */
+function preparoPrueba() {
+  const maxOpt = Math.max(...contrato.segmentos.map((s) => s.f_opt || 0));
+  slider.max = Math.max(Number(slider.max), Math.ceil(maxOpt));
+}
+
 function escalaY(valor) {
   const h = canvas.height;
   const rel = Math.max(-1.05, Math.min(1.05, (valor - centro) / techo));
@@ -249,7 +258,8 @@ function pintoGrafico() {
   badge.textContent = vered.estado;
   badge.className = vered.roja ? "miente" : "alcanza";
   document.getElementById("tasa-num").textContent = fPrueba;
-  document.getElementById("por-que").textContent = porQue(seg, fPrueba, vered);
+  document.getElementById("por-que").textContent =
+    "Prueba: " + porQue(seg, fPrueba, vered);
   document.getElementById("prueba-linea").style.color = vered.roja
     ? ROJO
     : BLANCO;
