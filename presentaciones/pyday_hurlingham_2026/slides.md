@@ -1,22 +1,23 @@
 <!-- .slide: id="titulo" -->
 
-## After Chatbon
+# After Chatbon <!-- .element: class="fragment" -->
 
 **PyDay Hurlingham**
 
 **14 de Noviembre 2026**
 
-[charlas.saxa.xyz/charla-after-chatbon](https://charlas.saxa.xyz/charla-after-chatbon/)
+[saxa.xyz/charla-after-chatbon](https://saxa.xyz/charla-after-chatbon/) <!-- .element: class="fragment" -->
 
 ---
 
 <!-- .slide: data-transition="none" -->
 
-### Sasha
+### **[Phorma Scientific](https://phorma.sh)**
+
+Sasha
 
 Consultor independiente
 
-**[Phorma Scientific](https://phorma.sh)**
 
 --
 
@@ -84,6 +85,8 @@ avanzar. Los dos mensajes de la charla empiezan acá.
 
 ---
 
+<!-- .slide: style="padding-top: 1.5vw" -->
+
 <!-- 03 Banderitas y globos · El espectáculo · ~1:30 -->
 
 <div style="font-size: 0.55em; letter-spacing: 0.35em; color: #8a8a86;">AFTER CHATBON · LADO A · 03</div>
@@ -148,6 +151,8 @@ La pregunta que guía el resto: ¿a 60 Hz la medición es mejor, o solo más gra
 
 ---
 
+<!-- .slide: style="padding-top: 4vw" -->
+
 <!-- 05 Hola Frank · Romper sin miedo · ~1:30 -->
 
 <div style="font-size: 0.55em; letter-spacing: 0.35em; color: #8a8a86;">AFTER CHATBON · LADO A · 05 · DEMO</div>
@@ -175,6 +180,8 @@ mostrar el rojo, git restore.
 
 ---
 
+<!-- .slide: style="padding-top: 9vw" -->
+
 <!-- 06 Ojos de terciopelo · Entender el sistema · ~1:30 -->
 
 <div style="font-size: 0.55em; letter-spacing: 0.35em; color: #8a8a86;">AFTER CHATBON · LADO A · 06 · DEMO</div>
@@ -189,10 +196,7 @@ mostrar el rojo, git restore.
 | se mueve poco | 0.9 Hz | 12 Hz | 60/300 |
 | se mueve mucho | 3 Hz | 25 Hz | 125/300 |
 | sacudón | 5.5 Hz | 40 Hz | 200/300 |
-<!-- .element: style="font-size: 0.78em;" -->
-
-Nyquist (2×) basta para que la señal **exista**. Para que no **mienta**: 4–8×.
-<!-- .element: class="fragment" -->
+<!-- .element: style="font-size: 0.64em;" -->
 
 --
 
@@ -209,7 +213,9 @@ f<sub>dyn</sub> = a<sub>max</sub> / (2π · v<sub>max</sub>)
 </div>
 
 NOTES:
-Track 6 (~1:30). La regla salió de los datos, no de un libro: la métrica de
+Track 6 (~1:30). El punchline de Nyquist vs 4-8x vive ahora en el track 11
+(acá no entraba: la tabla + el título de rincón llenan los 720px).
+La regla salió de los datos, no de un libro: la métrica de
 f_optima tomó 3 intentos (max-error y suavizado pareado sesgaban); la historia
 de commits lo documenta — no "arreglar" sin leer. Con tasas discretas a veces
 k se pasa del rango (13.6 en quieto): el grid de tasas cuantiza.
@@ -262,6 +268,8 @@ construimos en el lado A. python3 -m http.server 8642 --directory visor.
 
 ---
 
+<!-- .slide: style="padding-top: 9.5vw" -->
+
 <!-- 09+10 El cieguito volador / No te pongas azul · Hacer visible e interactuar · ~2:00 -->
 
 <div style="font-size: 0.55em; letter-spacing: 0.35em; color: #8a8a86;">AFTER CHATBON · LADO B · 09 + 10 · DEMO</div>
@@ -270,9 +278,9 @@ construimos en el lado A. python3 -m http.server 8642 --directory visor.
 
 #### Hacer visible, interactuar y explorar
 
-<img src="images/visor-captura-real.png" style="max-height: 44vh; width: auto; max-width: 88%; display: block; margin: 0 auto; border-radius: 4px;">
+<img src="images/visor-captura-real.png" style="max-height: 34vh; width: auto; max-width: 88%; display: block; margin: 0 auto; border-radius: 4px;">
 
-<div style="font-size: 0.72em; margin-top: 1rem;">
+<div style="font-size: 0.66em; margin-top: 0.8rem;">
 
 Click en *quieto*: con 1 lectura por segundo alcanza — y el gráfico era una línea plana.
 <!-- .element: class="fragment" -->
@@ -296,6 +304,8 @@ era ruido. Captura real, 46 s a 60 Hz. Recorrido: titular → chips en palabras
 cambia.
 
 ---
+
+<!-- .slide: style="padding-top: 8.5vw" -->
 
 <!-- 11 Noche de paz · Lo que no sabíamos · ~1:30 -->
 
@@ -367,7 +377,7 @@ de preguntas.
 
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
 
-<div class="sumo-red" style="font-size: 1.5em; font-style: italic; font-weight: 700; text-align: center; margin-top: -11.5vw;">
+<div class="sumo-red" style="font-size: 1.5em; font-style: italic; font-weight: 700; text-align: center;">
 
 Lo que no se codifica, se va con la persona
 
@@ -445,10 +455,6 @@ Estás estudiando
 
 </div>
 
-<p style="margin-top: 0.6rem; font-size: 1em;">
-<a href="https://charlas.saxa.xyz/charla-after-chatbon/" style="border-bottom: 2px solid;">charlas.saxa.xyz/charla-after-chatbon</a>
-· <a href="mailto:info@phorma.sh">info@phorma.sh</a>
-</p>
 
 NOTES:
 (~0:30) Dos ramas porque la sala es mixta: quien tiene presupuesto y quien no.
@@ -468,4 +474,8 @@ La URL corta es real: charla-after-chatbon/index.html redirige al deck.
 
 <!-- .slide: id="gracias" -->
 
-## Gracias
+# Gracias
+
+[saxa.xyz/charla-after-chatbon](https://saxa.xyz/charla-after-chatbon)
+
+[info@phorma.sh](mailto:info@phorma.sh)

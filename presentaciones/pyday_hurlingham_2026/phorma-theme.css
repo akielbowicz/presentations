@@ -405,14 +405,14 @@ html.reveal-print .reveal .slides .pdf-page::after {
 .reveal .slides > section > section {
   height: 100%;
   box-sizing: border-box;
-  /* Reserva la franja superior para el título (H2/H3 en la
-     esquina, como "SUMO"): el contenido centrado no puede
-     subir a pisarlo. 11.5vw ≈ 3.5vw de inset + 2 líneas de
-     título a 1.1em con line-height 1.15 (141px a 1280×720).
-     Si se agranda el título de rincón, agrandar esto también:
-     la diapo más densa (track 06, tabla) desborda por abajo
-     si la franja crece de más. */
-  padding-top: 11.5vw;
+  /* SIN padding-top global: el contenido se centra en la diapo
+     completa, como antes del título de rincón. La franja del
+     título (3.5vw + 2 líneas a 1.1em ≈ 141px) la respetan casi
+     todas las diapos por centrado natural; las pocas cuyo
+     contenido es tan alto que subiría a pisarla llevan su
+     propia reserva vía <!-- .slide: style="padding-top: …" -->
+     (ver track 09+10). NO volver a poner padding-top acá:
+     baja el centro visual de TODAS las diapos ~10%. */
 }
 
 /* reveal.js pone display:block INLINE en la section visible (.present);
@@ -467,6 +467,24 @@ html.reveal-print .reveal .slides .pdf-page::after {
 }
 
 .reveal .slides section > h2:first-of-type { font-size: 1.1em; }
+
+/* Opt-out por diapo: las demasiado densas para convivir con el
+   título de rincón (track 06, tabla) recuperan el título en la
+   franja inferior, como la tapa del disco. Se pide con
+   <!-- .slide: class="titulo-abajo" -->. */
+.reveal .slides section.titulo-abajo > h1:first-of-type,
+.reveal .slides section.titulo-abajo > h2:first-of-type,
+.reveal .slides section.titulo-abajo > h3:first-of-type {
+  top: auto;
+  bottom: 3.5vw;
+  left: 0;
+  right: 0;
+  padding-left: 4.8vw;
+  padding-right: 0;
+  text-align: left;
+  max-width: none;
+  font-size: 1.6em;
+}
 .reveal .slides section > h3:first-of-type { font-size: 0.95em; }
 
 /* Subtítulos internos (h4+) vuelven a mono, sin tratamiento de tapa */
