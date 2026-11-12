@@ -15,6 +15,7 @@ import math
 from pathlib import Path
 
 from .csv_sensorlog import leer_sensorlog
+from .grabador import GrabadorAdaptativo
 from .integrador import integrar, quita_tendencia
 from .recomendador import f_optima, piso_ruido, redundancia
 from .senales import escribir_sensorlog, generar
@@ -116,6 +117,29 @@ def analizar(ruta_csv: Path, ruta_salida: Path | None = None) -> dict:
     return contrato
 
 
+def grabar(ruta_csv: Path) -> dict:
+    """Simula el grabador adaptativo sobre el stream de una captura.
+
+    El sensor muestrea a plena tasa en RAM; el grabador decide qué se
+    persiste, muestra a muestra, sin ver futuro. Devuelve la traza de
+    decisiones, la cuenta de guardadas y el error de reconstrucción.
+    """
+    serie = leer_sensorlog(ruta_csv)
+    a = serie.a
+    f_medida = max(1.0, round(serie.f_medida))
+    tasas = tuple(t for t in TASAS_BASE if t <= f_medida)
+    g = GrabadorAdaptativo(f_captura=f_medida, tasas=tasas)
+    for t, x in zip(serie.t, a):
+        g.ofrecer(t, x)
+    return {
+        "decisiones": g.decisiones,
+        "guardadas": len(g.a_guardadas),
+        "totales": serie.n_muestras,
+        "pct": round(100 * len(g.a_guardadas) / serie.n_muestras),
+        "error_reconstruccion_pct": round(g.error_reconstruccion_pct(serie.t, a), 1),
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="¿Qué sample rate hace falta de verdad?")
     sub = parser.add_subparsers(dest="comando", required=True)
@@ -128,9 +152,24 @@ def main() -> None:
     p_ana.add_argument("csv", type=Path)
     p_ana.add_argument("--salida", type=Path, default=None)
 
+    p_gra = sub.add_parser(
+        "grabar", help="simula el grabador adaptativo causal sobre el stream"
+    )
+    p_gra.add_argument("csv", type=Path)
+
     args = parser.parse_args()
     if args.comando == "sintetizar":
         print(f"señal sintética → {sintetizar(args.salida, seed=args.seed)}")
+    elif args.comando == "grabar":
+        r = grabar(args.csv)
+        print(f"grabador adaptativo (causal, solo pasado) sobre {args.csv.name}:")
+        for t, f in r["decisiones"]:
+            print(f"  {t:6.2f}s → {f:.0f} Hz")
+        print(
+            f"  persistidas {r['guardadas']} de {r['totales']} muestras "
+            f"({r['pct']}%)"
+        )
+        print(f"  error de reconstrucción: {r['error_reconstruccion_pct']}% RMS (tolerancia 10%)")
     else:
         contrato = analizar(args.csv, args.salida)
         destino = args.salida or "stdout"

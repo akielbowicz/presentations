@@ -7,7 +7,7 @@ este JSON. Si cambia, un test avisa.
 import json
 from pathlib import Path
 
-from muestreo.cli import analizar, sintetizar
+from muestreo.cli import analizar, sintetizar, grabar
 
 
 def test_sintetizar_genera_csv_formato_sensorlog(tmp_path):
@@ -51,3 +51,17 @@ def test_analizar_produce_contrato_completo(tmp_path):
     senial = contrato["senial"]
     assert len(senial["t"]) == len(senial["a"]) <= 1500  # decimada para el visor
     assert salida.exists()
+
+
+def test_grabar_decide_sobre_el_stream_y_ahorra(tmp_path):
+    csv = tmp_path / "sintetico.csv"
+    sintetizar(csv, seed=7)
+    r = grabar(csv)
+    assert r["totales"] == 3000
+    assert r["guardadas"] < r["totales"] / 2
+    assert r["error_reconstruccion_pct"] <= 10.0
+    assert r["decisiones"], "debe haber al menos una cambio de tasa"
+    # quieto → 1 Hz en algún momento; temblor → banda alta al final
+    tasas_vistas = {f for _, f in r["decisiones"]}
+    assert 1.0 in tasas_vistas
+    assert max(f for _, f in r["decisiones"]) >= 40.0

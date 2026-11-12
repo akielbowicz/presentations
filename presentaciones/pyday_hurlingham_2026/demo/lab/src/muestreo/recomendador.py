@@ -42,7 +42,7 @@ def redundancia(a: list[float], sigma: float) -> float:
     return quietas / (len(a) - 1)
 
 
-def _interp_lineal(t_full, t_dec, a_dec, n):
+def interp_lineal(t_full, t_dec, a_dec, n):
     """Reconstruye la señal completa desde las muestras decimadas."""
     salida = []
     j = 0
@@ -76,18 +76,18 @@ def f_optima(
     if len(t) < 4:
         return 1.0
     tasa_original = (len(t) - 1) / (t[-1] - t[0]) if t[-1] > t[0] else 1.0
-    rms_ref = _rms(a)
+    rms_ref = rms(a)
     if rms_ref < 2.0 * sigma:
         return 1.0  # no pasa nada: la dinámica es indistinguible del ruido
     tolerancia = tol_pct / 100.0 * rms_ref
     for f in sorted(tasas):
         paso = max(1, int(round(tasa_original / f)))
         t_dec = t[::paso]
-        a_rec = _interp_lineal(t, t_dec, a[::paso], len(t))
-        if _rms([r - o for r, o in zip(a_rec, a)]) <= tolerancia:
+        a_rec = interp_lineal(t, t_dec, a[::paso], len(t))
+        if rms([r - o for r, o in zip(a_rec, a)]) <= tolerancia:
             return float(f)
     return float(sorted(tasas)[-1])
 
 
-def _rms(valores: list[float]) -> float:
+def rms(valores: list[float]) -> float:
     return (sum(x * x for x in valores) / len(valores)) ** 0.5

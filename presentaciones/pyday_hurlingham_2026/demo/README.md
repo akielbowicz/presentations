@@ -107,8 +107,25 @@ analizar, copiar a `visor/data/` y recargar el server.
 El descubrimiento codificado en un test: **Nyquist no alcanza**. Con 2× la
 dinámica la señal existe, pero su forma miente. El slider del visor lo pinta:
 sacudón a 15 Hz (≥ 2·f_dyn) → *existe pero miente*. La regla honesta (4–8×) salió
-de los datos, no de un libro — y hoy le diría a sensor-log qué sample rate
-usar en cada tramo de una grabación real: muestreo adaptativo.
+de los datos, no de un libro.
+
+Y la promesa ya es código: **el grabador adaptativo** — decide muestra a
+muestra, solo con pasado, mientras el stream llega:
+
+```bash
+uv run muestreo grabar datos/captura.csv
+```
+
+Traza en la captura real (46 s): arranca conservador a 60 Hz, baja a 1 Hz
+en el quieto (22 s), sube a 50 Hz en el sacudón (40 s). Cuando la tasa
+sube, la ventana del buffer RAM se **re-decima** a la nueva tasa — el
+pre-buffer de la cámara del auto: las muestras ya llegaron, lo que se
+decide es qué se persiste. **1615 de 2774 muestras (58%), error de
+reconstrucción 4.1% RMS.** El costo honesto de decidir sin futuro: el
+offline llega a 37%, el causal a 58% — menos de la mitad que los 60 Hz
+crudos y sin mentir. Los tests del oráculo lo defienden: subida
+inmediata, bajada con histéresis, decisiones causales, sin hueco en el
+onset del movimiento.
 
 ### Track 12 — Percussion baby · cierre
 
