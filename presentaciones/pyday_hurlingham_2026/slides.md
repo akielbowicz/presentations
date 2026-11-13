@@ -16,6 +16,9 @@
 - Líder Técnico en **Mercado Libre** *(IT Staff, Financial Planning & Analysis)*
 - Senior AI Engineer en **AstraZeneca** *(R&D Oncology)*
 
+NOTES:
+0:25 — 3 hitos, sin leer línea por línea.
+
 --
 
 No me gusta programar,
@@ -25,9 +28,9 @@ me gusta resolver problemas.
 
 --
 
-#### A: 
+#### A: Necesitamos ambientes donde podamos explorar y experimentar sin miedo a romper
 
-#### B: 
+#### B: Necesitamos entender de que manera los humanos tienen que validar/verificar los resultados
 
 ---
 
@@ -43,6 +46,7 @@ Piensen en los Chats en los mismos términos que Facebook, Instagram, TikTok, X/
 - ¿Qué información le están entregando? <!-- .element: class="fragment" -->
 
 NOTES:
+0:45 — UNA sola pregunta retórica (la de horas/día), no las tres. Si va tarde: una frase y seguir.
 mejor no hablar de ciertas cosas
 
 ---
@@ -68,6 +72,9 @@ y van a tener que regresar muchas veces.
 
 https://charly-vibes.github.io/jams/sensor-log/
 
+NOTES:
+01 total 1:00 — narrar sobre el iframe, sin interactuar. Si el wifi falla: URL desnua + números de memoria (0,9 MB/min con los 6 a 60 Hz).
+
 --
 
 memoria a 60 Hz:
@@ -83,9 +90,12 @@ memoria a 60 Hz:
 
 ---
 
-<!-- 02 No tan distintos · ~2:00 -->
+<!-- 02 No tan distintos · ~1:00 -->
 
 #### ¿Cómo aprendemos?
+
+NOTES:
+1:00 — pregunta que abre el bloque 02–06; la respuesta la construye la cadena de 03.
 
 <!-- 03 Banderitas y globos · ~1:30 -->
 
@@ -95,23 +105,24 @@ memoria a 60 Hz:
 -> [devenv.sh](https://devenv.sh/) <!-- .element: class="fragment" -->
 
 NOTES:
+1:30 — nombrar la cadena sin abrir los links; si va tarde, solo uv+CI.
 lo entendido es lo que no entiendo
 
 --
 
-<!-- 04 Mañana en el Abasto · ~2:00 -->
+<!-- 04 Mañana en el Abasto · ~1:00 -->
 
 - ¿Cómo recrear el software, hacer que funcione 
 y que los cambios que hagamos avancen y no retrocedan?
 
 
 NOTES:
-
+1:00 — la pregunta guía del resto; dejar que llegue sola, sin desarrollar.
 “No tengas miedo, no”
 
 --
 
-<!-- 05 Hola Frank ·  · ~1:30 -->
+<!-- 05 Hola Frank · ~1:15 -->
 
 ## Oh mama, what did you do? 
 
@@ -123,7 +134,7 @@ NOTES:
 - lo que es puramente [operacional](https://charly-vibes.github.io/whisper)?<!-- .element: class="fragment" -->
 
 NOTES:
-
+1:15 — nombrar wai y bajan; specodelic y whisper quedan visuales.
 --
 
 <!-- 06 Ojos de terciopelo · Entender el sistema · ~1:30 -->
@@ -134,6 +145,7 @@ NOTES:
 - ¿Cómo tengo que dividir las [tareas](https://charly-vibes.github.io/incitaciones/content/distilled/issue-review-unified.md)?<!-- .element: class="fragment" -->
 
 NOTES:
+1:30 — frags de a 2; sin leer cada bullet.
 I showed her where to go
 she showed me what to do
 i’d do the same for me right now
@@ -158,11 +170,11 @@ that I’d do for you
 
 ---
 
-#### A: <span class="fragment">Necesitamos ambientes donde podamos explorar y experimentar sin miedo a romper</spen>
-
-#### B: 
+#### A: <span class="fragment">Necesitamos ambientes donde podamos explorar y experimentar sin miedo a romper</span>
 
 ---
+
+<!-- 07 Lo quiero ya · ~0:45 -->
 
 ### No sé lo que quiero
 
@@ -176,6 +188,9 @@ that I’d do for you
 - Software especializado para que un humano pueda completar la validación <!-- .element: class="fragment" -->
 
 - Qué es un proceso repetible <!-- .element: class="fragment" -->
+
+NOTES:
+0:45 sección — mostrar el JSON crudo 1 segundo; promesa: el visor lo hace visible.
 
 --
 
@@ -195,9 +210,12 @@ that I’d do for you
 
 [Dashboard](./demo/visor/index.html)
 
+NOTES:
+CHECKPOINT 10:00 — acá hay que estar entrando al visor. 1:30: titular + chips quieto/sacudón. El demo nunca extiende su budget.
+
 --
 
-<!-- 09 El cieguito volador ·~2:00 -->
+<!-- 09 El cieguito volador · ~1:30 -->
 
 ## yo estoy al derecho / dado vuelta estás vos
 
@@ -206,20 +224,28 @@ that I’d do for you
 - ¿Qué tiene que ser determinista? <!-- .element: class="fragment" -->
 - ¿Cómo puedo simplificar la validación o interacción necesaria parte de un humano? <!-- .element: class="fragment" -->
 
+NOTES:
+1:30 — slider con deep-link ?tramo=8&tasa=15 ("existe pero miente") y volver a 40 Hz.
 ---
 
-<!-- 10 No te pongas azul ·~2:00 -->
+<!-- 10 No te pongas azul · ~0:45 -->
 
 ## We all know, we all know, we all know
 
 - Vamos a necesitar expertos que puedan construir herramientas y procesos transparentes
 - Entender cómo re-construir cajas negras
 
+NOTES:
+0:45 — dos frases y fluir hacia el sueño.
+
 --
 
-<!-- 11 Noche de paz · Lo que no sabíamos · ~1:30 -->
+<!-- 11 Noche de paz · mensaje A · ~1:00 -->
 
 ## “Sueña un sueño imposible”
+
+NOTES:
+1:00 — beat A: IA para MEJOR calidad, no más código.
 
 Utilizar las nuevas herramientas para producir software de mejor calidad
 
@@ -227,9 +253,12 @@ en vez de simplemente generar más código.<!-- .element: class="fragment" -->
 
 --
 
-<!-- 11 Noche de paz · Lo que no sabíamos · ~1:30 -->
+<!-- 11 Noche de paz · mensaje B payoff · ~1:00 (sección 11: 2:00) -->
 
 ## “Sueña TU sueño imposible”
+
+NOTES:
+1:00 — payoff del mensaje B; NO recortar esta diapo.
 
 Aprovechar las capacidades de la IA y simplificar sistemas y procesos complejos
 
@@ -237,9 +266,10 @@ Hacer tecnologías accesibles e inclusivas. <!-- .element: class="fragment" -->
 
 ---
 
-#### A: Necesitamos ambientes donde podamos explorar y experimentar sin miedo a romper
-
 #### B: <span class="fragment">Necesitamos entender de que manera los humanos tienen que validar/verificar los resultados </span>
+
+NOTES:
+1:15 con incitaciones — síntesis de los dos mensajes; incitaciones: destacar YAGNI, causa/enfermedad y Rule of 5 sin leer los prompts completos.
 
 ---
 
@@ -296,6 +326,9 @@ y funcione cold-read" <!-- .element: class="fragment" -->
 
 [Leo Oyola: La canción que cada uno tiene adentro](https://www.youtube.com/watch?v=DC-OdcjzED0) <!-- .element: class="fragment" -->
 
+NOTES:
+1:15 — LEER LA CITA COMPLETA (decisión de Sasha). Es el cierre emocional: no resumir, no recortar.
+
 ---
 
 <!-- .slide: data-transition="none" -->
@@ -315,6 +348,9 @@ Consultor Independiente <!-- .element: class="fragment" -->
 
 ### Dos días con tu equipo
 
+NOTES:
+0:30 — si va muy tarde: solo info@phorma.sh en pantalla.
+
 [info@phorma.sh](mailto:info@phorma.sh)
 
 [Capacitaciones y Consultorías](https://phorma.sh/es/trainees)
@@ -329,6 +365,9 @@ Consultor Independiente <!-- .element: class="fragment" -->
 <!-- .slide: id="gracias" -->
 
 # Gracias
+
+NOTES:
+0:15 — QR en pantalla y cerrar.
 
 [saxa.xyz/charla-after-chatbon](https://saxa.xyz/charla-after-chatbon)<!-- .element: class="fragment" -->
 
