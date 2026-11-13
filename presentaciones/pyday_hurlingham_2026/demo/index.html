@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>After Chatbon · making-of</title>
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: #1A1917; color: #FBFAFA;
+    font-family: system-ui, sans-serif; line-height: 1.6;
+  }
+  main { max-width: 42rem; padding: 3rem 1.5rem; }
+  h1 { color: #C83534; font-weight: 800; font-style: italic; letter-spacing: 0.02em; margin: 0 0 0.5rem; }
+  p.sub { margin-top: 0; color: #b8b5b1; }
+  ul { list-style: none; padding: 0; margin: 2rem 0; }
+  li { margin: 1.2rem 0; }
+  a { color: #FBFAFA; text-decoration: none; border-bottom: 2px solid #C83534; }
+  a:hover { color: #C83534; }
+  .nota { color: #8a8784; font-size: 0.9em; border-top: 1px solid #33312e; padding-top: 1rem; }
+  code { font-family: ui-monospace, monospace; color: #C83534; }
+</style>
+</head>
+<body>
+<main>
+  <h1>After Chatbon</h1>
+  <p class="sub">PyDay Hurlingham 2026 · el making-of de la charla, explorable.</p>
+  <ul>
+    <li><a href="visor/">Abrir el visor</a> — explora el conocimiento extraído de la conversación (extractores <em>atómico</em> y <em>estructura</em>).</li>
+    <li><a href="conversacion.txt">La conversación completa</a> — el documento crudo, tal como está en el disco.</li>
+  </ul>
+  <p class="nota">Cada afirmación del visor cita su evidencia: el texto verbatim y la línea de origen. Las líneas apuntan a <code>conversacion.txt</code>. El pipeline es determinista: mismo documento, misma salida.</p>
+</main>
+</body>
+</html>
