@@ -18,6 +18,8 @@ Cada charla tiene su propio subdirectorio bajo [`presentaciones`](./presentacion
 Presentaciones (en orden cronológico, con las más recientes arriba)
 -------------------------------------------------------------------
 
+[After Chatbon (PyDay Hurlingham 2026)](./presentaciones/pyday_hurlingham_2026/)
+
 [Software científico e IA: cómo usar LLMs sin romper todo (PyDay La Plata 2026)](./presentaciones/pyday_la_plata_2026/)
 
 [Nadie nada nunca (PyDay Hurlingham 2025)](./presentaciones/pyday_hurlingham_2025/)
