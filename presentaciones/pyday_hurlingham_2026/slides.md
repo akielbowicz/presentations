@@ -10,13 +10,11 @@
 
 --
 
-<div class="fragment">
-- Física en la UBA
+- Física en la **UBA**
 - Desarrollador de Software en **JP Morgan** *(Rates, CIB)*
 - Lead Quant Developer en **Qontigo/Simcorp** *(Quantitative Pricing and Risk Analytics)*
 - Líder Técnico en **Mercado Libre** *(IT Staff, Financial Planning & Analysis)*
 - Senior AI Engineer en **AstraZeneca** *(R&D Oncology)*
-</div>
 
 --
 
@@ -89,11 +87,9 @@ memoria a 60 Hz:
 
 #### ¿Cómo aprendemos?
 
----
-
 <!-- 03 Banderitas y globos · ~1:30 -->
 
-[uv](https://docs.astral.sh/uv/) 
+[uv](https://docs.astral.sh/uv/) <!-- .element: class="fragment" -->
 -> [Github Actions](https://github.com/charly-vibes/dulce-de-leche/actions/workflows/ci.yml) <!-- .element: class="fragment" -->
 -> [docker](https://www.docker.com/) <!-- .element: class="fragment" -->
 -> [devenv.sh](https://devenv.sh/) <!-- .element: class="fragment" -->
