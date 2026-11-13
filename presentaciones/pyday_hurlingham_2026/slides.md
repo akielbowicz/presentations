@@ -85,28 +85,9 @@ memoria a 60 Hz:
 
 ---
 
-<!-- 02 No tan distintos · ¿Cómo aprendemos? · ~2:00 -->
+<!-- 02 No tan distintos · ~2:00 -->
 
 #### ¿Cómo aprendemos?
-
-¿Qué proyecto tenés que no te animás a tocar?
-<!-- .element: class="fragment" -->
-
-¿Y cómo aprendiste lo que sabés?
-<!-- .element: class="fragment" -->
-
-<div style="font-size: 0.8em; color: #8a8a86;">
-
-Probando. Rompiendo. Volviendo a probar.
-<!-- .element: class="fragment" -->
-
-</div>
-
-NOTES:
-Dos minutos de preguntas al público: proyectos que temen modificar,
-experiencias aprendidas al equivocarse. Dejar que varios respondan antes de
-avanzar. Los dos mensajes de la charla empiezan acá.
-
 
 ---
 
@@ -151,7 +132,7 @@ NOTES:
 
 <!-- 06 Ojos de terciopelo · Entender el sistema · ~1:30 -->
 
-- ¿Cómo puedo subir los [estándares de calidad](https://charly-vibes.github.io/pretender) del código que se produce y restringimos lo que se acepta?<!-- .element: class="fragment" -->
+- ¿Cómo puedo subir los [estándares de calidad](https://charly-vibes.github.io/pretender) del código que se produce y restringir lo que se acepta?<!-- .element: class="fragment" -->
 - ¿Cómo hago para que las verificaciones [corran más rápido](https://charly-vibes.github.io/testaruda)?<!-- .element: class="fragment" -->
 - ¿Cómo verifico que el código [cumple con las especificaciones](https://charly-vibes.github.io/espectacular)?<!-- .element: class="fragment" -->
 - ¿Cómo tengo que dividir las [tareas](https://charly-vibes.github.io/incitaciones/content/distilled/issue-review-unified.md)?<!-- .element: class="fragment" -->
@@ -193,14 +174,12 @@ that I’d do for you
 
 --
 
-las interfaces de chat son malisimas, 
-
 - Tenemos que aprender a interpretar las intenciones <!-- .element: class="fragment" -->
 <!-- - ¿Por qué seguimos recreando las interfaces de usuario como dashboards? -->
 
-- Software especializado para que un humano pueda completar la validación 
+- Software especializado para que un humano pueda completar la validación <!-- .element: class="fragment" -->
 
-- Que es un proceso repetible y genera memoria
+- Qué es un proceso repetible <!-- .element: class="fragment" -->
 
 --
 
@@ -273,9 +252,9 @@ Hacer tecnologías accesibles e inclusivas. <!-- .element: class="fragment" -->
 
 "Revisemos que esto no sea YAGNI"  <!-- .element: class="fragment" -->
 
-"No estamos haciendo sobre-ingenieria?"  <!-- .element: class="fragment" -->
+"No estamos haciendo sobre-ingeniería?"  <!-- .element: class="fragment" -->
 
-"Entendamos cual es la causa y no la enfermedad"  <!-- .element: class="fragment" -->
+"Entendamos cuál es la causa y no la enfermedad"  <!-- .element: class="fragment" -->
 
 --
 
@@ -299,7 +278,6 @@ y funcione cold-read" <!-- .element: class="fragment" -->
 ---
 
 
-
 --
 
     Escribir es como escuchar un cover
@@ -311,9 +289,6 @@ y funcione cold-read" <!-- .element: class="fragment" -->
     Bailar. Cantar.
     Emborracharte de la alegría. Bancártela si te pinta un pedo triste.
     No tenerle miedo al ridículo. 
-
---
-
     Evocar.
     Aquello que nos hizo tan felices. Como así también lo que nos hizo mal.
     Hacernos cargo de nuestros respectivos prontuarios.
