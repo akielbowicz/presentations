@@ -92,19 +92,20 @@ memoria a 60 Hz:
 
 <!-- 02 No tan distintos · ~1:00 -->
 
-#### ¿Cómo aprendemos?
+#### ¿Cómo hacemos para aprender?
 
-NOTES:
-1:00 — pregunta que abre el bloque 02–06; la respuesta la construye la cadena de 03.
+--
 
 <!-- 03 Banderitas y globos · ~1:30 -->
 
 [uv](https://docs.astral.sh/uv/) <!-- .element: class="fragment" -->
 -> [Github Actions](https://github.com/charly-vibes/dulce-de-leche/actions/workflows/ci.yml) <!-- .element: class="fragment" -->
 -> [docker](https://www.docker.com/) <!-- .element: class="fragment" -->
--> [devenv.sh](https://devenv.sh/) <!-- .element: class="fragment" -->
+-> [nix/devenv.sh](https://devenv.sh/) <!-- .element: class="fragment" -->
 
 NOTES:
+1:00 — pregunta que abre el bloque 02–06; la respuesta la construye la cadena de 03.
+
 1:30 — nombrar la cadena sin abrir los links; si va tarde, solo uv+CI.
 lo entendido es lo que no entiendo
 
@@ -164,7 +165,9 @@ that I’d do for you
 [Github Pages](https://github.com/charly-vibes/dulce-de-leche/blob/main/.github/workflows/docs.yml)<!-- .element: class="fragment" -->
 
 [Cloudflare (Pages, Worker, Tunnel, ...)](https://www.cloudflare.com/)<!-- .element: class="fragment" -->
+
 [auth0](https://auth0.com/)<!-- .element: class="fragment" -->
+
 [Tailscale](https://tailscale.com/)<!-- .element: class="fragment" -->
 
 
@@ -187,7 +190,7 @@ that I’d do for you
 
 - Software especializado para que un humano pueda completar la validación <!-- .element: class="fragment" -->
 
-- Qué es un proceso repetible <!-- .element: class="fragment" -->
+- ¿Cuáles son los proceso repetibles? <!-- .element: class="fragment" -->
 
 NOTES:
 0:45 sección — mostrar el JSON crudo 1 segundo; promesa: el visor lo hace visible.
@@ -198,9 +201,9 @@ NOTES:
 
 ## Do it right man
 
-**SPA** <!-- .element: class="fragment" -->
+**Single Page Apps (SPA)** <!-- .element: class="fragment" -->
 
-**PWA** <!-- .element: class="fragment" -->
+**Progressive Web Apps (PWA)** <!-- .element: class="fragment" -->
 
 **VanillaJS** <!-- .element: class="fragment" -->
 
@@ -219,7 +222,7 @@ CHECKPOINT 10:00 — acá hay que estar entrando al visor. 1:30: titular + chips
 
 ## yo estoy al derecho / dado vuelta estás vos
 
-- ¿Qué actividades se repiten y son directas? <!-- .element: class="fragment" -->
+- ¿Qué actividades se repiten todo el tiempo y deberían tener accesos directos? <!-- .element: class="fragment" -->
 - ¿Qué se puede automatizar? <!-- .element: class="fragment" -->
 - ¿Qué tiene que ser determinista? <!-- .element: class="fragment" -->
 - ¿Cómo puedo simplificar la validación o interacción necesaria parte de un humano? <!-- .element: class="fragment" -->
@@ -242,27 +245,28 @@ NOTES:
 
 <!-- 11 Noche de paz · mensaje A · ~1:00 -->
 
-## “Sueña un sueño imposible”
+## Sueña un sueño imposible
+
+Utilizar las nuevas herramientas para producir software de mejor calidad <!-- .element: class="fragment" -->
+
+en vez de simplemente generar más código.<!-- .element: class="fragment" -->
 
 NOTES:
 1:00 — beat A: IA para MEJOR calidad, no más código.
-
-Utilizar las nuevas herramientas para producir software de mejor calidad
-
-en vez de simplemente generar más código.<!-- .element: class="fragment" -->
 
 --
 
 <!-- 11 Noche de paz · mensaje B payoff · ~1:00 (sección 11: 2:00) -->
 
-## “Sueña TU sueño imposible”
+## Sueña TU sueño imposible
+
+Aprovechar las capacidades de la IA y simplificar sistemas y procesos complejos. <!-- .element: class="fragment" -->
+
+Hacer tecnologías accesibles e inclusivas. <!-- .element: class="fragment" -->
+
 
 NOTES:
 1:00 — payoff del mensaje B; NO recortar esta diapo.
-
-Aprovechar las capacidades de la IA y simplificar sistemas y procesos complejos
-
-Hacer tecnologías accesibles e inclusivas. <!-- .element: class="fragment" -->
 
 ---
 
@@ -346,19 +350,17 @@ Consultor Independiente <!-- .element: class="fragment" -->
 
 --
 
-### Dos días con tu equipo
-
-NOTES:
-0:30 — si va muy tarde: solo info@phorma.sh en pantalla.
+### [Capacitaciones y Consultorías](https://phorma.sh/es/trainees)
 
 [info@phorma.sh](mailto:info@phorma.sh)
-
-[Capacitaciones y Consultorías](https://phorma.sh/es/trainees)
 
 - Código de investigación reproducible · 2 días
 - Prácticas de testing · 2 días
 - Liderando la adopción de IA · 1 día
 - Diagnósticos de sistemas cuantitativos · 2 días
+
+NOTES:
+0:30 — si va muy tarde: solo info@phorma.sh en pantalla.
 
 ---
 
@@ -366,8 +368,8 @@ NOTES:
 
 # Gracias
 
+[saxa.xyz/charla-after-chatbon](https://saxa.xyz/charla-after-chatbon)<!-- .element: class="fragment" -->
+
 NOTES:
 0:15 — QR en pantalla y cerrar.
-
-[saxa.xyz/charla-after-chatbon](https://saxa.xyz/charla-after-chatbon)<!-- .element: class="fragment" -->
 
