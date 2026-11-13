@@ -414,4 +414,39 @@
   - Deck: presentaciones/pyday_hurlingham_2026/{slides.md,phorma-theme.css,index.html}; redirect: charla-after-chatbon/index.html
   - Catálogo real Phorma: ~/para/areas/dev/gh/phorma/phormasci.github.io/content/trainees/es/{83,44,75}-*.md; tiers: AIC_STRATEGY.md §5 (Bronze = audit fixed scope)
   - Review Rule-of-5 de la propuesta: hallazgos CORR-001/003 y DRAFT-001 ya resueltos en estos commits
-  Previous entry: none
+  Previous entry: none (superseded by 0fcb8a0b0945eac40c6fb5dfc46c5faa3af3235a4a458efb21eaaa28d46546eb)
+- 2026-11-12T19:30:53Z [id:0fcb8a0b0945eac40c6fb5dfc46c5faa3af3235a4a458efb21eaaa28d46546eb] (#incitacionales) Format: 1
+  UTC: 2026-11-12T16:15Z
+  Repo: ak/presentations (origin ak:akielbowicz/presentations.git)
+  Branch: pyday-hurlingham-2026
+  HEAD: fa571df (notes: store whisper — PUSHEADO, todo commiteado, árbol limpio)
+  Session: 01a1d065-2c52-73f2-b509-b05c23b4ffb3
+  Task: charla PyDay Hurlingham 2026 "After Chatbon" — visor con veredictos, grabador adaptativo y tabla de memoria
+  ## Objetivo
+  Hacer que la demo muestre el PROBLEMA, no solo la solución: visor interactivo con veredictos, grabador adaptativo causal (la promesa del track 11) y la cuenta en memoria en el deck.
+  ## Fase actual: commit+push completos; resta logística de charla
+  ## Estado
+  - Commits de esta sesión (TODOS PUSHEADOS, 55f17b6..fa571df):
+  - 313cd04+e3dd1f7+2b2f2d5+55f17b6: visor — slider "¿y si mido a… Hz?" con veredicto (alcanza/existe pero miente/miente, umbrales f_opt y 2·f_dyn del contrato), deep-links ?tramo=&tasa=, guardias del review Rule-of-5 (tramo fraccional, f_dyn null, hint sin "(1 de cada 1)"), refactor porQue sobre razon única.
+  - 6be957c+6c93346: track 4 ganó página vertical con tabla de memoria (1/10/30/60 min, 60 Hz vs 37%: 9,1 MB/hora, 5,7 MB de ruido; 42 B = fila CSV real). Verificada sin overflow por píxeles.
+  - e9729ce: lab — muestreo grabar: GrabadorAdaptativo causal (ventana 2 s, decide cada 0.5 s con f_optima sobre la ventana — sin regla k: los k reales llegan a 19.6; histéresis subir-inmediato/bajar-2-ticks; pacing en UNIDADES DE MUESTRA enteras — pacing flotante daba aliasing 30 Hz; re-decimado del buffer RAM en cada subida — pre-buffer de cámara de auto). Real: 1615/2774 (58%), error 4.1% RMS.
+  - 9543e60: visor tercer acto — sección grabador (verdad gris + puntos persistidos + escalón de tasa + ventana 2 s deslizándose), botón ▶ (46 s→14 s), deep-link ?reproducir, contrato data/grabacion.json con su test.
+  - fa571df: store whisper.
+  - 25 passed en lab. Nada pendiente de código.
+  ## Próxima acción exacta
+  (1) ENSAYO 13/11: deck + visor SIEMPRE por http.server; probar el recorrido track 11 completo (grabar en terminal → ?reproducir → frase "decidir sin futuro cuesta 21 puntos y no miente") y el QR; (2) definir precio del diagnóstico (la slide lo calla); (3) recortar ~1 min del slot 20; (4) listar la charla en index.md de master; (5) charla 14/11 12:30.
+  ## Decisiones/constraints claves
+  - QR 404 en vivo hasta deploy: charlas.saxa.xyz sirve master; master es ancestro directo de la rama → fast-forward limpio de un comando. Decidido: "mantengamos en la branch" — NO deployar sin pedido explícito.
+  - Push requiere autorización explícita (esta vez dada, hecho).
+  - Regla de la casa intacta: el contrato es el JSON, el visor lo traduce a palabras; grabacion.json es contrato nuevo con test en test_cli.
+  - SIEMPRE uv run python -m pytest. No tocar kickers ni padding-top global. "AFTER CHATBON" no es typo.
+  - El offline dice f_opt=40 sobre 59.9 Hz y significa paso=1 (60 Hz reales): la grilla se interpreta con round(tasa_medida/f) en TODAS las capas — así quedó el grabador.
+  ## Validación
+  uv run python -m pytest -q → 25 passed (HEAD fa571df). Visor/deck verificados headless (dump-dom + screenshots + estadísticas de píxel). git status limpio, rama en sync con origin.
+  ## Bloqueos
+  Ninguno técnico. Precio sin definir; slot ~1 min arriba; deploy a master a propósito pendiente.
+  ## Referencias condicionales
+  - Guion: presentaciones/pyday_hurlingham_2026/demo/README.md (tracks 4, 8–11 actualizados)
+  - Grabador: demo/lab/src/muestreo/grabador.py (docstring = explicación completa)
+  - Visor: demo/visor/app.js (sección "Tercer acto" al final)
+  Previous entry: 93ea40c1a0c4e9d157b9b9a46827823d7981b7331cbe0a7bc56e939f4302010a (supersedes 93ea40c1a0c4e9d157b9b9a46827823d7981b7331cbe0a7bc56e939f4302010a)

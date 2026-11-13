@@ -427,6 +427,12 @@ html.reveal-print .reveal .slides .pdf-page::after {
   justify-content: safe center;
 }
 
+/* Embeds (iframes) centrados horizontalmente dentro de la slide */
+.reveal .slides section iframe {
+  display: block;
+  margin: 0 auto;
+}
+
 /* Tratamiento de tapa común a los tres niveles */
 .reveal .slides section > h1:first-of-type,
 .reveal .slides section > h2:first-of-type,
