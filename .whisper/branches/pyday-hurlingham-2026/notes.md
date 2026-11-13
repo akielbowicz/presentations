@@ -450,3 +450,33 @@
   - Grabador: demo/lab/src/muestreo/grabador.py (docstring = explicación completa)
   - Visor: demo/visor/app.js (sección "Tercer acto" al final)
   Previous entry: 93ea40c1a0c4e9d157b9b9a46827823d7981b7331cbe0a7bc56e939f4302010a (supersedes 93ea40c1a0c4e9d157b9b9a46827823d7981b7331cbe0a7bc56e939f4302010a)
+- 2026-11-13T20:14:53Z [id:c88d389d83fab864b56858ff5ca05ec3cb23e5923361eb8c017ea29dfa9f6924] (#incitacionales) Format: 1
+  UTC: 2026-11-13T20:16Z
+  Repo: ak/presentations (origin ak:akielbowicz/presentations.git)
+  Branch: pyday-hurlingham-2026
+  HEAD: 900e410 (PUSHEADO, sync con origin, árbol limpio)
+  Session: 01a1d142-d9e3-73f2-b509-b05e7fdb0776
+  Task: charla PyDay Hurlingham 2026 "After Chatbon" — sección Charly Vibes en el deck (iframe sensor-log + tabla memoria 1 sensor vs 6)
+  ## Objetivo
+  Sumar al deck una sección Charly Vibes con el sensor-log embebido y tabla de memoria comparando 1 sensor vs los 6 sensores de la app.
+  ## Fase actual: commit completo (900e410); sin trabajo en vuelo
+  ## Estado
+  - Esta sesión: arreglé iframe malformado (sin src=, sin tamaño, sin cierre) → <iframe src="https://charly-vibes.github.io/jams/sensor-log/" width="880" height="480" title="Sensor Log"></iframe> (slides.md:67); re-ejeé la tabla de memoria: columnas ahora "1 sensor" vs "los 6 sensores" (antes frecuencia), rótulo "memoria a 60 Hz:" (slides.md:73-82); regla guard de centrado de iframes en phorma-theme.css:431.
+  - Números fundamentados en el código real de la app: SENSOR_DEFS tiene 6 sensores (accelerometer, gyroscope, gravity, linearAccel, orientation, compass); fila CSV 3-ejes ~44 B + compass ~24 B ≈ 244 B/tick a 60 Hz → 0,9 MB/min, 53 MB/h. Columna 1 sensor = captura real medida (42 B/fila). FREQ_OPTIONS=[1,5,10,30,60].
+  - Commits de Sasha después (0db4e1f..900e410): limpieza bio/track 03, ELIMINARON la tabla de frecuencia (ritmo justo ya no existe en el deck — la única tabla que queda es la nueva, líneas 76-82) e iframe NUEVO en slides.md:194 con el visor LOCAL embebido (./demo/visor/index.html 880×480).
+  - Centrado verificado por DOM probe: tabla centro exacto x=640, margin auto ~282px por lado; estilo inline width: fit-content; margin: 0 auto.
+  - Trampas descubiertas: (1) chrome headless reutiliza --disk-cache-dir entre corridas y sirve slides.md VIEJO — cache dir fresco por corrida; (2) el elemento en x=47 que parece "no centrado" es un logo del tema, no contenido; (3) para geometría exacta usar página sonda (iframe same-origin + getBoundingClientRect) en vez de screenshots/píxeles; (4) tabla con margin auto SÍ centra en Chrome.
+  ## Próxima acción exacta
+  (1) Verificar en proyector el iframe del visor local (slides.md:194) y el sensor-log remoto — http.server obligatorio (file:// rompe fetch); (2) charla 14/11 12:30 según logística ya planificada; (3) si se comenta la tabla en vivo: los 6 sensores corriendo SIMULTÁNEOS a 60 Hz es el supuesto del caso peor.
+  ## Decisiones/constraints claves
+  - No deploy a master sin pedido explícito; push requiere autorización (rama ya en sync).
+  - SIEMPRE uv run python -m pytest. No tocar kickers ni padding-top global.
+  - Iframe no renderiza en PDF export: la URL desnuda bajo el iframe es el fallback (slides.md:70).
+  - Pytest NO corrido esta sesión (no toqué lab; 25 passed siguen válidos en lab).
+  ## Bloqueos
+  Ninguno conocido.
+  ## Referencias condicionales
+  - Sección Charly Vibes: presentaciones/pyday_hurlingham_2026/slides.md líneas 56-82
+  - Visor local embebido: slides.md:194
+  - Guion: presentaciones/pyday_hurlingham_2026/demo/README.md
+  Previous entry: 0fcb8a0b0945eac40c6fb5dfc46c5faa3af3235a4a458efb21eaaa28d46546eb
